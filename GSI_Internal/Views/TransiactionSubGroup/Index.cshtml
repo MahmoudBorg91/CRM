@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TransactionSubGroupVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item active">Main Services</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+
+<a asp-action="Create" asp-controller="TransiactionSubGroup" class="btn btn-primary">Add New Main Services</a>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>اسم الجهة</th>
+            <th>Entity Name</th>
+            <th> الخدمة الرئيسية</th>
+            <th> Main Service</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+         @{ int rowNo = 0; 
+             
+          }
+        @foreach (var item in Model)
+        {
+           
+            <tr>
+                <td> @(rowNo += 1)</td>
+                <td>@item.TransactionGroupNameArabic</td>
+                <td>@item.TransactionGroupNameEnglish</td>
+                <td>@item.SubGroupNameArabic</td>
+                <td>@item.SubGroupNameEnglish</td>
+
+                <td><a href="/TransiactionSubGroup/Edit/@item.ID" class="btn btn-warning">Edit</a></td>
+                <td><a href="/TransiactionSubGroup/Delete/@item.ID" class="btn btn-danger">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

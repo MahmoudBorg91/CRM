@@ -1,0 +1,76 @@
+﻿@model TransactionItemInquiryVM
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item text-uppercase"><a asp-action="Index" asp-controller="Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item text-uppercase"><a asp-action="Index" asp-controller="TransactionItemInquiry">Sub Services Inquiry</a></li>
+                    <li class="breadcrumb-item text-uppercase active">Create Requirements</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+<div class="card">
+    <div class="card-header">
+        <h3 class="text-uppercase">Edit  Inquiry</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit" asp-controller="TransactionItemInquiry" enctype="multipart/form-data" class="form-horizontal">
+        
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="InquiryName_Arabic"  class="control-label">Inquiry Name Arabic</label>
+                        <input asp-for="InquiryName_Arabic" required class="form-control" />
+                        <span asp-validation-for="InquiryName_Arabic" class="text-danger"></span>
+                    </div>
+                </div>
+            
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="InquiryName_English"  class="control-label">Inquiry Name English</label>
+                        <input asp-for="InquiryName_English" required id="InquiryName_English" class="form-control" />
+                        <span asp-validation-for="InquiryName_English" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Inquiry_Type"  class="control-label">Inquiry Type</label>
+                        <select asp-for="Inquiry_Type" required class="form-control">
+                            <option disabled> Select Type </option>
+                            <option value="0">Yes Or No</option>
+                            <option value="1">Input Data</option>
+                        </select>
+                        <span asp-validation-for="Inquiry_Type" class="text-danger"></span>
+                    </div>
+                </div>
+            
+               
+            </div>
+            <hr />
+        
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-sm btn-primary rounded-0" />
+               
+                <a asp-action="Index"  asp-controller="TransactionItemInquiry" class="btn btn-sm btn-primary rounded-0">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

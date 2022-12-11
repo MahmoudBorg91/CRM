@@ -1,0 +1,32 @@
+﻿@model TransactionGroupVM
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col">
+    <h1>Delete</h1>
+    <form asp-action="Delete" asp-controller="TransiactionGroup" enctype="multipart/form-data" class="form-horizontal">
+
+          <div class="form-group">
+            <label for="GroupNameArab">Group Name Arabic </label>
+            <input type="text" class="form-control" asp-for="TransactionGroup_NameArabic" id="GroupNameArab" aria-describedby="my-name-desc" placeholder="Enter Name Arabic">
+             <p id="my-name-desc">
+            Please Enter Name Arabic.
+        </p>
+        </div>
+
+          <div class="form-group">
+            <label for="GroupNameEnglish">Group Name Arabic </label>
+            <input type="text"  class="form-control" asp-for="TransactionGroup_NameEnglish" id="GroupNameEnglish" aria-describedby="my-name-desc" placeholder="Enter Name Arabic">
+             <p id="my-name-desc">
+            Please Enter Name English.
+        </p>
+        </div>
+        <br />
+        <br />
+        <input type="submit" class="btn btn-primary" value="Delete" />
+    </form>
+
+</div>
+

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<RequirmentsFileAttachmentVM>  
+@{
+    ViewData["Title"] = "MyDocments";
+    Layout = "~/Views/Shared/_ClientLayout.cshtml";
+}
+
+
+    <div class="aon-provi-left">
+                    	<div class="aon-admin-heading">
+                	<h4>My Services</h4>
+                </div>                
+                
+        <div class="card aon-card">
+            <div class="card-body aon-card-body">
+
+
+
+                <div class="sf-bs-data-table">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered example-dt-table" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>#NUM</th>
+                                <th>File Name</th>
+
+                                <th>CHECK </th>
+                                               
+                            </tr>
+                            </thead>
+                            <tbody>
+                            
+
+                            @foreach (var item in @Model)
+                            {
+                                <tr>
+                                    <td></td>
+                                    <td>@item.RequireName_English</td>
+
+                                    <td>
+                                      @*  <button asp-controller="ClientDashboard" asp-action="SelectClientDocument" asp-route-ID="@item.RequireID" type="button" class="admin-button btn-sm viewBookings"  title="View Booking">
+                                            <i class="fa fa-eye"></i>
+                                        </button>*@
+                                        <a class="admin-button btn-sm viewBookings" href="/ClientDashboard/SelectClientDocument/@item.RequireID"><i class="fa fa-eye"></i></a>
+                                    </td>
+
+
+                                </tr>
+                            }
+                            </tbody>
+                            <tfoot>
+                            <tr>
+                                <th>#NUM</th>
+                                <th>File Name</th>
+
+                                <th>CHECK </th>
+                            </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        
+        
+        
+      
+
+

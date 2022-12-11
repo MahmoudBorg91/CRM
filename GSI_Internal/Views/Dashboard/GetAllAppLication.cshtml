@@ -1,0 +1,202 @@
+﻿@model IEnumerable<GSI_Internal.Models.ViewModel.ApplicationTrans_RequestVM>
+@{
+    ViewData["Title"] = "GetAllAppLication";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+  
+    
+
+
+}
+
+<h1>GetAllAppLication</h1>
+
+  <div class="col-12">
+
+<div class="card">
+     
+
+    
+              <div class="card-header">
+                <h3 class="card-title">DataTable with default features</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+
+
+
+
+		
+		    <table id="example1" class="table table-bordered table-striped" >
+                  <thead>
+            <tr>
+                   
+                    <th>Request Number <br />- رقم المعاملة</th>
+                    <th>Date <br /> التاريخ</th>
+                    <th>Customer Info <br /> بيانات  العميل</th>
+                   
+                    <th>Service Name <br />اسم الخدمة</th>
+                    <th>Applicaion Number<br />رقم الطلب</th>
+                    <th>Request Status <br />حالة المعاملة</th>
+                    <th>Totall Price</th>
+                    
+                  </tr>
+  
+                  </thead>
+                  <tfoot>
+                   <tr>
+                   
+                    <th>Request Number <br />- رقم المعاملة</th>
+                    <th>Date <br /> التاريخ</th>
+                    <th>Customer Info <br /> بيانات  العميل</th>
+                   
+                    <th>Service Name <br />اسم الخدمة</th>
+                    <th>Applicaion Number<br />رقم الطلب</th>
+                    <th>Request Status <br />حالة المعاملة</th>
+                    <th>Totall Price</th>
+                    
+                  </tr>
+                  </tfoot>
+                 <tbody >
+                      
+                      @foreach (var item in Model)
+                     {
+
+                       
+                        <tr>
+                          
+                             <td>@item.ID</td>
+                             <td>@item.The_Date</td>
+                              <td>@item.ClientName <br />@item.UserEmail<br />@item.ClientPhone</td>
+                               <td>@item.TransiactionItem_Name <br />@item.TransiactionItem_NameEnglish</td>
+                               <td>@item.NumberOfTransiactionOfEntity</td>
+                             <td>
+                               @item.Status_Name
+                                <br>
+                                <a href="/Dashboard/GetAppLicationToReview/@item.ID" class="btn btn-warning btn-xs">Check</a>
+                             </td>
+                            <td>
+                            
+                              Total @item.TransiactionItem_Net
+                                </td>
+
+                         </tr>
+                     }
+                
+
+                  </tbody>
+                 <tr>
+                   
+                    <th>Request Number <br />- رقم المعاملة</th>
+                    <th>Date <br /> التاريخ</th>
+                    <th>Customer Info <br /> بيانات  العميل</th>
+                   
+                    <th>Service Name <br />اسم الخدمة</th>
+                    <th>Applicaion Number<br />رقم الطلب</th>
+                    <th>Request Status <br />حالة المعاملة</th>
+                    <th>Totall Price</th>
+                    
+                  </tr>
+                </table>
+	
+                  </div>
+              <!-- /.card-body -->
+            </div>
+  </div>  
+
+@section Scripts{
+    
+@*<script src="~/lib/Jquerydatatable/bootstrap-datepicker.min.js"></script>*@
+
+
+   <script>
+$(document).ready( function () {
+    $('#example1').DataTable( {
+        
+        dom:    "'Qlfrtip' <br /> <'row'<'col-sm-2'l><'col-sm-3'B><'col-sm-4'<'toolbar'>><'col-sm-3'f>>" +
+                "<'row'<'col-sm-12'tr>>" +
+                "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+buttons: [{ extend: 'print', text:'<i class="fa fa-print"></i> Print', className: 'btn btn-primary btn-md' }, 
+{ extend: 'excel',text:'<i class="fa fa-file-excel"></i> Excel', className: 'btn btn-primary btn-md' },
+{ extend: 'pdf',className: 'btn btn-primary btn-md' ,text:'<i class="fa fa-file-pdf"></i> PDF' }] ,
+lengthChange: true,
+        
+            
+    });
+
+ // var table = $('#example1').DataTable({
+	//	"order": [[ 1, "desc" ]],
+	//	"oLanguage": {
+	//		"sInfo": "Showing _START_ to _END_ of _TOTAL_ items."
+           
+	//	},
+ //           dom:  '<"row"<"col-sm-12 col-md-6"B><"col-sm-12 col-md-6 text-right"l>><"row"<"col-sm-12"tr>><"row"<"col-sm-12 col-md-5"i><"col-sm-12 col-md-7"p>>',
+ //          // dom: 'Qlfrtip'  
+ //        buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+ //           processing: true,
+ //           responsive: true,
+ //           lengthChange: false,
+ //           orderCellsTop: true,
+ //           autoWidth: true,
+ //           deferRender: true,
+         
+	//});
+
+    // $("#example1").DataTable({
+    //  "responsive": true, "lengthChange": false, "autoWidth": false,
+    //  "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+   
+    
+  //  $(".trs").each( function ( i ) {
+		
+		//if ($(this).text() !== '') {
+	 //       var isStatusColumn = (($(this).text() == 'Status') ? true : false);
+		//	var select = $('<select  ><option value=""></option></select>')
+	 //           .appendTo( $(this).empty() )
+	 //           .on( 'change', function () {
+	 //               var val = $(this).val();
+					
+	 //               table.column( i )
+	 //                   .search( val ? '^'+$(this).val()+'$' : val, true, false )
+	 //                   .draw();
+	 //           } );
+	 		
+		//	// Get the Status values a specific way since the status is a anchor/image
+		//	if (isStatusColumn) {
+		//		var statusItems = [];
+				
+  //              /* ### IS THERE A BETTER/SIMPLER WAY TO GET A UNIQUE ARRAY OF <TD> data-filter ATTRIBUTES? ### */
+		//		table.column( i ).nodes().to$().each( function(d, j){
+		//			var thisStatus = $(j).attr("data-filter");
+		//			if($.inArray(thisStatus, statusItems) === -1) statusItems.push(thisStatus);
+		//		} );
+				
+		//		statusItems.sort();
+								
+		//		$.each( statusItems, function(i, item){
+		//		    select.append( '<option value="'+item+'">'+item+'</option>' );
+		//		});
+
+		//	}
+  //          // All other non-Status columns (like the example)
+		//	else {
+		//		table.column( i ).data().unique().sort().each( function ( d, j ) {  
+		//			select.append( '<option  value="'+d+'">'+d+'</option>' );
+		//        } );	
+		//	}
+	        
+		//}
+  //  } );
+  
+    //   $("#example1").DataTable({
+    //  "responsive": false, "lengthChange": false, "autoWidth": false,
+    //  "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    //}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+  
+  
+  
+  });
+</script>
+}
+
+

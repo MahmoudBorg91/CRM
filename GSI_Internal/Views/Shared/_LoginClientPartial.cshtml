@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using GSI_Internal.Entites
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@model GSI_Internal.Areas.Identity.Pages.Account.LoginModel.InputModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+ 
+
+
+
+
+<div id="Upcoming" class="tab-pane active">
+                            <div class="sf-tabs-content">
+                                <form class="aon-login-form" asp-area="Identity" asp-page="/Account/Login">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box"> 
+                                                    <input asp-for="Email" class="form-control sf-form-control" name="Email" type="email" placeholder="User Name">
+                                                    <i class="aon-input-icon fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box"> 
+                                                    <input asp-for="Password" class="form-control sf-form-control" name="Password" type="password" placeholder="Password">
+                                                    <i class="aon-input-icon fa fa-lock"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group d-flex aon-login-option justify-content-between">
+                                                <div class="aon-login-opleft">
+                                                     <div class="checkbox sf-radio-checkbox">
+                                                        <input asp-for="RememberMe" id="td2_2" name="abc" value="five" type="checkbox">
+                                                        <label for="td2_2">Keep me logged</label>
+                                                    </div>  
+                                                </div>
+                                                <div class="aon-login-opright">
+                                                    <a href="#">Forget Password</a>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <div class="col-md-12">
+                                            <button type="submit" class="site-button w-100">Submit <i class="feather-arrow-right"></i> </button>
+                                        </div>                                          
+                                        <div class="col-md-12 alert-danger">
+                                            @if (ViewData["LoginFlag"] != null)
+                                            {
+                                                @ViewData["LoginFlag"]
+                                            }
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>

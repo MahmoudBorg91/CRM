@@ -1,0 +1,428 @@
+﻿@using Microsoft.CodeAnalysis.Scripting
+@model GSI_Internal.Models.ViewModel.HomeVM
+<div class="page-wraper">
+
+
+<!-- BANNER SECTION START -->
+  <!-- SLIDER EXAMPLE -->
+                <section class="example">
+                    <article class="content">
+
+
+                        <div id="rev_slider_18_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="highlight-showcase18" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
+                            <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
+                            <div id="rev_slider_18_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
+                                <ul>
+                                    @{
+                                        int slideNum;
+                                        slideNum = 59;
+                                    }
+                                 
+                                    @foreach (var item in Model.SlideShowVM)
+                                    {
+                                       
+                                        <li data-index="rs-@slideNum" data-transition="slideoverhorizontal" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="plugins/rs-plugin/assets/images/newspaper_bg1-100x50.jpg" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1000" data-fsslotamount="7" data-saveperformance="off" data-title="@item.Title_English" data-description="">
+                                            <!-- MAIN IMAGE -->
+                                            <img src="~/Image/SlideShow/@item.SlideImage" data-bgposition="center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg">
+                                            <!-- LAYERS -->
+
+                                            <!-- LAYER NR. 1 -->
+                                            <div class="tp-caption News-Title tp-resizeme rs-parallaxlevel-0" id="slide-@slideNum-layer-1" data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']" data-y="['top','top','top','top']" data-voffset="['450','450','250','150']" data-width="364" data-height="133" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;s:1000;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 5; min-width: 364px; max-width: 364px; max-width: 133px; max-width: 133px; white-space: normal; color:rgba(0, 0, 0, 1.00)">@item.ReSizeme_English
+                                            </div>
+
+                                            <!-- LAYER NR. 2 -->
+                                            <div class="tp-caption tp-resizeme rs-parallaxlevel-0" id="slide-@slideNum-layer-2" data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']" data-y="['top','top','top','top']" data-voffset="['587','587','382','282']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" style="z-index: 6;"><img src="be-theme/plugins/rs-plugin/assets/images/bluebar.png" width="350" height="4" data-ww="['350px','350px','350px','350px']" data-hh="['4px','4px','4px','4px']">
+                                            </div>
+
+                                            <!-- LAYER NR. 3 -->
+                                            <div class="tp-caption News-Subtitle tp-resizeme rs-parallaxlevel-0" id="slide-@slideNum-layer-3" data-x="['left','left','left','left']" data-hoffset="['81','81','41','41']" data-y="['top','top','top','top']" data-voffset="['605','605','401','301']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power3.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 0.65);br:0 0 0px 0;cursor:pointer;" data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;s:1000;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 7; white-space: nowrap;">
+                                            </div>
+
+                                            <!-- LAYER NR. 4 -->
+                                            <div class="tp-caption - tp-resizeme rs-parallaxlevel-0" id="slide-@slideNum-layer-4" data-x="['left','left','left','left']" data-hoffset="['423','423','383','383']" data-y="['top','top','top','top']" data-voffset="['607','607','403','303']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(0, 210, 255, 1.00);"><i class="fa-icon-caret-right"></i>
+                                            </div>
+                                        </li>
+                                       
+                                        
+                                            slideNum ++ ;
+                                        
+                                        
+
+
+                                    }
+                                    <!-- SLIDE -->
+                                 
+                               @*     <!-- SLIDE -->
+                                    <li data-index="rs-60" data-transition="slideoverhorizontal" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="plugins/rs-plugin/assets/images/newspaper_bg3-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Beach" data-description="">
+                                        <!-- MAIN IMAGE -->
+                                        <img src="be-theme/plugins/rs-plugin/assets/images/CustomSlide/architect-at-the-construction.jpg"center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg">
+                                        <!-- LAYERS -->
+
+                                        <!-- LAYER NR. 1 -->
+                                        <div class="tp-caption News-Title tp-resizeme rs-parallaxlevel-0" id="slide-60-layer-1" data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']" data-y="['top','top','top','top']" data-voffset="['450','450','250','150']" data-width="['397','397','364','364']" data-height="['none','none','133','133']" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;s:1000;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 5; min-width: 397px; max-width: 397px; white-space: normal; color: rgba(0, 0, 0, 1.00);">BEACH LIFE
+                                        </div>
+
+                                        <!-- LAYER NR. 2 -->
+                                        <div class="tp-caption tp-resizeme rs-parallaxlevel-0" id="slide-60-layer-2" data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']" data-y="['top','top','top','top']" data-voffset="['587','587','382','282']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" style="z-index: 6;"><img src="be-theme/plugins/rs-plugin/assets/images/bluebar.png" width="350" height="4" data-ww="" data-hh="">
+                                        </div>
+
+                                        <!-- LAYER NR. 3 -->
+                                        <div class="tp-caption News-Subtitle tp-resizeme rs-parallaxlevel-0" id="slide-60-layer-3" data-x="['left','left','left','left']" data-hoffset="['81','81','41','41']" data-y="['top','top','top','top']" data-voffset="['605','605','401','301']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power3.easeInOut;" data-style_hover="c:rgba(0, 0, 0, 0.65);br:0 0 0px 0;cursor:pointer;" data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;s:1000;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 7; white-space: nowrap; color: rgba(0, 0, 0, 1.00);">Summer, sun and endless fun at the beach
+                                        </div>
+
+                                        <!-- LAYER NR. 4 -->
+                                        <div class="tp-caption - tp-resizeme rs-parallaxlevel-0" id="slide-60-layer-4" data-x="['left','left','left','left']" data-hoffset="['423','423','383','383']" data-y="['top','top','top','top']" data-voffset="['607','607','403','303']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(0, 210, 255, 1.00);"><i class="fa-icon-caret-right"></i>
+                                        </div>
+                                    </li>
+                                    <!-- SLIDE -->
+                                    <li data-index="rs-61" data-transition="slideoverhorizontal" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="plugins/rs-plugin/assets/images/newspaper_bg2-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Trip" data-description="">
+                                        <!-- MAIN IMAGE -->
+                                        <img src="be-theme/plugins/rs-plugin/assets/images/CustomSlide/architects-and-worker.jpg"center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg">
+                                        <!-- LAYERS -->
+
+                                        <!-- LAYER NR. 1 -->
+                                        <div class="tp-caption News-Title tp-resizeme rs-parallaxlevel-0" id="slide-61-layer-1" data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']" data-y="['top','top','top','top']" data-voffset="['450','450','250','150']" data-width="364" data-height="133" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;s:1000;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 5; min-width: 364px; max-width: 364px; max-width: 133px; max-width: 133px; white-space: normal; color: rgba(255, 255, 255, 1.00);">JUST GO HIKING
+                                        </div>
+
+                                        <!-- LAYER NR. 2 -->
+                                        <div class="tp-caption tp-resizeme rs-parallaxlevel-0" id="slide-61-layer-2" data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']" data-y="['top','top','top','top']" data-voffset="['587','587','382','282']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" style="z-index: 6;"><img src="be-theme/plugins/rs-plugin/assets/images/bluebar.png" width="350" height="4" data-ww="" data-hh="">
+                                        </div>
+
+                                        <!-- LAYER NR. 3 -->
+                                        <div class="tp-caption News-Subtitle tp-resizeme rs-parallaxlevel-0" id="slide-61-layer-3" data-x="['left','left','left','left']" data-hoffset="['81','81','41','41']" data-y="['top','top','top','top']" data-voffset="['605','605','401','301']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power3.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 0.65);br:0 0 0px 0;cursor:pointer;" data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;s:1000;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 7; white-space: nowrap;">Go and discover unknown, mysterious places
+                                        </div>
+
+                                        <!-- LAYER NR. 4 -->
+                                        <div class="tp-caption - tp-resizeme rs-parallaxlevel-0" id="slide-61-layer-4" data-x="['left','left','left','left']" data-hoffset="['423','423','383','383']" data-y="['top','top','top','top']" data-voffset="['607','607','403','303']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(0, 210, 255, 1.00);"><i class="fa-icon-caret-right"></i>
+                                        </div>
+                                    </li>
+                                    <!-- SLIDE -->
+                                    <li data-index="rs-62" data-transition="slideoverhorizontal" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1500" data-thumb="plugins/rs-plugin/assets/images/newscarousel4-100x50.jpg" data-rotate="0" data-saveperformance="off" data-title="Biking" data-description="">
+                                        <!-- MAIN IMAGE -->
+                                        <img src="be-theme/plugins/rs-plugin/assets/images/CustomSlide/young-college-students.jpg"center bottom" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg">
+                                        <!-- LAYERS -->
+
+                                        <!-- LAYER NR. 1 -->
+                                        <div class="tp-caption News-Title tp-resizeme rs-parallaxlevel-0" id="slide-62-layer-1" data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']" data-y="['top','top','top','top']" data-voffset="['450','450','250','150']" data-width="364" data-height="133" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;s:1000;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 5; min-width: 364px; max-width: 364px; max-width: 133px; max-width: 133px; white-space: normal;">NIGHT RIDE
+                                        </div>
+
+                                        <!-- LAYER NR. 2 -->
+                                        <div class="tp-caption tp-resizeme rs-parallaxlevel-0" id="slide-62-layer-2" data-x="['left','left','left','left']" data-hoffset="['80','80','40','40']" data-y="['top','top','top','top']" data-voffset="['587','587','382','282']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" style="z-index: 6;"><img src="be-theme/plugins/rs-plugin/assets/images/bluebar.png" width="350" height="4" data-ww="['350px','350px','350px','350px']" data-hh="['4px','4px','4px','4px']">
+                                        </div>
+
+                                        <!-- LAYER NR. 3 -->
+                                        <div class="tp-caption News-Subtitle tp-resizeme rs-parallaxlevel-0" id="slide-62-layer-3" data-x="['left','left','left','left']" data-hoffset="['81','81','41','41']" data-y="['top','top','top','top']" data-voffset="['605','605','401','301']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:300;e:Power3.easeInOut;" data-style_hover="c:rgba(255, 255, 255, 0.65);br:0 0 0px 0;cursor:pointer;" data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="y:[100%];s:1000;s:1000;" data-mask_in="x:0px;y:0px;" data-mask_out="x:inherit;y:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 7; white-space: nowrap;">Take off with top speed. Get Slider Revolution
+                                        </div>
+
+                                        <!-- LAYER NR. 4 -->
+                                        <div class="tp-caption - tp-resizeme rs-parallaxlevel-0" id="slide-62-layer-4" data-x="['left','left','left','left']" data-hoffset="['423','423','383','383']" data-y="['top','top','top','top']" data-voffset="['607','607','403','303']" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 400; color: rgba(0, 210, 255, 1.00);"><i class="fa-icon-caret-right"></i>
+                                        </div>
+                                    </li>*@
+                                </ul>
+
+                                <div class="tp-bannertimer" style="height: 6px; background-color: rgba(46, 209, 255, 1.00);"></div>
+                            </div>
+                        </div>
+                        <!-- END REVOLUTION SLIDER -->
+
+                    </article>
+                </section>
+<!-- BANNER SECTION END -->
+ <!-- Services Finder categories -->
+ <section class="">
+                <div class="container">
+
+                  
+                    <br />
+               
+                <!-- One full width row-->
+                                
+                <!-- One full width row-->
+                <div class="column one column_shop_slider">
+                <div class="shop_slider">
+                    <div class="blog_slider_header">
+                        <h4 class="title">Popular Services</h4><a class="button button_js slider_prev" href="#"><span class="button_icon"><i class="icon-left-open-big"></i></span></a><a class="button button_js slider_next" href="#"><span class="button_icon"><i class="icon-right-open-big"></i></span></a>
+                    </div>
+                    <ul class="shop_slider_ul">
+                        @foreach (var item in Model.PopularTransactionItemVM)
+                        {
+                            <partial name="_PopularServices" model="item" />
+                        }
+                    </ul>
+                    <div class="slider_pagination"></div>
+                </div>
+                </div>
+                
+                    
+                    
+
+                    @* <div class="section-content">
+                        <div class="owl-carousel categories-carousel-owl aon-owl-arrow">
+                          
+
+                         @foreach (var item in Model.PopularTransactionItemVM)
+                            {
+                               <partial name="_PopularServices" model="item" />
+                            }
+
+                            
+                          
+                        </div>
+                    </div>*@
+
+                </div>
+            </section>
+
+    <!-- All categories Block Section -->
+                                        <!-- Services Finder categories -->
+        <section class="bg-white aon-categories-area2">
+            <div class="container">
+                <!--Title Section Start-->
+            	<div class="section-head">
+					<div class="row">
+                        <!-- COLUMNS LEFT -->
+						<div class="col-lg-6 col-md-12">
+							<span class="aon-sub-title">Popular Enities</span>
+							<h2 class="sf-title">Abu Dhabi</h2>
+						</div>
+                        <!-- COLUMNS RIGHT -->
+						<div class="col-lg-6 col-md-12">
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do usmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						</div>
+					</div>
+                </div>
+                <!--Title Section End-->
+                    
+                  <div class="section-content">
+                    <div class="aon-categories-area2-section">
+                        <div class="row justify-content-center">
+                          
+                         
+                             @foreach (var item in Model.TransactionGroupVM)
+                              {
+
+
+                            <partial name="_TransGroupCard" model="item" />
+                              }
+                           
+     
+                        </div>
+                       
+                    </div>
+                </div>
+                
+        @*    <div class="section">
+            <div class="section_wrapper clearfix">
+            <!-- One full width row-->
+            <div class="column one column_portfolio">
+            <div class="portfolio_wrapper isotope_wrapper">
+                <ul class="portfolio_group lm_wrapper isotope grid">
+                    @foreach (var item in Model.TransactionGroupVM)
+                    {
+
+
+                        <partial name="_TransGroupCard" model="item" />
+                    }
+                </ul>
+                <!-- One full width row-->
+                   
+
+            </div>
+            </div>
+            </div>
+            </div>*@
+            </div>
+        </section>
+          <!-- How it Work -->
+ <section class="bg-white aon-how-service-area sf-curve-pos">
+        <div class="container">
+
+            <div class="section-content">
+                <div class="row">
+                    <!--Title Section Start-->
+                    <div class="col-lg-4 col-md-12">
+                        <span class="aon-sub-title">Steps</span>
+                        <h2 class="sf-title">How Service Finder Works</h2>
+                    </div>
+                    <!--Title Section End-->
+
+                    <div class="col-lg-8 col-md-12">
+                        <!-- Steps Block Start-->
+                        <div class="aon-step-blocks">
+                            <div class="row">
+                                <!-- COLUMNS 1 -->
+                                <div class="col-md-4 col-sm-4 m-b30">
+                                    <div class="aon-step-section step-position-1 aon-icon-effect">
+                                        <div class="aon-step-icon aon-icon-box">
+                                            <span>
+                                                <i class="aon-icon"><img src="~/Client/images/step-icon/1.png"
+                                                        alt=""></i>
+                                            </span>
+                                        </div>
+                                        <div class="aon-step-info">
+                                            <h4 class="aon-title">Describe Your Task</h4>
+                                            <p>This helps us determine which Taskers are abest job.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- COLUMNS 2 -->
+                                <div class="col-md-4 col-sm-4 m-b30">
+                                    <div class="aon-step-section step-position-2 aon-icon-effect">
+                                        <div class="aon-step-icon">
+                                            <span>
+                                                <i class="aon-icon"><img src="~/Client/images/step-icon/2.png"
+                                                        alt=""></i>
+                                            </span>
+                                        </div>
+                                        <div class="aon-step-info">
+                                            <h4 class="aon-title">Choose a Tasker</h4>
+                                            <p>This helps us determine which Taskers are abest job.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- COLUMNS 3 -->
+                                <div class="col-md-4 col-sm-4 m-b30">
+                                    <div class="aon-step-section  step-position-3  aon-icon-effect">
+                                        <div class="aon-step-icon">
+                                            <span>
+                                                <i class="aon-icon"><img src="~/Client/images/step-icon/3.png"
+                                                        alt=""></i>
+                                            </span>
+                                        </div>
+                                        <div class="aon-step-info">
+                                            <h4 class="aon-title">Live Smarter</h4>
+                                            <p>This helps us determine which Taskers are abest job.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Steps Block End-->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+ <!-- How it Work END -->
+    </div>
+
+
+ 
+
+
+            @*         @foreach (var item in Model.PopularTransactionGroupVM)
+                    {
+                    <partial name="_PopularServices" model="item" />
+                    }*@
+
+
+@* @foreach (var item in Model.TransactionGroupVM)
+                {
+
+
+                <partial name="_TransGroupCard" model="item" />
+                }*@
+@section Scripts {
+   <script>
+        var tpj = jQuery;
+        var revapi18;
+        tpj(document).ready(function() {
+            if (tpj("#rev_slider_18_1").revolution == undefined) {
+                revslider_showDoubleJqueryError("#rev_slider_18_1");
+            } else {
+                revapi18 = tpj("#rev_slider_18_1").show().revolution({
+                    sliderType:"standard",
+
+                    sliderLayout:"auto",
+                    dottedOverlay:"none",
+                    delay: 9000,
+                    navigation: {
+                        keyboardNavigation:"off",
+                        keyboard_direction:"horizontal",
+                        mouseScrollNavigation:"off",
+                        onHoverStop:"off",
+                        touch: {
+                            touchenabled:"on",
+                            swipe_threshold: 75,
+                            swipe_min_touches: 1,
+                            swipe_direction:"horizontal",
+                            drag_block_vertical: false
+                        },
+                        tabs: {
+                            style:"zeus",
+                            enable: true,
+                            width: 100,
+                            height: 30,
+                            min_width: 100,
+                            wrapper_padding: 0,
+                            wrapper_color:"transparent",
+                            wrapper_opacity:"0",
+                            tmp: '<span class="tp-tab-title">{{title}}</span>',
+                            visibleAmount: 3,
+                            hide_onmobile: true,
+                            hide_under: 480,
+                            hide_onleave: false,
+                            hide_delay: 200,
+                            direction:"horizontal",
+                            span: true,
+                            position:"inner",
+                            space: 1,
+                            h_align:"left",
+                            v_align:"top",
+                            h_offset: 30,
+                            v_offset: 30
+                        }
+                    },
+                    viewPort: {
+                        enable: true,
+                        outof:"pause",
+                        visible_area:"80%"
+                    },
+                    responsiveLevels: [1240, 1024, 778, 480],
+                    gridwidth: [1230, 1024, 767, 480],
+                    gridheight: [720, 720, 480, 360],
+                    lazyType:"none",
+                    parallax: {
+                        type:"scroll",
+                        origo:"enterpoint",
+                        speed: 400,
+                        levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50],
+                    },
+                    shadow: 0,
+                    spinner:"off",
+                    stopLoop:"off",
+                    stopAfterLoops: -1,
+                    stopAtSlide: -1,
+                    shuffle:"off",
+                    autoHeight:"off",
+                    hideThumbsOnMobile:"off",
+                    hideSliderAtLimit: 0,
+                    hideCaptionAtLimit: 0,
+                    hideAllCaptionAtLilmit: 0,
+                    debugMode: false,
+                    fallbacks: {
+                        simplifyAll:"off",
+                        nextSlideOnWindowFocus:"off",
+                        disableFocusListener: false,
+                    }
+                });
+            }
+        }); /*ready*/
+    </script>
+
+    <script>
+        jQuery(window).load(function() {
+            var retina = window.devicePixelRatio> 1 ? true : false;
+            if (retina) {
+                var retinaEl = jQuery("#logo img");
+                var retinaLogoW = retinaEl.width();
+                var retinaLogoH = retinaEl.height();
+                retinaEl.attr("src","images/logo-retina.png").width(retinaLogoW).height(retinaLogoH)
+            }
+        });
+    </script>
+}

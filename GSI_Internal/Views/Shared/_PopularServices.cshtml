@@ -1,0 +1,47 @@
+﻿@model TransactionItemVM
+
+                          
+@*   <!-- COLUMNS 1 -->
+   <div class="item">
+       <div class="aon-cat-item" >
+           <div class="aon-cat-pic media-bg-animate shine-hover" >
+               <a width="600" height="585" class="shine-box" href="categories-detail.html"><img    src="~/Image/GroupTransPhoto/@Model.image" alt=""></a>
+           </div>
+           <h4 class="aon-cat-title">@Model.TransactionGroup_NameEnglish</h4>
+       </div>
+   </div>*@
+
+
+@*<div class="item">
+    <div class="aon-cat-item">
+        <div class="aon-cat-pic media-bg-animate shine-hover">
+            <a class="shine-box" href="/Home/SelectFavoirotServives/@Model.ID"><img style="width: 100%;height: 15vw;  object-fit: contain;" src="~/Image/ItemTransPhoto/@Model.image" alt=""></a>
+        </div>
+        <h4 class="aon-cat-title">@Model.TransactionNameEnglish</h4>
+    </div>
+</div>
+*@
+<li class="product type-product has-post-thumbnail shipping-taxable purchasable product-type-simple product-cat-clothing product-cat-hoodies instock  ">
+    <div class="item_wrapper">
+        <div class="image_frame scale-with-grid product-loop-thumb ">
+            <div class="image_wrapper">
+                <a href="/Home/SelectFavoirotServives/@Model.ID">
+                    <div class="mask"></div><img  style="object-fit:scale-down;
+                                                                                           width:250px;
+                                                                                           height:200px;
+                                                                   padding-left: 20px;
+
+                                                                                          "  src="~/Image/ItemTransPhoto/@Model.image" class="scale-with-grid wp-post-image" />
+                </a>
+                <div class="image_links">
+                    <a class="link" href="/Home/SelectFavoirotServives/@Model.ID"><i class="icon-link"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="desc">
+            <h5><a href="/Home/SelectFavoirotServives/@Model.ID">@Model.TransactionNameEnglish</a></h5>
+        </div>
+    </div>
+</li>
+                            
+         

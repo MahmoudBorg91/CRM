@@ -1,0 +1,82 @@
+﻿@model AssignRequirmentToItemVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<body>
+
+
+<div class="col">
+    <h1>Edit Transaction Item</h1>
+    <form asp-action="Edit" asp-controller="AssignRequirmentToItem" enctype="multipart/form-data" class="form-horizontal">
+       <div class="form-group">
+            <label for="TransactionGroupID">Item Name</label>
+        <select class="custom-select" id="TransactionItemID" name="TransactionItemID" asp-for="TransactionItemID"  asp-items="@(new SelectList( ViewBag.SelectTransactionItem,"ID","TransactionNameArabic"))" >
+             <option disabled>Select  Item</option>
+        </select>
+       </div>
+
+       <div class="form-group">
+       <label for="TransactionGroupID">Require Name</label>
+        <select class="custom-select" id="RequirmentID" name="RequirmentID" asp-for="RequirmentID"  asp-items="@(new SelectList( ViewBag.Selectrequirements ,"ID","RequirementName_Arabic"))" >
+            @*asp-items="@(new SelectList(ViewBag.applicationRepo,"ID","AppName")*@
+              <option disabled>Select Sub Group</option>
+        </select>
+       </div>
+
+
+        <br />
+        <br />
+        <input type="submit" class="btn btn-primary" value="Edit" />
+      
+         @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+
+    </form>
+</div>
+</body>
+<script src="~/myScripts.js"></script>
+
+
+      @section Scripts{
+        <script>
+        //    $(function () {
+
+        //     $('#TransactionItemID').change(function () {
+
+        //        var x = $('#TransactionItemID').val();
+        //        var y = $('#RequirmentID').val();
+                 
+                
+
+        //        var url = '@Url.Content("~/")' + "AssignRequirmentToItem/getRequrment/"+y+"/"+x+"";
+                
+
+        //        var ddlsource = "#TransactionItemID";
+
+        //        $.getJSON(url, { ID: $(ddlsource).val() }, function (data) {
+
+        //            var items = '';
+        //            $('#RequirmentID').empty();
+
+        //            $.each(data, function (i, app) {
+        //                items += "<option value='" + app.value + "'>" + app.text + "</option>"
+
+        //            });
+        //            $('#RequirmentID').html(items);
+        //        });
+        //    }).change();
+
+        //});
+
+
+
+        </script>
+
+    }

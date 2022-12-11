@@ -1,0 +1,23 @@
+﻿@model IEnumerable<TransactionItemVM>
+@{
+    ViewData["Title"] = "showSelectedGroup";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@foreach (var item in Model)
+{
+ <div class="card">
+  <h5 class="card-header">@item.TransactionGroupName</h5>
+  <div class="card-body">
+    <h5 class="card-title">@item.TransactionNameArabic</h5>
+   @* <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class=" btn btn-outline-primary col-12 p-1">المطلبات</a>*@
+    <a href="/ApplicationTransaction_Request/index/@item.ID" class="btn btn-outline-primary col-12 p-1">تسجيل</a>
+   @* <a href="#" class="btn btn-outline-primary col-12 p-1">اتصال مباشر</a>
+    <a href="#" class="btn btn-outline-primary col-12 p-1">بريد اليكترونى</a>*@
+  </div>
+</div>
+}
+

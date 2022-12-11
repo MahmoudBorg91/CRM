@@ -1,0 +1,87 @@
+﻿@model IEnumerable<TransactionItemVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item text-uppercase"><a asp-action="Index" asp-controller="Dashboard">Dashboard</a></li>
+                
+              <li class="breadcrumb-item text-uppercase active">Sub Services</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+<a asp-action="Create" asp-controller="TransiactionItem" class="btn btn-primary">Add New Sub Services</a>
+<br />
+<br />
+
+<table  id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+             <th>Entity Name /  اسم الجهة</th>
+             <th>Main Service / الخدمة الرئيسية</th>
+            <th>Sub Services Name / الخدمة الفرعية</th>
+            <th>Government Fees /الرسوم الحكومية</th>
+            <th>Service Charge / رسوم الخدمة</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{ int rowNo = 0; }
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>  @(rowNo += 1)</td>
+            <td>@item.TransactionGroupName <br>@item.TransactionGroupNameEnglis</td>
+            <td>@item.TransactionSubGroupName<br>@item.TransactionSubGroupNameEnglish</td>
+            <td>@item.TransactionNameEnglish .<br> @item.TransactionNameArabic</td>
+            <td>@item.GovernmentFees</td>
+            <td>@item.Price</td>
+
+            <td><a href="/TransiactionItem/Edit/@item.ID" class="btn btn-warning">Edit</a></td>
+            <td><a href="/TransiactionItem/Delete/@item.ID" class="btn btn-danger">Delete</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts{
+    
+
+
+
+   <script>
+$(document).ready( function () {
+    $('#example1').DataTable( {
+       
+         buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+            processing: true,
+            responsive: true,
+            lengthChange: false,
+            orderCellsTop: true,
+            autoWidth: true,
+            deferRender: true
+            
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+
+  
+  
+  
+  });
+</script>
+}
+

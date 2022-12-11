@@ -1,0 +1,101 @@
+﻿@model TransactionItemVM
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item text-uppercase"><a asp-action="Index" asp-controller="Dashboard">Dashboard</a></li>
+                 <li class="breadcrumb-item text-uppercase"><a asp-action="Index" asp-controller="TransiactionItem">Sub Services</a></li>
+              <li class="breadcrumb-item text-uppercase active">Delete Sub Services</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+       <div class="card">
+  <div class="card-header">
+      <h3 class="text-uppercase">Delete Sub Service</h3>
+  </div>
+  <div class="card-body">
+      <form asp-action="Delete" asp-controller="TransiactionItem" enctype="multipart/form-data" class="form-horizontal">
+          <hr />
+          <div class="row">
+             <div class="col-md-6">
+                <div class="form-group">
+                    <label for="TransactionNameArabic"  class="control-label">Sub Services Name Arabic</label>
+                    <input disabled asp-for="TransactionNameArabic" required class="form-control" />
+                    <span asp-validation-for="TransactionNameArabic" class="text-danger"></span>
+                </div>
+            </div>
+            
+             <div class="col-md-6">
+                <div class="form-group">
+                    <label for="TransactionNameEnglish"  class="control-label">Sub Services Name English</label>
+                    <input disabled asp-for="TransactionNameEnglish" required id="TransactionNameEnglish" class="form-control" />
+                    <span asp-validation-for="TransactionNameEnglish" class="text-danger"></span>
+                </div>
+            </div>
+          </div>
+           <hr />
+          <div class="row">
+             <div class="col-md-6">
+                <div class="form-group">
+                    <label for="GovernmentFees"  class="control-label">Government Fees</label>
+                    <input disabled type="number" asp-for="GovernmentFees" required class="form-control" />
+                    <span asp-validation-for="GovernmentFees" class="text-danger"></span>
+                </div>
+            </div>
+            
+             <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Price"  class="control-label">Services Charge</label>
+                    <input disabled asp-for="Price" required id="Price" class="form-control" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+          </div>
+           <hr />
+          <div class="form-group">
+              <input type="submit" value="Delete" class="btn btn-sm btn-primary rounded-0" />
+            
+              <a asp-action="Index"  asp-controller="TransiactionItem" class="btn btn-sm btn-primary rounded-0">Back to List</a>
+          </div>
+      </form>
+  </div>
+</div>
+
+
+
+ @section Scripts{
+        <script>
+            $(function () {
+
+               //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+        });
+
+        </script>
+         @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
