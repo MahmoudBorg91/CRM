@@ -3,306 +3,294 @@
     ViewData["Title"] = "showSelectedGroup";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
+    <style>
+        .swiper {
+            width: 969px;
+        }
+
+        .card {
+            position: relative;
+            background: #fff;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .card::before {
+                content: "";
+                position: absolute;
+                height: 40%;
+                width: 100%;
+                /* background: #c39946; */
+                border-radius: 20px 20px 0 0;
+            }
+
+            .card .card-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px;
+                position: relative;
+                z-index: 100;
+            }
+
+        section .card .image {
+            height: 140px;
+            width: 140px;
+            border-radius: 50%;
+            padding: 3px;
+            background: #c39946;
+        }
+
+            section .card .image img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 3px solid #fff;
+            }
+
+        .card .media-icons {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+            .card .media-icons i {
+                color: #fff;
+                opacity: 0.6;
+                margin-top: 10px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+                .card .media-icons i:hover {
+                    opacity: 1;
+                }
+
+        .card .name-profession {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .name-profession .name {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .name-profession .profession {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .card .rating {
+            display: flex;
+            align-items: center;
+            margin-top: 18px;
+        }
+
+            .card .rating i {
+                font-size: 18px;
+                margin: 0 2px;
+                color: #c39946;
+            }
+
+        .card .button {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+            .card .button button {
+                background: #c39946;
+                outline: none;
+                border: none;
+                color: #fff;
+                padding: 8px 22px;
+                border-radius: 20px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+            }
+
+        .button button:hover {
+            background: #6616d0;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+        }
+
+        .swiper-pagination-bullet {
+            height: 7px;
+            width: 26px;
+            border-radius: 25px;
+            background: #c39946;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            opacity: 0.7;
+            color: #c39946;
+            top: 60% !important;
+            transition: all 0.3s ease;
+        }
+
+            .swiper-button-next:hover, .swiper-button-prev:hover {
+                opacity: 1;
+                color: #c39946;
+            }
+
+        .credit a {
+            text-decoration: none;
+            color: #c39946;
+            font-weight: 800;
+        }
+
+        .credit {
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+    </style>
 
 }
+<div class="preloader"></div>
 
-<div class="loading-area">
-        <div class="loading-box"></div>
-        <div class="loading-pic">
-            <div class="windows8">
-                <div class="wBall" id="wBall_1">
-                    <div class="wInnerBall"></div>
-                </div>
-                <div class="wBall" id="wBall_2">
-                    <div class="wInnerBall"></div>
-                </div>
-                <div class="wBall" id="wBall_3">
-                    <div class="wInnerBall"></div>
-                </div>
-                <div class="wBall" id="wBall_4">
-                    <div class="wInnerBall"></div>
-                </div>
-                <div class="wBall" id="wBall_5">
-                    <div class="wInnerBall"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-   
+<section class="ls-section style-two">
+    <div class="auto-container">
+        <div class="filters-backdrop"></div>
+        <div class="row">
 
-
-  
-       
-            
-        <div class="page-content">
-       
-        <!-- Search Panel Area -->
-        <div class="sf-seach-vertical sf-search-bar-panel social-float-parent ">
-            <div class="search-form " id="social-float">
-             
-
-                  <div class="sf-searchbar-box">
-                    <ul class="sf-searchbar-area">
-                      <li>
-                        <div class="sf-search-title">  
-                            <label>Keyword</label>
-                            <span class="sf-search-icon"><img src="~/Client/images/search-bar/keyword.png" alt=""/></span>
-                        </div>
-                         <form asp-action="Index" asp-controller="Home" method="post">
-                        <div class="sf-search-feild ">
-                            <input type="text" id="postTitle" name="postTitle" value="" placeholder="Keyword Main services"  class="form-control sf-form-control  " >
-                           
-                        </div>
-                        </form> 
-                      </li>
-                       <br />
-                       <button type="button" id="btnsearch"    class="site-button sf-search-btn filter-button"><i class="fa fa-search "></i> Search Now</button>
-                     <li>
-                           <button class=" sf-search-btn btn-dark filter-button" data-filter="all">All Main Services </button>
-                          @*<button class="btn btn-dark filter-button" data-filter="all">All</button>*@
-                     </li>
-                    @foreach (var item in Model.TransactionSubGroupVM.Select((value,i) => new {i, value})  )
-                    {
-                         <li>
-                        <div class="sf-search-title">
-
-                           <input type="hidden" id="groupID" name="groupID" value="@item.value.TransactionGroupID" placeholder="Keyword"  class="form-control sf-form-control">
-                         <a class=" filter-button" data-filter="@item.value.SubGroupNameEnglish.Replace(' ','_')"  > 
-                             
-                          <label > @item.value.SubGroupNameEnglish</label>  </a> 
-                           
-                        </div>
-                        <div class="sf-search-feild">
-                            <a><label>Number Of Services @item.value.count</label></a>
-                           
-                        </div>
-                      </li>
-                    }
-
-
-
+            <!-- Filters Column -->
+            <div class="filters-column col-lg-3 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <button type="button" class="theme-btn close-filters">X</button>
+                    <ul class="top-filters">
+                        <li class="active">Keyword</li>
                     </ul>
-                  </div>
-                  
-
-             
-            </div>
-        </div>
-        <!-- Search Panel Area End -->
-        
-        <!-- Search Result Area -->
-        <div class="aon-search-result-area">
-            
-            <!-- Search Filter -->
-            <!-- COLUMNS 1 -->
-          
-            
-            <div class="aon-testmonials-area sf-curve-pos" style=" padding-top: 10px;padding-bottom: 10px;">
-                <div class="container">
-                    <!--Title Section Start-->
-                    
-                    <!--Title Section End-->
-
-
-                    <div class="section-content">
-                        <!--testimonial top-->
-                 
-                        
-                        <div class="section-content">
-                            <div class="owl-carousel categories-carousel-owl aon-owl-arrow">
-                                <!-- COLUMNS 1 -->
-
-                                @foreach (var item in Model.PopularTransactionItemVMINGroup)
-                                {
-                                    <partial name="_PopularServices" model="item" />
-                                }
-
-                            
-                          
-                            </div>
-                        </div>
-                        
-                        
-                        
-                        
-                        
-                    
-                    </div>
-
-                </div>
-            </div>
-            
-
-            
-
-            <!-- COLUMNS 1 -->
-            <!-- Search Filter End -->
-            <div class="sf-map-filter">
-                <button class="search-filter-btn btn site-button" type="button"><i class="fa fa-sliders"></i> Search Filter</button>
-            </div>
-            
-            <!-- Search Result Show -->
-            <div class="aon-vender-list-wrap-outer">
-                <div class="row">
-                    <!--Block 1-->
-                  
-                  
-                    @foreach (var item in Model.TransactionItemVM  )
-                   {
-                       
-                  
-
-                          <div class="col-lg-12 col-md-12 filter @item.TransactionSubGroupNameEnglish.Replace(' ','_')">
-                                <div class="aon-post-jobsCol media-bg-animate mba-bdr-15">
-                                    <div class="aon-post-jobs2 aon-icon-effect">
-
-                                        <div class="job-comapny-logo">
-                                            <img class="company_logo aon-icon"  style="height: 100%; width: 100%;" src="~/Image/ItemTransPhoto/@item.ServicesPhoto" alt="">
-                                        </div>
-                                        <div class="job-comapny-info">
-                                            <div class="position">
-                                                <h5><a href="/Home/SelectFavoirotServives/@item.ID">@item.TransactionNameEnglish</a></h5>
-                                                <div class="company"><strong>@item.TransactionSubGroupNameEnglish</strong></div>
-                                            </div>
-
-                                            <ul class="meta">
-                                                <li class="job-type hourly"><i class="fa fa-calendar-o"></i> @item.Time_Services_English</li>
-                                            </ul>
-
-                                            <div class="job-date">
-                                                <span><i class="fa fa-money"></i> Goverment Fees :@item.GovernmentFees AED - Services Fees : @item.Price  AED </span>
-                                            </div>
-
-                                           
-                                            <div class="job-label"><img src="images/label.png" alt=""></div>
-
-                                        </div>
-
-                                    </div>
+                    <div class="listing-search-form">
+                        <form>
+                            <div class="row">
+                                <div class="form-group col-lg-12 col-md-12 col-sm-12 location">
+                                    <input type="text" name="listing-search"
+                                           placeholder="Keyword main services">
+                                    <span class="icon flaticon-search"></span>
                                 </div>
                             </div>
-                     
-                   }
+                            <div class="mt-3">
+                                <a href="#" class="theme-btn btn-style-one bg-blue">
+                                    Search Now<span class="icon flaticon-right"></span>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="checkbox-outer">
+                        <a href="#" class="theme-btn btn-style-one bg-blue" data-filter="all">
+                            All Main Services<span class="icon flaticon-right"></span>
+                        </a>
+                        <button class="filter-button" data-filter="all">All Main Services </button>
+                        <ul class="checkboxes two-column">
+                            @foreach (var item in Model.TransactionSubGroupVM.Select((value, i) => new { i, value }))
+                            {
+                                <li>
+                                    <a href="" class="filter-button" data-filter="@item.value.SubGroupNameEnglish.Replace(' ', '_')">
+                                        <h5>@item.value.SubGroupNameEnglish</h5>
+                                        <p>@item.value.count services</p>
+                                    </a>
+                                </li>
+                            }
 
 
-                        
 
-         
-
-                 
-                
-
-                    <!--Pagination Start-->
-                  
-
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <!-- Search Result Show End -->
 
-        </div>
-        <!-- Search Result Area End-->
-
-       
-    </div>
-        
-    
- 
-
-@*@section Scripts{
-   
-     <script>
-   $( function() {
-         $("#postTitle").autocomplete({
-                source: 'https://localhost:44336/Search'
-            });
-        $("#postTitle").on("change paste keyup", function() {
-   alert($(this).val()); 
-});
-
-    $(".filter-button").click(function(){
-        var value = $(this).attr('data-filter');
-        if(value == "all")
-        {
-           
-            $('.filter').show('1000');
-        }
-        else
-        {
-             
-            $(".filter").not('.'+value).hide('3000');
-            $('.filter').filter('.'+value).show('3000');
-        }
-    });
-
-       function checkOffset() {
-           if ($('#social-float').offset().top + $('#social-float').height()
-               >= $('#footer').offset().top - 10);
-      
-
-       $(document).scroll(function() {
-    checkOffset();
-          });
-
-        
-
-});
-    </script>
-    
-
-}*@
-
-
-@section Scripts {
-   
-    <script>
-        $(document).ready(function () {
-          
-        
-             $(".filter-button").click(function(){
-        var value = $(this).attr('data-filter');
-        if(value == "all")
-        {
-           
-            $('.filter').show('1000');
-        }
-        else
-        {
-             
-            $(".filter").not('.'+value).hide('3000');
-            $('.filter').filter('.'+value).show('3000');
-        }
-    });
-
-
-
-             var id= $("#groupID").val();
-             $("#postTitle").autocomplete({
-                 source: '/Home/search/'+id+'',
+            <!-- Content Column -->
+            <div class="content-column col-lg-9 col-md-12 col-sm-12">
+                <section class="listing-section style-two pb-50">
+                    <div class="sec-title text-center">
+                        <h2>Popular services</h2>
+                        <span class="divider"></span>
+                       
+                    </div>
+                    <div class="swiper mySwiper container">
+                        <div class="swiper-wrapper content">
+               
+            
+                            @foreach (var item in Model.PopularTransactionItemVMINGroup)
+                            {
+              
+              
+                                <partial name="_PopularServices" model="item" />
                 
+                            }
+
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </section>
+
+                <div class="ls-outer">
+                   
+                    
+                @foreach (var item in Model.TransactionItemVM)
+                {
+                    <!-- Listing Block Five -->
+                    <div class="listing-block-seven">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                    <a href="/Home/SelectFavoirotServives/@item.ID"><figure class="image"><img src="~/Image/ItemTransPhoto/@item.ServicesPhoto" alt=""></figure></a>
+                            </div>
+                            <div class="content-box">
+                                <div class="upper-box">
+                                    <h3>
+                                            <a href="/Home/SelectFavoirotServives/@item.ID">
+                                                @item.TransactionNameEnglish
+                                        </a>
+                                    </h3>
+                                        <div class="status">@item.TransactionSubGroupNameEnglish</div>
+                                    <div class="text">
+                                        <span class="icon flaticon-money"></span> Goverment Fees
+                                        :800.00 AED - Services Fees : 440.00 AED
+                                    </div>
+                                </div>
+                                <div class="btn-box">
+                                    <button class="theme-btn btn-style-one small bg-purple"><span class="icon flaticon-delete-button"></span>Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }    
+                    
 
 
-             });     
 
-        });
-    </script>
-}
-<style>
-
-
- 
-/* div.social-float-parent { height: 1000px; position: relative; }*/
-    /*div#social-float { width: 200px; position: fixed; left: 10px; bottom: 10px; background: #777; }
-    div#footer { width: 100%; height: 200px; background: #eee; }*/
-
-
-  /*  div.social-float-parent { width: 100%; height: 1000px;  position: relative; }*/
-
-
-/*div#social-float { width: 200px; position: fixed; bottom: 10px; background: #777; }*/
-/*div#footer { width: 100%; height: 200px; }
-
-.ui-autocomplete-loading {
-    background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
-  }*/
-
-</style>
+                    <!-- Pagination -->
+                    <nav class="ls-pagination">
+                        <ul>
+                            <li class="prev"><a href="#"><i class="flaticon-left"></i> Prev</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#" class="current-page">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li>...</li>
+                            <li><a href="#">14</a></li>
+                            <li class="next"><a href="#">Next <i class="flaticon-right"></i> </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

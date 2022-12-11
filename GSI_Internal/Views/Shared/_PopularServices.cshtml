@@ -21,7 +21,7 @@
     </div>
 </div>
 *@
-<li class="product type-product has-post-thumbnail shipping-taxable purchasable product-type-simple product-cat-clothing product-cat-hoodies instock  ">
+@*<li class="product type-product has-post-thumbnail shipping-taxable purchasable product-type-simple product-cat-clothing product-cat-hoodies instock  ">
     <div class="item_wrapper">
         <div class="image_frame scale-with-grid product-loop-thumb ">
             <div class="image_wrapper">
@@ -42,6 +42,15 @@
             <h5><a href="/Home/SelectFavoirotServives/@Model.ID">@Model.TransactionNameEnglish</a></h5>
         </div>
     </div>
-</li>
+</li>*@
                             
-         
+<div class="swiper-slide card">
+    <div class="card-content">
+        <div class="image">
+            <a href="/Home/SelectFavoirotServives/" @Model.ID"><img src="~/Image/ItemTransPhoto/@Model.image" alt=""></a>
+        </div>
+        <div class="name-profession">
+            <span class="profession">@Model.TransactionNameEnglish</span>
+        </div>
+    </div>
+</div>    
