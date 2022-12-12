@@ -30,126 +30,82 @@
     ViewData["Title"] = "SelectFavoirotServives";
     Layout = "~/Views/Shared/_Layout.cshtml";
     
-   
+    <style>
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl {
+            max-width: 1334px;
+        }
+    </style>
    
 }
 
-<div class="loading-area">
-        <div class="loading-box"></div>
-        <div class="loading-pic">
-            <div class="windows8">
-                <div class="wBall" id="wBall_1">
-                    <div class="wInnerBall"></div>
-                </div>
-                <div class="wBall" id="wBall_2">
-                    <div class="wInnerBall"></div>
-                </div>
-                <div class="wBall" id="wBall_3">
-                    <div class="wInnerBall"></div>
-                </div>
-                <div class="wBall" id="wBall_4">
-                    <div class="wInnerBall"></div>
-                </div>
-                <div class="wBall" id="wBall_5">
-                    <div class="wInnerBall"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-<body>
 
+<div class="page-wrapper">
+<section class="blog-single">
 <form asp-action="Create" asp-controller="ApplicationTransaction_Request" enctype="multipart/form-data" class="form-horizontal">
-    <div class="page-content">
+    <div class="container">
+@foreach (var item in Model)
+{
+     <div class="row post-single">
 
-        <div class="container">
-            @foreach (var item in Model)
-            {
-                <div class="sf-provi-bio-box cleafix margin-b-50 sf-provi-fullBox">
-                    <!--Left-->
-                    <div class="sf-provi-bio-left">
-                        <div class="sf-provi-bio-info" style="padding-top: 1px; padding-left: 1px; padding-bottom: 1px; padding-right: 1px;">
+                    <div class="content-column col-lg-3 col-md-12 col-sm-12">
+                            <img src="~/Image/ItemTransPhoto/@item.ServicesPhoto" class="h-230 img-fluid" alt="">
+                        <div class="btn-box mt-3"><a href="index.html" class="theme-btn btn-style-three">Google play<i
+                                    class="fa-brands fa-google-play ml-5"></i></a></div>
+                        <div class="btn-box mt-3"><a href="index.html" class="theme-btn btn-style-three">App store<i
+                                    class="fa-brands fa-app-store ml-5"></i></a></div>
+                        <ul class="social-icon-one mt-3">
+                            <li><a href="#"><span class="fab fa-facebook"></span></a></li>
+                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        </ul>
 
-                            <div ><img style="height: 100%; width: 100%; object-fit: fill" src="~/Image/ItemTransPhoto/@item.ServicesPhoto" alt=""></div>
-
-
-
-                        </div>
-                        <br/>
-                        <br/>
-                        <div class="widget rounded-sidebar-widget">
-                            <div class="text-left m-b30">
-                                <h3 class="widget-title">Follow Us</h3>
-                            </div>
-                            <div class="widget_social_inks">
-                                <ul class="social-icons social-square social-darkest social-md">
-                                    <li><a href="javascript:void(0);" class="fb-1"><img src="~/Client/images/social-icon/fb-1.png" alt=""></a></li>
-                                    <li><a href="javascript:void(0);" class="tw-1"><img src="~/Client/images/social-icon/tw-1.png" alt=""></a></li>
-                                    <li><a href="javascript:void(0);" class="pint-1"><img src="~/Client/images/social-icon/pint-1.png" alt=""></a></li>
-                                    <li><a href="javascript:void(0);" class="in-1"><img src="~/Client/images/social-icon/in-1.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
-                    <!--Right-->
-                    <div class="sf-provi-bio-right">
 
-                        <h3 class="sf-provi-title">@item.TransactionNameEnglish</h3>
-                        <div class="sf-provi-cat"><strong>@item.TransactionGroupNameEnglish /</strong> @item.TransactionSubGroupNameEnglish</div>
-                        <div class="sf-provi-bio-text">
-
-                            <div class="m-b10"><h5>Description</h5></div>
+                    <div class="content-column col-lg-9 col-md-12 col-sm-12">
+                        <!-- Post Single -->
+                        <div>
+                            <h4> <span class="fab fa-facebook"></span> @item.TransactionNameEnglish</h4>
+                            <p><strong>@item.TransactionGroupNameEnglish /</strong> @item.TransactionSubGroupNameEnglish
+                            </p>
+                            <h4> <span class="fab fa-facebook"></span> Description</h4>
                             <p>@item.ServicesDecription_English</p>
-                            <div class="m-b10"><h5>Conditions</h5></div>
-                            <div class="m-b10">
-                                <pre style="font-family: 'Mulish', sans-serif; height: auto; max-height: 500px; white-space: pre-wrap;">@if (@item.Services_Conditions_English != null)
-                                                                                                                                        {
-                                                                                                                                            @item.Services_Conditions_English.Replace("\n", "\r\n")
-                                                                                                                                        }</pre>
-
-                            </div>
-
-
-
-                            <h5>Requirements</h5>
-                            <ul>
-                                @foreach (var items in item.AssignRequirmentToItemVM)
-                                {
-                                    <li>@items.Requirements_English</li>
-
-                                }
-                            </ul>
-                            <h5>Fees</h5>
-                            <p><i class="fa fa-money"></i> Government Fees :@item.GovernmentFees AED - Services Fees : @item.Price AED </p>
-                            <h5>Services Time:</h5>
-                            <p><i class="fa fa-clock-o"></i> @item.Time_Services_English </p>
-
-
-
+                            <h4> <span class="fab fa-facebook"></span> Conditions</h4>
+                            <pre style="font-family: 'Mulish', sans-serif; height: auto; max-height: 500px; white-space: pre-wrap;">
+     ​@if (@item.Services_Conditions_English != null)
+                                    {
+                                        @item.Services_Conditions_English.Replace("\n", "\r\n")
+                                    }
+</pre>
+                            <h4><span class="fab fa-facebook"></span> Requirements</h4>
+                            @foreach (var items in item.AssignRequirmentToItemVM)
+                            {
+                                    <p>@items.Requirements_English</p>
+                            }
+                           
+                            <h4> <span class="fab fa-facebook"></span> Fees</h4>
+                                <p> Government Fees @item.GovernmentFees AED - Services Fees :  @item.Price AED</p>
+                            <h4> <span class="fab fa-facebook"></span> Services Time:</h4>
+                            <p> 1 day</p>
                         </div>
 
+
+
+                        <!-- Comments Form Widget -->
+                     
                     </div>
-                    <hr/>
+
+     </div>
+
                     <partial name="_CreateTransactionFromFavouirt" model="new ApplicationTrans_RequestVM() { TransiactionItem_Code = item.ID, RequirmentsFileAttachmentVM = assignRequirmentToItemRepo.GetAll().Where(r => r.TransactionItemID == item.ID).Select(c => new RequirmentsFileAttachmentVM() { RequireID = c.RequirmentID, RequireName_Arabic = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_Arabic).FirstOrDefault(), RequireName_English = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_English).FirstOrDefault(), FileHistoryName = requirmentsFileAttachmentRepo.GetAll().Where(r => r.RequireID == c.RequirmentID && r.UserID == User.FindFirstValue(ClaimTypes.NameIdentifier) && r.FileName != null).Select(a => new RequirmentsFileAttachmentVM() { RequireID = a.RequireID, FileName = a.FileName, RequireName_Arabic = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_Arabic).FirstOrDefault(), RequireName_English = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_English).FirstOrDefault(), AppDateTime = applicationTransactionRequestRepo.GetAll().Where(t => t.ID == a.App_Code).Select(a => a.The_Date).FirstOrDefault() } ) }).ToList(), RequestInquiry_Answer_VM = assignInquireytToItemRepo.GetAll().Where(n => n.TransactionItemID == item.ID).Select(m => new RequestInquiry_Answer_VM() { InquiryID = m.InquiryID, InquiryName_Arabic = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.InquiryName_Arabic).FirstOrDefault(), InquiryName_English = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.InquiryName_English).FirstOrDefault(), Inquiry_Type = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.Inquiry_Type).FirstOrDefault() }).ToList(), RequestSelectionVM = AssignSelectionToItemRepo.GetAll().Where(n => n.TransactionItemID == item.ID).Select( m => new RequestSelectionVM() { SelectionID = m.SelectionID, SelectionName_Arabic = TransiactionItemSelectionRepo.GetAll().Where(s => s.ID == m.SelectionID) .Select(c => c.SelectionName_Arabic).FirstOrDefault(), SelectionName_English = TransiactionItemSelectionRepo.GetAll().Where(s => s.ID == m.SelectionID) .Select(c => c.SelectionName_English).FirstOrDefault(), SelectionGroupID = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select i.SelectionGroupID).FirstOrDefault(), Selection_GroupName_English = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select g.Selection_GroupName_English).FirstOrDefault(), Selection_GroupName_Arab = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select g.Selection_GroupName_Arab).FirstOrDefault() }).ToList() }"></partial>
-
-
-                </div>
-            }
-
-
-
-
-
-
-
-            @*    <input type="hidden" id="ApplicationFile" name="ApplicationFile" /> *@
-
-        </div>
-
-    </div>
-
+}
+</div>
 </form>
-
-</body>
+</section>
+</div>
   
   @section Scripts {
 

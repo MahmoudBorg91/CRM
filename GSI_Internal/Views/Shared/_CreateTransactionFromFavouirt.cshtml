@@ -3,202 +3,174 @@
 @model ApplicationTrans_RequestVM
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
- 
- <div class="card aon-card" id="aon-contact-panel">
-                	<div class="card-header aon-card-header"><h4><i class="fa fa-file"></i> Fill APPLICATION</h4></div>
-                    <div class="card-body aon-card-body">
-                        <div >
-                            <div >
-                                @if (SignInManager.IsSignedIn(User))
-                                {
-                                    <input hidden class="form-control sf-form-control" asp-for="TransiactionItem_Code" name="TransiactionItem_Code" type="text">
-                    <input hidden class="form-control sf-form-control" asp-for="ID" name="ID" type="text">
-                                <table class="table">
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <div> <label>@Model.RequestSelectionVM.Select(a => a.Selection_GroupName_English).FirstOrDefault()</label></div>
 
-                                        </td>
-                                        <td>
-                                            @for (int i = 0; i < Model.RequestSelectionVM.Count; i++)
+@if (SignInManager.IsSignedIn(User))
+{
+}
+<div class="row" style="background-color: #fff;padding: 20px 20px 20px 20px;border-radius: 10px;">
+    <div class="col-lg-12">
+        <div class="sec-title text-center">
+            <h2>Fill Application</h2>
+            <span class="divider"></span>
+        </div>
+    </div>
+
+    <input hidden class="form-control sf-form-control" asp-for="TransiactionItem_Code" name="TransiactionItem_Code" type="text">
+    <input hidden class="form-control sf-form-control" asp-for="ID" name="ID" type="text">
+    <table class="table table-striped" style="top: 10px;" id="DataTables_Table_0" role="grid"
+               aria-describedby="DataTables_Table_0_info">
+        <tbody>
+            <tr>
+                <td style="border-top: 0px !important;">
+                    <div> <label>@Model.RequestSelectionVM.Select(a => a.Selection_GroupName_English).FirstOrDefault()</label></div>
+
+                </td>
+                <td style="border-top: 0px !important;">
+                    @for (int i = 0; i < Model.RequestSelectionVM.Count; i++)
+                    {
+                        <div class="form-check m-1">
+                            <input type="hidden" asp-for="@Model.RequestSelectionVM[i].SelectionID" />
+                            <input asp-for="@Model.RequestSelectionVM[i].IsSelected" class="form-check-input" />
+                            <label class="form-check-label" asp-for="@Model.RequestSelectionVM[i].SelectionID">
+                                @Model.RequestSelectionVM[i].SelectionName_English
+                            </label>
+                        </div>
+                    }
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table class="table table-striped" style="top: 10px;" id="DataTables_Table_0" role="grid"
+           aria-describedby="DataTables_Table_0_info">
+        <tbody>
+            @for (int i = 0; i < Model.RequestInquiry_Answer_VM.Count(); i++)
+            {
+                <tr>
+                    <input hidden class="form-control sf-form-control" asp-for="@Model.RequestInquiry_Answer_VM[i].InquiryID" type="text">
+                    <td style="border-top: 0px !important;"><label>@Model.RequestInquiry_Answer_VM[i].InquiryName_English</label> </td>
+                    <td style="border-top: 0px !important;">
+                        @if (@Model.RequestInquiry_Answer_VM[i].Inquiry_Type == 0)
+                        {
+                            <select asp-for="@Model.RequestInquiry_Answer_VM[i].Inquiry_Answer" class="form-control sf-select-box">
+                                <option>Yes</option>
+                                <option>No</option>
+                            </select>
+                        }
+                        else
+                        {
+                            <input asp-for="@Model.RequestInquiry_Answer_VM[i].Inquiry_Answer" class="form-control sf-form-control" type="text">
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <div class="row w-100">
+        <div class="column col-lg-12 col-md-12">
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body card-dashboard">
+                        <div class="table-responsive">
+                            <div id="DataTables_Table_0_wrapper"
+                                 class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table table-striped mb-0" id="DataTables_Table_0"
+                                               role="grid" aria-describedby="DataTables_Table_0_info">
+                                            <thead>
+                                            <tr role="row">
+                                            <th></th>
+                                                    <th class="sorting">Requirement Name</th>
+                                                    <th class="sorting">Choose New file</th>
+                                                    <th class="sorting">Choose From Wallet</th>
+                                                    <th class="sorting">save to wallet</th>
+                                            </thead>
+                                            <tbody>
+                                            @for (var i = 0; i < Model.RequirmentsFileAttachmentVM.Count; i++)
                                             {
-                                                <div class="form-check m-1">
-                                                    <input type="hidden" asp-for="@Model.RequestSelectionVM[i].SelectionID"/>
-                                                    <input asp-for="@Model.RequestSelectionVM[i].IsSelected" class="form-check-input"/>
-                                                    <label class="form-check-label" asp-for="@Model.RequestSelectionVM[i].SelectionID">
-                                                        @Model.RequestSelectionVM[i].SelectionName_English
-                                                    </label>
+                                                    <tr role="row" class="odd">
+                                                        <td><input type="hidden" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID"/></td>
+                                                        <div class="container">
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                        <td>
+                                                            <i class="fa fa-upload"></i>
+                                                            @Model.RequirmentsFileAttachmentVM[i].RequireName_English
+                                                        </td>
+                                        </div>
+                                        <div class="col-4">
+
+                                            <td>
+                                                <div class="form-group">
+                                                    <input type="file" id="myfile"
+                                                           asp-for="@Model.RequirmentsFileAttachmentVM[i].FileName_FormFIle"
+                                                       name="myfile">
                                                 </div>
-                                            }
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-
-
-                                <table >
-                                    <tbody>
-                                    @for (int i = 0; i < Model.RequestInquiry_Answer_VM.Count(); i++)
-                                    {
-                                        <tr>
-                                            <input hidden class="form-control sf-form-control" asp-for="@Model.RequestInquiry_Answer_VM[i].InquiryID" type="text">
-                                            <td><label>@Model.RequestInquiry_Answer_VM[i].InquiryName_English</label> </td>
-                                            <td>
-                                                @if (@Model.RequestInquiry_Answer_VM[i].Inquiry_Type == 0)
-                                                {
-                                                    <select asp-for="@Model.RequestInquiry_Answer_VM[i].Inquiry_Answer" class="form-control sf-select-box">
-                                                        <option>Yes</option>
-                                                        <option>No</option>
-                                                    </select>
-                                                }
-                                                else
-                                                {
-                                                    <input asp-for="@Model.RequestInquiry_Answer_VM[i].Inquiry_Answer" class="form-control sf-form-control" type="text">
-                                                }
-                                            </td>
-                                        </tr>
-                                    }
-                                    </tbody>
-                                </table>
-                                    <table >
-                                        <thead>
-                                        <tr>
-                                            <th scope="col"></th>
-                                            <th scope="col">Requirement Name</th>
-                                            <th scope="col">Choose New File</th>
-                                            <th scope="col">Choose From Wallet</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        @for (var i = 0; i < Model.RequirmentsFileAttachmentVM.Count; i++)
-                                        {
-
-
-                                            <tr scope="row">
-
-
-                                                <td><input type="hidden" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID"/></td>
-                                                <td>
-                                                    <label for="fileUpload"><i class="fa fa-upload" aria-hidden="true"> @Model.RequirmentsFileAttachmentVM[i].RequireName_English</i></label>
-                                                </td>
-                                                <td>
-                                                    <input type="file" asp-for="@Model.RequirmentsFileAttachmentVM[i].FileName_FormFIle" id="fileUpload"/>
-                                                </td>
-                                                <td>
-
-
-@*
-                                                    <select asp-for="@Model.RequirmentsFileAttachmentVM[i].FileHistoryNameSave" asp-items="@(new SelectList(Model.RequirmentsFileAttachmentVM[i].FileHistoryName, "FileName", "AppDateTime")) " class="selectpicker show-tick" id="FileHistoryName" data-max-options="1"> >
-                                                        <option value="0">Choose...</option>
-
-                                                    </select>*@
-
-
-                                                </td>
-
-
-
-
-
-                                            </tr>
-
-                                        }
-
-
-                                       @* <tr>
-                                            <td></td>
-                                            <td> <label for="fileUpload"><i class="fa fa-upload" aria-hidden="true"></i>Extra File</label></td>
-                                            <td>
-
-                                                <span>                                          </span>
-                                                <input type="file" asp-for="files_Upload" id="fileUpload"/>
 
                                             </td>
-                                        </tr>*@
-
-
-
-
-                                        </tbody>
-
-                                    </table>
-                                    <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Enter Notes</label>
-                                            <textarea asp-for="ClientNotes" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                                         </div>
-                                    </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="sf-provi-btn">
-                                                <a href="/Home" class="btn btn-warning">Back To Home Page</a>
-                                                
-                                                @switch (Model.Status)
-                                                {
-                                                    case 0 or 1 or 3 or 4 or 5 or 8 or 9 or 10 or 11 :
-                                                        break;
-                                                    
-                                                    case 2:
+                                        <div class="col-4">
+                                            <td>
+                                                <div class="form-group">
+                                                    <select asp-for="@Model.RequirmentsFileAttachmentVM[i].FileHistoryNameSave" asp-items="@(new SelectList(Model.RequirmentsFileAttachmentVM[i].FileHistoryName, "FileName", "AppDateTime")) " class="selectpicker show-tick" id="FileHistoryName" data-max-options="1">
+                                                        class="chosen-select">
+                                                        <option disabled>
+                                                          My Wallet
+                                                        </option>
                                                         
-                                                        <button asp-controller="ClientDashboard" class="btn btn-success" asp-action="UpdateObjToPaymentDone">Update To Payment</button>
-                                                        break;
-                                                   case 6 or 7:
-                                                       <button id="btnSubmit" type="button" class="site-button aon-btn-login">
-                                                           <i class="fa fa-user"></i> Update Missing
-                                                       </button>
-                                                       break;
-                                                    default:
-                                                           <button id="btnSubmit" type="submit" class="site-button aon-btn-login">
-                                                               <i class="fa fa-user"></i> submit
-                                                           </button>
-                                                           break;
-                                                }
-                                                
-
-                                            
-
-                                            </div>
+                                                    </select>
+                                                </div>
+                                            </td>
                                         </div>
-                                    </div>
-                                    <div class="spinner" style="display:none">
-                                        <div class="center-div">
-                                            <div class="inner-div">
-                                                <div class="loader"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-                                @if (SignInManager.IsSignedIn(User) == false)
-                                {
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="sf-provi-btn">
-                                                <a href="/Home" class="btn btn-warning">Back To Home Page</a>
-                                                <button  type="button" class="site-button aon-btn-login" data-toggle="modal" data-target="#login-signup-model">
-                                                    <i class="fa fa-user"></i> Login
+                                        <div class="col-4">
+                                            <td>
+                                                <button class="theme-btn btn-style-two">
+                                                    save
                                                 </button>
-                                                <!--Sign up-->
+                                            </td>
 
-                                            </div>
                                         </div>
                                     </div>
-                                }
-                                @* <input type="submit" id="submit" class="btn btn-primary" value="Save" />*@
-                            </div>
-                       
+                                </div>
+
+                                </tr>
+
+                                            }
+
+                                                     </tbody>
+
+                            </table>
+                        </div>
                     </div>
+
                 </div>
-               
-
-
-
-              
+            </div>
+        </div>
+    </div>
 </div>
+                        </div>
+                    </div>
 
 
-
- 
+<div class="row clearfix">
+    <div class="col-lg-3 col-md-4 col-sm-12 form-group">
+        <button class="theme-btn btn-style-two" type="submit" name="submit-form">Submit</button>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 form-group">
+        <button class="theme-btn btn-style-two" type="submit" name="submit-form">
+            Save to
+            Draft
+        </button>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 form-group">
+        <button class="theme-btn btn-style-two" type="submit" name="submit-form">
+            Back to Home
+            page
+        </button>
+    </div>
+</div>
+                </div>

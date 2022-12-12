@@ -201,7 +201,8 @@
 
                                 <!--Login Form-->
                                 <div id="Upcoming" class="tab-pane active">
-                                    <div class="sf-tabs-content">
+                                    <partial name="_LoginClientPartial" model="new LoginModel.InputModel()"/>
+                                    @* <div class="sf-tabs-content">
                                         <form class="aon-login-form">
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -245,12 +246,13 @@
 
                                             </div>
                                         </form>
-                                    </div>
+                                    </div>*@
                                 </div>
 
                                 <!--Sign up Form-->
                                 <div id="Past" class="tab-pane">
-                                    <div class="sf-tabs-content">
+                                    <partial name="_RegisterClientPartial" model="new RegisterModel.InputModel()"/>
+                                    @*  <div class="sf-tabs-content">
                                         <form class="aon-login-form">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -341,7 +343,7 @@
 
                                             </div>
                                         </form>
-                                    </div>
+                                    </div>*@
                                 </div>
 
                             </div>
