@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace GSI_Internal.Context
 {
-    public class dbContainer : IdentityDbContext
+    public class dbContainer : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public dbContainer(DbContextOptions<dbContainer> ops) : base(ops)
         {

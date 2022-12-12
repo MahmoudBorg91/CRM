@@ -1,52 +1,22 @@
-using GSI_Internal.Context;
-using GSI_Internal.Filters;
-using GSI_Internal.Repositry;
-
-using GSI_Internal.Repositry.Application_Status_Repo;
-using GSI_Internal.Repositry.ApplicationTransaction_Request_Log_Repo;
-using GSI_Internal.Repositry.ApplicationTransaction_RequestRepo;
-using GSI_Internal.Repositry.ApplicationTransferRepo;
-using GSI_Internal.Repositry.AssignRequirmentToItemRepo;
-using GSI_Internal.Repositry.DashboardRepo;
-
-
-using GSI_Internal.Repositry.HomeRepo;
-using GSI_Internal.Repositry.RequirementsRepo;
-using GSI_Internal.Repositry.RequirmentsFileAttachmentRepo;
-
-using GSI_Internal.Repositry.TransactionGroupRepo;
-using GSI_Internal.Repositry.TransactionItemRepo;
-using GSI_Internal.Repositry.TransactionSupGroupRepo;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using GSI_Internal.Extensions;
+using GSI_Internal.Middleware;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Hosting;
-using System;
-using GSI_Internal.Entites;
-using GSI_Internal.Repositry.AssignInquireytToItemRepo;
-using GSI_Internal.Repositry.AssignSelectionToItem_Repo;
-using GSI_Internal.Repositry.FileUploadServicesRepo;
-using GSI_Internal.Repositry.RequestInquiry_AnswerRepo;
-using GSI_Internal.Repositry.RequestSelection_GroupRepo;
-using GSI_Internal.Repositry.RequestSelection_SelectedRepo;
-using GSI_Internal.Repositry.SlideShowRepo;
-using GSI_Internal.Repositry.TransactionItemInquiryRepo;
-using GSI_Internal.Repositry.TransiactionItem_Selection_Repo;
-using Hangfire;
 
 namespace GSI_Internal
 {
     public class Startup
     {
-        private readonly IConfiguration conf;
+     
 
-        public Startup(IConfiguration conf)
+        public Startup( IConfiguration configuration)
         {
-            this.conf = conf;
+            Configuration = configuration;
         }
 
 
@@ -56,72 +26,52 @@ namespace GSI_Internal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
-            services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+          
+            // Add services to the container.
 
-            //services.AddIdentity<IdentityUser, IdentityRole>()
-            //    .AddDefaultTokenProviders().AddDefaultUI()
-            //    .AddEntityFrameworkStores<dbContainer>();
-
-            services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false )
-               .AddEntityFrameworkStores<dbContainer>()
-               .AddDefaultUI().AddDefaultTokenProviders();
-
+            services.AddControllers();
             services.AddControllersWithViews();
-            services.AddAutoMapper(typeof(Startup));
-            services.AddDbContextPool<dbContainer>(ops => ops.UseSqlServer(conf.GetConnectionString("DefaultConnection")));
-            services.AddSignalR();
-            services.AddControllers().AddJsonOptions(options =>
-            {
-                options.JsonSerializerOptions.PropertyNamingPolicy = null;
-            });
-            services.AddHangfire(x => x.UseSqlServerStorage(conf.GetConnectionString("Hangfire")));
-            services.AddHangfireServer();
-            //services.AddScoped<ICustommer, CustommerRepo>();
-            //services.AddScoped<IApplicationRepo, ApplicationsRepo>();
-            //services.AddScoped<ISoultionRepo, SoultionRepo>();
-            //services.AddScoped<ILeadRepo, LeadRepo>();
-            //services.AddScoped<IFollowUpRepo, FollowUpRepo>();
-            //services.AddScoped<IDemoMainRepo, DemoMainRepo>();
-            //services.AddScoped<IDemoSubRepo, DemoSubRepo>();
-            services.AddScoped<ITransactionGroupRepo, TransactionGroupRepo>();
-            services.AddScoped<ITransactionItemRepo, TransactionItemRepo>();
-            services.AddScoped<IHomeRepo, HomeRepo>();
-            services.AddScoped<ITransactionSubGroupRepo, TransactionSubGroupRepo>();
-            services.AddScoped<IRequirementsRepo, RequirementsRepo>();
-            services.AddScoped<IAssignRequirmentToItemRepo, AssignRequirmentToItemRepo>();
-            services.AddScoped<IApplicationTransaction_RequestRepo, ApplicationTransaction_RequestRepo>();
-            services.AddScoped<IDashboardRepo, DashboardRepo>();
-            services.AddScoped<IApplicationTransaction_Request_LogRepo, ApplicationTransaction_Request_LogRepo>();
-            services.AddScoped<IAppliactionTransferRepo, ApplicationTranserRepo>();
-            services.AddScoped<IApplication_StatusRepo, Application_StatusRepo>();
-            services.AddScoped<IRequirmentsFileAttachmentRepo, RequirmentsFileAttachmentRepo>();
-            services.AddScoped<ITransactionItemInquiryReop, TransactionItemInquiryRepo>();
+            services.AddEndpointsApiExplorer();
+            services.AddMvc(o => o.EnableEndpointRouting = false);
+            services.AddDistributedMemoryCache();
 
-            services.AddScoped<IAssignInquireytToItemRepo, AssignInquireytToItemRepo>();
-            services.AddScoped<IRequestInquiry_AnswerRpo, RequestInquiry_AnswerRepo>();
+            // api Services
+            services.Configure<ApiBehaviorOptions>(options => options.SuppressModelStateInvalidFilter = true); // validation Error Api
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddScoped<IAssignSelectionToItemRepo, AssignSelectionToItemRepo>();
-            services.AddScoped<ITransiactionItem_SelectionRepo, TransiactionItem_SelectionRepo>();
-            services.AddScoped<IRequestSelection_Selectes, RequestSelection_Selectes>();
-            services.AddScoped<IRequestSelection_GroupRepo, RequestSelection_GroupRepo>();
-            services.AddScoped<ISlideShowRepo, SlideShowRepo>();
+            // context && json services && IBaseRepository && IUnitOfWork Service
+            services.AddContextServices( Configuration);
 
+            // Services [IAccountService, IPhotoHandling, AddAutoMapper, Hangfire ,
+            // Session , SignalR ,[ INotificationService, FcmNotificationSetting, FcmSender,ApnSender ]  ]
+            services.AddApplicationServices( Configuration);
+
+            // Identity services && JWT
+            services.AddIdentityServices( Configuration);
+
+            // External Login Services
+            services.AddExternalLoginServices( Configuration);
+
+            // Swagger Service
+            services.AddSwaggerDocumentation();
             
-            services.Configure<SecurityStampValidatorOptions>(options =>
+            // cookies services
+            services.ConfigureApplicationCookie(options =>
             {
-                options.ValidationInterval = TimeSpan.Zero;
+                options.LoginPath = $"/Account/Login";
+                options.LogoutPath = $"/Account/Login";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
-
-
-
-
-
-
-
-
-
-
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin();
+                        policy.AllowAnyMethod();
+                        policy.AllowAnyHeader();
+                    });
+            });
 
         }
 
@@ -129,26 +79,32 @@ namespace GSI_Internal
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseDeveloperExceptionPage();
-            //if (env.IsDevelopment())
-            //{
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseMiddleware<ExceptionMiddleware>();
+                app.UseExceptionHandler("/ErrorsMvc/Index/{0}");
+            }
+            app.UseSwaggerDocumentation();
+            app.UseStatusCodePagesWithReExecute("/Errors/{0}");
 
-            //    app.UseDeveloperExceptionPage();
-            //}
-            //else
-            //{
-            //    app.UseExceptionHandler("/Home/Error");
-            //    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-            //    app.UseHsts();
-            //}
-            app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseHangfireDashboard("/HangfireDashboard");
-           
+            app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseCors();
+
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseApplicationMiddleware();
+
+            //app.MapHub<ChatHub>("/chatHub");
+            //app.MapControllers();
+            
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
@@ -160,6 +116,8 @@ namespace GSI_Internal
 
 
             });
+            
+        
         }
     }
 }
