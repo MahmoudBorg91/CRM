@@ -51,7 +51,7 @@ public static class ApplicationServicesExtensions
         app.UseSession();
         app.UseHangfireDashboard("/HangfireDashboard");
 
-        app.UseWebSockets();
+        /*app.UseWebSockets();*/
             
         return app;
     }

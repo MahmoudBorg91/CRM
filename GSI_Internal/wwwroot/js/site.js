@@ -201,6 +201,7 @@ $(() => {
             url: "/Dashboard/GetAppLicationBySignalRStatus/"+status+"",
             method: 'GET',
             success: (result) => {
+                console.log(result);
                 $.each(result,
                     (k, v) => {
 
@@ -215,16 +216,16 @@ $(() => {
 
                               <tr>
                                   <td>""</td>
-                             <td>${v.ID}</td>
-                             <td>${v.The_Date}</td>
-                             <td>${v.ClientName}<br>${v.ClientLastName}</td>
-                             <td>${v.ClientPhone}<br>${v.UserEmail}</td>
-                             <td>${v.Country_Name}</td>
-                             <td >${v.TransiactionItem_NameEnglish}</td>
-                             <td>${v.TransiactionItem_Name}</td>
-                             <td >${v.NumberOfTransiactionOfEntity}</td>
-                             <td>${v.TransiactionItem_Price}<br>${v.TransiactionItem_GovernmentFees}</td>
-                             <td><a href="/Dashboard/CheckRequestApplicationToOpen/${v.ID
+                             <td>${v.id}</td>
+                             <td>${v.the_Date}</td>
+                             <td>${v.clientName}<br>${v.clientLastName}</td>
+                             <td>${v.clientPhone}<br>${v.userEmail}</td>
+                             <td>${v.country_Name}</td>
+                             <td >${v.transiactionItem_NameEnglish}</td>
+                             <td>${v.transiactionItem_Name}</td>
+                             <td >${v.numberOfTransiactionOfEntity}</td>
+                             <td>${v.transiactionItem_Price}<br>${v.transiactionItem_GovernmentFees}</td>
+                             <td><a href="/Dashboard/CheckRequestApplicationToOpen/${v.iD
                             }" class="btn btn-warning">Check</a></td>
                               <tr>`;
 
@@ -254,6 +255,7 @@ $(() => {
             url: "/Dashboard/GetAppLicationBySignalRStatus/" + status + "",
             method: 'GET',
             success: (result) => {
+                
                 $.each(result,
                     (k, v) => {
 

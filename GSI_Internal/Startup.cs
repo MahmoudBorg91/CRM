@@ -58,8 +58,8 @@ namespace GSI_Internal
             // cookies services
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = $"/Account/Login";
-                options.LogoutPath = $"/Account/Login";
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Login";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
             services.AddCors(options =>
