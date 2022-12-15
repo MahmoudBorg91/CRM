@@ -13,6 +13,7 @@ using System.Linq;
 
 namespace GSI_Internal.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class TransiactionItemController : Controller
     {
         private readonly ITransactionItemRepo transactionItemRepo;

@@ -28,10 +28,9 @@ namespace GSI_Internal.Repositry.ApiRepositry.Repositories
         public IBaseRepository<RequestSelection> RequestSelection { get; private set; }
         public IBaseRepository<RequestSelection_Group> RequestSelection_Group { get; private set; }
         public IBaseRepository<SlideShow> SlideShow { get; private set; }
-        public IBaseRepository<ApplicationTransaction_Request_Processing> ApplicationTransaction_Request_Processing
-        {
-            get;
-        }
+        public IBaseRepository<ApplicationTransaction_Request_Processing> ApplicationTransaction_Request_Processing { get; private set; }
+        public IBaseRepository<Notification> Notifications { get; private set; }
+        public IBaseRepository<NotificationConfirmed> NotificationsConfirmed { get; private set; }
 
 
         public UnitOfWork(dbContainer context)
@@ -58,6 +57,8 @@ namespace GSI_Internal.Repositry.ApiRepositry.Repositories
             RequestSelection_Group = new BaseRepository<RequestSelection_Group>(_context);
             SlideShow = new BaseRepository<SlideShow>(_context);
             ApplicationTransaction_Request_Processing = new BaseRepository<ApplicationTransaction_Request_Processing>(_context);
+            Notifications = new BaseRepository<Notification>(_context);
+            NotificationsConfirmed = new BaseRepository<NotificationConfirmed>(_context);
 
 
 

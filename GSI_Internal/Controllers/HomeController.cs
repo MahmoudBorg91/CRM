@@ -30,6 +30,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace GSI_Internal.Controllers
 {
     [AllowAnonymous]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

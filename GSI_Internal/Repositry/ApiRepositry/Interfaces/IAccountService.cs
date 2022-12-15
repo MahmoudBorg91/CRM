@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using GSI_Internal.Entites;
+using GSI_Internal.Models.Api.DTO;
 using GSI_Internal.Models.Api.ModelView.AuthViewModel;
 
 
@@ -40,5 +41,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Interfaces
         Task Activate(string userId);
 
         Task Suspend(string userId);
+        Task<AuthModel> AddDeviceToken(DeviceTokenDto model, string userId);
+        
     }
 }

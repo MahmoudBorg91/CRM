@@ -33,7 +33,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace GSI_Internal.Controllers
 {
- 
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class DashboardController : Controller
     {
         private readonly IApplicationTransaction_RequestRepo applicationTransaction_RequestRepo;

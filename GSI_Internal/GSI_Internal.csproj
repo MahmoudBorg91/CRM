@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Api\" />
     <Folder Include="Models\Api\Migrations\" />
     <Folder Include="wwwroot\Image\GroupTransPhoto\" />
     <Folder Include="wwwroot\Image\LeadPhoto\" />

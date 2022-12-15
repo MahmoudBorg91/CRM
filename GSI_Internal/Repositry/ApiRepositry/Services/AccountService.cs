@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using GSI_Internal.Entites;
+using GSI_Internal.Models.Api.DTO;
 using GSI_Internal.Models.Api.Helpers;
 using GSI_Internal.Models.Api.ModelView.AuthViewModel;
 using GSI_Internal.Repositry.ApiRepositry.Interfaces;
@@ -31,7 +32,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
             _userManager = userManager;
             _roleManager = roleManager;
             _unitOfWork = unitOfWork;
-            _jwt = jwt.Value;
+            _jwt = jwt.Value; 
         }
 
         public async Task<List<ApplicationUser>> GetAllUsers()
@@ -316,6 +317,19 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
                 await _userManager.UpdateAsync(user);
             }
         }
+        public async Task<AuthModel> AddDeviceToken(DeviceTokenDto model, string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user is null)
+                return new AuthModel { Message = "User not found!", ArMessage = "المستخدم غير موجود" };
+
+            user.DeviceToken = model.DeviceToken;
+            await _userManager.UpdateAsync(user);
+
+            return new AuthModel { Message = "Token added successfully", ArMessage = "تم اضافة الرمز بنجاح", IsAuthenticated = true };
+
+        }
+
 
         //------------------------------------------------------------------------------------------------------------
 

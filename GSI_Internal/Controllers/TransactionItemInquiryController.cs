@@ -9,6 +9,7 @@ using System.Linq;
 
 namespace GSI_Internal.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class TransactionItemInquiryController : Controller
     {
         private readonly ITransactionItemInquiryReop _transactionItemInquiryRepo;

@@ -35,6 +35,7 @@ using Microsoft.AspNetCore.SignalR;
 namespace GSI_Internal.Controllers
 {
     [AllowAnonymous]
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ClientDashboardController : Controller
     {
         private readonly UserManager<ApplicationUser> userManager;

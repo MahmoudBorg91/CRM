@@ -35,6 +35,9 @@ namespace GSI_Internal.Repositry.ApiRepositry.Repositories
         IBaseRepository<SlideShow> SlideShow { get; }
         IBaseRepository<ApplicationTransaction_Request_Processing> ApplicationTransaction_Request_Processing { get; }
 
+        IBaseRepository<Notification> Notifications { get; }
+        IBaseRepository<NotificationConfirmed> NotificationsConfirmed { get; }
+
         //-----------------------------------------------------------------------------------
 
         //-----------------------------------------------------------------------------------

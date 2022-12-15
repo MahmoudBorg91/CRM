@@ -82,6 +82,7 @@ namespace GSI_Internal
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+              
             }
             else
             {
