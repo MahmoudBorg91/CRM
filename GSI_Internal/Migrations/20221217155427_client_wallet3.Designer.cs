@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20221217155427_client_wallet3")]
+    partial class client_wallet3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -418,7 +420,7 @@ namespace GSI_Internal.Migrations
                     b.Property<int>("RequireID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("TheDateFile")
+                    b.Property<DateTime>("Type")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UserId")

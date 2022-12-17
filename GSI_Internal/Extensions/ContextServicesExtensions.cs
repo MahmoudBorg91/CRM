@@ -10,6 +10,7 @@ using GSI_Internal.Repositry.ApplicationTransferRepo;
 using GSI_Internal.Repositry.AssignInquireytToItemRepo;
 using GSI_Internal.Repositry.AssignRequirmentToItemRepo;
 using GSI_Internal.Repositry.AssignSelectionToItem_Repo;
+using GSI_Internal.Repositry.Client_WalletRepo;
 using GSI_Internal.Repositry.DashboardRepo;
 using GSI_Internal.Repositry.HomeRepo;
 using GSI_Internal.Repositry.RequestInquiry_AnswerRepo;
@@ -71,6 +72,7 @@ public static class ContextServicesExtensions
         services.AddScoped<IRequestSelection_Selectes, RequestSelection_Selectes>();
         services.AddScoped<IRequestSelection_GroupRepo, RequestSelection_GroupRepo>();
         services.AddScoped<ISlideShowRepo, SlideShowRepo>();
+        services.AddScoped<IClientWalletRepo, ClientWalletRepo>();
 
         services.Configure<SecurityStampValidatorOptions>(options =>
         {
