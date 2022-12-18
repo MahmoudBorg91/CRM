@@ -88,7 +88,7 @@
                                            
                                             <thead>
                                             <tr role="row">
-                                            <th></th>
+                                            <th hidden=""></th>
                                             <th class="sorting">Requirement Name</th>
                                             <th class="sorting">Choose New file</th>
                                             <th class="sorting">Choose From Wallet</th>
@@ -99,7 +99,7 @@
                                                 @for (var i = 0; i < Model.RequirmentsFileAttachmentVM.Count; i++)
                                             {
                                                     <tr role="row" class="odd">
-                                                        <td> <input name="RequireID" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID" /></td>
+                                                        <td hidden> <input  name="RequireID" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID" /></td>
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-4">

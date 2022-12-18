@@ -132,60 +132,56 @@ TransiactionItem_Code = item.ID, RequirmentsFileAttachmentVM = assignRequirmentT
 </div>
   
   @section Scripts {
-      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript">
+
+      <script>
           $(function() {
 
 
 
             $("#tblBody").on("click", ".btnAdd", function () {
                 var  tr = $(this).closest('tr');
-                //var requireID = tr.find('td:eq(0) input').val();
-                //var fileNameFormFile = tr.find('td:eq(2) input').val();
+                var requireID = tr.find('td:eq(0) input').val();
+
+                var FileNameFormFile = tr.find('td:eq(2) input')[0].files[0];
+              
+                var formdata = new FormData();
+
+                formdata.append("FileNameFormFile", FileNameFormFile);
+                formdata.append("requireID", requireID);
                
-                var formData = new FormData();
-                formData.append("RequireID", tr.find('td:eq(2) input')[0].files[0]);
-                formData.append("FileNameFormFile", tr.find('td:eq(0) input').val());
-                //var fileUpload = tr.find('td:eq(2) input').get(0);  
-                //var files = fileUpload.files;  
-                  
-                //// Create FormData object  
-                //var fileData = new FormData();  
-      
-                //// Looping over all files and add it to FormData object  
-                //for (var i = 0; i < files.length; i++) {  
-                //    fileData.append(files[i].name, files[i]);  
-
-
-
 
                 //alert(' ' + requireID + ' ' + fileNameFormFile);
-                    //var obj = {};
-                    //obj.RequireID = requireID;
-                    //obj.FileNameFormFile = fileData;
+                //var obj = {}
+                //obj.RequireID = requireID;
+                //obj.FileNameFormFile = formData;
                 //var txtName = $("#txtName");
                 //  var txtCountry = $("#txtCountry");
                 //  var _customer = {};
                 //  _customer.Name = txtName.val();
                 //  _customer.Country = txtCountry.val();
                 $.ajax({
-                    url: '@Url.Action("AjaxUpload", "ApplicationTransaction_Request")',
-                   
-                    //contentType:false,
-                  //  processData:false,
-                    type:"POST",
-                    method: "POST",
-                    //mimeType: "multipart/form-data",
-                    data: formData,
+                    type: "POST",
+                    url: '@Url.Content("~/")' + "ApplicationTransaction_Request/AjaxUpload",
+                    data: formdata,
 
-
-
-                  
-                   
-                    success: function (r) {
-                        alert("CustomerId: " );
-                    }
+                    contentType: false,
+                    processData: false,
+                    success: function (result) { console.log(result);},
+                    error: function (result) { console.log(result); }
                 });
+                
+                
+                //$.ajax({
+
+                //    url: '@Url.Content("~/")' + "ApplicationTransaction_Request/AjaxUpload",
+                //    type: "POST",
+                //    data: obj,
+
+                   
+                //    success: function (r) {
+                //        alert("CustomerId: " );
+                //    }
+                //});
             });
 
 

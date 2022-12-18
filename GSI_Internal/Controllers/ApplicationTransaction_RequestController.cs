@@ -21,6 +21,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using GSI_Internal.Migrations;
 using GSI_Internal.Repositry.Client_WalletRepo;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using ApplicationTransaction_Request = GSI_Internal.Entites.ApplicationTransaction_Request;
 using client_wallet = GSI_Internal.Entites.client_wallet;
@@ -100,8 +101,8 @@ namespace GSI_Internal.Controllers
             //  return RedirectToAction("Index",data);
         }
         [HttpPost]
-        //[Route("ApplicationTransaction_Request/AjaxUpload")]
-        public async  Task<ActionResult> AjaxUpload(ClientWalletVM formData)
+        [Route("ApplicationTransaction_Request/AjaxUpload")]
+        public async  Task<JsonResult> AjaxUpload(int requireID, IFormFile FileNameFormFile)
         {
             client_wallet newwallet = new client_wallet();
             if (ModelState.IsValid)
@@ -110,16 +111,17 @@ namespace GSI_Internal.Controllers
                     .Where(a => a.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Select(a => a.Id)
                     .FirstOrDefault();
                 newwallet.TheDateFile= DateTime.Now;
-                newwallet.RequireID = formData.RequireID;
+                newwallet.RequireID = requireID;
                 //newwallet.FileName= 
                 string uploadFilesAttachPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/UploadFiles/";
-                string uploadFilesAttachename = (requirementsRepo.GetAll().Where(a => a.ID == formData.RequireID).Select(a => a.RequirementName_English).FirstOrDefault() + Guid.NewGuid().ToString() + "_" + System.IO.Path.GetExtension(formData.FileNameFormFile.FileName));
+                string uploadFilesAttachename = (requirementsRepo.GetAll().Where(a => a.ID == requireID).Select(a => a.RequirementName_English).FirstOrDefault() + Guid.NewGuid().ToString() + "_" + System.IO.Path.GetExtension(FileNameFormFile.FileName));
 
                 await using (var fileStream = new FileStream(Path.Combine(uploadFilesAttachPath, uploadFilesAttachename), FileMode.Create))
                 {
-                    await formData.FileNameFormFile.CopyToAsync(fileStream);
+                    await FileNameFormFile.CopyToAsync(fileStream);
                 }
 
+                newwallet.FileName = uploadFilesAttachename;
                 _clientWalletRepo.AddObj(newwallet);
 
 
@@ -142,6 +144,36 @@ namespace GSI_Internal.Controllers
         //    return Json(true);
         //}
     }
+        [Route("ApplicationTransaction_Request/UploadImage")]
+        [HttpPost]
+        public  async Task<ActionResult> UploadImage()
+        {
+            string Result = string.Empty;
+
+            var Files = Request.Form.Files;
+            foreach (IFormFile source in Files)
+            {
+                string FileName = Guid.NewGuid() + System.IO.Path.GetFileName(source.FileName);
+                string imagepath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/UploadFiles/";
+
+                if (System.IO.File.Exists(imagepath))
+                {
+                    System.IO.File.Delete(imagepath);
+                    await using (FileStream fileStream = System.IO.File.Create(imagepath))
+                    {
+                        await source.CopyToAsync(fileStream);
+                        Result = "pass";
+
+                    }
+
+                }
+            }
+
+
+            return Ok();
+        }
+
+
 //[DisableRequestSizeLimit]
         [HttpPost]
         [AllowAnonymous]
