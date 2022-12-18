@@ -91,8 +91,9 @@
                                             <th hidden=""></th>
                                             <th class="sorting">Requirement Name</th>
                                             <th class="sorting">Choose New file</th>
+                                                    <th class="sorting">save to wallet</th>
                                             <th class="sorting">Choose From Wallet</th>
-                                            <th class="sorting">save to wallet</th>
+                                            
                                             </thead>
                                             <tbody id="tblBody" >
 
@@ -108,38 +109,47 @@
                                                             <input type="hidden" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID" />   @Model.RequirmentsFileAttachmentVM[i].RequireName_English 
                                                         </td>
                                         </div>
-                                        <div class="col-4">
+                                                                <div class="col-4">
 
-                                            <td>
-                                                <div class="form-group">
-                                                    <input type="file" class="myfile"
-                                                       asp-for="@Model.RequirmentsFileAttachmentVM[i].FileName_FormFIle"
-                                                       name="FileNameFormFile" accept="image/pdf">
-                                                </div>
+                                                                    <td>
+                                                                        <div class="form-group">
+                                                                            <input type="file" class="myfile"
+                                                                                   asp-for="@Model.RequirmentsFileAttachmentVM[i].FileName_FormFIle"
+                                                                                   name="FileNameFormFile" accept="image/pdf">
+                                                                        </div>
 
-                                            </td>
-                                        </div>
-                                        <div class="col-4">
-                                            <td>
-                                                <div class="form-group">
-                                                    <select asp-for="@Model.RequirmentsFileAttachmentVM[i].FileHistoryNameSave" asp-items="@(new SelectList(Model.RequirmentsFileAttachmentVM[i].FileHistoryName, "FileName", "AppDateTime")) " class="selectpicker show-tick" id="FileHistoryName" data-max-options="1">
-                                                        class="chosen-select">
-                                                        <option value="0" >
-                                                            My Wallet
-                                                        </option>
+                                                                    </td>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <td>
+                                                                        <button type="button" class="btnAdd theme-btn btn-style-two">
+                                                                            save to my wallet
+                                                                        </button>
+                                                                    </td>
 
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </div>
-                                        <div class="col-4">
-                                            <td>
-                                                <button type="button" class="btnAdd theme-btn btn-style-two">
-                                                    save
-                                                </button>
-                                            </td>
+                                                                </div>
+                                                                <div class="col-4">
+                                                                    <div class="col-4">
+                                                                        <td>
+                                                                            <button type="button" class="btnAdd theme-btn btn-style-two">
+                                                                                Choose from my wallet
+                                                                            </button>
+                                                                        </td>
 
-                                        </div>
+                                                                    </div>
+                                                                    @*<td>
+                                                                        <div class="form-group">
+                                                                            <select asp-for="@Model.RequirmentsFileAttachmentVM[i].FileHistoryNameSave" asp-items="@(new SelectList(Model.RequirmentsFileAttachmentVM[i].FileHistoryName, "FileName", "AppDateTime")) " class="selectpicker show-tick" id="FileHistoryName" data-max-options="1">
+                                                                                class="chosen-select">
+                                                                                <option value="0">
+                                                                                    My Wallet
+                                                                                </option>
+
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>*@
+                                                                </div>
+                                       
                                     </div>
                                 </div>
                                                 </tr>

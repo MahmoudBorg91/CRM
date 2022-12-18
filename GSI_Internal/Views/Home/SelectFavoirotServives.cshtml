@@ -150,15 +150,7 @@ TransiactionItem_Code = item.ID, RequirmentsFileAttachmentVM = assignRequirmentT
                 formdata.append("requireID", requireID);
                
 
-                //alert(' ' + requireID + ' ' + fileNameFormFile);
-                //var obj = {}
-                //obj.RequireID = requireID;
-                //obj.FileNameFormFile = formData;
-                //var txtName = $("#txtName");
-                //  var txtCountry = $("#txtCountry");
-                //  var _customer = {};
-                //  _customer.Name = txtName.val();
-                //  _customer.Country = txtCountry.val();
+               
                 $.ajax({
                     type: "POST",
                     url: '@Url.Content("~/")' + "ApplicationTransaction_Request/AjaxUpload",
@@ -166,22 +158,13 @@ TransiactionItem_Code = item.ID, RequirmentsFileAttachmentVM = assignRequirmentT
 
                     contentType: false,
                     processData: false,
-                    success: function (result) { console.log(result);},
+                    success: function(result) {
+                         tr.find
+                    },
                     error: function (result) { console.log(result); }
                 });
                 
-                
-                //$.ajax({
-
-                //    url: '@Url.Content("~/")' + "ApplicationTransaction_Request/AjaxUpload",
-                //    type: "POST",
-                //    data: obj,
-
-                   
-                //    success: function (r) {
-                //        alert("CustomerId: " );
-                //    }
-                //});
+              
             });
 
 
