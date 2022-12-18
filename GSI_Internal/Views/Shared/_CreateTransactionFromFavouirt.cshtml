@@ -83,38 +83,38 @@
                                  class="dataTables_wrapper dt-bootstrap4">
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <table class="table table-striped mb-0" id="DataTables_Table_0"
+                                        <table  class="table table-striped mb-0" id="DataTables_Table_0"
                                                role="grid" aria-describedby="DataTables_Table_0_info">
                                            
                                             <thead>
                                             <tr role="row">
-                                            
+                                            <th></th>
                                             <th class="sorting">Requirement Name</th>
                                             <th class="sorting">Choose New file</th>
                                             <th class="sorting">Choose From Wallet</th>
                                             <th class="sorting">save to wallet</th>
                                             </thead>
-                                            <tbody>
+                                            <tbody id="tblBody" >
 
                                                 @for (var i = 0; i < Model.RequirmentsFileAttachmentVM.Count; i++)
                                             {
                                                     <tr role="row" class="odd">
-                                                       @* <td></td>*@
+                                                        <td> <input name="RequireID" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID" /></td>
                                                         <div class="container">
                                                             <div class="row">
                                                                 <div class="col-4">
                                                         <td>
                                                             <i class="fa fa-upload"></i>
-                                                            <input type="hidden" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID" />   @Model.RequirmentsFileAttachmentVM[i].RequireName_English
+                                                            <input type="hidden" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID" />   @Model.RequirmentsFileAttachmentVM[i].RequireName_English 
                                                         </td>
                                         </div>
                                         <div class="col-4">
 
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="file" id="myfile"
+                                                    <input type="file" class="myfile"
                                                        asp-for="@Model.RequirmentsFileAttachmentVM[i].FileName_FormFIle"
-                                                       name="myfile">
+                                                       name="FileNameFormFile" accept="image/pdf">
                                                 </div>
 
                                             </td>
@@ -134,7 +134,7 @@
                                         </div>
                                         <div class="col-4">
                                             <td>
-                                                <button class="theme-btn btn-style-two">
+                                                <button type="button" class="btnAdd theme-btn btn-style-two">
                                                     save
                                                 </button>
                                             </td>

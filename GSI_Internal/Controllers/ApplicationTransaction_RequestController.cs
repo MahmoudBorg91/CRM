@@ -20,8 +20,10 @@ using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 using GSI_Internal.Migrations;
+using GSI_Internal.Repositry.Client_WalletRepo;
 using Microsoft.AspNetCore.Identity;
 using ApplicationTransaction_Request = GSI_Internal.Entites.ApplicationTransaction_Request;
+using client_wallet = GSI_Internal.Entites.client_wallet;
 using RequestInquiry_Answer = GSI_Internal.Entites.RequestInquiry_Answer;
 using RequestSelection = GSI_Internal.Entites.RequestSelection;
 
@@ -36,12 +38,13 @@ namespace GSI_Internal.Controllers
         private readonly IApplicationTransaction_RequestRepo applicationTransaction_RequestRepo;
         private readonly IRequirmentsFileAttachmentRepo requirmentsFileAttachmentRepo;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IClientWalletRepo _clientWalletRepo;
 
         public ApplicationTransaction_RequestController(dbContainer db, IRequirementsRepo requirementsRepo,
             IAssignRequirmentToItemRepo assignRequirmentToItemRepo, ITransactionItemRepo transactionItemRepo,
             IApplicationTransaction_RequestRepo applicationTransaction_RequestRepo,
             IRequirmentsFileAttachmentRepo requirmentsFileAttachmentRepo ,
-            UserManager<ApplicationUser> _userManager)
+            UserManager<ApplicationUser> _userManager,IClientWalletRepo clientWalletRepo)
         {
             this.db = db;
             this.requirementsRepo = requirementsRepo;
@@ -50,6 +53,7 @@ namespace GSI_Internal.Controllers
             this.applicationTransaction_RequestRepo = applicationTransaction_RequestRepo;
             this.requirmentsFileAttachmentRepo = requirmentsFileAttachmentRepo;
             this._userManager = _userManager;
+            _clientWalletRepo = clientWalletRepo;
         }
         [AllowAnonymous]
         public IActionResult Index(int id)
@@ -95,8 +99,50 @@ namespace GSI_Internal.Controllers
             return View(data);
             //  return RedirectToAction("Index",data);
         }
+        [HttpPost]
+        //[Route("ApplicationTransaction_Request/AjaxUpload")]
+        public async  Task<ActionResult> AjaxUpload(ClientWalletVM formData)
+        {
+            client_wallet newwallet = new client_wallet();
+            if (ModelState.IsValid)
+            {
+                newwallet.UserId = _userManager.Users
+                    .Where(a => a.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Select(a => a.Id)
+                    .FirstOrDefault();
+                newwallet.TheDateFile= DateTime.Now;
+                newwallet.RequireID = formData.RequireID;
+                //newwallet.FileName= 
+                string uploadFilesAttachPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/UploadFiles/";
+                string uploadFilesAttachename = (requirementsRepo.GetAll().Where(a => a.ID == formData.RequireID).Select(a => a.RequirementName_English).FirstOrDefault() + Guid.NewGuid().ToString() + "_" + System.IO.Path.GetExtension(formData.FileNameFormFile.FileName));
 
-        //[DisableRequestSizeLimit]
+                await using (var fileStream = new FileStream(Path.Combine(uploadFilesAttachPath, uploadFilesAttachename), FileMode.Create))
+                {
+                    await formData.FileNameFormFile.CopyToAsync(fileStream);
+                }
+
+                _clientWalletRepo.AddObj(newwallet);
+
+
+            }
+        return Json(true);
+        //    var path = "";
+        //    foreach (var formFile in files)
+        //    {
+        //        if (formFile.Length > 0)
+        //        {
+        //            path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", formFile.FileName);
+        //            var filePath = Path.GetTempFileName();
+
+        //            using (var stream = System.IO.File.Create(path))
+        //            {
+        //                await formFile.CopyToAsync(stream);
+        //            }
+        //        }
+        //    }
+        //    return Json(true);
+        //}
+    }
+//[DisableRequestSizeLimit]
         [HttpPost]
         [AllowAnonymous]
        
