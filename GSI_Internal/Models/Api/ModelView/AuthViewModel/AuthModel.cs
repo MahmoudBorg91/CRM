@@ -20,6 +20,8 @@ namespace GSI_Internal.Models.Api.ModelView.AuthViewModel
         public bool IsUser { get; set; } = false;
         public bool IsAdmin { get; set; } = false;
 
+        public int  UserType { get; set; }
+
         public string Message { get; set; }
         public string ArMessage { get; set; }
         public int ErrorCode { get; set; }
