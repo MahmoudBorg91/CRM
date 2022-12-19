@@ -100,8 +100,32 @@
 
      </div>
 
-                    <partial name="_CreateTransactionFromFavouirt" model="new ApplicationTrans_RequestVM() { TransiactionItem_Code = item.ID, RequirmentsFileAttachmentVM = assignRequirmentToItemRepo.GetAll().Where(r => r.TransactionItemID == item.ID).Select(c => new RequirmentsFileAttachmentVM() { RequireID = c.RequirmentID, RequireName_Arabic = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_Arabic).FirstOrDefault(), RequireName_English = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_English).FirstOrDefault(), FileHistoryName = requirmentsFileAttachmentRepo.GetAll().Where(r => r.RequireID == c.RequirmentID && r.UserID == User.FindFirstValue(ClaimTypes.NameIdentifier) && r.FileName != null).Select(a => new RequirmentsFileAttachmentVM() { RequireID = a.RequireID, FileName = a.FileName, RequireName_Arabic = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_Arabic).FirstOrDefault(), RequireName_English = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_English).FirstOrDefault(), AppDateTime = applicationTransactionRequestRepo.GetAll().Where(t => t.ID == a.App_Code).Select(a => a.The_Date).FirstOrDefault() } ) }).ToList(), RequestInquiry_Answer_VM = assignInquireytToItemRepo.GetAll().Where(n => n.TransactionItemID == item.ID).Select(m => new RequestInquiry_Answer_VM() { InquiryID = m.InquiryID, InquiryName_Arabic = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.InquiryName_Arabic).FirstOrDefault(), InquiryName_English = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.InquiryName_English).FirstOrDefault(), Inquiry_Type = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.Inquiry_Type).FirstOrDefault() }).ToList(), RequestSelectionVM = AssignSelectionToItemRepo.GetAll().Where(n => n.TransactionItemID == item.ID).Select( m => new RequestSelectionVM() { SelectionID = m.SelectionID, SelectionName_Arabic = TransiactionItemSelectionRepo.GetAll().Where(s => s.ID == m.SelectionID) .Select(c => c.SelectionName_Arabic).FirstOrDefault(), SelectionName_English = TransiactionItemSelectionRepo.GetAll().Where(s => s.ID == m.SelectionID) .Select(c => c.SelectionName_English).FirstOrDefault(), SelectionGroupID = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select i.SelectionGroupID).FirstOrDefault(), Selection_GroupName_English = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select g.Selection_GroupName_English).FirstOrDefault(), Selection_GroupName_Arab = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select g.Selection_GroupName_Arab).FirstOrDefault() }).ToList() }"></partial>
+    <partial name="_CreateTransactionFromFavouirt" model="new ApplicationTrans_RequestVM() {
+TransiactionItem_Code = item.ID, RequirmentsFileAttachmentVM = assignRequirmentToItemRepo.GetAll().Where(r => r.TransactionItemID == item.ID).Select(c => new RequirmentsFileAttachmentVM() { RequireID = c.RequirmentID, RequireName_Arabic = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_Arabic).FirstOrDefault(), RequireName_English = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_English).FirstOrDefault(), FileHistoryName = requirmentsFileAttachmentRepo.GetAll().Where(r => r.RequireID == c.RequirmentID && r.UserID == User.FindFirstValue(ClaimTypes.NameIdentifier) && r.FileName != null).Select(a => new RequirmentsFileAttachmentVM() { RequireID = a.RequireID, FileName = a.FileName, RequireName_Arabic = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_Arabic).FirstOrDefault(), RequireName_English = requirementsRepo.GetAll().Where(x => x.ID == c.RequirmentID).Select(a => a.RequirementName_English).FirstOrDefault(), AppDateTime = applicationTransactionRequestRepo.GetAll().Where(t => t.ID == a.App_Code).Select(a => a.The_Date).FirstOrDefault() } ) }).ToList(), RequestInquiry_Answer_VM = assignInquireytToItemRepo.GetAll().Where(n => n.TransactionItemID == item.ID).Select(m => new RequestInquiry_Answer_VM() { InquiryID = m.InquiryID, InquiryName_Arabic = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.InquiryName_Arabic).FirstOrDefault(), InquiryName_English = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.InquiryName_English).FirstOrDefault(), Inquiry_Type = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.Inquiry_Type).FirstOrDefault() }).ToList(), RequestSelectionVM = AssignSelectionToItemRepo.GetAll().Where(n => n.TransactionItemID == item.ID).Select( m => new RequestSelectionVM() { SelectionID = m.SelectionID, SelectionName_Arabic = TransiactionItemSelectionRepo.GetAll().Where(s => s.ID == m.SelectionID) .Select(c => c.SelectionName_Arabic).FirstOrDefault(), SelectionName_English = TransiactionItemSelectionRepo.GetAll().Where(s => s.ID == m.SelectionID) .Select(c => c.SelectionName_English).FirstOrDefault(), SelectionGroupID = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select i.SelectionGroupID).FirstOrDefault(), Selection_GroupName_English = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select g.Selection_GroupName_English).FirstOrDefault(), Selection_GroupName_Arab = (from i in TransiactionItemSelectionRepo.GetAll() join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID select g.Selection_GroupName_Arab).FirstOrDefault() }).ToList() }"></partial>
 }
+
+
+<div class="row clearfix">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="col-lg-3 col-md-4 col-sm-12 form-group">
+            <button class="theme-btn btn-style-two" type="submit" name="submit-form">Submit</button>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 form-group">
+            <button class="theme-btn btn-style-two" type="submit" name="submit-form">
+                Save to
+                Draft
+            </button>
+        </div>
+    }
+    
+    <div class="col-lg-4 col-md-4 col-sm-12 form-group">
+        <button class="theme-btn btn-style-two" type="submit" name="submit-form">
+            Back to Home
+            page
+        </button>
+    </div>
+</div>
 </div>
 </form>
 </section>
@@ -111,6 +135,40 @@
 
       <script>
           $(function() {
+
+
+
+            $("#tblBody").on("click", ".btnAdd", function () {
+                var  tr = $(this).closest('tr');
+                var requireID = tr.find('td:eq(0) input').val();
+
+                var FileNameFormFile = tr.find('td:eq(2) input')[0].files[0];
+              
+                var formdata = new FormData();
+
+                formdata.append("FileNameFormFile", FileNameFormFile);
+                formdata.append("requireID", requireID);
+               
+
+               
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Content("~/")' + "ApplicationTransaction_Request/AjaxUpload",
+                    data: formdata,
+
+                    contentType: false,
+                    processData: false,
+                    success: function(result) {
+                         tr.find
+                    },
+                    error: function (result) { console.log(result); }
+                });
+                
+              
+            });
+
+
+
 
               $('#btnSubmit').click(function () {
                       $('.spinner').css('display', 'block');

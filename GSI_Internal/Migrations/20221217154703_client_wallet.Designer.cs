@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20221217154703_client_wallet")]
+    partial class client_wallet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -402,34 +404,6 @@ namespace GSI_Internal.Migrations
                     b.HasIndex("TransactionItemID");
 
                     b.ToTable("tbl_AssignSelectionToItem");
-                });
-
-            modelBuilder.Entity("GSI_Internal.Entites.client_wallet", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("FileName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RequireID")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TheDateFile")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RequireID");
-
-                    b.ToTable("tbl_client_wallet");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.Notification", b =>
@@ -999,17 +973,6 @@ namespace GSI_Internal.Migrations
                     b.Navigation("TransactionItem");
 
                     b.Navigation("TransiactionItem_Selection");
-                });
-
-            modelBuilder.Entity("GSI_Internal.Entites.client_wallet", b =>
-                {
-                    b.HasOne("GSI_Internal.Entites.Requirements", "Requirements")
-                        .WithMany()
-                        .HasForeignKey("RequireID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Requirements");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.NotificationConfirmed", b =>

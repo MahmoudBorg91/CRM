@@ -30,19 +30,19 @@ $(() => {
     checkTransactTimeBySignalR();
     function loadRequest() {
 
-        var NewRequest_count = 0;
-        var RequestSubmation_count = 0;
-        var RequsetToPayment_count = '';
-        var RequestPaymentDone_count = '';
-        var RequestUnderProcessing_count = '';
-        var RequestDone_count = ''
-        var RequestMissingInformation_count = '';
-        var RequestMissingProcessing_count = '';
-        var RequestRejectFromUS_count = '';
-        var RequestRejectFromEntity_count = '';
-        var RequestTransferAllUser = '';
-        var RequestTransferOneUser = '';
-        var RequestAll_count = '';
+        var newRequest_count = 0;
+        var requestSubmation_count = 0;
+        var requsetToPayment_count = '';
+        var requestPaymentDone_count = '';
+        var requestUnderProcessing_count = '';
+        var requestDone_count = ''
+        var requestMissingInformation_count = '';
+        var requestMissingProcessing_count = '';
+        var requestRejectFromUS_count = '';
+        var requestRejectFromEntity_count = '';
+        var requestTransferAllUser = '';
+        var requestTransferOneUser = '';
+        var requestAll_count = '';
 
         $.ajax({
             url: '/Dashboard/loadRequest',
@@ -52,35 +52,35 @@ $(() => {
                     (k, v) => {
 
 
-                        NewRequest_count = `${v.NewRequest_count}`;
-                        RequestSubmation_count = `${v.RequestSubmation_count}`;
-                        RequsetToPayment_count = `${v.RequsetToPayment_count}`;
-                        RequestPaymentDone_count = `${v.RequestPaymentDone_count}`;
-                        RequestUnderProcessing_count = `${v.RequestUnderProcessing_count}`;
-                        RequestDone_count = `${v.RequestDone_count}`;
-                        RequestMissingInformation_count = `${v.RequestMissingInformation_count}`;
-                        RequestMissingProcessing_count = `${v.RequestMissingProcessing_count}`;
-                        RequestRejectFromUS_count = `${v.RequestRejectFromUS_count}`;
-                        RequestRejectFromEntity_count = `${v.RequestRejectFromEntity_count}`;
-                        RequestTransferAllUser = `${v.RequestTransferAllUser}`;
-                        RequestTransferOneUser = `${v.RequestTransferOneUser}`;
-                        RequestAll_count = `${v.RequestAll_count}`;
+                        newRequest_count = `${v.newRequest_count}`;
+                        requestSubmation_count = `${v.requestSubmation_count}`;
+                        requsetToPayment_count = `${v.requsetToPayment_count}`;
+                        requestPaymentDone_count = `${v.requestPaymentDone_count}`;
+                        requestUnderProcessing_count = `${v.requestUnderProcessing_count}`;
+                        requestDone_count = `${v.requestDone_count}`;
+                        requestMissingInformation_count = `${v.requestMissingInformation_count}`;
+                        requestMissingProcessing_count = `${v.requestMissingProcessing_count}`;
+                        requestRejectFromUS_count = `${v.requestRejectFromUS_count}`;
+                        requestRejectFromEntity_count = `${v.requestRejectFromEntity_count}`;
+                        requestTransferAllUser = `${v.requestTransferAllUser}`;
+                        requestTransferOneUser = `${v.requestTransferOneUser}`;
+                        requestAll_count = `${v.requestAll_count}`;
 
                     });
-                console.log(NewRequest_count);
-                $("#NewRequest_count").text(NewRequest_count);
-                $("#RequestSubmation_count").text(RequestSubmation_count);
-                $("#RequsetToPayment_count").text(RequsetToPayment_count);
-                $("#RequestPaymentDone_count").text(RequestPaymentDone_count);
-                $("#RequestUnderProcessing_count").text(RequestUnderProcessing_count);
-                $("#RequestDone_count").text(RequestDone_count);
-                $("#RequestMissingInformation_count").text(RequestMissingInformation_count);
-                $("#RequestMissingProcessing_count").text(RequestMissingProcessing_count);
-                $("#RequestRejectFromUS_count").text(RequestRejectFromUS_count);
-                $("#RequestRejectFromEntity_count").text(RequestRejectFromEntity_count);
-                $("#RequestTransferAllUser").text(RequestTransferAllUser);
-                $("#RequestTransferOneUser").text(RequestTransferOneUser);
-                $("#RequestAll_count").text(RequestAll_count);
+                console.log(newRequest_count);
+                $("#newRequest_count").text(newRequest_count);
+                $("#requestSubmation_count").text(requestSubmation_count);
+                $("#requsetToPayment_count").text(requsetToPayment_count);
+                $("#requestPaymentDone_count").text(requestPaymentDone_count);
+                $("#requestUnderProcessing_count").text(requestUnderProcessing_count);
+                $("#requestDone_count").text(requestDone_count);
+                $("#requestMissingInformation_count").text(requestMissingInformation_count);
+                $("#requestMissingProcessing_count").text(requestMissingProcessing_count);
+                $("#requestRejectFromUS_count").text(requestRejectFromUS_count);
+                $("#requestRejectFromEntity_count").text(requestRejectFromEntity_count);
+                $("#requestTransferAllUser").text(requestTransferAllUser);
+                $("#requestTransferOneUser").text(requestTransferOneUser);
+                $("#requestAll_count").text(requestAll_count);
                 //  console.log($("#NewRequest_count").text);
             },
                 error:
@@ -120,10 +120,10 @@ $(() => {
 
 
                         ID = `${v.ID}`;
-                        StartTransactionTime = `${v.StartTransactionTime}`;
-                        EndTransactionTime = `${v.EndTransactionTime}`;
-                        UserID = `${v.UserID}`;
-                        TimeEnd = `${v.TimeEnd}`;
+                        StartTransactionTime = `${v.startTransactionTime}`;
+                        EndTransactionTime = `${v.endTransactionTime}`;
+                        UserID = `${v.userID}`;
+                        TimeEnd = `${v.timeEnd}`;
                         
 
                     });
@@ -225,7 +225,7 @@ $(() => {
                              <td>${v.transiactionItem_Name}</td>
                              <td >${v.numberOfTransiactionOfEntity}</td>
                              <td>${v.transiactionItem_Price}<br>${v.transiactionItem_GovernmentFees}</td>
-                             <td><a href="/Dashboard/CheckRequestApplicationToOpen/${v.iD
+                             <td><a href="/Dashboard/CheckRequestApplicationToOpen/${v.id
                             }" class="btn btn-warning">Check</a></td>
                               <tr>`;
 
@@ -270,16 +270,16 @@ $(() => {
 
                               <tr>
                                   <td>""</td>
-                             <td>${v.ID}</td>
-                             <td>${v.The_Date}</td>
-                             <td>${v.ClientName}<br>${v.ClientLastName}</td>
-                             <td>${v.ClientPhone}<br>${v.UserEmail}</td>
-                             <td>${v.Country_Name}</td>
-                             <td >${v.TransiactionItem_NameEnglish}</td>
-                             <td>${v.TransiactionItem_Name}</td>
-                             <td >${v.NumberOfTransiactionOfEntity}</td>
-                             <td>${v.TransiactionItem_Price}<br>${v.TransiactionItem_GovernmentFees}</td>
-                             <td><a href="/Dashboard/GetAppLicationToReview/${v.ID
+                             <td>${v.id}</td>
+                             <td>${v.the_Date}</td>
+                             <td>${v.clientName}<br>${v.clientLastName}</td>
+                             <td>${v.clientPhone}<br>${v.userEmail}</td>
+                             <td>${v.country_Name}</td>
+                             <td >${v.transiactionItem_NameEnglish}</td>
+                             <td>${v.transiactionItem_Name}</td>
+                             <td >${v.numberOfTransiactionOfEntity}</td>
+                             <td>${v.transiactionItem_Price}<br>${v.transiactionItem_GovernmentFees}</td>
+                             <td><a href="/Dashboard/GetAppLicationToReview/${v.id
                             }" class="btn btn-warning">Check</a></td>
                               <tr>`;
 

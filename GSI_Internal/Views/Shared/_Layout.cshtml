@@ -452,13 +452,39 @@
                             <button class="search-btn mobile-search-btn"><i class="flaticon-magnifying-glass"
                                     style="color: #c39946;font-weight: 800;"></i></button>
                         </div>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <form id="logoutForm  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <div class="cart-btn">
+                                <a href="#" style="color: #c39946;">
+                                        Hello @UserManager.GetUserName(User)!
+                                </a>
+                                <div class="shopping-cart">
+                                    <ul class="shopping-cart-items">
+                                        <li class="cart-item"> 
+                                            <a asp-controller="ClientDashboard" asp-action="Index" style="color: #c39946;" >My Dashbourd</a>
+                                        </li>
+                                        <li class="cart-item"> 
+                                            <button id="logout" type="submit" style="color: #c39946;">Logout</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </form>
 
-                        <div class="login-box">
-                            <button type="button" class="aon-btn-login" style="color: #c39946;" data-toggle="modal"
-                                data-target="#login-signup-model">
-                                <i class="fa fa-user"></i> Login / Register
-                            </button>
-                        </div>
+
+                         
+                        }
+                        @if (SignInManager.IsSignedIn(User)==false)
+                        {
+                            <div class="login-box">
+                                <button type="button" class="aon-btn-login" style="color: #c39946;" data-toggle="modal"
+                                        data-target="#login-signup-model">
+                                    <i class="fa fa-user"></i> Login / Register
+                                </button>
+                            </div>
+                        }
+                       
 
                     </div>
                 </div>
