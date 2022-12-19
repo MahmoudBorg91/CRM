@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using GSI_Internal.Entites;
+using GSI_Internal.Migrations;
 using GSI_Internal.Models.Api.DTO;
 using GSI_Internal.Models.Api.Helpers;
 using GSI_Internal.Models.Api.ModelView.AuthViewModel;
@@ -72,6 +73,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
                 NormalizedUserName = model.Email,
                 NormalizedEmail = model.Email,
                 Status = true,
+                UserType = 1,
 
             };
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -86,7 +88,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
             }
             else
             {
-                await _userManager.AddToRoleAsync(user, "User");
+                await _userManager.AddToRoleAsync(user, "Customer");
             }
 
 
@@ -96,8 +98,9 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
                 Email = newApplicationUser.Email,
                 FirstName = newApplicationUser.FirstName,
                 LastName = newApplicationUser.LastName,
+                UserType = newApplicationUser.UserType,
                 IsAuthenticated = true,
-                Roles = new List<string> { "Student" },
+                Roles = new List<string> { "Customer" },
                 PhoneVerify = newApplicationUser.PhoneNumberConfirmed,
                 Message = "Account successfully created  ",
                 ArMessage = "تم أنشاء الحساب بنجاح  "
@@ -132,6 +135,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
                 LastName = user.LastName,
                 IsAuthenticated = true,
                 Roles = rolesList,
+                UserType = user.UserType,
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
             };
 
@@ -169,7 +173,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
                 Message = "The password has been changed successfully",
                 ArMessage = "تم تغيير كلمة المرور بنجاح",
                 Email = user.Email,
-
+                UserType = user.UserType,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 IsAuthenticated = true,
@@ -202,6 +206,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
+                UserType = user.UserType,
                 IsAuthenticated = true,
                 Roles = rolesList.ToList(),
                 Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken)
@@ -264,6 +269,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
                 LastName = user.LastName,
                 IsAuthenticated = true,
                 Roles = rolesList.ToList(),
+                UserType = user.UserType
             };
             return result;
         }
@@ -275,20 +281,17 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
             if (user is null)
                 return "User not found!";
 
-            if (model.Roles != null && model.Roles.Count > 0)
+            if (model.Roles is not { Count: > 0 }) return " Role is empty";
+            foreach (var role in model.Roles)
             {
-                foreach (var role in model.Roles)
-                {
-                    if (!await _roleManager.RoleExistsAsync(role))
-                        return "Invalid Role";
-                    if (await _userManager.IsInRoleAsync(user, role))
-                        return "User already assigned to this role";
-                }
-                var result = await _userManager.AddToRolesAsync(user, model.Roles);
-
-                return result.Succeeded ? string.Empty : "Something went wrong";
+                if (!await _roleManager.RoleExistsAsync(role))
+                    return "Invalid Role";
+                if (await _userManager.IsInRoleAsync(user, role))
+                    return "User already assigned to this role";
             }
-            return " Role is empty";
+            var result = await _userManager.AddToRolesAsync(user, model.Roles);
+
+            return result.Succeeded ? string.Empty : "Something went wrong";
         }
 
         public Task<List<string>> GetRoles()
@@ -377,7 +380,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
                     ValidateIssuer = false,
                     ValidateAudience = false,
                     ClockSkew = TimeSpan.Zero
-                }, out SecurityToken validatedToken);
+                }, out var validatedToken);
 
                 var jwtToken = (JwtSecurityToken)validatedToken;
                 var accountId = jwtToken.Claims.First(x => x.Type == "uid").Value;
