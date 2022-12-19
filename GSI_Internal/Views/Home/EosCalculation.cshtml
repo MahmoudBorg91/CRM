@@ -1,0 +1,285 @@
+﻿
+@{
+    ViewData["Title"] = "EosCalculation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+<div class="modal fade" id="login-signup-model">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="close aon-login-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+            <div class="modal-body">
+
+                <div class="sf-custom-tabs sf-custom-new aon-logon-sign-area p-3">
+
+                    <!--Tabs-->
+                    <ul class="nav nav-tabs nav-table-cell">
+                        <li><a data-toggle="tab" href="#Upcoming" class="active">Login</a></li>
+                        <li><a data-toggle="tab" href="#Past">Sign up</a></li>
+                    </ul>
+                    <!--Tabs Content-->
+                    <div class="tab-content">
+
+                        <!--Login Form-->
+                        <div id="Upcoming" class="tab-pane active">
+                            <div class="sf-tabs-content">
+                                <form class="aon-login-form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box">
+                                                    <input class="form-control sf-form-control" name="company_name" type="text" placeholder="User Name">
+                                                    <i class="aon-input-icon fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box">
+                                                    <input class="form-control sf-form-control" name="company_name" type="password" placeholder="Password">
+                                                    <i class="aon-input-icon fa fa-lock"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group d-flex aon-login-option justify-content-between">
+                                                <div class="aon-login-opleft">
+                                                    <div class="checkbox sf-radio-checkbox">
+                                                        <input id="td2_2" name="abc" value="five" type="checkbox">
+                                                        <label for="td2_2">Keep me logged</label>
+                                                    </div>
+                                                </div>
+                                                <div class="aon-login-opright">
+                                                    <a href="#">Forget Password</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="site-button w-100">Submit <i class="feather-arrow-right"></i> </button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!--Sign up Form-->
+                        <div id="Past" class="tab-pane">
+                            <div class="sf-tabs-content">
+                                <form class="aon-login-form">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box">
+                                                    <input class="form-control sf-form-control" name="First_Name" type="text" placeholder="First Name">
+                                                    <i class="aon-input-icon fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box">
+                                                    <input class="form-control sf-form-control" name="company_name" type="password" placeholder="Last Name">
+                                                    <i class="aon-input-icon fa fa-user"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box">
+                                                    <input class="form-control sf-form-control" name="Phone" type="password" placeholder="Phone">
+                                                    <i class="aon-input-icon fa fa-phone"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box">
+                                                    <input class="form-control sf-form-control" name="email" type="password" placeholder="Email">
+                                                    <i class="aon-input-icon fa fa-envelope"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box">
+                                                    <input class="form-control sf-form-control" name="password" type="password" placeholder="Password">
+                                                    <i class="aon-input-icon fa fa-lock"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="aon-inputicon-box">
+                                                    <input class="form-control sf-form-control" name="password" type="password" placeholder="Confirm Password">
+                                                    <i class="aon-input-icon fa fa-lock"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="form-group sign-term-con">
+                                                <div class="checkbox sf-radio-checkbox">
+                                                    <input id="td33" name="abc" value="five" type="checkbox">
+                                                    <label for="td33">I've read and agree with your <a href="#">Privacy Policy</a> and <a href="#">Terms & Conditions</a> </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" class="site-button w-100">Submit <i class="feather-arrow-right"></i> </button>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Preloader -->
+    
+<!--End Main Header -->
+<!-- Contact Section -->
+<section class="contact-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h2>Account receivables</h2>
+            <span class="divider"></span>
+        </div>
+
+        <div class="row">
+            <!-- Map Column -->
+            <div class="contact-column col-lg-8 col-md-12 col-sm-12 m-auto">
+                <!-- Contact Widget -->
+                <div class="contact-widget ls-widget">
+                    <div class="widget-content">
+                        <!-- Comment Form -->
+                        <div class="default-form">
+                            <!--Comment Form-->
+                            <form action="#" method="post" id="email-form">
+                                <div class="row clearfix ">
+                                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                        <div class="response"></div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label for=""> Joining Date</label>
+                                        <input type="date" name="subject" class="subject"
+                                               placeholder="Choose Joining Date">
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label for="">Ending Date</label>
+                                        <input type="date" name="subject" class="subject"
+                                               placeholder="Choose Ending Date">
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label for=""> Basic Salary</label>
+                                        <input type="number" class="text" placeholder="Exa :20000" required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label for=""> Other Allowance</label>
+                                        <input type="number" name="subject" class="subject"
+                                               placeholder="Eax : 80000" required>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label for="">Number Of Unpaid Leave Days
+
+                                        </label>
+                                        <input type="number" name="subject" class="subject"
+                                               placeholder="Exa : 12 " required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label for="">Number Of paid Leave Days
+
+                                        </label>
+                                        <input type="number" name="subject" class="subject"
+                                               placeholder="Exa : 12 " required>
+                                    </div>
+                                    <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <button class="theme-btn btn-style-two" type="button" id="submit"
+                                                name="submit-form">
+                                            Submit Review
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Contact Section -->
+<!-- Main Footer -->
+<footer class="main-footer">
+    <!-- Footer Upper -->
+    <div class="footer-upper">
+        <ul class="footer-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About-us</a></li>
+            <li><a href="services.html">Services Directory</a></li>
+            <li><a href="Policy.html">Privacy & Policy</a></li>
+            <li><a href="terms.html">Terms & Condition</a></li>
+            <li><a href="contact.html">Contact-us</a></li>
+        </ul>
+    </div>
+
+    <!-- Footer Content -->
+    <div class="footer-content">
+        <div class="auto-container">
+            <ul class="social-icon-one">
+                <li><a href="#"><span class="fab fa-facebook"></span></a></li>
+                <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                <li><a href="#"><span class="fab fa-pinterest"></span></a></li>
+                <li><a href="#"><span class="fab fa-dribbble"></span></a></li>
+                <li><a href="#"><span class="fab fa-google"></span></a></li>
+            </ul>
+
+            <ul class="copyright-text">
+                <li>Copyright © 2022 Service Find</li>
+                <li>New York, NY</li>
+                <li><a href="#">+61 2 8236 9200</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <div class="text">Service find created by Lightbulb-tech</div>
+    </div>
+
+    <!-- Scroll To Top -->
+    <div class="scroll-to-top scroll-to-target" data-target="html" style="bottom: 105px;">
+        <span class="icon flaticon-mail"></span>
+    </div>
+    <div class="scroll-to-top bottom scroll-to-target" data-target="html" style="bottom: 7%;">
+        <span class="fab fa-whatsapp"></span>
+    </div>
+    <div class="scroll-to-top scroll-to-target" data-target="html">
+        <span class="icon flaticon-call"></span>
+    </div>
+</footer>
+<!-- End Footer -->
+
+</div>
+@section Scripts
+{
+    
+}
+

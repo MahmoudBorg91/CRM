@@ -333,6 +333,13 @@ namespace GSI_Internal.Controllers
             return View(data);
         }
 
+        public IActionResult EosCalculation()
+        {
+
+            return View();
+        }
+
+
         public IActionResult Privacy()
         {
             return View();

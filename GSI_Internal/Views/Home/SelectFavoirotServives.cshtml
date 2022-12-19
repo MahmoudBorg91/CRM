@@ -207,6 +207,13 @@ TransiactionItem_Code = item.ID, RequirmentsFileAttachmentVM = assignRequirmentT
                 }
             })(jQuery);
 
+            function OpenPoppup(element) {
+                currentImage = $(element);
+                var requireID
+                $('#currentRequireID').closest('tr').find('#currentRequireID').val();
+                $('#btnpopup').trigger('click');
+
+            }
 
             $("#tblBody").on("click", ".btnAdd", function () {
                 var  tr = $(this).closest('tr');

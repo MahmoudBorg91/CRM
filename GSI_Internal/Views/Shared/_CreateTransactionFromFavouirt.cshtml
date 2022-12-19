@@ -217,7 +217,8 @@
                                                                 <td>
                                                                         
 
-                                                                    <input type="button" class="btn theme-btn btn-style-two" data-toggle="modal" data-target="#tips-@Model.RequirmentsFileAttachmentVM[i].RequireID" value="Upload From PC "/>
+                                                                    <input type="button" class="btn theme-btn btn-style-two" id="btnpopup" style="background: #ffffff; "
+                                                                           data-toggle="modal" data-target="#tips-@Model.RequirmentsFileAttachmentVM[i].RequireID" value="Upload From PC "/>
 
 
 
@@ -231,6 +232,8 @@
                                                    
                                                     
                                                                         <div class="modal-dialog">
+                                                                            
+
 
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
@@ -239,18 +242,28 @@
                                                                                         <span aria-hidden="true">&times;</span>
                                                                                     </button>
                                                                                 </div>
+                                                                            
                                                                                 <div class="modal-body">
+                                                                                    <div class="row">
+                                                                                        <div class="col-lg-8 offset-2">
+                                                                                            <img class="img-responsive img-thumbnail" style="height:250px; width: 250px" src=""/>
+                                                                                        </div>
+                                                                                        
+                                                                                        <div class="col-lg-8 offset-2">
+                                                                                                 <input type="file" class="myfile" style="padding-top: 10px;left: 0px"
+                                                                                                   asp-for="@Model.RequirmentsFileAttachmentVM[i].FileName_FormFIle"
+                                                                                                   name="FileNameFormFile" accept="image/pdf">
+                                                                                        </div>
 
-                                                                                    <input type="file" class="myfile"
-                                                                                           asp-for="@Model.RequirmentsFileAttachmentVM[i].FileName_FormFIle"
-                                                                                           name="FileNameFormFile" accept="image/pdf">
-                                                                               
+                                                                                    </div>
+                                                                                    
 
                                                                                 </div>
                                                             
                                                                                 <div class="modal-footer">
                                                                                     <button type="button" class="btnAdd theme-btn btn-style-two">Save to my wallet</button>
                                                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <input type="hidden" id="currentRequireID" asp-for="@Model.RequirmentsFileAttachmentVM[i].RequireID" />
                                                                                 </div>
 
                                                                             </div>
@@ -297,33 +310,33 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row clearfix">
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                            <div class="col-lg-3 col-md-4 col-sm-12 form-group">
-                                <button class="theme-btn btn-style-two" type="submit" name="submit-form">Submit</button>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-12 form-group">
-                                <button class="theme-btn btn-style-two" type="submit" name="submit-form">
-                                    Save to
-                                    Draft
-                                </button>
-                            </div>
-                        }
-    
-                        <div class="col-lg-4 col-md-4 col-sm-12 form-group">
-                            <button class="theme-btn btn-style-two" type="submit" name="submit-form">
-                                Back to Home
-                                page
-                            </button>
-                        </div>
-                    </div>
+                  
             </div>
         </div>
     </div>
 </div>
 
 
-
+<div class="row clearfix">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="col-lg-3 col-md-4 col-sm-12 form-group">
+            <button class="theme-btn btn-style-two" type="submit" name="submit-form">Submit</button>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 form-group">
+            <button class="theme-btn btn-style-two" type="submit" name="submit-form">
+                Save to
+                Draft
+            </button>
+        </div>
+    }
+    
+    <div class="col-lg-4 col-md-4 col-sm-12 form-group">
+        <button class="theme-btn btn-style-two" type="submit" name="submit-form">
+            Back to Home
+            page
+        </button>
+    </div>
+</div>
 </div>
 
