@@ -45,6 +45,7 @@
             .card .card-content {
                 display: flex;
                 flex-direction: column;
+                height: 320px;
                 align-items: center;
                 padding: 30px;
                 position: relative;
@@ -151,10 +152,14 @@
             background: #c39946;
         }
 
+        .swiper-button-prev, .swiper-rtl .swiper-button-next {
+            left: 80px !important;
+        }
         .swiper-button-next,
         .swiper-button-prev {
             opacity: 0.7;
             color: #c39946;
+            right: 80px !important;
             top: 60% !important;
             transition: all 0.3s ease;
         }
@@ -610,7 +615,7 @@
             <!-- Scroll To Top -->
             <div class="scroll-to-top scroll-to-target" data-target="html" style="bottom: 105px;"><span
                     class="icon flaticon-mail"></span></div>
-            <div class="scroll-to-top bottom scroll-to-target" data-target="html" style="bottom: 7%;"><span
+            <div class="scroll-to-top bottom scroll-to-target" data-target="html" style="bottom: 8.5%;"><span
                     class="fab fa-whatsapp"></span></div>
             <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon flaticon-call"></span>
             </div>

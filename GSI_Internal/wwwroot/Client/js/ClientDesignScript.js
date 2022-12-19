@@ -1,5 +1,5 @@
 ﻿var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 5,
+        slidesPerView: 4,
         spaceBetween: 30,
         autoplaySpeed: 2000,
         slidesPerGroup: 1,
@@ -17,3 +17,4 @@
 
     }
 );
+
