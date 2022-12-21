@@ -1,0 +1,152 @@
+﻿@model EosCalcView
+@{
+    ViewData["Title"] = "EosCalculation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+
+    <!-- Preloader -->
+    <!--End Main Header -->
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <h2>Account receivables</h2>
+                <span class="divider"></span>
+            </div>
+
+            <div class="row">
+                <!-- Map Column -->
+                <div class="contact-column col-lg-8 col-md-12 col-sm-12 m-auto">
+                    <!-- Contact Widget -->
+                    <div class="contact-widget ls-widget">
+                        <div class="widget-content">
+                            <!-- Comment Form -->
+                            <div class="default-form">
+                                <!--Comment Form-->
+                              
+
+                                    <div class="row clearfix ">
+                                        <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                                            <div class="response"></div>
+                                        </div>
+                                       @*@* <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <label for=""> Joining Date</label>
+
+                                        <input asp-for="JoiningDate_Result" disabled type="text" name="JoiningDate_Result" class="subject">
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                            <label for="">Ending Date</label>
+                                            <input disabled asp-for="EndingDate_Result" type="text" name="EndingDate" class="subject"
+                                                   >
+                                        </div>*@*@
+
+                                      <hr/>
+                                        
+                                        <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                            <label for="">Sum Years</label>
+                                            <input asp-for="Year" disabled type="text" name="JoiningDate" class="subject"
+                                                  >
+                                        </div>
+                                        <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                        <label for="">Sum Months</label>
+                                        <input disabled asp-for="Month" type="text" name="Month" class="subject"
+                                                  >
+                                        </div>
+                                        <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                        <label for="">Sum Days</label>
+                                        <input disabled asp-for="Day"  type="text" name="Day" class="subject"
+                                                  >
+                                        </div>
+                                      <hr/>
+
+                                      <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                          <label for="">
+                                              Number Of Unpaid Leave Days
+
+                                          </label>
+                                          <input disabled asp-for="NumberOfUnpaidLeaveDays" type="number" name="NumberOfUnpaidLeaveDays" class="subject"
+                                                 required>
+                                      </div>
+                                      <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                          <label for="">
+                                              Total due Work Per Month 
+
+                                          </label>
+                                          <input disabled asp-for="ActWorkPerMonth" type="number" name="NumberOfUnpaidLeaveDays" class="subject"
+                                                  required>
+                                      </div>
+                                        <hr/>
+                                      <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                            <label for=""> Basic Salary</label>
+                                            <input asp-for="BasicSalary" disabled="" type="number" name="BasicSalary" class="text" placeholder="Exa :20000" required>
+                                        </div>
+                                      <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                          <label for=""> Other Allowance</label>
+                                          <input asp-for="OtherAllowance" type="number" disabled="" name="OtherAllowance" class="subject"
+                                                 placeholder="Eax : 80000" required>
+                                      </div>
+                                      <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                          <label for=""> Total Salary</label>
+                                        <input asp-for="TotalSalary" type="number" disabled="" name="TotalSalary" class="subject"
+                                                 placeholder="Eax : 80000" required>
+                                      </div>
+                                      <hr/>
+                                      <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                        <label for=""> End Of Services Benefit</label>
+                                          <input asp-for="EndOfServiceBenefit" disabled="" type="number" name="BasicSalary" class="text" placeholder="Exa :20000" required>
+                                      </div>
+                                      <hr/>
+                                      <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                          <label for="">
+                                              Accrued Vacation Days
+
+                                          </label>
+                                        <input disabled asp-for="AccruedVacationDays" type="number" name="AccruedVacationDays" class="subject"
+                                                 placeholder="Exa : 12 " required>
+                                      </div>
+                                      <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                          <label for="">
+                                              Number Of paid Leave Days
+
+                                          </label>
+                                          <input disabled asp-for="ExhaustedVacationDays" type="number" name="ExhaustedVacationDays" class="subject"
+                                                 placeholder="Exa : 12 " required>
+                                      </div>
+                                      <div class="col-lg-4 col-md-12 col-sm-12 form-group">
+                                          <label for="">
+                                              Remaining Vacation Days
+
+                                          </label>
+                                        <input disabled asp-for="remainingVacationDays" type="number" name="remainingVacationDays" class="subject"
+                                                 placeholder="Exa : 12 " required>
+                                      </div>
+                                      <hr/>
+                                      <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label for="">Amount Due</label>
+                                        <input asp-for="AmountDue" disabled type="text" name="AmountDue" class="subject"
+                                                 placeholder="Choose Joining Date">
+                                      </div>
+                                      <div class="col-lg-6 col-md-12 col-sm-12 form-group">
+                                        <label for="">Total Benefits And Vacations</label>
+                                        <input disabled asp-for="TotalBenefitsAndVacations" type="text" name="TotalBenefitsAndVacations" class="subject"
+                                                 placeholder="Choose Ending Date">
+                                      </div>
+                                       
+                                    </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Section -->
+    <!-- Main Footer -->
+    <
+    <!-- End Footer -->
+
+</div>
+

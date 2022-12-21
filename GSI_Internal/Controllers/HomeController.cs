@@ -26,6 +26,7 @@ using GSI_Internal.Repositry.SlideShowRepo;
 using GSI_Internal.Repositry.TransactionItemInquiryRepo;
 using GSI_Internal.Repositry.TransiactionItem_Selection_Repo;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace GSI_Internal.Controllers
 {
@@ -335,11 +336,117 @@ namespace GSI_Internal.Controllers
 
         public IActionResult EosCalculation()
         {
+            //List<SelectListItem> MoveType = new()
+            //{
+            //    new SelectListItem { Value = "0", Text = "End Services" },
+            //    new SelectListItem { Value = "1", Text = "Termination" },
+            //    new SelectListItem { Value = "2", Text = "cancellation" },
+                
+            //};
 
+            ////assigning SelectListItem to view Bag
+            //ViewBag.MoveType = MoveType;
             return View();
         }
+        [HttpPost]
+        public IActionResult EosCalculation(EosCalcView obj)
+        {
+               
+                EosCalcView EosCalc = new EosCalcView();
+                EosCalc.JoiningDate = obj.JoiningDate;
+                EosCalc.EndingDate = obj.EndingDate;
+                EosCalc.BasicSalary= obj.BasicSalary;
+                EosCalc.OtherAllowance = obj.OtherAllowance;
+
+                EosCalc.Year = obj.EndingDate.Year -obj.JoiningDate.Year;
+                EosCalc.Month = obj.EndingDate.Month -obj.JoiningDate.Month;
+                EosCalc.Day = obj.EndingDate.Day -obj.JoiningDate.Day;
+                EosCalc.NumberOfUnpaidLeaveDays = obj.NumberOfUnpaidLeaveDays;
+                EosCalc.ActWorkPerMonth = ((EosCalc.Year * 12) + (EosCalc.Month) + (EosCalc.Day / 30) -
+                                         (EosCalc.NumberOfUnpaidLeaveDays / 365.00000));
+                EosCalc.TotalSalary = obj.BasicSalary + obj.OtherAllowance;
+
+                if (EosCalc.ActWorkPerMonth <= 60 && EosCalc.ActWorkPerMonth >= 12)
+                {
+                    EosCalc.EndOfServiceBenefit = EosCalc.ActWorkPerMonth / 12 * (obj.BasicSalary * 21 / 30);
 
 
+                }
+
+                if(EosCalc.ActWorkPerMonth>60)
+                {
+                    EosCalc.EndOfServiceBenefit = 5 * (obj.BasicSalary * 21 / 30) +
+                                                  (EosCalc.ActWorkPerMonth - 60) * obj.BasicSalary / 12;
+
+                }
+                else
+                {
+                    EosCalc.EndOfServiceBenefit = 0;
+                }
+
+                if (EosCalc.ActWorkPerMonth > 12)
+                {
+                    EosCalc.AccruedVacationDays = EosCalc.ActWorkPerMonth * 2.5;
+                }
+
+                if (EosCalc.ActWorkPerMonth >= 6 && EosCalc.ActWorkPerMonth < 12)
+                {
+                    EosCalc.AccruedVacationDays = EosCalc.ActWorkPerMonth * 2;
+                }
+
+                if (EosCalc.ActWorkPerMonth < 6)
+                {
+                    EosCalc.AccruedVacationDays =  0;
+                }
+
+                EosCalc.ExhaustedVacationDays = obj.ExhaustedVacationDays;
+                EosCalc.remainingVacationDays = EosCalc.AccruedVacationDays - obj.ExhaustedVacationDays;
+
+                if (obj.MoveType == 0)
+                {
+                    EosCalc.AmountDue = (obj.TotalSalary / 30) * EosCalc.remainingVacationDays;
+
+                }
+
+                if (obj.MoveType==1 )
+                {
+                    EosCalc.AmountDue = (obj.BasicSalary / 30) * EosCalc.remainingVacationDays;
+                }
+                if (obj.MoveType == 2)
+                {
+                    EosCalc.AmountDue = (obj.BasicSalary / 30) * EosCalc.remainingVacationDays;
+                }
+
+              
+                EosCalc.TotalBenefitsAndVacations = EosCalc.EndOfServiceBenefit + EosCalc.AmountDue;
+
+
+            return RedirectToAction("ShowEosCalc",EosCalc);
+        }
+
+        public IActionResult ShowEosCalc(EosCalcView EosCalc)
+        {
+            EosCalcView res = new EosCalcView();
+            res.JoiningDate = EosCalc.JoiningDate;
+            res.EndingDate = EosCalc.EndingDate;
+            res.JoiningDate_Result= EosCalc.JoiningDate.ToShortDateString();
+            res.EndingDate_Result = EosCalc.EndingDate.ToShortDateString();
+            res.BasicSalary=EosCalc.BasicSalary;
+            res.TotalSalary = EosCalc.TotalSalary;
+            res.Year=EosCalc.Year;
+            res.Month = EosCalc.Month;
+            res.Day = EosCalc.Day;
+            res.NumberOfUnpaidLeaveDays = EosCalc.NumberOfUnpaidLeaveDays;
+            res.ActWorkPerMonth = EosCalc.ActWorkPerMonth;
+            res.EndOfServiceBenefit = EosCalc.EndOfServiceBenefit;
+            res.AccruedVacationDays = EosCalc.AccruedVacationDays;
+            res.ExhaustedVacationDays= EosCalc.ExhaustedVacationDays;
+            res.remainingVacationDays = EosCalc.remainingVacationDays;
+            res.AmountDue=EosCalc.AmountDue;
+            res.TotalBenefitsAndVacations=EosCalc.TotalBenefitsAndVacations;
+
+            return View(); 
+        }
         public IActionResult Privacy()
         {
             return View();
