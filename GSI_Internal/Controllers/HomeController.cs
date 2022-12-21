@@ -379,7 +379,7 @@ namespace GSI_Internal.Controllers
                                                   (EosCalc.ActWorkPerMonth - 60) * obj.BasicSalary / 12;
 
                 }
-                else
+                if(EosCalc.ActWorkPerMonth<12)
                 {
                     EosCalc.EndOfServiceBenefit = 0;
                 }
