@@ -12,6 +12,7 @@ namespace GSI_Internal.Models
         public string UserId { get; set; }
         [Required]
         public int RequireID { get; set; }
+        public string RequireName { get; set; }
 
         public DateTime TheDateFile { get; set; }
         public string FileName { get; set; }

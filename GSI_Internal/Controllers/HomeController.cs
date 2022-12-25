@@ -27,6 +27,7 @@ using GSI_Internal.Repositry.TransactionItemInquiryRepo;
 using GSI_Internal.Repositry.TransiactionItem_Selection_Repo;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
+using GSI_Internal.Repositry.Client_WalletRepo;
 
 namespace GSI_Internal.Controllers
 {
@@ -51,6 +52,7 @@ namespace GSI_Internal.Controllers
         private readonly IRequestSelection_GroupRepo _selectionGroupRepo;
         private readonly IApplicationTransaction_RequestRepo applicationTransactionRequestRepo;
         private readonly ISlideShowRepo _slideshowRepo;
+        private readonly IClientWalletRepo _clientWalletRepo;
 
         public HomeController(ILogger<HomeController> logger, dbContainer db, UserManager<ApplicationUser> userManager,
                               IHomeRepo homeRepo, IRequirementsRepo requirementsRepo, ITransactionItemRepo transactionItemRepo, 
@@ -59,7 +61,7 @@ namespace GSI_Internal.Controllers
                               IAssignInquireytToItemRepo assignInquireytToItemRepo, ITransactionItemInquiryReop transactionItemInquiryRepo,
                               ITransiactionItem_SelectionRepo itemSelectionRepo, IAssignSelectionToItemRepo assignSelectionToItemRepo,
                               IRequestSelection_GroupRepo selectionGroupRepo, IApplicationTransaction_RequestRepo applicationTransactionRequestRepo,
-                              ISlideShowRepo SlideshowRepo)
+                              ISlideShowRepo SlideshowRepo, IClientWalletRepo clientWalletRepo)
         {
             _logger = logger;
             this.db = db;
@@ -78,6 +80,7 @@ namespace GSI_Internal.Controllers
             _selectionGroupRepo = selectionGroupRepo;
             this.applicationTransactionRequestRepo = applicationTransactionRequestRepo;
             _slideshowRepo = SlideshowRepo;
+            _clientWalletRepo = clientWalletRepo;
         }
       
         public IActionResult Index()
@@ -169,6 +172,17 @@ namespace GSI_Internal.Controllers
             return View(homeVM);
         }
 
+
+        public FileResult DownloadFile(string fileName)
+        {
+
+            string path = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/UploadFiles/" + fileName;
+            //Read the File data into Byte Array.
+            byte[] bytes = System.IO.File.ReadAllBytes(path);
+            //Send the File to Download.
+            return File(bytes, "application/octet-stream", fileName);
+            //Build the File Path.
+        }
         public IActionResult SelectFavoirotServives( int id)
         {
            
@@ -259,7 +273,17 @@ namespace GSI_Internal.Controllers
                         Selection_GroupName_Arab = (from i in _itemSelectionRepo.GetAll()
                             join g in _selectionGroupRepo.GetAll() on i.SelectionGroupID equals g.ID
                             select g.Selection_GroupName_Arab).FirstOrDefault()
-                    }).ToList()
+                    }).ToList(),
+                ClientWalletVM =  _clientWalletRepo.GetAll().Where(a=>a.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Select(w=> new ClientWalletVM()
+                    {
+                    Id = w.Id,
+                    RequireID = w.RequireID,
+                    RequireName = requirementsRepo.GetAll().Where(x => x.ID == w.RequireID)
+                        .Select(a => a.RequirementName_Arabic).FirstOrDefault(),
+                    TheDateFile = w.TheDateFile,
+                    FileName = w.FileName,
+                    } 
+                    )
 
             }).OrderBy(a => a.ID).ToList();
      
@@ -358,7 +382,7 @@ namespace GSI_Internal.Controllers
                 EosCalc.BasicSalary= obj.BasicSalary;
                 EosCalc.OtherAllowance = obj.OtherAllowance;
 
-                EosCalc.Year = obj.EndingDate.Year -obj.JoiningDate.Year;
+                EosCalc.Year = obj.EndingDate.Year - obj.JoiningDate.Year;
                 EosCalc.Month = obj.EndingDate.Month -obj.JoiningDate.Month;
                 EosCalc.Day = obj.EndingDate.Day -obj.JoiningDate.Day;
                 EosCalc.NumberOfUnpaidLeaveDays = obj.NumberOfUnpaidLeaveDays;
@@ -402,23 +426,23 @@ namespace GSI_Internal.Controllers
                 EosCalc.ExhaustedVacationDays = obj.ExhaustedVacationDays;
                 EosCalc.remainingVacationDays = EosCalc.AccruedVacationDays - obj.ExhaustedVacationDays;
 
-                if (obj.MoveType == 0)
-                {
-                    EosCalc.AmountDue = (obj.TotalSalary / 30) * EosCalc.remainingVacationDays;
+                //if (obj.MoveType == 0)
+                //{
+                //    EosCalc.AmountDue = (obj.TotalSalary / 30) * EosCalc.remainingVacationDays;
 
-                }
+                //}
 
-                if (obj.MoveType==1 )
-                {
-                    EosCalc.AmountDue = (obj.BasicSalary / 30) * EosCalc.remainingVacationDays;
-                }
-                if (obj.MoveType == 2)
-                {
-                    EosCalc.AmountDue = (obj.BasicSalary / 30) * EosCalc.remainingVacationDays;
-                }
+                //if (obj.MoveType==1 )
+                //{
+                    
+                //}
+                //if (obj.MoveType == 2)
+                //{
+                //    EosCalc.AmountDue = (obj.BasicSalary / 30) * EosCalc.remainingVacationDays;
+                //}
+                EosCalc.AmountDue = (obj.BasicSalary / 30) * EosCalc.remainingVacationDays;
 
-              
-                EosCalc.TotalBenefitsAndVacations = EosCalc.EndOfServiceBenefit + EosCalc.AmountDue;
+            EosCalc.TotalBenefitsAndVacations = EosCalc.EndOfServiceBenefit + EosCalc.AmountDue;
 
 
             return RedirectToAction("ShowEosCalc",EosCalc);

@@ -57,7 +57,8 @@ namespace GSI_Internal.Models
         public IEnumerable<AssignInquireytToItemVM> AssignInquireytToItemVM { get; set; }
         public IEnumerable<RequestInquiry_Answer_VM> RequestInquiry_Answer_VM { get; set; }
         public IEnumerable<RequestSelectionVM> RequestSelectionVM { get; set; }
-        
+        public IEnumerable<ClientWalletVM> ClientWalletVM { get; set; }
+
 
 
 

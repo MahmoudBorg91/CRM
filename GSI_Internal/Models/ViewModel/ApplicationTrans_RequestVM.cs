@@ -62,6 +62,7 @@ namespace GSI_Internal.Models.ViewModel
        
         public string ApplicationFile { get; set; }
         public List<ApplocationRequireList> ApplocationRequireList { get; set; }
+        public List<ClientWalletVM> ClientWalletVM { get; set; }
 
 
 

@@ -100,6 +100,9 @@ namespace GSI_Internal.Controllers
             return View(data);
             //  return RedirectToAction("Index",data);
         }
+
+    
+
         [HttpPost]
         [Route("ApplicationTransaction_Request/AjaxUpload")]
         public async  Task<JsonResult> AjaxUpload(int requireID, IFormFile FileNameFormFile)
@@ -107,6 +110,7 @@ namespace GSI_Internal.Controllers
             client_wallet newwallet = new client_wallet();
             if (ModelState.IsValid)
             {
+               
                 newwallet.UserId = _userManager.Users
                     .Where(a => a.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Select(a => a.Id)
                     .FirstOrDefault();
@@ -126,23 +130,8 @@ namespace GSI_Internal.Controllers
 
 
             }
-        return Json(true);
-        //    var path = "";
-        //    foreach (var formFile in files)
-        //    {
-        //        if (formFile.Length > 0)
-        //        {
-        //            path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", formFile.FileName);
-        //            var filePath = Path.GetTempFileName();
-
-        //            using (var stream = System.IO.File.Create(path))
-        //            {
-        //                await formFile.CopyToAsync(stream);
-        //            }
-        //        }
-        //    }
-        //    return Json(true);
-        //}
+            return Json(true);
+       
     }
         [Route("ApplicationTransaction_Request/UploadImage")]
         [HttpPost]
