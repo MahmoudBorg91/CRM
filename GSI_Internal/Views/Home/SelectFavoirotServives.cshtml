@@ -129,7 +129,7 @@
             Inquiry_Type = transactionItemInquiryRepo.GetAll().Where(s => s.ID == m.InquiryID).Select(c => c.Inquiry_Type).FirstOrDefault() 
         }).ToList(),
     ClientWalletVM = _clientWalletRepo.GetAll().Where(a=> a.UserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).Select( w => new ClientWalletVM(){
-        UserId = w.UserId,
+        UserId = w.UserId  ,
         RequireID = w.RequireID,
         FileName = w.FileName,
         TheDateFile = w.TheDateFile,
@@ -267,11 +267,11 @@
                 formdata.append("FileNameFormFile", FileNameFormFile);
                 formdata.append("requireID", requireID);
 
-                var savetxt = $(this).parent().parent().parent().parent().parent().parent().parent()
-                    .parent().parent().parent().parent().parent().parent().children().eq(5).find('.tdc .fileFrom').val("mmmm");
+                //var savetxt = $(this).parent().prev().html();
+                //var savetxt = $(this).closest("tdc").find("input").val();
+               // var savetxt = $(this).closest('li').html();
 
-              
-                
+               
                 //savetxt.val = "Choose From PC";
                 $.ajax({
                     type: "POST",
@@ -283,8 +283,9 @@
                     success: function(result) {
                          alert("Save ");
 
+                        //savetxt2.val("country")
 
-
+                         //$('#fileFrom').val("");
 
                         console.log(savetxt);
 
