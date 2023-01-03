@@ -75,6 +75,8 @@
         InvalidGoogleToken,
         ErrorInCreatingUser,
         InvalidFacebookToken,
-        InvalidAppleToken
+        InvalidAppleToken,
+        ContactUsNotFound,
+        TransactionItemsNotFound
     }
 }

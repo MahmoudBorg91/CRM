@@ -31,6 +31,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Repositories
         public IBaseRepository<ApplicationTransaction_Request_Processing> ApplicationTransaction_Request_Processing { get; private set; }
         public IBaseRepository<Notification> Notifications { get; private set; }
         public IBaseRepository<NotificationConfirmed> NotificationsConfirmed { get; private set; }
+        public IBaseRepository<ContactUs> ContactUs { get; private set; }
 
 
         public UnitOfWork(dbContainer context)
@@ -59,6 +60,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Repositories
             ApplicationTransaction_Request_Processing = new BaseRepository<ApplicationTransaction_Request_Processing>(_context);
             Notifications = new BaseRepository<Notification>(_context);
             NotificationsConfirmed = new BaseRepository<NotificationConfirmed>(_context);
+            ContactUs = new BaseRepository<ContactUs>(_context);
 
 
 

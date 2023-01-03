@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
 using System.Linq;
+using GSI_Internal.Repositry.ApiRepositry.Interfaces;
 
 
 namespace GSI_Internal.Controllers
@@ -15,12 +16,14 @@ namespace GSI_Internal.Controllers
     public class TransiactionGroupController : Controller
     {
         private readonly ITransactionGroupRepo repo;
-      
-        public TransiactionGroupController(ITransactionGroupRepo repo )
+        private readonly IFileHandling _fileHandling;
+
+        public TransiactionGroupController(ITransactionGroupRepo repo, IFileHandling fileHandling)
         {
             this.repo = repo;
-           
+            _fileHandling = fileHandling;
         }
+      
         [Authorize(Permissions.Enitiy.View)]
         public IActionResult Index()
         {
@@ -42,6 +45,9 @@ namespace GSI_Internal.Controllers
                 string GroupPhotPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/Image/GroupTransPhoto/";
                 string Groupfilename = Guid.NewGuid() + System.IO.Path.GetFileName(obj.logo.FileName);
                 obj.logo.CopyTo(new System.IO.FileStream(GroupPhotPath + Groupfilename, System.IO.FileMode.Create));
+
+                // if file null or not 
+               // var imgUrl = _fileHandling.UploadFile(obj.logo, "GroupTransPhoto");
 
                 TransactionGroup newobj = new TransactionGroup();
                 newobj.ID = obj.ID;
@@ -87,6 +93,7 @@ namespace GSI_Internal.Controllers
                 {
                     if (obj.logo != null)
                     {
+                       // var imgUrl = _fileHandling.UploadFile(obj.logo, "GroupTransPhoto", obj.image);
                         string filePath = Directory.GetCurrentDirectory() + "/wwwroot/Image/GroupTransPhoto/" + obj.logo.FileName;
                         System.IO.File.Delete(filePath);
                     }

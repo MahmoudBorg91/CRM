@@ -20,6 +20,7 @@ using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 using GSI_Internal.Migrations;
+using GSI_Internal.Repositry.ApiRepositry.Interfaces;
 using GSI_Internal.Repositry.Client_WalletRepo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -30,6 +31,7 @@ using RequestSelection = GSI_Internal.Entites.RequestSelection;
 
 namespace GSI_Internal.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ApplicationTransaction_RequestController : Controller
     {
         private readonly dbContainer db;
@@ -40,12 +42,15 @@ namespace GSI_Internal.Controllers
         private readonly IRequirmentsFileAttachmentRepo requirmentsFileAttachmentRepo;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IClientWalletRepo _clientWalletRepo;
+        private readonly IFileHandling _fileHandling;
+
 
         public ApplicationTransaction_RequestController(dbContainer db, IRequirementsRepo requirementsRepo,
             IAssignRequirmentToItemRepo assignRequirmentToItemRepo, ITransactionItemRepo transactionItemRepo,
             IApplicationTransaction_RequestRepo applicationTransaction_RequestRepo,
             IRequirmentsFileAttachmentRepo requirmentsFileAttachmentRepo ,
-            UserManager<ApplicationUser> _userManager,IClientWalletRepo clientWalletRepo)
+            UserManager<ApplicationUser> _userManager,IClientWalletRepo clientWalletRepo ,
+            IFileHandling fileHandling)
         {
             this.db = db;
             this.requirementsRepo = requirementsRepo;
@@ -55,6 +60,7 @@ namespace GSI_Internal.Controllers
             this.requirmentsFileAttachmentRepo = requirmentsFileAttachmentRepo;
             this._userManager = _userManager;
             _clientWalletRepo = clientWalletRepo;
+            _fileHandling = fileHandling;
         }
         [AllowAnonymous]
         public IActionResult Index(int id)
@@ -241,6 +247,7 @@ namespace GSI_Internal.Controllers
                         {
                             if (ApplicationFile.FileName_FormFIle != null)
                             {
+                          
                                 string uploadFilesAttachPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/UploadFiles/";
                                 string uploadFilesAttachename = (requirementsRepo.GetAll().Where(a => a.ID == ApplicationFile.RequireID).Select(a => a.RequirementName_English).FirstOrDefault() + Guid.NewGuid().ToString() + "_" + System.IO.Path.GetExtension(ApplicationFile.FileName_FormFIle.FileName));
 

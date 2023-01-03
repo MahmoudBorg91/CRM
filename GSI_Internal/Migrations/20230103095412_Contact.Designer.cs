@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    [Migration("20221215030701_updateNotifecation")]
-    partial class updateNotifecation
+    [Migration("20230103095412_Contact")]
+    partial class Contact
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -404,6 +404,83 @@ namespace GSI_Internal.Migrations
                     b.HasIndex("TransactionItemID");
 
                     b.ToTable("tbl_AssignSelectionToItem");
+                });
+
+            modelBuilder.Entity("GSI_Internal.Entites.client_wallet", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RequireID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("TheDateFile")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RequireID");
+
+                    b.ToTable("tbl_client_wallet");
+                });
+
+            modelBuilder.Entity("GSI_Internal.Entites.ContactUs", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FaceBookLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InstagramLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Link")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LinkedInLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TermsAndConditions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TermsAndConditionsAr")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TwitterLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WhatsAppNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("YouTubeLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactUs");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.Notification", b =>
@@ -973,6 +1050,17 @@ namespace GSI_Internal.Migrations
                     b.Navigation("TransactionItem");
 
                     b.Navigation("TransiactionItem_Selection");
+                });
+
+            modelBuilder.Entity("GSI_Internal.Entites.client_wallet", b =>
+                {
+                    b.HasOne("GSI_Internal.Entites.Requirements", "Requirements")
+                        .WithMany()
+                        .HasForeignKey("RequireID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Requirements");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.NotificationConfirmed", b =>

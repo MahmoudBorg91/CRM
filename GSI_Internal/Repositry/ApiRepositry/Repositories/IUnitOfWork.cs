@@ -37,6 +37,7 @@ namespace GSI_Internal.Repositry.ApiRepositry.Repositories
 
         IBaseRepository<Notification> Notifications { get; }
         IBaseRepository<NotificationConfirmed> NotificationsConfirmed { get; }
+        IBaseRepository<ContactUs> ContactUs { get; }
 
         //-----------------------------------------------------------------------------------
 
