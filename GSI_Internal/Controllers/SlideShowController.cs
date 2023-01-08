@@ -90,9 +90,9 @@ namespace GSI_Internal.Controllers
         }
 
 
-        [ActionName("Edit")]
-        [HttpPost]
-        public IActionResult ConEdit(SlideShowVM obj)
+    
+        [HttpPut]
+        public IActionResult Edit(SlideShowVM obj)
         {
             if (ModelState.IsValid)
             {
