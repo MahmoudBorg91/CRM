@@ -3,6 +3,8 @@ using System.IO;
 using System.Linq;
 using GSI_Internal.Entites;
 using GSI_Internal.Models;
+using GSI_Internal.Repositry.ApiRepositry.Interfaces;
+using GSI_Internal.Repositry.ApiRepositry.Services;
 using GSI_Internal.Repositry.SlideShowRepo;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,10 +13,12 @@ namespace GSI_Internal.Controllers
     public class SlideShowController : Controller
     {
         private readonly ISlideShowRepo _showRepo;
+        private readonly IFileHandling _fileHandling;
 
-        public SlideShowController(ISlideShowRepo showRepo)
+        public SlideShowController(ISlideShowRepo showRepo, IFileHandling fileHandling)
         {
             _showRepo = showRepo;
+            _fileHandling = fileHandling;
         }
         public IActionResult Index()
         {
@@ -39,17 +43,24 @@ namespace GSI_Internal.Controllers
         {
             if (ModelState.IsValid)
             {
-                string SlidePhotPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/Image/SlideShow/";
-                string Slidefilename = Guid.NewGuid() + System.IO.Path.GetFileName(obj.SlideImageFormFile.FileName);
-                obj.SlideImageFormFile.CopyTo(new System.IO.FileStream(SlidePhotPath + Slidefilename, System.IO.FileMode.Create));
-
                 SlideShow newobj = new SlideShow();
+
+                if (obj.SlideImageFormFile != null)
+                {
+                    var imgUrl = _fileHandling.UploadFile(obj.SlideImageFormFile, "SlideShow");
+
+                    newobj.SlideImage = imgUrl.Result;
+                }
+
+
+         
+               
                 newobj.ID = obj.ID;
                 newobj.ReSizeme_Arabic = obj.ReSizeme_Arabic;
                 newobj.ReSizeme_English = obj.ReSizeme_English;
                 newobj.Title_Arabic=obj.Title_Arabic;
                 newobj.Title_English=obj.Title_English;
-                newobj.SlideImage= Slidefilename;
+               // newobj.SlideImage= Slidefilename;
                
                 _showRepo.AddObj(newobj);
                 return RedirectToAction("Index");
@@ -60,31 +71,10 @@ namespace GSI_Internal.Controllers
             }
 
         }
-        private string ProcessUploadedFile(SlideShowVM model)
+  
+        public IActionResult Edit(int ID)
         {
-            string uniqueFileName = null;
-            string path = Directory.GetCurrentDirectory() + "/wwwroot/Image/SlideShow/";
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
-            if (model.SlideImageFormFile != null)
-            {
-                string uploadsFolder = Directory.GetCurrentDirectory() + "/wwwroot/Image/SlideShow/";
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.SlideImageFormFile.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    model.SlideImageFormFile.CopyTo(fileStream);
-                }
-            }
-
-            return uniqueFileName;
-        }
-        public IActionResult Edit(int id)
-        {
-            var data = _showRepo.GetByID(id);
+            var data = _showRepo.GetByID(ID);
             SlideShowVM obj = new SlideShowVM();
             obj.ID = data.ID;
             obj.ReSizeme_Arabic = data.ReSizeme_Arabic;
@@ -99,13 +89,15 @@ namespace GSI_Internal.Controllers
             return View(obj);
         }
 
+
+        [ActionName("Edit")]
         [HttpPost]
-       
-        public IActionResult Edit(SlideShowVM obj)
+        public IActionResult ConEdit(SlideShowVM obj)
         {
             if (ModelState.IsValid)
             {
-
+                var data = _showRepo.GetByID(obj.ID);
+                string oldImage = data.SlideImage;
 
                 SlideShow newobj = new SlideShow();
                 newobj.ID = obj.ID;
@@ -115,16 +107,13 @@ namespace GSI_Internal.Controllers
                 newobj.Title_English = obj.Title_English;
                 if (obj.SlideImageFormFile != null)
                 {
-                    if (obj.SlideImageFormFile != null)
-                    {
-                        string filePath = Directory.GetCurrentDirectory() + "/wwwroot/Image/SlideShow/" + obj.SlideImageFormFile.FileName;
-                        System.IO.File.Delete(filePath);
-                    }
+                    var imgUrl = _fileHandling.UploadFile(obj.SlideImageFormFile, "SlideShow", oldImage);
 
+                    newobj.SlideImage = imgUrl.Result;
 
-
-                    newobj.SlideImage = ProcessUploadedFile(obj);
                 }
+
+
 
 
 
@@ -137,7 +126,14 @@ namespace GSI_Internal.Controllers
             {
                 return View();
             }
+
+
+
+           
         }
+
+
+      
 
         public IActionResult Delete(int id)
         {

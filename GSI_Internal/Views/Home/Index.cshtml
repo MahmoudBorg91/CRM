@@ -12,7 +12,7 @@
 
         @foreach (var item in Model.SlideShowVM)
         {
-            <div class="slide-item" style="background-image: url(/Image/SlideShow/@item.SlideImage);">
+            <div class="slide-item" style="background-image: url(~/@item.SlideImage);">
                 <div class="slide-content">
                     <div class="auto-container">
                         <h2>@item.Title_English</h2>

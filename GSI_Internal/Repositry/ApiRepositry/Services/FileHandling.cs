@@ -41,6 +41,28 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
             return path;
         }
 
+        public async Task<string> UploadFile(IFormFile file, string folder, string name, string oldFilePAth = null)
+        {
+            var uploads = Path.Combine(_webHostEnvironment.WebRootPath, $"Files/{folder}");
+            if (!Directory.Exists(uploads))
+            {
+                Directory.CreateDirectory(uploads);
+            }
+            var uniqueFileName = RandomString(10) + "_" + name +"_"+ file.FileName;
+            var filePath = Path.Combine(uploads, uniqueFileName);
+            await using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(fileStream);
+            }
+            var path = Path.Combine($"/Files/{folder}", uniqueFileName);
+            var old = $"{_webHostEnvironment.WebRootPath}/{oldFilePAth}";
+            if (oldFilePAth != null && File.Exists(old))
+            {
+                File.Delete(old);
+            }
+            return path;
+        }
+
         public async Task<string> UploadPhotoBase64(string stringFile, string folderName = "Student", string oldFilePAth = null)
         {
             var mystr = stringFile.Split(',').ToList<string>();

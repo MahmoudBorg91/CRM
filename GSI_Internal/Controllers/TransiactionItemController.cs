@@ -1,6 +1,7 @@
 ﻿using GSI_Internal.Contants;
 using GSI_Internal.Entites;
 using GSI_Internal.Models;
+using GSI_Internal.Repositry.ApiRepositry.Interfaces;
 using GSI_Internal.Repositry.TransactionGroupRepo;
 using GSI_Internal.Repositry.TransactionItemRepo;
 using GSI_Internal.Repositry.TransactionSupGroupRepo;
@@ -19,12 +20,15 @@ namespace GSI_Internal.Controllers
         private readonly ITransactionItemRepo transactionItemRepo;
         private readonly ITransactionGroupRepo transactionGroupRepo;
         private readonly ITransactionSubGroupRepo transactionSubGroupRepo;
+        private readonly IFileHandling _fileHandling;
 
-        public TransiactionItemController(ITransactionItemRepo transactionItemRepo, ITransactionGroupRepo transactionGroupRepo, ITransactionSubGroupRepo transactionSubGroupRepo)
+        public TransiactionItemController(ITransactionItemRepo transactionItemRepo, ITransactionGroupRepo transactionGroupRepo, 
+               ITransactionSubGroupRepo transactionSubGroupRepo, IFileHandling fileHandling)
         {
             this.transactionItemRepo = transactionItemRepo;
             this.transactionGroupRepo = transactionGroupRepo;
             this.transactionSubGroupRepo = transactionSubGroupRepo;
+            _fileHandling = fileHandling;
         }
 
 
@@ -48,28 +52,7 @@ namespace GSI_Internal.Controllers
             return View(Data);
         }
 
-        private string ProcessUploadedFile(TransactionItemVM model)
-        {
-            string uniqueFileName = null;
-            string path = Directory.GetCurrentDirectory() + "/wwwroot/Image/GroupTransPhoto/";
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
-            if (model.ServicesPhotoVM != null)
-            {
-                string uploadsFolder = Directory.GetCurrentDirectory() + "/wwwroot/Image/ItemTransPhoto/";
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.ServicesPhotoVM.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    model.ServicesPhotoVM.CopyTo(fileStream);
-                }
-            }
-
-            return uniqueFileName;
-        }
+       
 
         [Authorize(Permissions.Sub_Services.Create)]
         [Authorize(Permissions.Sub_Services.Edit)]
@@ -135,11 +118,19 @@ namespace GSI_Internal.Controllers
         {
             if (ModelState.IsValid)
             {
-                string ItemPhotPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/Image/ItemTransPhoto/";
-                string Itemfilename = Guid.NewGuid() + System.IO.Path.GetFileName(obj.ServicesPhotoVM.FileName);
-                obj.ServicesPhotoVM.CopyTo(new System.IO.FileStream(ItemPhotPath + Itemfilename, System.IO.FileMode.Create));
-
                 TransactionItem newobj = new TransactionItem();
+                if (obj.ServicesPhotoVM != null)
+                {
+                    var imgUrl = _fileHandling.UploadFile(obj.ServicesPhotoVM, "ItemTransPhoto");
+
+                    newobj.ServicesPhoto = imgUrl.Result;
+                }
+
+
+
+               
+
+               
                 newobj.ID = obj.ID;
                 newobj.TransactionNameArabic = obj.TransactionNameArabic;
                 newobj.TransactionNameEnglish = obj.TransactionNameEnglish;
@@ -153,7 +144,7 @@ namespace GSI_Internal.Controllers
                 newobj.Time_Services_Arabic = obj.Time_Services_Arabic;
                 newobj.SetInMostServices = obj.SetInMostServices;
                 newobj.SetInMostServices_INSubGroup = obj.SetInMostServices_INSubGroup;
-                newobj.ServicesPhoto = Itemfilename;
+               
                 newobj.Services_Conditions_Arabic = obj.Services_Conditions_Arabic;
                 newobj.Services_Conditions_English=obj.Services_Conditions_English;
                 transactionItemRepo.AddObj(newobj);
@@ -210,6 +201,8 @@ namespace GSI_Internal.Controllers
         {
             if (ModelState.IsValid)
             {
+                var editData = transactionItemRepo.GetByID(obj.ID);
+                string oldImage = editData.ServicesPhoto;
                 TransactionItem EditObj = new TransactionItem();
                 EditObj.ID = obj.ID;
                 EditObj.TransactionNameArabic = obj.TransactionNameArabic;
@@ -228,16 +221,14 @@ namespace GSI_Internal.Controllers
                 EditObj.SetInMostServices_INSubGroup = obj.SetInMostServices_INSubGroup;
                 if (obj.ServicesPhotoVM != null)
                 {
-                    if (obj.ServicesPhotoVM != null)
-                    {
-                        string filePath = Directory.GetCurrentDirectory() + "/wwwroot/Image/ItemTransPhoto/" + obj.ServicesPhotoVM.FileName;
-                        System.IO.File.Delete(filePath);
-                    }
+                    var imgUrl = _fileHandling.UploadFile(obj.ServicesPhotoVM, "ItemTransPhoto", oldImage);
 
-
-
-                    EditObj.ServicesPhoto = ProcessUploadedFile(obj);
+                    EditObj.ServicesPhoto = imgUrl.Result;
                 }
+
+
+
+             
                 transactionItemRepo.UpdateObj(EditObj);
                 return RedirectToAction("Index");
             }

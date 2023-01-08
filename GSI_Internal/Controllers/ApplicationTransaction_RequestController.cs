@@ -139,34 +139,8 @@ namespace GSI_Internal.Controllers
             return Json(true);
        
     }
-        [Route("ApplicationTransaction_Request/UploadImage")]
-        [HttpPost]
-        public  async Task<ActionResult> UploadImage()
-        {
-            string Result = string.Empty;
-
-            var Files = Request.Form.Files;
-            foreach (IFormFile source in Files)
-            {
-                string FileName = Guid.NewGuid() + System.IO.Path.GetFileName(source.FileName);
-                string imagepath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/UploadFiles/";
-
-                if (System.IO.File.Exists(imagepath))
-                {
-                    System.IO.File.Delete(imagepath);
-                    await using (FileStream fileStream = System.IO.File.Create(imagepath))
-                    {
-                        await source.CopyToAsync(fileStream);
-                        Result = "pass";
-
-                    }
-
-                }
-            }
-
-
-            return Ok();
-        }
+        
+    
 
 
 //[DisableRequestSizeLimit]
@@ -182,10 +156,11 @@ namespace GSI_Internal.Controllers
                 Thread.Sleep(3000);
                 if (obj.files_Upload != null)
                 {
-                    string UploadFilesPhotPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/UploadFiles/";
-                    string UploadFilesfilename = Guid.NewGuid() + System.IO.Path.GetFileName(obj.files_Upload.FileName);
-                    obj.files_Upload.CopyTo(new System.IO.FileStream(UploadFilesPhotPath + UploadFilesfilename, System.IO.FileMode.Create));
-                    newobj.files = UploadFilesfilename;
+                    var imgUrl = _fileHandling.UploadFile(obj.files_Upload, "UploadFiles");
+
+                    newobj.files = imgUrl.Result;
+
+                  
 
                 }
 
@@ -247,17 +222,13 @@ namespace GSI_Internal.Controllers
                         {
                             if (ApplicationFile.FileName_FormFIle != null)
                             {
-                          
-                                string uploadFilesAttachPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/UploadFiles/";
-                                string uploadFilesAttachename = (requirementsRepo.GetAll().Where(a => a.ID == ApplicationFile.RequireID).Select(a => a.RequirementName_English).FirstOrDefault() + Guid.NewGuid().ToString() + "_" + System.IO.Path.GetExtension(ApplicationFile.FileName_FormFIle.FileName));
+                                string uploadFilesAttachename = (requirementsRepo.GetAll().Where(a => a.ID == ApplicationFile.RequireID).Select(a => a.RequirementName_English).FirstOrDefault() ) ;
+                                var imgUrl = _fileHandling.UploadFile(obj.files_Upload, uploadFilesAttachename, "UploadFiles");
 
-                                await using (var fileStream = new FileStream(Path.Combine(uploadFilesAttachPath, uploadFilesAttachename), FileMode.Create))
-                                {
-                                    await ApplicationFile.FileName_FormFIle.CopyToAsync(fileStream);
-                                }
+                                
 
                               
-                                newattachment.FileName = uploadFilesAttachename;
+                                newattachment.FileName = imgUrl.Result;
                             }
                         }
 

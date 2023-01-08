@@ -21,7 +21,7 @@
 
 <div class="card">
   <div class="card-header">
-      <h3 class="text-uppercase">new Entity</h3>
+      <h3 class="text-uppercase">Edit Slide</h3>
   </div>
   <div class="card-body">
       <form asp-action="Edit" asp-controller="SlideShow" enctype="multipart/form-data" class="form-horizontal">
@@ -67,8 +67,8 @@
                           <input  asp-for="SlideImageFormFile" class="custom-file-input" />
                           <label class="custom-file-label" for="customFile">Choose file</label>
                       </div>
-                      <span asp-validation-for="SlideImageFormFile" class="text-danger"></span>
-                      <img src="~/Image/SlideShow/@Model.SlideImage" class="img-thumbnail" height="80" width="80"  />
+                      @*<span asp-validation-for="SlideImageFormFile" class="text-danger"></span>*@
+                      <img src="@Model.SlideImage" class="img-thumbnail" height="80" width="80"  />
                   </div>
               </div>
           </div>

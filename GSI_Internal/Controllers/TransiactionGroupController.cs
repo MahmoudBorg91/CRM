@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using GSI_Internal.Repositry.ApiRepositry.Interfaces;
 
 
@@ -38,22 +39,26 @@ namespace GSI_Internal.Controllers
         }
         [HttpPost]
         [Authorize(Permissions.Enitiy.Create)]
-        public IActionResult Create(TransactionGroupVM obj)
+        public  IActionResult  Create(TransactionGroupVM obj)
         {
             if (ModelState.IsValid)
             {
-                string GroupPhotPath = System.IO.Directory.GetCurrentDirectory() + "/wwwroot/Image/GroupTransPhoto/";
-                string Groupfilename = Guid.NewGuid() + System.IO.Path.GetFileName(obj.logo.FileName);
-                obj.logo.CopyTo(new System.IO.FileStream(GroupPhotPath + Groupfilename, System.IO.FileMode.Create));
-
-                // if file null or not 
-               // var imgUrl = _fileHandling.UploadFile(obj.logo, "GroupTransPhoto");
-
+             
                 TransactionGroup newobj = new TransactionGroup();
+                if (obj.logo != null)
+                {
+                    var imgUrl = _fileHandling.UploadFile(obj.logo, "GroupTransPhoto");
+
+                    newobj.logo = imgUrl.Result;
+                }
+
+
+
+               
                 newobj.ID = obj.ID;
                 newobj.TransactionGroup_NameArabic = obj.TransactionGroup_NameArabic;
                 newobj.TransactionGroup_NameEnglish = obj.TransactionGroup_NameEnglish;
-                newobj.logo = Groupfilename;
+                
                 repo.AddObj(newobj);
                 return RedirectToAction("Index");
             }
@@ -83,25 +88,22 @@ namespace GSI_Internal.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                var data = repo.GetById(obj.ID);
+                string oldImage = data.logo;
 
                 TransactionGroup newobj = new TransactionGroup();
                 newobj.ID = obj.ID;
                 newobj.TransactionGroup_NameArabic = obj.TransactionGroup_NameArabic;
                 newobj.TransactionGroup_NameEnglish = obj.TransactionGroup_NameEnglish;
+
                 if (obj.logo != null)
                 {
-                    if (obj.logo != null)
-                    {
-                       // var imgUrl = _fileHandling.UploadFile(obj.logo, "GroupTransPhoto", obj.image);
-                        string filePath = Directory.GetCurrentDirectory() + "/wwwroot/Image/GroupTransPhoto/" + obj.logo.FileName;
-                        System.IO.File.Delete(filePath);
-                    }
+                    var imgUrl = _fileHandling.UploadFile(obj.logo, "GroupTransPhoto",oldImage );
 
-
-
-                    newobj.logo = ProcessUploadedFile(obj);
+                    newobj.logo = imgUrl.Result;
                 }
+
+
 
                 
 

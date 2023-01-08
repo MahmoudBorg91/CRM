@@ -218,7 +218,8 @@
                     $('#TransactionSubGroupID').empty();
                   
                     $.each(data, function (i, app) {
-                        items += "<option value='" + app.Value + "'>" + app.Text + "</option>"
+                        items += "<option value='" + app.value + "'>" + app.text + "</option>";
+                        console.log(app);
 
                     });
                     $('#TransactionSubGroupID').html(items);
