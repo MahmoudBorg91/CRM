@@ -58,11 +58,15 @@ namespace GSI_Internal.Repositry.TransactionGroupRepo
             var Editobj = db.transactionGroup.Find(obj.ID);
             Editobj.TransactionGroup_NameArabic = obj.TransactionGroup_NameArabic;
             Editobj.TransactionGroup_NameEnglish = obj.TransactionGroup_NameEnglish;
+            Editobj.IsNotAvailbale = obj.IsNotAvailbale;
             if (obj.logo != null)
             {
                 Editobj.logo = obj.logo;
             }
-           
+            if (obj.Icon != null)
+            {
+                Editobj.Icon = obj.Icon;
+            }
             db.SaveChanges();
             return obj;
         }

@@ -83,28 +83,57 @@
                   </div>
               </div>
               <div class="col-md-6">
-                <div class="form-group">
-                    <label for="TransactionGroup_NameEnglish"  class="control-label">Entity Name English</label>
-                    <input asp-for="TransactionGroup_NameEnglish" required class="form-control" />
-                    <span asp-validation-for="TransactionGroup_NameEnglish" class="text-danger"></span>
-                </div>
-            </div>
+                  <div class="form-group">
+                      <label for="TransactionGroup_NameEnglish"  class="control-label">Entity Name English</label>
+                      <input asp-for="TransactionGroup_NameEnglish" required class="form-control" />
+                      <span asp-validation-for="TransactionGroup_NameEnglish" class="text-danger"></span>
+                  </div>
+              </div>
           </div>
           <div class="row">
           
-          <div class="col-md-6">
-                    <div class="form-group">
-                        <label asp-for="logo" class="control-label"></label>
-                        <div class="custom-file">
-                            <input  asp-for="logo" class="custom-file-input" />
-                            <label class="custom-file-label" for="customFile">Choose file</label>
-                        </div>
-                        <span asp-validation-for="logo" class="text-danger"></span>
-                        <img src="@Model.image" class="img-thumbnail" height="80" width="80"  />
-                    </div>
-                </div>
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="logo" class="control-label">Image</label>
+                      <div class="custom-file">
+                          <input asp-for="logo" class="custom-file-input" />
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                      <span asp-validation-for="logo" class="text-danger"></span>
+                      <img src="@Model.image" class="img-thumbnail" height="80" width="80"  />
+                  </div>
+              </div>
+              
+              
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="IconIFormFile" class="control-label">Icon</label>
+                      <div class="custom-file">
+                          <input asp-for="IconIFormFile" class="custom-file-input" />
+                          <label class="custom-file-label" for="IconIFormFile">Choose file</label>
+                      </div>
+                      <span asp-validation-for="IconIFormFile" class="text-danger"></span>
+                      <img src="@Model.Icon" class="img-thumbnail" height="80" width="80"  />
+                  </div>
+              </div>
           </div>
 
+          <div class="row">
+          
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="IsNotAvailbale" class="control-label">Is Not Availbale</label>
+                      <input type="checkbox" asp-for="IsNotAvailbale" id="IsNotAvailbale" class="form-control" />
+                  </div>
+              </div>
+              
+              
+             
+          </div>
+          
+
+
+         
 
            <div class="form-group">
                 <button type="submit" class="btn btn-sm btn-info rounded-0"><i class="fa fa-pencil-alt"></i> Update</button>

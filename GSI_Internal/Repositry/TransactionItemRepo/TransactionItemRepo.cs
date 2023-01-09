@@ -58,12 +58,15 @@ namespace GSI_Internal.Repositry.TransactionItemRepo
             EditObj.Time_Services_English=obj.Time_Services_English;
             EditObj.SetInMostServices = obj.SetInMostServices;
             EditObj.SetInMostServices_INSubGroup=obj.SetInMostServices_INSubGroup;
-           
+            EditObj.IsNotAvailbale=obj.IsNotAvailbale;
             if (obj.ServicesPhoto != null)
             {
                 EditObj.ServicesPhoto = obj.ServicesPhoto;
             }
-          
+            if (obj.Icon != null)
+            {
+                EditObj.Icon = obj.Icon;
+            }
             db.SaveChanges();
             return EditObj;
 

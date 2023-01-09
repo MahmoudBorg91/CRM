@@ -77,8 +77,8 @@ namespace GSI_Internal.Controllers
             obj.TransactionGroup_NameEnglish = data.TransactionGroup_NameEnglish;
             obj.TransactionGroup_NameArabic = data.TransactionGroup_NameArabic;
             obj.image = data.logo;
-            
-
+            obj.Icon = data.Icon;
+            obj.IsNotAvailbale=data.IsNotAvailbale;
             return View(obj);
         }
 
@@ -95,6 +95,7 @@ namespace GSI_Internal.Controllers
                 newobj.ID = obj.ID;
                 newobj.TransactionGroup_NameArabic = obj.TransactionGroup_NameArabic;
                 newobj.TransactionGroup_NameEnglish = obj.TransactionGroup_NameEnglish;
+                newobj.IsNotAvailbale = obj.IsNotAvailbale;
 
                 if (obj.logo != null)
                 {
@@ -103,9 +104,14 @@ namespace GSI_Internal.Controllers
                     newobj.logo = imgUrl.Result;
                 }
 
+                if (obj.IconIFormFile  != null)
+                {
+                    var imgUrl = _fileHandling.UploadFile(obj.IconIFormFile, "GroupTransPhoto", oldImage);
+
+                    newobj.Icon = imgUrl.Result;
+                }
 
 
-                
 
 
                 repo.UpdateObj(newobj);

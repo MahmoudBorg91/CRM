@@ -77,6 +77,8 @@ namespace GSI_Internal.Controllers
         {
 
             var data = transactionSubGroupRepo.GetAll().Where(a => a.TransactionGroupID == TransactionGroupID).Select(a => new { a.ID, a.SubGroupNameArabic }).ToList();
+            //var getselected = transactionItemRepo.
+            
             //data.Insert(0, new Applications { ID = 0, AppName="Select APP" });
 
             return Json(new SelectList(data, "ID", "SubGroupNameArabic"));
@@ -126,11 +128,16 @@ namespace GSI_Internal.Controllers
                     newobj.ServicesPhoto = imgUrl.Result;
                 }
 
+                if (obj.IconIFormFile != null)
+                {
+                    var imgUrl = _fileHandling.UploadFile(obj.IconIFormFile, "ItemTransPhoto");
+
+                    newobj.Icon = imgUrl.Result;
+                }
 
 
-               
 
-               
+
                 newobj.ID = obj.ID;
                 newobj.TransactionNameArabic = obj.TransactionNameArabic;
                 newobj.TransactionNameEnglish = obj.TransactionNameEnglish;
@@ -144,7 +151,7 @@ namespace GSI_Internal.Controllers
                 newobj.Time_Services_Arabic = obj.Time_Services_Arabic;
                 newobj.SetInMostServices = obj.SetInMostServices;
                 newobj.SetInMostServices_INSubGroup = obj.SetInMostServices_INSubGroup;
-               
+                newobj.IsNotAvailbale = obj.IsNotAvailbale;
                 newobj.Services_Conditions_Arabic = obj.Services_Conditions_Arabic;
                 newobj.Services_Conditions_English=obj.Services_Conditions_English;
                 transactionItemRepo.AddObj(newobj);
@@ -174,14 +181,14 @@ namespace GSI_Internal.Controllers
             obj.Price = data.Price;
             obj.GovernmentFees = data.GovernmentFees;
             obj.TransactionGroupID = data.TransactionGroupID;
-            obj.TransactionSubGroupID = transactionSubGroupRepo.GetAll().Where(x => x.ID == obj.TransactionGroupID).Select(a => a.ID).FirstOrDefault();
-            obj.TransactionSubGroupVM = transactionSubGroupRepo.GetAll().Where(s => s.ID == obj.TransactionSubGroupID).Select(f=> new TransactionSubGroupVM()
-            {
-                ID = f.ID,
-                SubGroupNameArabic = f.SubGroupNameArabic,
-                SubGroupNameEnglish = f.SubGroupNameEnglish,
-                TransactionGroupID = f.TransactionGroupID
-            });
+            obj.TransactionSubGroupID = data.TransactionSubGroupID;
+            //obj.TransactionSubGroupVM = transactionSubGroupRepo.GetAll().Where(s => s.ID == obj.TransactionSubGroupID).Select(f=> new TransactionSubGroupVM()
+            //{
+            //    ID = f.ID,
+            //    SubGroupNameArabic = f.SubGroupNameArabic,
+            //    SubGroupNameEnglish = f.SubGroupNameEnglish,
+            //    TransactionGroupID = f.TransactionGroupID
+            //});
                
             obj.ServicesDecription_Arabic = data.ServicesDecription_Arabic;
             obj.ServicesDecription_English = data.ServicesDecription_English;
@@ -192,6 +199,8 @@ namespace GSI_Internal.Controllers
             obj.image = data.ServicesPhoto;
             obj.Services_Conditions_Arabic=data.Services_Conditions_Arabic;
             obj.Services_Conditions_English = data.Services_Conditions_English;
+            obj.IsNotAvailbale = data.IsNotAvailbale;
+            obj.Icon=data.Icon;
             return View(obj);
         }
         [HttpPost]

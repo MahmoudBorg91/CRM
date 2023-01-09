@@ -112,9 +112,9 @@
            <hr />
           <div class="row">
           
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="form-group">
-                  <label for="logo" class="control-label"></label>
+                  <label for="logo" class="control-label">Image</label>
                   <div class="custom-file">
                       <input asp-for="ServicesPhotoVM" class="custom-file-input" />
                       <label class="custom-file-label" for="customFile">Choose file</label>
@@ -122,7 +122,16 @@
                   <span asp-validation-for="ServicesPhotoVM" class="text-danger"></span>
               </div>
           </div>
-
+              <div class="col-md-3">
+                  <div class="form-group">
+                      <label for="logo" class="control-label">Icon</label>
+                      <div class="custom-file">
+                          <input asp-for="IconIFormFile" class="custom-file-input" />
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                      <span asp-validation-for="IconIFormFile" class="text-danger"></span>
+                  </div>
+              </div>
               <div class="col-md-3">
                   <div class="form-group">
                       <label for="SetInMostServices"  class="control-label">Set In Most Services</label>
@@ -176,6 +185,17 @@
               </div>
           </div>
           <hr/>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="IsNotAvailbale"  class="control-label">Is Not Availbale</label>
+                      <input type="checkbox" asp-for="IsNotAvailbale"  class="form-control" />
+                      <span asp-validation-for="IsNotAvailbale" class="text-danger"></span>
+                  </div>
+              </div>
+            
+             
+          </div>
           <div class="form-group">
               <input type="submit" value="Create" class="btn btn-sm btn-primary rounded-0" />
               <input type="reset" value="Reset" class="btn btn-sm btn-secondary rounded-0" />

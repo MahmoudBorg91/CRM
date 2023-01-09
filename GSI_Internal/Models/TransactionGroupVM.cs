@@ -18,5 +18,9 @@ namespace GSI_Internal.Models
         public string image { get; set; }
         public IFormFile logo { get; set; }
         public int  count { get; set; }
+        public string Icon { get; set; }
+        public IFormFile IconIFormFile { get; set; }
+
+        public bool IsNotAvailbale { get; set; }
     }
 }

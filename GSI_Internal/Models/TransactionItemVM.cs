@@ -45,7 +45,10 @@ namespace GSI_Internal.Models
         public string TransactionSubGroupNameEnglish { get; set; }
         public string Services_Conditions_Arabic { get; set; }
         public string Services_Conditions_English { get; set; }
+        public string Icon { get; set; }
+        public IFormFile IconIFormFile { get; set; }
 
+        public bool IsNotAvailbale { get; set; }
 
         public virtual ICollection<AssignRequirmentToItem> ItemRequirs { get; set; }
         public IEnumerable<AssignRequirmentToItemVM> AssignRequirmentToItemVM { get; set; }

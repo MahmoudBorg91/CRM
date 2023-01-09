@@ -15,5 +15,11 @@ namespace GSI_Internal.Entites
         public string TransactionGroup_NameEnglish { get; set; }
 
         public string logo { get; set; }
+
+        public string Icon { get; set; }
+
+
+        public bool IsNotAvailbale { get; set; }
+
     }
 }

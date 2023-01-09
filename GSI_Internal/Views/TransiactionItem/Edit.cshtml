@@ -45,7 +45,7 @@
                       <label for="Entity Name"  class="control-label">Sub Services Name </label>
                    @*   <select class="custom-select" asp-for="TransactionGroupID" required class="form-control" asp-items=" ViewBag.SelectGroupTransaction" />*@
 
-                        <select class="custom-select" style="width: 100%;" id="TransactionSubGroupID" name="TransactionSubGroupID" required asp-for="TransactionSubGroupID" asp-items="@(new SelectList( ViewBag.SelecttransactionSubGroup ,"ID","SubGroupNameArabic" ))">
+                        <select class="custom-select" style="width: 100%;" id="TransactionSubGroupID" name="TransactionSubGroupID" required asp-for="TransactionSubGroupID" asp-items="@(new SelectList( ViewBag.SelecttransactionSubGroup ,"ID","SubGroupNameArabic",@Model.TransactionSubGroupID ))">
                             <option disabled>Select Main Services</option>
                         </select>
                        
@@ -111,7 +111,7 @@
            <hr />
           <div class="row">
           
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="form-group">
                   <label for="logo" class="control-label"></label>
                   <div class="custom-file">
@@ -122,7 +122,17 @@
                   <img src="@Model.image" class="img-thumbnail" height="150" width="150"  />
               </div>
           </div>
-
+              <div class="col-md-3">
+                  <div class="form-group">
+                        <label for="IconIFormFile" class="control-label"></label>
+                      <div class="custom-file">
+                          <input asp-for="IconIFormFile" class="custom-file-input" />
+                          <label class="custom-file-label" for="customFile">Choose file</label>
+                      </div>
+                        <span asp-validation-for="IconIFormFile" class="text-danger"></span>
+                      <img src="@Model.Icon" class="img-thumbnail" height="150" width="150"  />
+                  </div>
+              </div>
               <div class="col-md-3">
                   <div class="form-group">
                       <label for="SetInMostServices"  class="control-label">Set In Most Services</label>
@@ -176,6 +186,17 @@
               </div>
           </div>
           <hr/>
+          <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                      <label for="IsNotAvailbale"  class="control-label">Is Not Availbale</label>
+                      <input type="checkbox" asp-for="IsNotAvailbale"  class="form-control" />
+                      <span asp-validation-for="IsNotAvailbale" class="text-danger"></span>
+                  </div>
+              </div>
+            
+             
+          </div>
           <div class="form-group">
               <input type="submit" value="Edit" class="btn btn-sm btn-primary rounded-0" />
               <input type="reset" value="Reset" class="btn btn-sm btn-secondary rounded-0" />
@@ -189,6 +210,30 @@
 
  @section Scripts{
      <script>
+
+         //$('#TransactionGroupID').onClick(function () {
+
+         //    var x = $('#TransactionGroupID').val();
+                 
+                
+
+         //    var url = '@Url.Content("~/")' + "TransiactionItem/getSubGroup/"+x+"";
+                
+
+         //    var ddlsource = "#TransactionGroupID";
+
+         //    $.getJSON(url, { ID: $(ddlsource).val() }, function (data) {
+
+         //        var items = '';
+         //        $('#TransactionSubGroupID').empty();
+
+         //        $.each(data, function (i, app) {
+         //            items += "<option value='" + app.value + "'>" + app.text + "</option>";
+
+         //        });
+         //        $('#TransactionSubGroupID').html(items);
+         //    });
+         //});
          //$('#TransactionGroupID').change(function () {
 
          //    var x = $('#TransactionGroupID').val();
@@ -213,7 +258,6 @@
          //    });
          //});
          $(function () {
-
              $('#TransactionGroupID').change(function () {
 
                  var x = $('#TransactionGroupID').val();
@@ -231,12 +275,13 @@
                      $('#TransactionSubGroupID').empty();
 
                      $.each(data, function (i, app) {
-                         items += "<option value='" + app.Value + "'>" + app.Text + "</option>"
+                         items += "<option value='" + app.value + "'>" + app.text + "</option>"
 
                      });
                      $('#TransactionSubGroupID').html(items);
                  });
-             }).change();
+             });
+          
              //Initialize Select2 Elements
              $('.select2bs4').select2({
                  theme: 'bootstrap4'
