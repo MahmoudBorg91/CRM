@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20230110101042_TransactionItemType2")]
+    partial class TransactionItemType2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -665,12 +667,6 @@ namespace GSI_Internal.Migrations
                     b.Property<string>("ReSizeme_English")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ShowInMobile")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ShowInWeb")
-                        .HasColumnType("bit");
-
                     b.Property<string>("SlideImage")
                         .HasColumnType("nvarchar(max)");
 
@@ -792,8 +788,6 @@ namespace GSI_Internal.Migrations
                     b.HasKey("ID");
 
                     b.HasIndex("TransactionGroupID");
-
-                    b.HasIndex("TransactionSubGroupID");
 
                     b.ToTable("tbl_TransactionItem");
                 });
@@ -1182,20 +1176,12 @@ namespace GSI_Internal.Migrations
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItem", b =>
                 {
                     b.HasOne("GSI_Internal.Entites.TransactionGroup", "TransactionGroup")
-                        .WithMany("TransactionItems")
+                        .WithMany()
                         .HasForeignKey("TransactionGroupID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GSI_Internal.Entites.TransactionSubGroup", "TransactionSubGroup")
-                        .WithMany("TransactionItems")
-                        .HasForeignKey("TransactionSubGroupID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("TransactionGroup");
-
-                    b.Navigation("TransactionSubGroup");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionSubGroup", b =>
@@ -1280,11 +1266,6 @@ namespace GSI_Internal.Migrations
                     b.Navigation("RequirmentsFileAttachments");
                 });
 
-            modelBuilder.Entity("GSI_Internal.Entites.TransactionGroup", b =>
-                {
-                    b.Navigation("TransactionItems");
-                });
-
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItem", b =>
                 {
                     b.Navigation("ItemInquiry");
@@ -1292,11 +1273,6 @@ namespace GSI_Internal.Migrations
                     b.Navigation("ItemRequirs");
 
                     b.Navigation("ItemSelection");
-                });
-
-            modelBuilder.Entity("GSI_Internal.Entites.TransactionSubGroup", b =>
-                {
-                    b.Navigation("TransactionItems");
                 });
 #pragma warning restore 612, 618
         }
