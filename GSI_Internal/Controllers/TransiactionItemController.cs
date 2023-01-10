@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.IO;
 using System.Linq;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace GSI_Internal.Controllers
 {
@@ -50,7 +51,9 @@ namespace GSI_Internal.Controllers
                 TransactionGroupNameEnglis = transactionGroupRepo.GetNameEnglishById(a.TransactionGroupID),
                 TransactionSubGroupName =transactionSubGroupRepo.GetAll().Where(x=>x.ID  ==a.TransactionSubGroupID).Select(a=>a.SubGroupNameArabic).FirstOrDefault(),
                 TransactionSubGroupNameEnglish= transactionSubGroupRepo.GetAll().Where(x => x.ID == a.TransactionSubGroupID).Select(a => a.SubGroupNameEnglish).FirstOrDefault(),
-                //Item_TypeArabic = _itemTypeRepo.GetAll().Where()
+                Item_TypeArabic = _itemTypeRepo.GetAll().Where(x=>x.ID == a.ItemServiceTypeID).Select(a=>a.NameArabic).FirstOrDefault(),
+                Item_TypeEnglish = _itemTypeRepo.GetAll().Where(x => x.ID == a.ItemServiceTypeID).Select(a => a.NameEnglish).FirstOrDefault()
+
             });
             return View(Data);
         }
@@ -112,6 +115,7 @@ namespace GSI_Internal.Controllers
         {
             ViewBag.SelectGroupTransaction = transactionGroupRepo.GetAll().ToList();
             ViewBag.SelecttransactionSubGroup = transactionSubGroupRepo.GetAll().ToList();
+            ViewBag.Item_Type = _itemTypeRepo.GetAll().ToList();
             return View();
         }
 
@@ -144,10 +148,12 @@ namespace GSI_Internal.Controllers
                 newobj.ID = obj.ID;
                 newobj.TransactionNameArabic = obj.TransactionNameArabic;
                 newobj.TransactionNameEnglish = obj.TransactionNameEnglish;
+               
                 newobj.Price = obj.Price;
                 newobj.GovernmentFees = obj.GovernmentFees;
                 newobj.TransactionGroupID = obj.TransactionGroupID;
                 newobj.TransactionSubGroupID = obj.TransactionSubGroupID;
+                newobj.ItemServiceTypeID = obj.Item_TypeID;
                 newobj.ServicesDecription_Arabic = obj.ServicesDecription_Arabic;
                 newobj.ServicesDecription_English = obj.ServicesDecription_English;
                 newobj.Time_Services_English = obj.Time_Services_English;
@@ -175,7 +181,7 @@ namespace GSI_Internal.Controllers
             TransactionItemVM obj = new TransactionItemVM();
             ViewBag.SelectGroupTransaction = transactionGroupRepo.GetAll().ToList();
             ViewBag.SelecttransactionSubGroup = transactionSubGroupRepo.GetAll().ToList();
-
+            ViewBag.Item_Type = _itemTypeRepo.GetAll().ToList();
             var data = transactionItemRepo.GetByID(Id);
             
             obj.ID = data.ID;
@@ -185,6 +191,7 @@ namespace GSI_Internal.Controllers
             obj.GovernmentFees = data.GovernmentFees;
             obj.TransactionGroupID = data.TransactionGroupID;
             obj.TransactionSubGroupID = data.TransactionSubGroupID;
+            obj.Item_TypeID = data.ItemServiceTypeID;
             //obj.TransactionSubGroupVM = transactionSubGroupRepo.GetAll().Where(s => s.ID == obj.TransactionSubGroupID).Select(f=> new TransactionSubGroupVM()
             //{
             //    ID = f.ID,
@@ -215,6 +222,8 @@ namespace GSI_Internal.Controllers
             {
                 var editData = transactionItemRepo.GetByID(obj.ID);
                 string oldImage = editData.ServicesPhoto;
+                string oldIcon = editData.Icon;
+
                 TransactionItem EditObj = new TransactionItem();
                 EditObj.ID = obj.ID;
                 EditObj.TransactionNameArabic = obj.TransactionNameArabic;
@@ -223,6 +232,7 @@ namespace GSI_Internal.Controllers
                 EditObj.GovernmentFees = obj.GovernmentFees;
                 EditObj.TransactionGroupID = obj.TransactionGroupID;
                 EditObj.TransactionSubGroupID = obj.TransactionSubGroupID;
+                editData.ItemServiceTypeID = obj.Item_TypeID;
                 EditObj.ServicesDecription_Arabic = obj.ServicesDecription_Arabic;
                 EditObj.ServicesDecription_English = obj.ServicesDecription_English;
                 EditObj.Time_Services_Arabic = obj.Time_Services_English;
@@ -231,16 +241,22 @@ namespace GSI_Internal.Controllers
                 EditObj.Services_Conditions_English=obj.Services_Conditions_English;
                 EditObj.SetInMostServices = obj.SetInMostServices;
                 EditObj.SetInMostServices_INSubGroup = obj.SetInMostServices_INSubGroup;
+                EditObj.IsNotAvailbale = obj.IsNotAvailbale;
                 if (obj.ServicesPhotoVM != null)
                 {
                     var imgUrl = _fileHandling.UploadFile(obj.ServicesPhotoVM, "ItemTransPhoto", oldImage);
 
                     EditObj.ServicesPhoto = imgUrl.Result;
                 }
+                if (obj.IconIFormFile != null)
+                {
+                    var imgUrl = _fileHandling.UploadFile(obj.IconIFormFile, "ItemTransPhoto", oldIcon);
+
+                    EditObj.Icon = imgUrl.Result;
+                }
 
 
 
-             
                 transactionItemRepo.UpdateObj(EditObj);
                 return RedirectToAction("Index");
             }

@@ -58,7 +58,7 @@ namespace GSI_Internal.Controllers
                 newobj.ID = obj.ID;
                 newobj.TransactionGroup_NameArabic = obj.TransactionGroup_NameArabic;
                 newobj.TransactionGroup_NameEnglish = obj.TransactionGroup_NameEnglish;
-                
+                newobj.IsNotAvailbale = obj.IsNotAvailbale;
                 repo.AddObj(newobj);
                 return RedirectToAction("Index");
             }
