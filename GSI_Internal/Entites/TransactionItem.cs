@@ -9,9 +9,9 @@ namespace GSI_Internal.Entites
     {
         public TransactionItem()
         {
-            ItemRequirs = new HashSet<AssignRequirmentToItem>();
-            ItemInquiry= new HashSet<AssignInquiryToItem>();
-            ItemSelection = new HashSet<AssignSelectionToItem>();
+            AssignRequirmentToItems = new HashSet<AssignRequirmentToItem>();
+            AssignInquiryToItems= new HashSet<AssignInquiryToItem>();
+            AssignSelectionToItems = new HashSet<AssignSelectionToItem>();
         }
 
         [Key]
@@ -52,9 +52,9 @@ namespace GSI_Internal.Entites
         [ForeignKey("TransactionSubGroupID")]
         public TransactionSubGroup TransactionSubGroup { get; set; }
         
-        public virtual ICollection<AssignRequirmentToItem> ItemRequirs { get; set; }
-        public virtual ICollection<AssignInquiryToItem> ItemInquiry { get; set; }
+        public virtual ICollection<AssignRequirmentToItem> AssignRequirmentToItems { get; set; }
+        public virtual ICollection<AssignInquiryToItem> AssignInquiryToItems { get; set; }
 
-        public virtual ICollection<AssignSelectionToItem> ItemSelection { get; set; }
+        public virtual ICollection<AssignSelectionToItem> AssignSelectionToItems { get; set; }
     }
 }

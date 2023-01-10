@@ -72,19 +72,79 @@ namespace GSI_Internal.Controllers.Api
             return Ok(_baseResponse);
 
         }
+
         //---------------------------------------------------------------------------------------------------
-        [HttpGet("GetTransactionInSubGroups")]
+        [HttpGet("GetTransactionInSubGroups/{id:int:required}")]
         [AllowAnonymous]
-        public async Task<ActionResult<BaseResponse>> GetTransactionInSubGroups([FromHeader] string lang)
+        public async Task<ActionResult<BaseResponse>> GetTransactionInSubGroups([FromHeader] string lang, int id)
         {
             var transactions = await _unitOfWork.transactionItem.FindByQuery(s=>
-                    s.SetInMostServices_INSubGroup==true&& s.IsNotAvailbale==false)
+                    s.SetInMostServices_INSubGroup==true&&s.TransactionGroupID==id && s.IsNotAvailbale==false)
                 .Select(s=> new
                 {
                     s.ID,
                     TransactionName = (lang == "ar") ? s.TransactionNameArabic : s.TransactionNameEnglish,
                     s.Icon,
                     s.ServicesPhoto,
+                }).ToListAsync();
+
+            if (!transactions.Any())
+            {
+                _baseResponse.ErrorCode = (int)Errors.TransactionItemsNotFound;
+                _baseResponse.ErrorMessage = (lang != "ar") ? "TransactionItems Not Found" : " لا توجد بيانات  ";
+                return Ok(_baseResponse);
+            }
+
+            _baseResponse.ErrorCode = 0;
+            _baseResponse.Data = transactions;
+            return Ok(_baseResponse);
+
+        }
+
+        //---------------------------------------------------------------------------------------------------
+        [HttpGet("GetTransactionDetails/{id:int:required}")]
+        [AllowAnonymous]
+        public async Task<ActionResult<BaseResponse>> GetTransactionDetails([FromHeader] string lang, int id)
+        {
+            var transactions = await _unitOfWork.transactionItem.FindByQuery(s=>
+                    s.ID==id && s.IsNotAvailbale==false)
+                .Select(s=> new
+                {
+                    s.ID,
+                    TransactionName = (lang == "ar") ? s.TransactionNameArabic : s.TransactionNameEnglish,
+                    TransactionDescription = (lang == "ar") ? s.ServicesDecription_Arabic : s.ServicesDecription_English,
+                    TransactionTime = (lang == "ar") ? s.Time_Services_Arabic : s.Time_Services_English,
+                    TransactionCondition = (lang == "ar") ? s.Services_Conditions_Arabic : s.Services_Conditions_English,
+                    s.Icon,
+                    s.ServicesPhoto,
+                    s.Price,
+                    s.GovernmentFees,
+
+                    TransactionGroup= new
+                    {
+                        s.TransactionGroupID,
+                        TransactionGroupName = (lang == "ar") ? s.TransactionGroup.TransactionGroup_NameArabic : s.TransactionGroup.TransactionGroup_NameEnglish,
+                        
+                    }, 
+                    TransactionSubGroup = new
+                    {
+                        s.TransactionSubGroupID,
+                        TransactionSubGroupName = (lang == "ar") ? s.TransactionSubGroup.SubGroupNameArabic : s.TransactionSubGroup.SubGroupNameEnglish,
+                        
+                    },
+                    AssignRequirment = s.AssignRequirmentToItems.Select(a => new
+                    {
+                        a.ID,
+                        RequirmentName = (lang == "ar") ? a.Requirements.RequirementName_Arabic : a.Requirements.RequirementName_English,
+                    }),
+                    RequirmentsFileAttachment = s.AssignRequirmentToItems.Select(a => new
+                    {
+                        a.RequirmentID,
+                        RequirmentName = (lang == "ar") ? a.Requirements.RequirementName_Arabic : a.Requirements.RequirementName_English,
+                    
+                    }),
+
+
                 }).ToListAsync();
 
             if (!transactions.Any())

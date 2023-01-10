@@ -87,7 +87,7 @@ namespace GSI_Internal.Controllers
                 //Get teacher 
                 var teacher = Db.transactionItem.Include("ItemSelection").FirstOrDefault(x => x.ID == Id.Value);
                 //Get teacher subjects and add each subjectId into subjectsIds list
-                teacher.ItemSelection.ToList().ForEach(result => subjectsIds.Add(result.SelectionID));
+                teacher.AssignSelectionToItems.ToList().ForEach(result => subjectsIds.Add(result.SelectionID));
 
                 //bind model 
                 model.drpSelections = Db.TransiactionItem_Selection.Select(x => new SelectListItem { Text = x.SelectionName_Arabic, Value = x.ID.ToString() }).ToList();
@@ -115,7 +115,7 @@ namespace GSI_Internal.Controllers
             {
                 //first find teacher subjects list and then remove all from db   
                 teacher = Db.transactionItem.Include("ItemSelection").FirstOrDefault(x => x.ID == model.Id);
-                teacher.ItemSelection.ToList().ForEach(result => teacherSubjects.Add(result));
+                teacher.AssignSelectionToItems.ToList().ForEach(result => teacherSubjects.Add(result));
                 Db.AssignSelectionToItem.RemoveRange(teacherSubjects);
                 Db.SaveChanges();
 
@@ -129,7 +129,7 @@ namespace GSI_Internal.Controllers
                     {
                         teacherSubjects.Add(new AssignSelectionToItem { SelectionID = subjectid, TransactionItemID = model.Id });
                     }
-                    teacher.ItemSelection = teacherSubjects;
+                    teacher.AssignSelectionToItems = teacherSubjects;
                 }
                 Db.SaveChanges();
 
