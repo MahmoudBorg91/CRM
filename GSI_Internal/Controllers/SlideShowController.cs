@@ -60,6 +60,8 @@ namespace GSI_Internal.Controllers
                 newobj.ReSizeme_English = obj.ReSizeme_English;
                 newobj.Title_Arabic=obj.Title_Arabic;
                 newobj.Title_English=obj.Title_English;
+                newobj.ShowInMobile = obj.ShowInMobile;
+                newobj.ShowInWeb=obj.ShowInWeb;
                // newobj.SlideImage= Slidefilename;
                
                 _showRepo.AddObj(newobj);
@@ -82,7 +84,8 @@ namespace GSI_Internal.Controllers
             obj.SlideImage = data.SlideImage;
             obj.Title_Arabic=data.Title_Arabic;
             obj.Title_English=data.Title_English;
-
+            obj.ShowInWeb = data.ShowInWeb;
+            obj.ShowInMobile = data.ShowInMobile;
 
            
 

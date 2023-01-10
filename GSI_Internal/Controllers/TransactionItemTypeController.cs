@@ -24,8 +24,20 @@ namespace GSI_Internal.Controllers
                 NameArabic = a.NameArabic,
                 NameEnglish = a.NameEnglish,
                 Icon = a.Icon
-            }).ToList();
+            });
+            return View(data);
+        }
+
+        public IActionResult Create()
+        {
+
             return View();
         }
+
+        //public IActionResult Create(TransactionItem_TypeVM obj)
+        //{
+
+        //    RedirectToAction("Index");
+        //}
     }
 }

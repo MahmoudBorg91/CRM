@@ -1,0 +1,91 @@
+﻿@model IEnumerable<TransactionItem_TypeVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active">All Type</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+<a asp-action="Create" asp-controller="TransactionItemType" class="btn btn-primary">Add New Type</a>
+<br />
+<br />
+<table id="example1" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Logo</th>
+
+            <th>Type Name Arabic</th>
+            <th>Type Name English</th>
+
+            <th>Action(s)</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int rowNo = 0;
+
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td> @(rowNo += 1)</td>
+                <td> <img src="@item.Icon" class="img-thumbnail" height="100" width="100" asp-append-version="true" /></td>
+                <td>@item.NameArabic</td>
+                <td>@item.NameEnglish</td>
+                <td>
+
+                    <a href="/TransiactionGroup/Edit/@item.ID" class="btn btn-sm btn-info rounded-0"><i class="fa fa-pencil-alt"></i></a>
+                    <a href="/TransiactionGroup/Delete/@item.ID" class="btn btn-sm btn-danger rounded-0"><i class="fa fa-trash-alt"></i></a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts{
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#example1').DataTable({
+
+                buttons: ["copy", "csv", "excel", "pdf", "print", "colvis"],
+                processing: true,
+                responsive: true,
+                lengthChange: false,
+                orderCellsTop: true,
+                autoWidth: true,
+                deferRender: true
+
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
+
+
+
+
+        });
+    </script>
+}
+
+
