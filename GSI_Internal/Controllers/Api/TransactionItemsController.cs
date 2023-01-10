@@ -221,19 +221,7 @@ public class TransactionItemsController : BaseApiController, IActionFilter
                                 FileName = c.FileName
                             }))
                 }).FirstOrDefaultAsync();
-            var clientWalletVm = await _unitOfWork.ClientWallet.FindByQuery(a => a.UserId == _user.Id)
-                .Select(w => new ClientWalletVM
-                {
-                    Id = w.Id,
-                    RequireID = w.RequireID,
-                    RequireName = lang == "ar"
-                        ? w.Requirements.RequirementName_Arabic
-                        : w.Requirements.RequirementName_English,
-                    TheDateFile = w.TheDateFile,
-                    FileName = w.FileName
-                }).ToListAsync();
-
-            // transaction.ClientWallet = clientWalletVm;
+         
 
             #endregion
         }
