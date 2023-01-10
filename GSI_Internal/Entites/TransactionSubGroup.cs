@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace GSI_Internal.Entites
 {
@@ -15,6 +16,8 @@ namespace GSI_Internal.Entites
         public int TransactionGroupID { get; set; }
         [ForeignKey("TransactionGroupID")]
         public TransactionGroup TransactionGroup { get; set; }
+
+        public virtual ICollection<TransactionItem> TransactionItems { get; set; }
 
 
 

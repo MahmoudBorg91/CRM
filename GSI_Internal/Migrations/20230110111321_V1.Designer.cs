@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20230110111321_V1")]
+    partial class V1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -665,12 +667,6 @@ namespace GSI_Internal.Migrations
                     b.Property<string>("ReSizeme_English")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("ShowInMobile")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ShowInWeb")
-                        .HasColumnType("bit");
-
                     b.Property<string>("SlideImage")
                         .HasColumnType("nvarchar(max)");
 
@@ -796,30 +792,6 @@ namespace GSI_Internal.Migrations
                     b.HasIndex("TransactionSubGroupID");
 
                     b.ToTable("tbl_TransactionItem");
-                });
-
-            modelBuilder.Entity("GSI_Internal.Entites.TransactionItem_Type", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("Icon")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameArabic")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameEnglish")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("tbl_TransactionItem_Type");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItemInquiry", b =>
