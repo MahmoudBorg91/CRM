@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using GSI_Internal.Entites;
 using GSI_Internal.Models.Api.DTO;
-using GSI_Internal.Models.Api.DTO.Pagination;
 using GSI_Internal.Models.Api.Helpers;
 using GSI_Internal.Repositry.ApiRepositry.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -16,13 +15,13 @@ using Microsoft.Net.Http.Headers;
 namespace GSI_Internal.Controllers.Api
 {
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-    public class TransactionItemsController : BaseApiController, IActionFilter
+    public class TransactionSubGroupController : BaseApiController, IActionFilter
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly BaseResponse _baseResponse;
         private ApplicationUser _user;
 
-        public TransactionItemsController(IUnitOfWork unitOfWork)
+        public TransactionSubGroupController(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _baseResponse = new BaseResponse();
@@ -46,18 +45,19 @@ namespace GSI_Internal.Controllers.Api
 
         }
         //---------------------------------------------------------------------------------------------------
-        [HttpGet("GetMostTransactionItems")]
+        [HttpGet("GetTransactionSubGroup/{id:int:required}")]
         [AllowAnonymous]
-        public async Task<ActionResult<BaseResponse>> GetMostTransactionItems([FromHeader] string lang)
+        public async Task<ActionResult<BaseResponse>> GetTransactionSubGroup([FromHeader] string lang, int id)
         {
-            var transactions = await _unitOfWork.transactionItem.FindByQuery(s=>
-                    s.SetInMostServices==true && s.IsNotAvailbale==false)
+            var transactions = await _unitOfWork.TransactionSubGroup.FindByQuery(s=>
+                     s.TransactionGroupID==id)
                 .Select(s=> new
                 {
                     s.ID,
-                    TransactionName = (lang == "ar") ? s.TransactionNameArabic : s.TransactionNameEnglish,
-                    s.Icon,
-                    s.ServicesPhoto,
+                    SubGroupName = (lang == "ar") ? s.SubGroupNameArabic : s.SubGroupNameEnglish,
+                    TransactionGroupNames = (lang == "ar") ? s.TransactionGroup.TransactionGroup_NameArabic : s.TransactionGroup.TransactionGroup_NameEnglish,
+                    s.TransactionGroupID,
+                    Count = s.TransactionItems.Count()
                 }).ToListAsync();
 
             if (!transactions.Any())
@@ -72,32 +72,6 @@ namespace GSI_Internal.Controllers.Api
             return Ok(_baseResponse);
 
         }
-        //---------------------------------------------------------------------------------------------------
-        [HttpGet("GetTransactionInSubGroups")]
-        [AllowAnonymous]
-        public async Task<ActionResult<BaseResponse>> GetTransactionInSubGroups([FromHeader] string lang)
-        {
-            var transactions = await _unitOfWork.transactionItem.FindByQuery(s=>
-                    s.SetInMostServices_INSubGroup==true&& s.IsNotAvailbale==false)
-                .Select(s=> new
-                {
-                    s.ID,
-                    TransactionName = (lang == "ar") ? s.TransactionNameArabic : s.TransactionNameEnglish,
-                    s.Icon,
-                    s.ServicesPhoto,
-                }).ToListAsync();
-
-            if (!transactions.Any())
-            {
-                _baseResponse.ErrorCode = (int)Errors.TransactionItemsNotFound;
-                _baseResponse.ErrorMessage = (lang != "ar") ? "TransactionItems Not Found" : " لا توجد بيانات  ";
-                return Ok(_baseResponse);
-            }
-
-            _baseResponse.ErrorCode = 0;
-            _baseResponse.Data = transactions;
-            return Ok(_baseResponse);
-
-        }
+    
     }
 }

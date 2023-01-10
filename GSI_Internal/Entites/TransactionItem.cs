@@ -48,6 +48,10 @@ namespace GSI_Internal.Entites
 
         [ForeignKey("TransactionGroupID")]
         public TransactionGroup TransactionGroup { get; set; }
+
+        [ForeignKey("TransactionSubGroupID")]
+        public TransactionSubGroup TransactionSubGroup { get; set; }
+        
         public virtual ICollection<AssignRequirmentToItem> ItemRequirs { get; set; }
         public virtual ICollection<AssignInquiryToItem> ItemInquiry { get; set; }
 
