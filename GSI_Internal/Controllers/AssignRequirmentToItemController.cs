@@ -211,7 +211,7 @@ namespace GSI_Internal.Controllers
                 //Get teacher 
                 var teacher = Db.transactionItem.Include("ItemRequirs").FirstOrDefault(x => x.ID == Id.Value);
                 //Get teacher subjects and add each subjectId into subjectsIds list
-                teacher.ItemRequirs.ToList().ForEach(result => subjectsIds.Add(result.RequirmentID));
+                teacher.AssignRequirmentToItems.ToList().ForEach(result => subjectsIds.Add(result.RequirmentID));
 
                 //bind model 
                 model.drpRequirment = Db.Requirements.Select(x => new SelectListItem { Text = x.RequirementName_Arabic, Value = x.ID.ToString() }).ToList();
@@ -243,7 +243,7 @@ namespace GSI_Internal.Controllers
             {
                 //first find teacher subjects list and then remove all from db   
                 teacher = Db.transactionItem.Include("ItemRequirs").FirstOrDefault(x => x.ID == model.Id);
-                teacher.ItemRequirs.ToList().ForEach(result => teacherSubjects.Add(result));
+                teacher.AssignRequirmentToItems.ToList().ForEach(result => teacherSubjects.Add(result));
                 Db.AssignRequirmentToItem.RemoveRange(teacherSubjects);
                 Db.SaveChanges();
 
@@ -257,7 +257,7 @@ namespace GSI_Internal.Controllers
                     {
                         teacherSubjects.Add(new AssignRequirmentToItem { RequirmentID = subjectid, TransactionItemID = model.Id });
                     }
-                    teacher.ItemRequirs = teacherSubjects;
+                    teacher.AssignRequirmentToItems = teacherSubjects;
                 }
                 Db.SaveChanges();
 
