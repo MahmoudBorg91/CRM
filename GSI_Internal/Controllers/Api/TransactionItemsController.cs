@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using GSI_Internal.Entites;
-using GSI_Internal.Models;
 using GSI_Internal.Models.Api.DTO;
 using GSI_Internal.Models.Api.Helpers;
 using GSI_Internal.Repositry.ApiRepositry.Repositories;
@@ -208,7 +207,7 @@ public class TransactionItemsController : BaseApiController, IActionFilter
                             ? a.TransiactionItem_Selection.RequestSelection_Group.Selection_GroupName_Arab
                             : a.TransiactionItem_Selection.RequestSelection_Group.Selection_GroupName_English
                     }),
-                    ClientWallet = s.AssignRequirmentToItems
+                   /* ClientWallet = s.AssignRequirmentToItems
                         .SelectMany(w => w.Requirements.ClientWallets
                             .Where(c => c.UserId == _user.Id).Select(c => new ClientWalletVM
                             {
@@ -219,7 +218,7 @@ public class TransactionItemsController : BaseApiController, IActionFilter
                                     : c.Requirements.RequirementName_English,
                                 TheDateFile = c.TheDateFile,
                                 FileName = c.FileName
-                            }))
+                            }))*/
                 }).FirstOrDefaultAsync();
          
 
