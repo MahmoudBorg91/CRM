@@ -12,7 +12,8 @@
 
         @foreach (var item in Model.SlideShowVM)
         {
-            <div class="slide-item" style="background-image: url(@item.SlideImage);">
+            var photo = item.SlideImage.Replace("\\", "/");
+                <div class="slide-item" style="background-image: url(@Url.Content(photo));">
                 <div class="slide-content">
                     <div class="auto-container">
                         <h2>@item.Title_English</h2>

@@ -77,6 +77,8 @@
         InvalidFacebookToken,
         InvalidAppleToken,
         ContactUsNotFound,
-        TransactionItemsNotFound
+        TransactionItemsNotFound,
+        ClintWalletItemsNotFound,
+        slidestemsNotFound
     }
 }

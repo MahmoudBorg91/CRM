@@ -139,7 +139,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("tbl_ApplicationTransaction_Request");
+                    b.ToTable("tbl_ApplicationTransaction_Request", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.ApplicationTransaction_Request_Log", b =>
@@ -189,7 +189,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("App_Code");
 
-                    b.ToTable("tbl_ApplicationTransaction_Request_Log");
+                    b.ToTable("tbl_ApplicationTransaction_Request_Log", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.ApplicationTransaction_Request_Processing", b =>
@@ -222,7 +222,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("App_Code");
 
-                    b.ToTable("tbl_ApplicationTransaction_Request_Processing");
+                    b.ToTable("tbl_ApplicationTransaction_Request_Processing", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.ApplicationTransfer", b =>
@@ -252,7 +252,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("App_Code");
 
-                    b.ToTable("tbl_ApplicationTransfer");
+                    b.ToTable("tbl_ApplicationTransfer", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.ApplicationUser", b =>
@@ -355,7 +355,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("TransactionItemID");
 
-                    b.ToTable("tbl_AssignInquiryToItem");
+                    b.ToTable("tbl_AssignInquiryToItem", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.AssignRequirmentToItem", b =>
@@ -378,7 +378,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("TransactionItemID");
 
-                    b.ToTable("tbl_AssignRequirmentToItem");
+                    b.ToTable("tbl_AssignRequirmentToItem", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.AssignSelectionToItem", b =>
@@ -401,7 +401,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("TransactionItemID");
 
-                    b.ToTable("tbl_AssignSelectionToItem");
+                    b.ToTable("tbl_AssignSelectionToItem", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.client_wallet", b =>
@@ -429,7 +429,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("RequireID");
 
-                    b.ToTable("tbl_client_wallet");
+                    b.ToTable("tbl_client_wallet", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.ContactUs", b =>
@@ -478,7 +478,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactUs");
+                    b.ToTable("ContactUs", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.Notification", b =>
@@ -502,7 +502,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Notifications");
+                    b.ToTable("Notifications", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.NotificationConfirmed", b =>
@@ -525,7 +525,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("NotificationsConfirmed");
+                    b.ToTable("NotificationsConfirmed", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.RequestInquiry_Answer", b =>
@@ -551,7 +551,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("InquiryID");
 
-                    b.ToTable("tbl_RequestInquiry_Answer");
+                    b.ToTable("tbl_RequestInquiry_Answer", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.RequestSelection", b =>
@@ -577,7 +577,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("SelectionID");
 
-                    b.ToTable("RequestSelection");
+                    b.ToTable("RequestSelection", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.RequestSelection_Group", b =>
@@ -598,7 +598,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("tbl_RequestSelection_Group");
+                    b.ToTable("tbl_RequestSelection_Group", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.Requirements", b =>
@@ -619,7 +619,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("tbl_Requirements");
+                    b.ToTable("tbl_Requirements", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.RequirmentsFileAttachment", b =>
@@ -648,7 +648,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("RequireID");
 
-                    b.ToTable("tbl_RequirmentsFileAttachment");
+                    b.ToTable("tbl_RequirmentsFileAttachment", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.SlideShow", b =>
@@ -682,7 +682,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("tbl_SlideShow");
+                    b.ToTable("tbl_SlideShow", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.StatusTransfer_Name", b =>
@@ -693,7 +693,7 @@ namespace GSI_Internal.Migrations
                     b.Property<string>("StatusAction_Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("tbl_StatusTransfer_Name");
+                    b.ToTable("tbl_StatusTransfer_Name", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionGroup", b =>
@@ -725,7 +725,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("tbl_TransactionGroup");
+                    b.ToTable("tbl_TransactionGroup", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItem", b =>
@@ -796,9 +796,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("TransactionGroupID");
 
-                    b.HasIndex("TransactionSubGroupID");
-
-                    b.ToTable("tbl_TransactionItem");
+                    b.ToTable("tbl_TransactionItem", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItem_Type", b =>
@@ -822,7 +820,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("tbl_TransactionItem_Type");
+                    b.ToTable("tbl_TransactionItem_Type", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItemInquiry", b =>
@@ -846,7 +844,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("tbl_TransactionItemInquiry");
+                    b.ToTable("tbl_TransactionItemInquiry", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionSubGroup", b =>
@@ -872,7 +870,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("TransactionGroupID");
 
-                    b.ToTable("tbl_TransactionSubGroup");
+                    b.ToTable("tbl_TransactionSubGroup", (string)null);
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransiactionItem_Selection", b =>
@@ -898,7 +896,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("SelectionGroupID");
 
-                    b.ToTable("tbl_TransiactionItem_Selection");
+                    b.ToTable("tbl_TransiactionItem_Selection", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -1185,20 +1183,12 @@ namespace GSI_Internal.Migrations
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItem", b =>
                 {
                     b.HasOne("GSI_Internal.Entites.TransactionGroup", "TransactionGroup")
-                        .WithMany("TransactionItems")
+                        .WithMany()
                         .HasForeignKey("TransactionGroupID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GSI_Internal.Entites.TransactionSubGroup", "TransactionSubGroup")
-                        .WithMany("TransactionItems")
-                        .HasForeignKey("TransactionSubGroupID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("TransactionGroup");
-
-                    b.Navigation("TransactionSubGroup");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionSubGroup", b =>
@@ -1283,11 +1273,6 @@ namespace GSI_Internal.Migrations
                     b.Navigation("RequirmentsFileAttachments");
                 });
 
-            modelBuilder.Entity("GSI_Internal.Entites.TransactionGroup", b =>
-                {
-                    b.Navigation("TransactionItems");
-                });
-
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItem", b =>
                 {
                     b.Navigation("AssignInquiryToItems");
@@ -1295,11 +1280,6 @@ namespace GSI_Internal.Migrations
                     b.Navigation("AssignRequirmentToItems");
 
                     b.Navigation("AssignSelectionToItems");
-                });
-
-            modelBuilder.Entity("GSI_Internal.Entites.TransactionSubGroup", b =>
-                {
-                    b.Navigation("TransactionItems");
                 });
 #pragma warning restore 612, 618
         }
