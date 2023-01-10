@@ -13,6 +13,8 @@ namespace GSI_Internal.Models
         public string Title_Arabic { get; set; }
         public string ReSizeme_English { get; set; }
         public string ReSizeme_Arabic { get; set; }
+        public bool ShowInMobile { get; set; }
+        public bool ShowInWeb { get; set; }
 
     }
 }

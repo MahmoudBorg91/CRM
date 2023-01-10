@@ -44,7 +44,8 @@ namespace GSI_Internal.Repositry.SlideShowRepo
             {
                 oldData.SlideImage = obj.SlideImage;
             }
-
+            oldData.ShowInMobile = obj.ShowInMobile;
+            oldData.ShowInWeb = obj.ShowInWeb;
             _db.SaveChanges();
             return oldData;
 

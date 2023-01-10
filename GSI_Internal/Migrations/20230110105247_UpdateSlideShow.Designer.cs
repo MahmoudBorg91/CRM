@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20230110105247_UpdateSlideShow")]
+    partial class UpdateSlideShow
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

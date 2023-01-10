@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20230110101042_TransactionItemType2")]
+    partial class TransactionItemType2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -664,12 +666,6 @@ namespace GSI_Internal.Migrations
 
                     b.Property<string>("ReSizeme_English")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("ShowInMobile")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("ShowInWeb")
-                        .HasColumnType("bit");
 
                     b.Property<string>("SlideImage")
                         .HasColumnType("nvarchar(max)");
