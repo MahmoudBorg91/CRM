@@ -46,6 +46,9 @@ namespace GSI_Internal.Models
         public string Services_Conditions_Arabic { get; set; }
         public string Services_Conditions_English { get; set; }
         public string Icon { get; set; }
+        public int Item_TypeID { get; set; }
+        public string Item_TypeArabic { get; set; }
+        public string Item_TypeEnglish { get; set; }
         public IFormFile IconIFormFile { get; set; }
 
         public bool IsNotAvailbale { get; set; }

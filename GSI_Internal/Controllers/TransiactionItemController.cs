@@ -3,6 +3,7 @@ using GSI_Internal.Entites;
 using GSI_Internal.Models;
 using GSI_Internal.Repositry.ApiRepositry.Interfaces;
 using GSI_Internal.Repositry.TransactionGroupRepo;
+using GSI_Internal.Repositry.TransactionItem_TypeRepo;
 using GSI_Internal.Repositry.TransactionItemRepo;
 using GSI_Internal.Repositry.TransactionSupGroupRepo;
 using Microsoft.AspNetCore.Authorization;
@@ -21,14 +22,16 @@ namespace GSI_Internal.Controllers
         private readonly ITransactionGroupRepo transactionGroupRepo;
         private readonly ITransactionSubGroupRepo transactionSubGroupRepo;
         private readonly IFileHandling _fileHandling;
+        private readonly ITransactionItem_TypeRepo _itemTypeRepo;
 
         public TransiactionItemController(ITransactionItemRepo transactionItemRepo, ITransactionGroupRepo transactionGroupRepo, 
-               ITransactionSubGroupRepo transactionSubGroupRepo, IFileHandling fileHandling)
+               ITransactionSubGroupRepo transactionSubGroupRepo, IFileHandling fileHandling, ITransactionItem_TypeRepo itemTypeRepo)
         {
             this.transactionItemRepo = transactionItemRepo;
             this.transactionGroupRepo = transactionGroupRepo;
             this.transactionSubGroupRepo = transactionSubGroupRepo;
             _fileHandling = fileHandling;
+            _itemTypeRepo = itemTypeRepo;
         }
 
 
@@ -47,7 +50,7 @@ namespace GSI_Internal.Controllers
                 TransactionGroupNameEnglis = transactionGroupRepo.GetNameEnglishById(a.TransactionGroupID),
                 TransactionSubGroupName =transactionSubGroupRepo.GetAll().Where(x=>x.ID  ==a.TransactionSubGroupID).Select(a=>a.SubGroupNameArabic).FirstOrDefault(),
                 TransactionSubGroupNameEnglish= transactionSubGroupRepo.GetAll().Where(x => x.ID == a.TransactionSubGroupID).Select(a => a.SubGroupNameEnglish).FirstOrDefault(),
-
+                //Item_TypeArabic = _itemTypeRepo.GetAll().Where()
             });
             return View(Data);
         }

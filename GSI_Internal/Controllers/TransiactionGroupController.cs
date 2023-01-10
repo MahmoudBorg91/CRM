@@ -123,30 +123,7 @@ namespace GSI_Internal.Controllers
                 return View();
             }
         }
-        [Authorize(Permissions.Enitiy.Edit)]
-        [Authorize(Permissions.Enitiy.Create)]
-        private string ProcessUploadedFile(TransactionGroupVM model)
-        {
-            string uniqueFileName = null;
-            string path = Directory.GetCurrentDirectory() + "/wwwroot/Image/GroupTransPhoto/" ;
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
-            if (model.logo != null)
-            {
-                string uploadsFolder = Directory.GetCurrentDirectory() + "/wwwroot/Image/GroupTransPhoto/";
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + model.logo.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    model.logo.CopyTo(fileStream);
-                }
-            }
-
-            return uniqueFileName;
-        }
+      
         [Authorize(Permissions.Enitiy.Delete)]
         public IActionResult Delete(int id)
         {

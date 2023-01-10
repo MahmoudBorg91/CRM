@@ -38,7 +38,11 @@ namespace GSI_Internal.Repositry.TransactionItem_TypeRepo
             editdata.ID = obj.ID;
             editdata.NameArabic = obj.NameArabic;
             editdata.NameEnglish = obj.NameEnglish;
-            editdata.Icon = obj.NameEnglish;
+            if (obj.Icon != null)
+            {
+                editdata.Icon = obj.Icon;
+            }
+           
             _db.SaveChanges();
             return editdata;
 
