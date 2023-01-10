@@ -41,7 +41,7 @@ namespace GSI_Internal.Context
         public DbSet<RequestSelection_Group> RequestSelection_Group { get; set; }
         public DbSet<SlideShow> SlideShow { get; set; }
         public DbSet<ApplicationTransaction_Request_Processing> ApplicationTransaction_Request_Processing { get; set; }
-        public DbSet<client_wallet> ClientWallet { get; set; }
+        public DbSet<client_wallet> ClientWallet { get; set; } 
         public  DbSet<Notification> Notifications { get; set; }
         public DbSet<ContactUs> ContactUs { get; set; }
         public  DbSet<NotificationConfirmed> NotificationsConfirmed { get; set; }
