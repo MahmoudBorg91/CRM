@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace GSI_Internal.Entites
 {
     [Table("tbl_SlideShow")]
+    
     public class SlideShow
     {
         [Key]
