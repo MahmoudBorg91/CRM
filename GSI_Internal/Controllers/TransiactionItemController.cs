@@ -51,8 +51,8 @@ namespace GSI_Internal.Controllers
                 TransactionGroupNameEnglis = transactionGroupRepo.GetNameEnglishById(a.TransactionGroupID),
                 TransactionSubGroupName =transactionSubGroupRepo.GetAll().Where(x=>x.ID  ==a.TransactionSubGroupID).Select(a=>a.SubGroupNameArabic).FirstOrDefault(),
                 TransactionSubGroupNameEnglish= transactionSubGroupRepo.GetAll().Where(x => x.ID == a.TransactionSubGroupID).Select(a => a.SubGroupNameEnglish).FirstOrDefault(),
-                Item_TypeArabic = _itemTypeRepo.GetAll().Where(x=>x.ID == a.ItemServiceTypeID).Select(a=>a.NameArabic).FirstOrDefault(),
-                Item_TypeEnglish = _itemTypeRepo.GetAll().Where(x => x.ID == a.ItemServiceTypeID).Select(a => a.NameEnglish).FirstOrDefault()
+                Item_TypeArabic = _itemTypeRepo.GetAll().Where(x=>x.ID == a.TransactionItemTypeId).Select(a=>a.NameArabic).FirstOrDefault(),
+                Item_TypeEnglish = _itemTypeRepo.GetAll().Where(x => x.ID == a.TransactionItemTypeId).Select(a => a.NameEnglish).FirstOrDefault()
 
             });
             return View(Data);
@@ -153,7 +153,7 @@ namespace GSI_Internal.Controllers
                 newobj.GovernmentFees = obj.GovernmentFees;
                 newobj.TransactionGroupID = obj.TransactionGroupID;
                 newobj.TransactionSubGroupID = obj.TransactionSubGroupID;
-                newobj.ItemServiceTypeID = obj.Item_TypeID;
+                newobj.TransactionItemTypeId = obj.Item_TypeID;
                 newobj.ServicesDecription_Arabic = obj.ServicesDecription_Arabic;
                 newobj.ServicesDecription_English = obj.ServicesDecription_English;
                 newobj.Time_Services_English = obj.Time_Services_English;
@@ -191,7 +191,7 @@ namespace GSI_Internal.Controllers
             obj.GovernmentFees = data.GovernmentFees;
             obj.TransactionGroupID = data.TransactionGroupID;
             obj.TransactionSubGroupID = data.TransactionSubGroupID;
-            obj.Item_TypeID = data.ItemServiceTypeID;
+            obj.Item_TypeID = data.TransactionItemTypeId;
             //obj.TransactionSubGroupVM = transactionSubGroupRepo.GetAll().Where(s => s.ID == obj.TransactionSubGroupID).Select(f=> new TransactionSubGroupVM()
             //{
             //    ID = f.ID,
@@ -232,7 +232,7 @@ namespace GSI_Internal.Controllers
                 EditObj.GovernmentFees = obj.GovernmentFees;
                 EditObj.TransactionGroupID = obj.TransactionGroupID;
                 EditObj.TransactionSubGroupID = obj.TransactionSubGroupID;
-                editData.ItemServiceTypeID = obj.Item_TypeID;
+                editData.TransactionItemTypeId = obj.Item_TypeID;
                 EditObj.ServicesDecription_Arabic = obj.ServicesDecription_Arabic;
                 EditObj.ServicesDecription_English = obj.ServicesDecription_English;
                 EditObj.Time_Services_Arabic = obj.Time_Services_English;

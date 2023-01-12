@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20230112002647_V1")]
+    partial class V1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -745,7 +747,10 @@ namespace GSI_Internal.Migrations
                     b.Property<bool>("IsNotAvailbale")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("NextSubservicesID")
+                    b.Property<int?>("ItemServiceTypeID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NextSubservicesID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -797,9 +802,9 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("TransactionGroupID");
+                    b.HasIndex("ItemServiceTypeID");
 
-                    b.HasIndex("TransactionItemTypeId");
+                    b.HasIndex("TransactionGroupID");
 
                     b.HasIndex("TransactionSubGroupID");
 
@@ -1189,15 +1194,13 @@ namespace GSI_Internal.Migrations
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionItem", b =>
                 {
+                    b.HasOne("GSI_Internal.Entites.TransactionItem_Type", "TransactionItemType")
+                        .WithMany()
+                        .HasForeignKey("ItemServiceTypeID");
+
                     b.HasOne("GSI_Internal.Entites.TransactionGroup", "TransactionGroup")
                         .WithMany("TransactionItems")
                         .HasForeignKey("TransactionGroupID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GSI_Internal.Entites.TransactionItem_Type", "TransactionItemType")
-                        .WithMany()
-                        .HasForeignKey("TransactionItemTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

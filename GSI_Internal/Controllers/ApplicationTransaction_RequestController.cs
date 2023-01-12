@@ -19,7 +19,6 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
-using GSI_Internal.Migrations;
 using GSI_Internal.Repositry.ApiRepositry.Interfaces;
 using GSI_Internal.Repositry.Client_WalletRepo;
 using Microsoft.AspNetCore.Http;

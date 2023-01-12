@@ -42,8 +42,8 @@ namespace GSI_Internal.Entites
         public string Services_Conditions_Arabic { get; set; }
         public string Services_Conditions_English { get; set; }
         public string Icon { get; set; }
-        public int ItemServiceTypeID { get; set; }
-        public int NextSubservicesID { get; set; }
+        public int TransactionItemTypeId { get; set; }
+        public int? NextSubservicesID { get; set; }
 
         public bool IsNotAvailbale { get; set; }
 
@@ -52,6 +52,8 @@ namespace GSI_Internal.Entites
 
         [ForeignKey("TransactionSubGroupID")]
         public TransactionSubGroup TransactionSubGroup { get; set; }
+        [ForeignKey("TransactionItemTypeId")]
+        public TransactionItem_Type TransactionItemType { get; set; }
 
         public virtual ICollection<AssignRequirmentToItem> AssignRequirmentToItems { get; set; }
         public virtual ICollection<AssignInquiryToItem> AssignInquiryToItems { get; set; }

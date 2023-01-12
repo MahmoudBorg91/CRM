@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using GSI_Internal.Entites;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
-using GSI_Internal.Migrations;
+
 
 namespace GSI_Internal.Areas.Identity.Pages.Account.Manage
 {

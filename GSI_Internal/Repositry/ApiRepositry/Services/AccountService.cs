@@ -10,7 +10,6 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using GSI_Internal.Entites;
-using GSI_Internal.Migrations;
 using GSI_Internal.Models.Api.DTO;
 using GSI_Internal.Models.Api.Helpers;
 using GSI_Internal.Models.Api.ModelView.AuthViewModel;
