@@ -30,14 +30,15 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="AboutUS_Arabic" class="control-label">About US Arabic</label>
-                        <input asp-for="AboutUS_Arabic" required class="form-control" />
+                      
+                        <textarea asp-for="AboutUS_Arabic" required class="form-control"></textarea>
                         <span asp-validation-for="AboutUS_Arabic" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="AboutUS_Englis" class="control-label">About US English</label>
-                        <input asp-for="AboutUS_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control" />
+                        <textarea asp-for="AboutUS_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control" ></textarea>
                         <span asp-validation-for="AboutUS_Englis" class="text-danger"></span>
                     </div>
                 </div>
@@ -72,14 +73,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="OurMission_Arabic" class="control-label"> Our Mission Arabic</label>
-                        <input asp-for="OurMission_Arabic" required class="form-control" />
+                        <textarea asp-for="OurMission_Arabic" required class="form-control"></textarea>
                         <span asp-validation-for="OurMission_Arabic" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="OurMission_Englis" class="control-label">About US Mission</label>
-                        <input asp-for="OurMission_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control" />
+                        <textarea asp-for="OurMission_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control"></textarea>
                         <span asp-validation-for="OurMission_Englis" class="text-danger"></span>
                     </div>
                 </div>
@@ -88,12 +89,12 @@
 
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="OurMission_IconIFormFile" class="control-label">Image</label>
+                        <label for="OurMission_ImageIFormFile" class="control-label">Image</label>
                         <div class="custom-file">
-                            <input asp-for="OurMission_IconIFormFile" class="custom-file-input" />
-                            <label class="custom-file-label" for="customFile">Choose file</label>
+                            <input asp-for="OurMission_ImageIFormFile" class="custom-file-input" />
+                            <label class="custom-file-label" for="OurMission_ImageIFormFile">Choose file</label>
                         </div>
-                        <span asp-validation-for="OurMission_IconIFormFile" class="text-danger"></span>
+                        <span asp-validation-for="OurMission_ImageIFormFile" class="text-danger"></span>
                     </div>
                 </div>
 
@@ -114,14 +115,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="OurVision_Arabic" class="control-label"> Our Vision Arabic</label>
-                        <input asp-for="OurVision_Arabic" required class="form-control" />
+                        <textarea asp-for="OurVision_Arabic" required class="form-control"></textarea>
                         <span asp-validation-for="OurVision_Arabic" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="OurVision_Englis" class="control-label">Our Vision English</label>
-                        <input asp-for="OurVision_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control" />
+                        <textarea asp-for="OurVision_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control"></textarea>
                         <span asp-validation-for="OurVision_Englis" class="text-danger"></span>
                     </div>
                 </div>
@@ -156,14 +157,14 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="OurGoal_Arabic" class="control-label"> Our Goal Arabic</label>
-                        <input asp-for="OurGoal_Arabic" required class="form-control" />
+                        <textarea asp-for="OurGoal_Arabic" required class="form-control"></textarea>
                         <span asp-validation-for="OurGoal_Arabic" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="OurGoal_Englis" class="control-label">Our Goal English</label>
-                        <input asp-for="OurGoal_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control" />
+                        <textarea asp-for="OurGoal_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control" ></textarea>
                         <span asp-validation-for="OurGoal_Englis" class="text-danger"></span>
                     </div>
                 </div>
@@ -198,19 +199,19 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="OurValues_Arabic" class="control-label"> Our Values Arabic</label>
-                        <input asp-for="OurValues_Arabic" required class="form-control" />
+                        <textarea asp-for="OurValues_Arabic" required class="form-control"></textarea>
                         <span asp-validation-for="OurValues_Arabic" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="OurValues_Englis" class="control-label">Our Values English</label>
-                        <input asp-for="OurValues_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control" />
+                        <textarea asp-for="OurValues_Englis" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control"></textarea>
                         <span asp-validation-for="OurGoal_Englis" class="text-danger"></span>
                     </div>
                 </div>
             </div>
-        <div class="row">
+            <div class="row">
 
             <div class="col-md-6">
                 <div class="form-group">
