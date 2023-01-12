@@ -17,47 +17,47 @@ namespace GSI_Internal.Entites
 
         [Key]
         public Guid ID { get; set; }
-        public int Move_Type { get; set; }
+        public int Move_Type { get; set; }// default 0
         [Required]
-        public DateTime The_Date { get; set; }
+        public DateTime The_Date { get; set; } // default now
         [Required]
-        public string ClientID { get; set; }
+        public string ClientID { get; set; } // default UserId
         [Required]
         [MaxLength(60)]
-        public string ClientName { get; set; }
+        public string ClientName { get; set; } // default First Name
         [MaxLength(60)]
         [Required]
-        public string ClientLastName { get; set; }
+        public string ClientLastName { get; set; } // default Last Name
         [Required]
-        public string ClientPhone { get; set; }
+        public string ClientPhone { get; set; } // default Phone
         [EmailAddress]
-        public string UserEmail { get; set; }
+        public string UserEmail { get; set; } // default Email
 
-        public string Country_Name { get; set; }
+        public string Country_Name { get; set; } // default Country
         [Required]
-        public int TransiactionItem_Code { get; set; }
+        public int TransiactionItem_Code { get; set; } // default transaction item Id 
         [Required]
-        public string TransiactionItem_Name { get; set; }
+        public string TransiactionItem_Name { get; set; } // default transaction item name english
         [Required]
-        public decimal TransiactionItem_GovernmentFees { get; set; }
+        public decimal TransiactionItem_GovernmentFees { get; set; } // default transaction item government fees
         [Required]
-        public decimal TransiactionItem_Price { get; set; }
+        public decimal TransiactionItem_Price { get; set; } // default transaction item price
         [Required]
-        public decimal TransiactionItem_Net { get; set; }
+        public decimal TransiactionItem_Net { get; set; } // default transaction item government fees + price
         public string files { get; set; }
-        public int Status { get; set; }
-        public string ClientNotes { get; set; }
+        public int Status { get; set; } // default 0
+        public string ClientNotes { get; set; } // default null
 
-        public string NumberOfTransiactionOfEntity { get; set; }
+        public string NumberOfTransiactionOfEntity { get; set; } // default null 
 
-        public string TarnferUserFrom { get; set; } 
-        public string TransferUserTo { get; set; }
+        public string TarnferUserFrom { get; set; } // default null
+        public string TransferUserTo { get; set; } // default null
 
 
 
-        public int IsProsessByUser { get; set; }
-        public string UserProsessID { get; set; }
-        public int? ProsessID { get; set; }
+        public int IsProsessByUser { get; set; } // default 0
+        public string UserProsessID { get; set; } // default null
+        public int? ProsessID { get; set; } // default null
 
 
 
