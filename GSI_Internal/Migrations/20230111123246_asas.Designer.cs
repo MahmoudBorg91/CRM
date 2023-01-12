@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20230111123246_asas")]
+    partial class asas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -748,9 +750,6 @@ namespace GSI_Internal.Migrations
                     b.Property<int>("ItemServiceTypeID")
                         .HasColumnType("int");
 
-                    b.Property<int>("NextSubservicesID")
-                        .HasColumnType("int");
-
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -1193,13 +1192,15 @@ namespace GSI_Internal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GSI_Internal.Entites.TransactionSubGroup", null)
+                    b.HasOne("GSI_Internal.Entites.TransactionSubGroup", "TransactionSubGroup")
                         .WithMany("TransactionItems")
                         .HasForeignKey("TransactionSubGroupID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("TransactionGroup");
+
+                    b.Navigation("TransactionSubGroup");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionSubGroup", b =>

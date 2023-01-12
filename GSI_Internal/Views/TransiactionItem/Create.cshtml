@@ -29,7 +29,7 @@
   <div class="card-body">
       <form asp-action="Create" asp-controller="TransiactionItem" enctype="multipart/form-data" class="form-horizontal">
           <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4">
                   <div class="form-group">
                       <label for="Entity Name"  class="control-label">Entity Name </label>
                    @*   <select class="custom-select" asp-for="TransactionGroupID" required class="form-control" asp-items=" ViewBag.SelectGroupTransaction" />*@
@@ -42,18 +42,31 @@
                   </div>
               </div>
               
-              <div class="col-md-6">
+              <div class="col-md-4">
                   <div class="form-group">
                       <label for="Entity Name"  class="control-label">Sub Services Name </label>
-                   @*   <select class="custom-select" asp-for="TransactionGroupID" required class="form-control" asp-items=" ViewBag.SelectGroupTransaction" />*@
+                      @*   <select class="custom-select" asp-for="TransactionGroupID" required class="form-control" asp-items=" ViewBag.SelectGroupTransaction" />*@
 
-                       <select class="custom-select select2bs4" style="width: 100%;" id="TransactionSubGroupID" name="TransactionSubGroupID" required asp-for="TransactionSubGroupID"   asp-items="@(new SelectList( ViewBag.SelecttransactionSubGroup ,"ID","SubGroupNameArabic"))" >
-                            <option disabled>Select Main Services</option>
-                        </select>
+                      <select class="custom-select select2bs4" style="width: 100%;" id="TransactionSubGroupID" name="TransactionSubGroupID" required asp-for="TransactionSubGroupID"   asp-items="@(new SelectList( ViewBag.SelecttransactionSubGroup ,"ID","SubGroupNameArabic"))" >
+                          <option disabled>Select Main Services</option>
+                      </select>
                        
                       <span asp-validation-for="TransactionSubGroupID" class="text-danger"></span>
                   </div>
               </div>
+              
+              <div class="col-md-4">
+              <div class="form-group">
+                  <label for="Type Name"  class="control-label">Entity Name </label>
+                  @*   <select class="custom-select" asp-for="TransactionGroupID" required class="form-control" asp-items=" ViewBag.SelectGroupTransaction" />*@
+
+                    <select class="custom-select select2bs4" style="width: 100%;" id="Item_TypeID" name="Item_TypeID" required asp-for="Item_TypeID" asp-items="@(new SelectList( ViewBag.Item_Type,"ID","NameArabic"))">
+                      <option disabled>Select Type</option>
+                  </select>
+                       
+                  <span asp-validation-for="TransactionGroupID" class="text-danger"></span>
+              </div>
+          </div>
           </div>
           <hr />
           <div class="row">
