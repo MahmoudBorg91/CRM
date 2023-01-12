@@ -10,6 +10,7 @@ namespace GSI_Internal.Mapping
         {
             CreateMap<Custamer, CustomerVM>();
             CreateMap<FollowUP, FollowUpVM>();
+            CreateMap<OurCompanyInfo, OurCompanyInfo_VM>();
         }
     }
 }

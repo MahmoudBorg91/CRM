@@ -31,7 +31,7 @@ public class ContactUs
 
     [Display(Name = "رقم الهاتف ")]
     public string PhoneNumber { get; set; }
-
+    [Display(Name = " العنوان ")]
     public string Location { get; set; }
 
     [Display(Name = "شروط وأحكام")]
@@ -40,7 +40,12 @@ public class ContactUs
     [Display(Name = "شروط وأحكام عربي")]
     public string TermsAndConditionsAr { get; set; }
 
-    //-------------------------------------------------------------
+    //-------------------------------------------------------------Borg
+    [Display(Name = "رقم الهاتف2 ")]
+    public string PhoneNumber2 { get; set; }
+    [Display(Name = "  العنوان عربى ")]
+    public string LocationAr { get; set; }
+
 
 
 }

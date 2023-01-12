@@ -46,8 +46,9 @@ namespace GSI_Internal.Context
         public DbSet<ContactUs> ContactUs { get; set; }
         public  DbSet<NotificationConfirmed> NotificationsConfirmed { get; set; }
         public DbSet<TransactionItem_Type> TransactionItem_Type { get; set; }
-
-
+        public DbSet<OurCompanyInfo> OurCompanyInfo { get; set; }
+        public DbSet<OurPartnersAndOurCustomer> OurPartnersAndOurCustomer { get; set; }
+        
 
 
 

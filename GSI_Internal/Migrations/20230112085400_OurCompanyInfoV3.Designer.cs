@@ -4,6 +4,7 @@ using GSI_Internal.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GSI_Internal.Migrations
 {
     [DbContext(typeof(dbContainer))]
-    partial class dbContainerModelSnapshot : ModelSnapshot
+    [Migration("20230112085400_OurCompanyInfoV3")]
+    partial class OurCompanyInfoV3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -458,13 +460,7 @@ namespace GSI_Internal.Migrations
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LocationAr")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber2")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TermsAndConditions")
@@ -604,42 +600,7 @@ namespace GSI_Internal.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("tbl_OurCompanyInfo");
-                });
-
-            modelBuilder.Entity("GSI_Internal.Entites.OurPartnersAndOurCustomer", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsPartners")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("NameAr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NameEnglish")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NoteAr")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NoteEng")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("OurPartnersAndOurCustomer");
+                    b.ToTable("OurCompanyInfo");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.RequestInquiry_Answer", b =>
