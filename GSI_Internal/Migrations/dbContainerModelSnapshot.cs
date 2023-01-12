@@ -748,6 +748,9 @@ namespace GSI_Internal.Migrations
                     b.Property<int>("ItemServiceTypeID")
                         .HasColumnType("int");
 
+                    b.Property<int>("NextSubservicesID")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
@@ -1190,15 +1193,13 @@ namespace GSI_Internal.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("GSI_Internal.Entites.TransactionSubGroup", "TransactionSubGroup")
+                    b.HasOne("GSI_Internal.Entites.TransactionSubGroup", null)
                         .WithMany("TransactionItems")
                         .HasForeignKey("TransactionSubGroupID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("TransactionGroup");
-
-                    b.Navigation("TransactionSubGroup");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TransactionSubGroup", b =>
