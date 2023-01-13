@@ -45,6 +45,12 @@ public class ContactUs
     public string PhoneNumber2 { get; set; }
     [Display(Name = "  العنوان عربى ")]
     public string LocationAr { get; set; }
+    public string PrivacyAndPolicy { get; set; }
+    public string PrivacyAndPolicyAr { get; set; }
+    public string RefundPolicy { get; set; }
+    public string RefundPolicyAr { get; set; }
+
+
 
 
 

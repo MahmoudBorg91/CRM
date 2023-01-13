@@ -53,7 +53,10 @@ namespace GSI_Internal.Repositry.ContactUsRepo
             EditData.TermsAndConditionsAr= obj.TermsAndConditionsAr;
             EditData.LocationAr = obj.LocationAr;
             EditData.PhoneNumber2=obj.PhoneNumber2;
-
+            EditData.PrivacyAndPolicy = obj.PrivacyAndPolicy;
+            EditData.PrivacyAndPolicyAr= obj.PrivacyAndPolicyAr;
+            EditData.RefundPolicy= obj.RefundPolicy;
+            EditData.RefundPolicyAr=obj.RefundPolicyAr;
             _db.SaveChanges();
             return EditData;
 
