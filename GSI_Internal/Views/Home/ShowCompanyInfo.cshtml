@@ -1,0 +1,78 @@
+﻿@model OurCompanyInfo_VM
+@{
+    ViewData["Title"] = "ShowCompanyPrivacy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    var photo = @Model.AboutUS_Image.Replace("\\", "/");
+
+    <section class="page-title" style="background-image: url(@photo);">
+        <div class="auto-containers">
+            <h1>About US</h1>
+            <div class="text">@Model.AboutUS_Englis</div>
+        </div>
+    </section>
+}
+
+<!-- End Page Title -->
+
+<section class="how-it-works-two ptb-60">
+    <div class="auto-container">
+
+        <div class="blocks-outer">
+            <!-- Work Block Two-->
+            <div class="work-block-two">
+                <figure class="icon-box"><img src="@Model.OurMission_Image" alt=""></figure>
+                <div class="content-box">
+                    <div class="inner">
+                        <span class="count">01</span>
+                        <h4>Our mission</h4>
+                        <div class="text">
+                            @Model.OurMission_Englis
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work Block -->
+            <div class="work-block-two">
+                <figure class="icon-box order-2"><img src="@Model.OurVision_Image" alt=""></figure>
+                <div class="content-box">
+                    <div class="inner">
+                        <span class="count">02</span>
+                        <h4>Our vision</h4>
+                        <div class="text">@Model.OurVision_Englis</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Work Block -->
+            <div class="work-block-two">
+                <figure class="icon-box"><img src="@Model.OurValues_Image" alt=""></figure>
+                <div class="content-box">
+                    <div class="inner">
+                        <span class="count">03</span>
+                        <h4>Our values</h4>
+                        <div class="text">@Model.OurGoal_Englis </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Work Block Two-->
+            <div class="work-block-two">
+                <figure class="icon-box order-2"><img src="@Model.OurGoal_Image" alt=""></figure>
+                <div class="content-box">
+                    <div class="inner">
+                        <span class="count">04</span>
+                        <h4>Our Goal</h4>
+                        <div class="text">
+                            @Model.OurGoal_Englis
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

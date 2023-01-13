@@ -28,6 +28,10 @@ using GSI_Internal.Repositry.TransiactionItem_Selection_Repo;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using GSI_Internal.Repositry.Client_WalletRepo;
+using GSI_Internal.Repositry.OurCompanyInfoRepo;
+using AutoMapper;
+using GSI_Internal.Repositry.OurPartnersAndOurCustomerRepo;
+using GSI_Internal.Repositry.ContactUsRepo;
 
 namespace GSI_Internal.Controllers
 {
@@ -53,6 +57,10 @@ namespace GSI_Internal.Controllers
         private readonly IApplicationTransaction_RequestRepo applicationTransactionRequestRepo;
         private readonly ISlideShowRepo _slideshowRepo;
         private readonly IClientWalletRepo _clientWalletRepo;
+        private readonly IOurCompanyInfoRepo _ourCompanyInfoRepo;
+        private readonly IMapper _mapper;
+        private readonly IOurPartnersAndOurCustomerRepo _ourPartnersAndOurCustomerRepo;
+        private readonly IContatUsRepo _contatUsRepo;
 
         public HomeController(ILogger<HomeController> logger, dbContainer db, UserManager<ApplicationUser> userManager,
                               IHomeRepo homeRepo, IRequirementsRepo requirementsRepo, ITransactionItemRepo transactionItemRepo, 
@@ -61,7 +69,8 @@ namespace GSI_Internal.Controllers
                               IAssignInquireytToItemRepo assignInquireytToItemRepo, ITransactionItemInquiryReop transactionItemInquiryRepo,
                               ITransiactionItem_SelectionRepo itemSelectionRepo, IAssignSelectionToItemRepo assignSelectionToItemRepo,
                               IRequestSelection_GroupRepo selectionGroupRepo, IApplicationTransaction_RequestRepo applicationTransactionRequestRepo,
-                              ISlideShowRepo SlideshowRepo, IClientWalletRepo clientWalletRepo)
+                              ISlideShowRepo SlideshowRepo, IClientWalletRepo clientWalletRepo,
+                              IOurCompanyInfoRepo ourCompanyInfoRepo, IMapper mapper, IOurPartnersAndOurCustomerRepo ourPartnersAndOurCustomerRepo, IContatUsRepo contatUsRepo)
         {
             _logger = logger;
             this.db = db;
@@ -81,6 +90,10 @@ namespace GSI_Internal.Controllers
             this.applicationTransactionRequestRepo = applicationTransactionRequestRepo;
             _slideshowRepo = SlideshowRepo;
             _clientWalletRepo = clientWalletRepo;
+            _ourCompanyInfoRepo = ourCompanyInfoRepo;
+            _mapper = mapper;
+            _ourPartnersAndOurCustomerRepo = ourPartnersAndOurCustomerRepo;
+            _contatUsRepo = contatUsRepo;
         }
       
         public IActionResult Index()
@@ -98,7 +111,18 @@ namespace GSI_Internal.Controllers
 
 
                 }),
+                OurCompanyInfo_VM = _mapper.Map<OurCompanyInfo_VM>( _ourCompanyInfoRepo.GetAll().FirstOrDefault()),
+                OurPartnersAndOurCustomerVM = _ourPartnersAndOurCustomerRepo.GetAll().Select(a=> new OurPartnersAndOurCustomerVM()
+                {
+                    ID = a.ID,
+                    NameAr = a.NameAr,
+                    NameEnglish = a.NameEnglish,
+                    NoteAr = a.NoteAr,
+                    NoteEng = a.NoteEng,
+                    Image = a.Image,
 
+                    IsPartners = a.IsPartners
+                }).ToList(),
                 TransactionGroupVM = homeRepo.GetAllTransactionGroup().Select(a => new TransactionGroupVM {
                     ID = a.ID,
                     TransactionGroup_NameArabic = a.TransactionGroup_NameArabic, 
@@ -470,6 +494,20 @@ namespace GSI_Internal.Controllers
             res.TotalBenefitsAndVacations=EosCalc.TotalBenefitsAndVacations;
 
             return View(); 
+        }
+
+        public IActionResult ShowCompanyInfo()
+        {
+            var data = _ourCompanyInfoRepo.GetAll();
+            var map = _mapper.Map<IEnumerable<OurCompanyInfo_VM>>(data);
+            return View(map.FirstOrDefault());
+        }
+
+        public IActionResult PrivacyAndPolicy()
+        {
+            var data = _contatUsRepo.GetAll();
+            var map = _mapper.Map<ContactUsVM>(data.FirstOrDefault());
+            return View(map);
         }
         public IActionResult Privacy()
         {

@@ -22,9 +22,10 @@ namespace GSI_Internal.Models.ViewModel
         public IEnumerable<AssignSelectionToItemVM> AssignSelectionToItemVM { get; set; }
         
         public RegisterModel RegisterModel { get; set; }
-      
 
 
+        public OurCompanyInfo_VM OurCompanyInfo_VM { get; set; }
+        public IEnumerable<OurPartnersAndOurCustomerVM> OurPartnersAndOurCustomerVM { get; set; }
 
 
 

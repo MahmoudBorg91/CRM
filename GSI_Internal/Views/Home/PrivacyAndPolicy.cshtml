@@ -1,0 +1,52 @@
+﻿@model ContactUsVM
+@{
+    ViewData["Title"] = "PrivacyAndPolicy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+   <section class="terms-and-condition">
+        <div class="auto-container">
+            <div class="tnc-tabs tabs-box">
+                <div class="row">
+                    <div class="column col-xl-9 col-lg-8 col-md-12 col-sm-12 m-auto">
+                        <!--Tabs Container-->
+                        <div class="tabs-content">
+                            <div class="ls-widget">
+                                <div class="widget-title"><h4>Privacy & Policy</h4></div>
+                                <div class="widget-content">
+                                    <p>@Model.PrivacyAndPolicy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column col-xl-9 col-lg-8 col-md-12 col-sm-12 m-auto">
+                        <!--Tabs Container-->
+                        <div class="tabs-content">
+                            <div class="ls-widget">
+                                <div class="widget-title"><h4>Terms & Conditions</h4></div>
+                                <div class="widget-content">
+                                    <p>@Model.TermsAndConditions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column col-xl-9 col-lg-8 col-md-12 col-sm-12 m-auto">
+                        <!--Tabs Container-->
+                        <div class="tabs-content">
+                            <div class="ls-widget">
+                            <div class="widget-title"><h4>Refund Policy </h4></div>
+                                <div class="widget-content">
+                                    <p>@Model.RefundPolicy</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
