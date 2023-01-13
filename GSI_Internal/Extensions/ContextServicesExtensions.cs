@@ -15,6 +15,7 @@ using GSI_Internal.Repositry.ContactUsRepo;
 using GSI_Internal.Repositry.DashboardRepo;
 using GSI_Internal.Repositry.HomeRepo;
 using GSI_Internal.Repositry.OurCompanyInfoRepo;
+using GSI_Internal.Repositry.OurPartnersAndOurCustomerRepo;
 using GSI_Internal.Repositry.RequestInquiry_AnswerRepo;
 using GSI_Internal.Repositry.RequestSelection_GroupRepo;
 using GSI_Internal.Repositry.RequestSelection_SelectedRepo;
@@ -79,8 +80,8 @@ public static class ContextServicesExtensions
         services.AddScoped<ITransactionItem_TypeRepo, TransactionItem_TypeRepo>();
         services.AddScoped<IOurCompanyInfoRepo, OurCompanyInfoRepo>();
         services.AddScoped<IContatUsRepo, ContactUsRepo>();
+        services.AddScoped<IOurPartnersAndOurCustomerRepo, OurPartnersAndOurCustomerRepo>();
         
-
         services.Configure<SecurityStampValidatorOptions>(options =>
         {
             options.ValidationInterval = TimeSpan.Zero;

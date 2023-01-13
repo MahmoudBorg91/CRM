@@ -1,0 +1,123 @@
+﻿@model OurPartnersAndOurCustomerVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Create New Partener And Custommer</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="text-uppercase">Delete Partener And Customer</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Delete" asp-controller="PartnersAndCustomer" enctype="multipart/form-data" class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="TransactionGroup_NameArabic" class="control-label">Name Arabic</label>
+                        <input asp-for="NameAr" required class="form-control" />
+                        <span asp-validation-for="NameAr" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="TransactionGroup_NameEnglish" class="control-label">Name English</label>
+                        <input asp-for="NameEnglish" onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) || (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 32 ) " required class="form-control" />
+                        <span asp-validation-for="NameEnglish" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="NoteAr" class="control-label">Note Arabic</label>
+                        <textarea asp-for="NoteAr" required class="form-control"></textarea>
+
+                        <span asp-validation-for="NameAr" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="TransactionGroup_NameEnglish" class="control-label">Note English</label>
+                        <textarea asp-for="NoteEng" required class="form-control"></textarea>
+                        <span asp-validation-for="NameEnglish" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="logo" class="control-label">Image</label>
+                        <div class="custom-file">
+                            <input asp-for="ImageIFormFile" id="file-input" class="custom-file-input" />
+                            <label class="custom-file-label" for="ImageIFormFile">Choose file</label>
+
+                        </div>
+                        <span asp-validation-for="ImageIFormFile" class="text-danger"></span>
+                        <img id="preview" src="@Model.Image" alt="Preview" style="display:none;" height="80" width="80" />
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="IsPartners" class="control-label">Is Partners</label>
+                        <input type="checkbox" asp-for="IsPartners" id="IsPartners" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-sm btn-primary rounded-0" />
+                <a asp-action="Index" asp-controller="PartnersAndCustomer" class="btn btn-sm btn-primary rounded-0">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+        var input = document.getElementById("file-input");
+        var preview = document.getElementById("preview");
+
+        input.addEventListener("change", function (event) {
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                preview.src = reader.result;
+                preview.style.display = "block";
+            }
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
