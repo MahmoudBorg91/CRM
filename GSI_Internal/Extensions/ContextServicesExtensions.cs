@@ -11,6 +11,7 @@ using GSI_Internal.Repositry.AssignInquireytToItemRepo;
 using GSI_Internal.Repositry.AssignRequirmentToItemRepo;
 using GSI_Internal.Repositry.AssignSelectionToItem_Repo;
 using GSI_Internal.Repositry.Client_WalletRepo;
+using GSI_Internal.Repositry.ContactUsRepo;
 using GSI_Internal.Repositry.DashboardRepo;
 using GSI_Internal.Repositry.HomeRepo;
 using GSI_Internal.Repositry.OurCompanyInfoRepo;
@@ -77,6 +78,8 @@ public static class ContextServicesExtensions
         services.AddScoped<IClientWalletRepo, ClientWalletRepo>();
         services.AddScoped<ITransactionItem_TypeRepo, TransactionItem_TypeRepo>();
         services.AddScoped<IOurCompanyInfoRepo, OurCompanyInfoRepo>();
+        services.AddScoped<IContatUsRepo, ContactUsRepo>();
+        
 
         services.Configure<SecurityStampValidatorOptions>(options =>
         {

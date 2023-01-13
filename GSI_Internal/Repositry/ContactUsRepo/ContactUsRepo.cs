@@ -2,6 +2,7 @@
 using System.Linq;
 using GSI_Internal.Context;
 using GSI_Internal.Entites;
+using GSI_Internal.Models;
 
 namespace GSI_Internal.Repositry.ContactUsRepo
 {

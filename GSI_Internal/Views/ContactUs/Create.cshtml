@@ -1,0 +1,169 @@
+﻿@model ContactUsVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Dashboard">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Create New </li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="text-uppercase">About Company</h3>
+    </div>
+    <div class="card-body">
+        <form asp-action="Create" asp-controller="ContactUs" enctype="multipart/form-data" class="form-horizontal">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="WhatsAppNumber" class="control-label">WhatsAppNumber</label>
+                        <input type="tel" asp-for="WhatsAppNumber" required class="form-control" />
+                        <span asp-validation-for="WhatsAppNumber" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="Email" class="control-label">Email</label>
+                        <input type="email" asp-for="Email" required class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="Link" class="control-label">Web Site Link</label>
+                        <input type="text" asp-for="Link" required class="form-control" />
+                        <span asp-validation-for="Link" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            @*,m*@
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="FaceBookLink" class="control-label">FaceBookLink</label>
+                        <input type="text" asp-for="FaceBookLink" required class="form-control" />
+                        <span asp-validation-for="FaceBookLink" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="InstagramLink" class="control-label">InstagramLink</label>
+                        <input type="text" asp-for="InstagramLink" required class="form-control" />
+                        <span asp-validation-for="InstagramLink" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="TwitterLink" class="control-label">Web Site Link</label>
+                        <input type="text" asp-for="TwitterLink" required class="form-control" />
+                        <span asp-validation-for="TwitterLink" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            @*,m*@
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="YouTubeLink" class="control-label">YouTubeLink</label>
+                        <input type="text" asp-for="YouTubeLink" required class="form-control" />
+                        <span asp-validation-for="YouTubeLink" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="LinkedInLink" class="control-label">Linked In Link</label>
+                        <input type="text" asp-for="LinkedInLink" required class="form-control" />
+                        <span asp-validation-for="LinkedInLink" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="PhoneNumber" class="control-label">PhoneNumber</label>
+                        <input type="tel" asp-for="PhoneNumber" required class="form-control" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            @*,m*@
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="PhoneNumber2" class="control-label">PhoneNumber2</label>
+                        <input type="tel" asp-for="PhoneNumber2" required class="form-control" />
+                        <span asp-validation-for="PhoneNumber2" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="Location" class="control-label">Location</label>
+                        <input type="text" asp-for="Location" required class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="LocationAr" class="control-label">LocationAr</label>
+                        <input type="text" asp-for="LocationAr" required class="form-control" />
+                        <span asp-validation-for="LocationAr" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            @*,m*@
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="TermsAndConditions" class="control-label">TermsAndConditions</label>
+                        <textarea asp-for="TermsAndConditions" required class="form-control"></textarea>
+
+                        <span asp-validation-for="TermsAndConditions" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="Location" class="control-label">TermsAndConditionsAr</label>
+                        <textarea asp-for="TermsAndConditionsAr" required class="form-control"></textarea>
+
+                        <span asp-validation-for="TermsAndConditionsAr" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-sm btn-primary rounded-0" />
+                <a asp-action="Index" asp-controller="OurCompanyInfo" class="btn btn-sm btn-primary rounded-0">Back to List</a>
+            </div>
+        </form>
+    </div>
+    <hr />
+
+
+</div>
+
+
+@section Scripts {
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

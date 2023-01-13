@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using GSI_Internal.Entites;
+using GSI_Internal.Models;
 
 namespace GSI_Internal.Repositry.ContactUsRepo
 {
