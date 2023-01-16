@@ -1,6 +1,7 @@
 ﻿@using GSI_Internal.Areas.Identity.Pages.Account
 @using GSI_Internal.Entites
 @using Microsoft.CodeAnalysis.VisualBasic.Syntax
+@using System.Security.Claims
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 <!DOCTYPE html>
@@ -429,7 +430,7 @@
                                     <li><a href="#">Links</a></li>
                                 </ul>
                             </li>
-                            <li><a href="contact.html">Contact-us</a></li>
+                            <li><a asp-controller="ContactToUS" asp-action="Index">Contact-us</a></li>
                         </ul>
                     </nav>
                     <!-- Main Menu End-->
@@ -462,8 +463,8 @@
                         {
                             <form id="logoutForm  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                             <div class="cart-btn">
-                                <a href="#" style="color: #c39946;">
-                                        Hello @UserManager.GetUserName(User)!
+                                <a href="#" style="color: #c39946; font-size: medium">
+                                        Hello @UserManager.Users.Where(a=>a.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Select(a=>a.FirstName).FirstOrDefault() !
                                 </a>
                                 <div class="shopping-cart">
                                     <ul class="shopping-cart-items">

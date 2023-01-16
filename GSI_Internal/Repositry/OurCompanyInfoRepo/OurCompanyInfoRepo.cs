@@ -62,7 +62,7 @@ namespace GSI_Internal.Repositry.OurCompanyInfoRepo
 
 
             editData.OurVision_Arabic = obj.OurVision_Arabic;
-            editData.OurVision_Englis = obj.OurVision_Arabic;
+            editData.OurVision_Englis = obj.OurVision_Englis;
             if (obj.OurVision_Image != null)
             {
                 editData.OurVision_Image = obj.OurVision_Image;

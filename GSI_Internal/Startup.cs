@@ -1,3 +1,4 @@
+using GSI_Internal.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -62,6 +63,7 @@ namespace GSI_Internal
                 options.LogoutPath = $"/Identity/Account/Login";
                 options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
             });
+           
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(

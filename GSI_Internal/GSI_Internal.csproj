@@ -9,6 +9,7 @@
     <PackageReference Include="CorePush" Version="3.1.1" />
     <PackageReference Include="Google.Apis.Auth" Version="1.58.0" />
     <PackageReference Include="Hangfire" Version="1.7.31" />
+    <PackageReference Include="MailKit" Version="3.4.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.6" />
@@ -21,6 +22,8 @@
     </PackageReference>
     <PackageReference Include="Microsoft.OpenApi" Version="1.4.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.11" />
+    <PackageReference Include="MimeKit" Version="3.4.3" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     <PackageReference Include="System.Diagnostics.Tools" Version="4.3.0" />

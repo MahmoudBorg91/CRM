@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using GSI_Internal.Configuration;
 using GSI_Internal.Context;
+using GSI_Internal.EmailServices;
 using GSI_Internal.Filters;
 using GSI_Internal.Repositry.ApiRepositry.Repositories;
 using GSI_Internal.Repositry.Application_Status_Repo;
@@ -50,9 +52,9 @@ public static class ContextServicesExtensions
         //services.AddTransient(typeof(IBaseRepository<>), typeof(BaseRepository<>)); // only Repository
         services.AddTransient<IUnitOfWork, UnitOfWork>(); // Repository and UnitOfWork
 
-        
-         
-        
+
+        services.Configure<MailSettings>(config.GetSection("MailSettings"));
+
         //------------------------------------------------------------------------------------------------------------------
         services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
         services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
@@ -81,7 +83,7 @@ public static class ContextServicesExtensions
         services.AddScoped<IOurCompanyInfoRepo, OurCompanyInfoRepo>();
         services.AddScoped<IContatUsRepo, ContactUsRepo>();
         services.AddScoped<IOurPartnersAndOurCustomerRepo, OurPartnersAndOurCustomerRepo>();
-        
+        services.AddScoped<IEmailSender, EmailSender>();
         services.Configure<SecurityStampValidatorOptions>(options =>
         {
             options.ValidationInterval = TimeSpan.Zero;

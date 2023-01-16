@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GSI_Internal.Models.EmailViewModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace GSI_Internal.Models
 {
@@ -47,5 +48,7 @@ namespace GSI_Internal.Models
         public string PrivacyAndPolicyAr { get; set; }
         public string RefundPolicy { get; set; }
         public string RefundPolicyAr { get; set; }
+
+        public MailContactUs_Vm MailContactUs_Vm { get; set; }
     }
 }

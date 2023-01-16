@@ -503,6 +503,7 @@ namespace GSI_Internal.Controllers
             return View(map.FirstOrDefault());
         }
 
+
         public IActionResult PrivacyAndPolicy()
         {
             var data = _contatUsRepo.GetAll();

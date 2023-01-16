@@ -35,13 +35,17 @@ public static class ApplicationServicesExtensions
         services.AddHttpClient<FcmSender>();
         services.AddHttpClient<ApnSender>();
         services.AddAutoMapper(typeof(Program).Assembly);
-
+       
         // Hangfire Service
         services.AddHangfire(x => x.UseSqlServerStorage(config.GetConnectionString("DefaultConnection")));
         services.AddHangfireServer();
         
         // SignalR Service
         services.AddSignalR();
+
+
+
+
 
         return services;
     }   
