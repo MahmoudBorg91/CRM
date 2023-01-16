@@ -39,7 +39,8 @@ namespace GSI_Internal.Repositry.ApiRepositry.Repositories
         IBaseRepository<NotificationConfirmed> NotificationsConfirmed { get; }
         IBaseRepository<ContactUs> ContactUs { get; }
         IBaseRepository<client_wallet> ClientWallet { get; }
-        
+        IBaseRepository<TransactionItem_Type> TransactionItemType { get; }
+
 
         //-----------------------------------------------------------------------------------
 

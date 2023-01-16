@@ -79,6 +79,7 @@
         ContactUsNotFound,
         TransactionItemsNotFound,
         ClintWalletItemsNotFound,
-        slidestemsNotFound
+        slidestemsNotFound,
+        TransactionTypeNotFound
     }
 }

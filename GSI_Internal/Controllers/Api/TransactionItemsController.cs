@@ -96,6 +96,59 @@ public class TransactionItemsController : BaseApiController, IActionFilter
         _baseResponse.Data = transactions;
         return Ok(_baseResponse);
     }
+    //---------------------------------------------------------------------------------------------------
+    [HttpGet("GetTransactionsByType/{id:int:required}")]
+    [AllowAnonymous]
+    public async Task<ActionResult<BaseResponse>> GetTransactionsByType([FromHeader] string lang, int id)
+    {
+        var transactions = await _unitOfWork.transactionItem.FindByQuery(s =>
+                s.TransactionItemTypeId == id  && s.IsNotAvailbale == false)
+            .Select(s => new
+            {
+                s.ID,
+                TransactionName = lang == "ar" ? s.TransactionNameArabic : s.TransactionNameEnglish,
+                s.Icon,
+                s.ServicesPhoto
+            }).ToListAsync();
+
+        if (!transactions.Any())
+        {
+            _baseResponse.ErrorCode = (int)Errors.TransactionItemsNotFound;
+            _baseResponse.ErrorMessage = lang != "ar" ? "TransactionItems Not Found" : " لا توجد بيانات  ";
+            return Ok(_baseResponse);
+        }
+
+        _baseResponse.ErrorCode = 0;
+        _baseResponse.Data = transactions;
+        return Ok(_baseResponse);
+    }
+
+    //-------------------------------------------------------------------------------------------------
+    [HttpGet("GetTransactionSearch/{name:required}")]
+    [AllowAnonymous]
+    public async Task<ActionResult<BaseResponse>> GetTransactionSearch([FromHeader] string lang, string name)
+    {
+        var transactions = await _unitOfWork.transactionItem.FindByQuery(s =>
+               ( s.TransactionNameArabic.Contains(name) || s.TransactionNameEnglish.Contains(name))&& s.IsNotAvailbale == false)
+            .Select(s => new
+            {
+                s.ID,
+                TransactionName = lang == "ar" ? s.TransactionNameArabic : s.TransactionNameEnglish,
+                s.Icon,
+                s.ServicesPhoto
+            }).ToListAsync();
+
+        if (!transactions.Any())
+        {
+            _baseResponse.ErrorCode = (int)Errors.TransactionItemsNotFound;
+            _baseResponse.ErrorMessage = lang != "ar" ? "TransactionItems Not Found" : " لا توجد بيانات  ";
+            return Ok(_baseResponse);
+        }
+
+        _baseResponse.ErrorCode = 0;
+        _baseResponse.Data = transactions;
+        return Ok(_baseResponse);
+    }
 
     //---------------------------------------------------------------------------------------------------
     [HttpGet("GetTransactionDetails/{id:int:required}")]
@@ -120,6 +173,15 @@ public class TransactionItemsController : BaseApiController, IActionFilter
                     s.ServicesPhoto,
                     s.Price,
                     s.GovernmentFees,
+                    s.NextSubservicesID,
+                    TransactionItemType = new
+                    {
+                        s.TransactionItemTypeId,
+                        TransactionItemTypeName = lang == "ar" ? s.TransactionItemType.NameArabic : s.TransactionItemType.NameEnglish,
+                        s.TransactionItemType.Icon,
+
+
+                    },
 
                     TransactionGroup = new
                     {
@@ -162,7 +224,16 @@ public class TransactionItemsController : BaseApiController, IActionFilter
                     s.Icon,
                     s.ServicesPhoto,
                     s.Price,
-                    s.GovernmentFees,
+                    s.GovernmentFees, 
+                    s.NextSubservicesID,
+                    TransactionItemType = new
+                    {
+                        s.TransactionItemTypeId,
+                        TransactionItemTypeName = lang == "ar" ? s.TransactionItemType.NameArabic : s.TransactionItemType.NameEnglish,
+                        s.TransactionItemType.Icon,
+
+
+                    },
 
                     TransactionGroup = new
                     {
