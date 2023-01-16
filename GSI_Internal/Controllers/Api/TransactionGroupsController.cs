@@ -71,5 +71,33 @@ public class TransactionGroupsController : BaseApiController, IActionFilter
         return Ok(_baseResponse);
 
     }
+    //---------------------------------------------------------------------------------------------------
+    [HttpGet("GetTransactionGroupsSearch/{name:required}")]
+    [AllowAnonymous]
+    public async Task<ActionResult<BaseResponse>> GetTransactionGroupsSearch([FromHeader] string lang, string name)
+    {
+        var transactions = await _unitOfWork.transactionGroup.FindByQuery(s=>
+                ( s.TransactionGroup_NameEnglish.Contains(name) || s.TransactionGroup_NameArabic.Contains(name))&& s.IsNotAvailbale==false)
+            .Select(s=> new
+            {
+                s.ID,
+                TransactionGroupName = (lang == "ar") ? s.TransactionGroup_NameArabic : s.TransactionGroup_NameEnglish,
+                s.Icon,
+                s.logo,
+                Count = s.TransactionItems.Count()
+            }).ToListAsync();
+
+        if (!transactions.Any())
+        {
+            _baseResponse.ErrorCode = (int)Errors.TransactionItemsNotFound;
+            _baseResponse.ErrorMessage = (lang != "ar") ? "TransactionItems Not Found" : " لا توجد بيانات  ";
+            return Ok(_baseResponse);
+        }
+
+        _baseResponse.ErrorCode = 0;
+        _baseResponse.Data = transactions;
+        return Ok(_baseResponse);
+
+    }
     
 }
