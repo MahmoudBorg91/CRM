@@ -48,9 +48,9 @@ namespace GSI_Internal.Context
         public DbSet<TransactionItem_Type> TransactionItem_Type { get; set; }
         public DbSet<OurCompanyInfo> OurCompanyInfo { get; set; }
         public DbSet<OurPartnersAndOurCustomer> OurPartnersAndOurCustomer { get; set; }
+        public DbSet<JopList> JopList { get; set; }
+
         
-
-
 
 
 

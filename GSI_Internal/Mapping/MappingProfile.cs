@@ -13,6 +13,8 @@ namespace GSI_Internal.Mapping
             CreateMap<OurCompanyInfo, OurCompanyInfo_VM>();
             CreateMap<ContactUs, ContactUsVM>();
             CreateMap<ContactUsVM ,ContactUs>();
+            CreateMap<JopList, JopList_VM>();
+            CreateMap<JopList_VM, JopList>();
         }
     }
 }
