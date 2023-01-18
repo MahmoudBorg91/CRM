@@ -33,12 +33,9 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
     <Folder Include="Models\Api\Migrations\" />
-    <Folder Include="wwwroot\Image\GroupTransPhoto\" />
-    <Folder Include="wwwroot\Image\LeadPhoto\" />
-    <Folder Include="wwwroot\Image\ItemTransPhoto\" />
-    <Folder Include="wwwroot\Image\SlideShow\" />
-    <Folder Include="wwwroot\UploadFilesTransactionLog\" />
-    <Folder Include="wwwroot\UploadFiles\" />
+    <Folder Include="Models\ViewModel\" />
+    <Folder Include="wwwroot\Admin\" />
+    <Folder Include="wwwroot\Files\" />
   </ItemGroup>
 	
 </Project>

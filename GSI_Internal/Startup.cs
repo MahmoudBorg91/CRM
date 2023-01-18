@@ -113,7 +113,7 @@ namespace GSI_Internal
                 endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Dashboard}/{action=Index}/{id?}");
                 endpoints.MapHub<SignalrServer>("/signalrServer");
                 endpoints.MapHub<SignalrServer>("/signalrServer/{id?}");
 

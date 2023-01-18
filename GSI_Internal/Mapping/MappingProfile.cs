@@ -8,13 +8,15 @@ namespace GSI_Internal.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<Custamer, CustomerVM>();
-            CreateMap<FollowUP, FollowUpVM>();
-            CreateMap<OurCompanyInfo, OurCompanyInfo_VM>();
-            CreateMap<ContactUs, ContactUsVM>();
-            CreateMap<ContactUsVM ,ContactUs>();
-            CreateMap<JopList, JopList_VM>();
-            CreateMap<JopList_VM, JopList>();
+            CreateMap<TaskMain, TaskMain_VM>();
+
+            //    CreateMap<Custamer, CustomerVM>();
+            //    CreateMap<FollowUP, FollowUpVM>();
+            //    CreateMap<OurCompanyInfo, OurCompanyInfo_VM>();
+            //    CreateMap<ContactUs, ContactUsVM>();
+            //    CreateMap<ContactUsVM ,ContactUs>();
+            //    CreateMap<JopList, JopList_VM>();
+            //    CreateMap<JopList_VM, JopList>();
         }
     }
 }

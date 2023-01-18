@@ -20,6 +20,6 @@ namespace GSI_Internal.Models.EmailViewModel
         [Required]
         public string Note { get; set; }
 
-        public ContactUsVM ContactUsVM { get; set; }
+      
     }
 }

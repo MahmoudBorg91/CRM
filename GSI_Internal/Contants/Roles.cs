@@ -4,8 +4,7 @@
     {
         SuperAdmin,
         Admin,
-        Basic,
-        Customer,
-        Company
+        Basic
+
     }
 }

@@ -60,7 +60,7 @@ namespace GSI_Internal.Areas.Identity.Pages.Account
                 ModelState.AddModelError(string.Empty, ErrorMessage);
             }
 
-            returnUrl ??= Url.Content("~/Home");
+            returnUrl ??= Url.Content("~/Dashboard");
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
@@ -74,7 +74,7 @@ namespace GSI_Internal.Areas.Identity.Pages.Account
         {
            
           
-                returnUrl ??= Url.Content("~/Home");
+                returnUrl ??= Url.Content("~/Dashboard");
             
           
 
@@ -88,14 +88,8 @@ namespace GSI_Internal.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    if (User.IsInRole(Roles.Customer.ToString())) 
-                    {
-                        return LocalRedirect("~/Home");
-                    }
-                    else   
-                    {
-                        return LocalRedirect("~/Home");
-                    }
+                    return LocalRedirect("~/Dashboard");
+                  
                   //  return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -111,7 +105,7 @@ namespace GSI_Internal.Areas.Identity.Pages.Account
                 {
                     ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                     ViewData["LoginFlag"] = "Invalid User Name Or Password";
-                    return LocalRedirect("~/Home");
+                    return LocalRedirect("~/Dashboard");
                 }
             }
 

@@ -102,14 +102,14 @@ namespace GSI_Internal.Areas.Identity.Pages.Account
                     {
                         await _userManager.AddToRoleAsync(user, Roles.Basic.ToString());
                     }
-                    else if (user.UserType==1)
-                    {
-                        await _userManager.AddToRoleAsync(user, Roles.Customer.ToString());
-                    }
-                    else if (user.UserType==2)
-                    {
+                    //else if (user.UserType==1)
+                    //{
+                    //    await _userManager.AddToRoleAsync(user, Roles.Customer.ToString());
+                    //}
+                    //else if (user.UserType==2)
+                    //{
                         
-                    }
+                    //}
 
                     
                     //if (User.IsInRole(Roles.SuperAdmin.ToString()))

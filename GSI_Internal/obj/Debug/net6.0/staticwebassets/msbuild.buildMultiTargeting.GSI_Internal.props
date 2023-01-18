@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\GSI_Internal.props" />
+</Project>

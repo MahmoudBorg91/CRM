@@ -1,0 +1,617 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = GSI_Internal
+build_property.RootNamespace = GSI_Internal
+build_property.ProjectDir = G:\WORK WEB\No Time\Print_Internal-master\GSI_Internal\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = G:\WORK WEB\No Time\Print_Internal-master\GSI_Internal
+build_property._RazorSourceGeneratorDebug = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/ConfirmEmailChange.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWxDaGFuZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/ExternalLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxFeHRlcm5hbExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/ForgotPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Lockout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/LoginWith2fa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGgyZmEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/LoginWithRecoveryCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbldpdGhSZWNvdmVyeUNvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGVsZXRlUGVyc29uYWxEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/Disable2fa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRGlzYWJsZTJmYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRG93bmxvYWRQZXJzb25hbERhdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/Email.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/EnableAuthenticator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRW5hYmxlQXV0aGVudGljYXRvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/GenerateRecoveryCodes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcR2VuZXJhdGVSZWNvdmVyeUNvZGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/PersonalData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUGVyc29uYWxEYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/ResetAuthenticator.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcUmVzZXRBdXRoZW50aWNhdG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/SetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2V0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/ShowRecoveryCodes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcU2hvd1JlY292ZXJ5Q29kZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/TwoFactorAuthentication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcVHdvRmFjdG9yQXV0aGVudGljYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNlbmRFbWFpbENvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/ResetPasswordConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkQ29uZmlybWF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ApplicationTransaction_Request/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25UcmFuc2FjdGlvbl9SZXF1ZXN0XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ApplicationTransaction_Request/CreateManualTransAction.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25UcmFuc2FjdGlvbl9SZXF1ZXN0XENyZWF0ZU1hbnVhbFRyYW5zQWN0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ApplicationTransaction_Request/FinishApplication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25UcmFuc2FjdGlvbl9SZXF1ZXN0XEZpbmlzaEFwcGxpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ApplicationTransaction_Request/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwbGljYXRpb25UcmFuc2FjdGlvbl9SZXF1ZXN0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignInquiryToItem/AddAssignInquiryToItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduSW5xdWlyeVRvSXRlbVxBZGRBc3NpZ25JbnF1aXJ5VG9JdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignInquiryToItem/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduSW5xdWlyeVRvSXRlbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignRequirmentToItem/AddAssignRequirToItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduUmVxdWlybWVudFRvSXRlbVxBZGRBc3NpZ25SZXF1aXJUb0l0ZW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignRequirmentToItem/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduUmVxdWlybWVudFRvSXRlbVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignRequirmentToItem/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduUmVxdWlybWVudFRvSXRlbVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignRequirmentToItem/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduUmVxdWlybWVudFRvSXRlbVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignRequirmentToItem/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduUmVxdWlybWVudFRvSXRlbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignSelectionToItem/AddAssignSelectionToItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduU2VsZWN0aW9uVG9JdGVtXEFkZEFzc2lnblNlbGVjdGlvblRvSXRlbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/AssignSelectionToItem/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXNzaWduU2VsZWN0aW9uVG9JdGVtXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientDashboard/ChangeOrUploudFileAttachMend.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50RGFzaGJvYXJkXENoYW5nZU9yVXBsb3VkRmlsZUF0dGFjaE1lbmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientDashboard/GetAppLicationByStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50RGFzaGJvYXJkXEdldEFwcExpY2F0aW9uQnlTdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientDashboard/GetAppLicationToReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50RGFzaGJvYXJkXEdldEFwcExpY2F0aW9uVG9SZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientDashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50RGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientDashboard/MyDocments.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50RGFzaGJvYXJkXE15RG9jbWVudHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientDashboard/SelectClientDocument.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50RGFzaGJvYXJkXFNlbGVjdENsaWVudERvY3VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientProfile/ChangeClientEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50UHJvZmlsZVxDaGFuZ2VDbGllbnRFbWFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientProfile/ChangeClientPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50UHJvZmlsZVxDaGFuZ2VDbGllbnRQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ClientProfile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50UHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ContactToUS/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFRvVVNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ContactUs/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ContactUs/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ContactUs/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Dashboard/CheckRequestApplicationToOpen.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXENoZWNrUmVxdWVzdEFwcGxpY2F0aW9uVG9PcGVuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Dashboard/GetAllAppLication.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEdldEFsbEFwcExpY2F0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Dashboard/GetAllAppLicationTransferByStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEdldEFsbEFwcExpY2F0aW9uVHJhbnNmZXJCeVN0YXR1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Dashboard/GetAllAppLicationTransferByUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEdldEFsbEFwcExpY2F0aW9uVHJhbnNmZXJCeVVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Dashboard/GetAllItemsInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEdldEFsbEl0ZW1zSW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Dashboard/GetAppLicationByStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEdldEFwcExpY2F0aW9uQnlTdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Dashboard/GetAppLicationToReview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEdldEFwcExpY2F0aW9uVG9SZXZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/ErrorsMvc/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3JzTXZjXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/EosCalculation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFb3NDYWxjdWxhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/PrivacyAndPolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5QW5kUG9saWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/SelectFavoirotServives.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTZWxlY3RGYXZvaXJvdFNlcnZpdmVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/ShowCompanyInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG93Q29tcGFueUluZm8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/ShowEosCalc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTaG93RW9zQ2FsYy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/showSelectedGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzaG93U2VsZWN0ZWRHcm91cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Home/showSelectedSubGroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxzaG93U2VsZWN0ZWRTdWJHcm91cC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/JopList/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9wTGlzdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/JopList/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9wTGlzdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/JopList/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9wTGlzdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/JopList/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSm9wTGlzdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/OurCompanyInfo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3VyQ29tcGFueUluZm9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/OurCompanyInfo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3VyQ29tcGFueUluZm9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/OurCompanyInfo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3VyQ29tcGFueUluZm9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/PartnersAndCustomer/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydG5lcnNBbmRDdXN0b21lclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/PartnersAndCustomer/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydG5lcnNBbmRDdXN0b21lclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/PartnersAndCustomer/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydG5lcnNBbmRDdXN0b21lclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/PartnersAndCustomer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFydG5lcnNBbmRDdXN0b21lclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/RequestSelection_Group/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFNlbGVjdGlvbl9Hcm91cFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/RequestSelection_Group/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFNlbGVjdGlvbl9Hcm91cFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/RequestSelection_Group/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFNlbGVjdGlvbl9Hcm91cFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/RequestSelection_Group/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdFNlbGVjdGlvbl9Hcm91cFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Requirements/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWlyZW1lbnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Requirements/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWlyZW1lbnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Requirements/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWlyZW1lbnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Requirements/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWlyZW1lbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Roles/ManagePermissions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcTWFuYWdlUGVybWlzc2lvbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Roles/_RoleForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcX1JvbGVGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_ClientLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DbGllbnRMYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_CreateTransactionFromFavouirt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9DcmVhdGVUcmFuc2FjdGlvbkZyb21GYXZvdWlydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_LoginClientPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkNsaWVudFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_PopularServices.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qb3B1bGFyU2VydmljZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_RegisterClientPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWdpc3RlckNsaWVudFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_StatusMessageClient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TdGF0dXNNZXNzYWdlQ2xpZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_TransGroupCard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9UcmFuc0dyb3VwQ2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/SlideShow/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVTaG93XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/SlideShow/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVTaG93XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/SlideShow/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVTaG93XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/SlideShow/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2xpZGVTaG93XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransactionItemInquiry/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25JdGVtSW5xdWlyeVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransactionItemInquiry/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25JdGVtSW5xdWlyeVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransactionItemInquiry/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25JdGVtSW5xdWlyeVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransactionItemInquiry/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25JdGVtSW5xdWlyeVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransactionItemType/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25JdGVtVHlwZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransactionItemType/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25JdGVtVHlwZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransactionItemType/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25JdGVtVHlwZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransactionItemType/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNhY3Rpb25JdGVtVHlwZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionGroup/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uR3JvdXBcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionGroup/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uR3JvdXBcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionGroup/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uR3JvdXBcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionGroup/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uR3JvdXBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionItem/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uSXRlbVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionItem/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uSXRlbVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionItem/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uSXRlbVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionItem/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uSXRlbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionItem_Selection/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uSXRlbV9TZWxlY3Rpb25cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionItem_Selection/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uSXRlbV9TZWxlY3Rpb25cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionItem_Selection/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uSXRlbV9TZWxlY3Rpb25cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionItem_Selection/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uSXRlbV9TZWxlY3Rpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionSubGroup/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uU3ViR3JvdXBcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionSubGroup/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uU3ViR3JvdXBcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionSubGroup/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uU3ViR3JvdXBcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/TransiactionSubGroup/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNpYWN0aW9uU3ViR3JvdXBcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/Users/ManageRoles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTWFuYWdlUm9sZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/WORK WEB/No Time/Print_Internal-master/GSI_Internal/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
