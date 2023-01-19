@@ -22,7 +22,7 @@ namespace GSI_Internal.Context
         //public DbSet<TransactionGroup> transactionGroup { get; set; }
         //public DbSet<TransactionItem> transactionItem { get; set; }
 
-        //public DbSet<ApplicationUser> ApplicationUser { get; set; }
+
         //public DbSet<TransactionSubGroup> TransactionSubGroup { get; set; }
         //public DbSet<Requirements> Requirements { get; set; }
         //public DbSet<AssignRequirmentToItem> AssignRequirmentToItem { get; set; }
@@ -49,8 +49,11 @@ namespace GSI_Internal.Context
         //public DbSet<OurCompanyInfo> OurCompanyInfo { get; set; }
         //public DbSet<OurPartnersAndOurCustomer> OurPartnersAndOurCustomer { get; set; }
         //public DbSet<JopList> JopList { get; set; }
-
-       public DbSet<TaskMain> TaskMain { get; set; }
+        public DbSet<ApplicationUser> ApplicationUser { get; set; }
+        public DbSet<TaskMain> TaskMain { get; set; }
+        public DbSet<TaskDocuments> TaskDocuments { get; set; }
+        
+       
 
 
 

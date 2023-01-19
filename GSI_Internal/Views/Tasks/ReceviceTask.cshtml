@@ -13,7 +13,7 @@
                 <div class="header">
                     <h2>
                        Recive Task 
-                        <small>Add quick, dynamic tab functionality to transition through panes of local content</small>
+                      
                     </h2>
                     <ul class="header-dropdown m-r--5">
                         <li class="dropdown">
@@ -33,8 +33,8 @@
                     <ul class="nav nav-tabs tab-nav-right" role="tablist">
                         <li role="presentation" class="active"><a href="#home" data-toggle="tab">Task Details</a></li>
                         <li role="presentation"><a href="#profile" data-toggle="tab">Task History</a></li>
-                        <li role="presentation"><a href="#messages" data-toggle="tab">Task Action</a></li>
-                        <li role="presentation"><a href="#settings" data-toggle="tab">SETTINGS</a></li>
+                        <li role="presentation"><a href="#messages" data-toggle="tab">Files</a></li>
+                        <li role="presentation"><a href="#settings" data-toggle="tab">Task Action</a></li>
                     </ul>
 
                     <!-- Tab panes -->
@@ -48,34 +48,46 @@
                             <p>12/3/2023 </p>
                             <label>Task Name </label>
                             <p>Name Of Task </p>
+                            <br/>
+                            <button type="button" class="btn bg-indigo waves-effect">Approve</button>
+                            <button type="button" class="btn bg-blue waves-effect">Sent Back</button>
+                            <button type="button" class="btn bg-light-blue waves-effect">Under Prossing</button>
+                            <button type="button" class="btn bg-cyan waves-effect">Reject</button>
+                            <br/>
+                            <div class="form-line">
+                                <label class="form-label">Note</label>
+                                <br/>
+                                <textarea asp-for="TaskNote" name="description" cols="30" rows="5" class="form-control no-resize" required="" aria-required="true"></textarea>
+
+                            </div>
 
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="profile">
-                            <b>Profile Content</b>
-                            <p>
-                                Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                sadipscing mel.
-                            </p>
+                           
+                            <label>Creadit By User1</label>
+                            <p>In 12/2/2023 </p>
+                            <label> Under Process By User2 1</label>
+                            <p>In 12/2/2023 </p>
+                            <p>Notes </p>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="messages">
-                            <b>Message Content</b>
-                            <p>
-                                Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                sadipscing mel.
-                            </p>
+                            <b>Files</b>
+                            <br/>
+                            <a href="">File 1 Download</a>
+                            <br/>
+                            <a href="">File 2 Download</a>
+                            <br />
+                            <a href="">File 3 Download</a>
+                            <br/>
+                            <label>Upload New File</label>
+                            <input type="file" multiple="" />
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="settings">
-                            <b>Settings Content</b>
-                            <p>
-                                Lorem ipsum dolor sit amet, ut duo atqui exerci dicunt, ius impedit mediocritatem an. Pri ut tation electram moderatius.
-                                Per te suavitate democritum. Duis nemore probatus ne quo, ad liber essent aliquid
-                                pro. Et eos nusquam accumsan, vide mentitum fabellas ne est, eu munere gubergren
-                                sadipscing mel.
-                            </p>
+                            <b>Files</b>
+                            <label>fff</label>
+                           
+                                @*<button type="button" class="btn">INDIGO</button>*@
+                               
                         </div>
                     </div>
                 </div>

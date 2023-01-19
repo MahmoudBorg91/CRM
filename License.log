@@ -1,32 +1,31 @@
     ======  ======
-    Time:18/01/2023 12:43:36 ص
+    Time:18/01/2023 08:54:11 م
     Title: Initiate log
     Message: 
-    Time:18/01/2023 12:43:36 ص
+    Time:18/01/2023 08:54:11 م
     Title: Initiate InternalManager
     Message: Trying to Validate License
-    Time:18/01/2023 12:43:36 ص
+    Time:18/01/2023 08:54:11 م
     Title: Requesting EVT
     Message: EVTP
-    Time:18/01/2023 12:43:36 ص
+    Time:18/01/2023 08:54:11 م
     Title: Requesting Validation
     Message: ILMValidate
-    Time:18/01/2023 12:43:36 ص
+    Time:18/01/2023 08:54:11 م
     Title: Requesting Validation
     Message: ILMValidate True
-    Time:18/01/2023 12:43:36 ص
+    Time:18/01/2023 08:54:11 م
     Title: Requesting Validation
     Message: ILMValidate True NotTrial
-    Entering constructor for: Telerik.VSX.UserSettingsPackage.UserSettingsPackage
-    Entering Initialize() of: Telerik.VSX.UserSettingsPackage.UserSettingsPackage
-    Entering constructor for: Telerik.Web.UI.VSPackage.VSPackage
-    Entering Initialize() for: Telerik.Web.UI.VSPackage.VSPackage
-    Entering constructor for: Telerik.CommonPackage.VSPackage
-    Entering Initialize() of: Telerik.CommonPackage.VSPackage
-  TS:Registry store: user registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299"
-  TS:Registry store: config registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299_Config"
-  2023-01-17-15.52.00.119-devenv-20428.tsv -> 2023-01-18-00.23.04.971-devenv-20428.tsv
-.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+    Time:18/01/2023 08:54:13 م
+    Title: There was no endpoint listening at https://www.telerik.nom/services/LicenseService/Service.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
+    Message: 
+Server stack trace: 
+   at System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   at System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   at System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   at System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   at System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
    at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
    at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
    at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
@@ -42,9 +41,9 @@ Exception rethrown at [0]:
     Entering Initialize() for: Telerik.Web.UI.VSPackage.VSPackage
     Entering constructor for: Telerik.CommonPackage.VSPackage
     Entering Initialize() of: Telerik.CommonPackage.VSPackage
-  Exception : Invalid clipboard format (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
-  Exception : Invalid clipboard format (Exception from HRESULT: 0x8004006A (DV_E_CLIPFORMAT))
   TS:Registry store: user registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299"
+  TS:Registry store: config registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299_Config"
+y root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299"
   TS:Registry store: config registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299_Config"
   devenv.exe Information: 0 : ProjectDataSources.CreateDataSourceVersionForwardOnlyFilteringBlock filtering out this value because its data source versions do not increment normally: 
   devenv.exe Information: 0 : ProjectDataSources.CreateDataSourceVersionForwardOnlyFilteringBlock filtering out this value because its data source versions do not increment normally: 

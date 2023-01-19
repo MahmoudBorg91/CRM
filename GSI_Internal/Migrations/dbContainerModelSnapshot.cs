@@ -138,6 +138,31 @@ namespace GSI_Internal.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("GSI_Internal.Entites.TaskDocuments", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("TaskID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("fileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("TaskID");
+
+                    b.ToTable("TaskDocuments");
+                });
+
             modelBuilder.Entity("GSI_Internal.Entites.TaskMain", b =>
                 {
                     b.Property<int>("ID")
@@ -287,6 +312,17 @@ namespace GSI_Internal.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("GSI_Internal.Entites.TaskDocuments", b =>
+                {
+                    b.HasOne("GSI_Internal.Entites.TaskMain", "TaskMain")
+                        .WithMany("TaskDocmentsTB")
+                        .HasForeignKey("TaskID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TaskMain");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("GSI_Internal.Entites.ApplicationRole", null)
@@ -336,6 +372,11 @@ namespace GSI_Internal.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("GSI_Internal.Entites.TaskMain", b =>
+                {
+                    b.Navigation("TaskDocmentsTB");
                 });
 #pragma warning restore 612, 618
         }
