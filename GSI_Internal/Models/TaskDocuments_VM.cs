@@ -16,9 +16,10 @@ namespace GSI_Internal.Models
         public DateTime UploadDate { get; set; }
         [Required]
         public string fileName { get; set; }
-
+        [Required]
+        public string UploadByUser { get; set; }
         public IFormFile fileNameFormFile { get; set; }
         [ForeignKey("TaskID")]
-        public TaskMain TaskMain { get; set; }
+        public virtual TaskMain TaskMain { get; set; }
     }
 }

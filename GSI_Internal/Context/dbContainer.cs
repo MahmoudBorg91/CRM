@@ -51,7 +51,7 @@ namespace GSI_Internal.Context
         //public DbSet<JopList> JopList { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<TaskMain> TaskMain { get; set; }
-        public DbSet<TaskDocuments> TaskDocuments { get; set; }
+        public DbSet<TaskDocuments_tbl> TaskDocuments_tbl { get; set; }
         
        
 

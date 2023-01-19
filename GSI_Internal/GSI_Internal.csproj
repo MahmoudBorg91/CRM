@@ -36,6 +36,7 @@
     <Folder Include="Models\ViewModel\" />
     <Folder Include="wwwroot\Admin\" />
     <Folder Include="wwwroot\Files\" />
+    <Folder Include="wwwroot\Files\TasksFile\" />
   </ItemGroup>
 	
 </Project>

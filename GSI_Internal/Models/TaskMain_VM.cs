@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace GSI_Internal.Models;
 
@@ -19,4 +21,6 @@ public class TaskMain_VM
     public string TransferFromUser_Name { get; set; }
     public string TransferToUser { get; set; }
     public string TransferToUser_Name { get; set; }
+    public List<IFormFile> DocIform  { get; set; }
+    public virtual ICollection<TaskDocuments_VM> TaskDocumentsVm { get; set; }
 }

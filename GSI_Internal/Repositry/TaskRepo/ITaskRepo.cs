@@ -9,7 +9,7 @@ namespace GSI_Internal.Repositry.TaskRepo
     {
         Task <IEnumerable <TaskMain>>  GetAllAsync();
         Task<TaskMain>  GetByIdAsync(int id);
-        Task<TaskMain> AddObj(TaskMain obj);
+        TaskMain AddObj(TaskMain obj);
         Task<TaskMain> UpdateObj(TaskMain obj);
         Task<TaskMain> DeleteObj(int id);
     }

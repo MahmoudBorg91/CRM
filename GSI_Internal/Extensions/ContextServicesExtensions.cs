@@ -7,6 +7,7 @@ using GSI_Internal.Filters;
 using GSI_Internal.Repositry.ApiRepositry.Repositories;
 
 using GSI_Internal.Repositry.SlideShowRepo;
+using GSI_Internal.Repositry.TaskDocuments;
 using GSI_Internal.Repositry.TaskRepo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -38,7 +39,10 @@ public static class ContextServicesExtensions
         services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
         services.AddScoped<ITaskRepo, TaskRepo>();
+        services.AddScoped<ITaskDocument_Repo, TaskDocument_Repo>();
         
+
+
 
         services.AddScoped<ISlideShowRepo, SlideShowRepo>();
        

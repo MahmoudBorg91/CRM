@@ -43,8 +43,10 @@ Exception rethrown at [0]:
     Entering Initialize() of: Telerik.CommonPackage.VSPackage
   TS:Registry store: user registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299"
   TS:Registry store: config registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299_Config"
-y root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299"
-  TS:Registry store: config registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299_Config"
+  given range is not current
+  given range is not current
+  given range is not current
+ore: config registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299_Config"
   devenv.exe Information: 0 : ProjectDataSources.CreateDataSourceVersionForwardOnlyFilteringBlock filtering out this value because its data source versions do not increment normally: 
   devenv.exe Information: 0 : ProjectDataSources.CreateDataSourceVersionForwardOnlyFilteringBlock filtering out this value because its data source versions do not increment normally: 
   2023-01-16-02.36.35.671-devenv-22164.tsv -> 2023-01-17-08.14.10.134-devenv-22164.tsv

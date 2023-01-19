@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="header">
                     <h2>
-                       Recive Task 
+                       Receive Task 
                       
                     </h2>
                     <ul class="header-dropdown m-r--5">
@@ -41,25 +41,23 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade in active" id="home">
                             <b>Task Details</b>
+                            <label>Task Name </label>
+                            <p>@Model.TaskName </p>
+                            <label>Task Note </label>
+                            <p>@Model.TaskNote </p>
                             <p>Task Receive From User 1 </p>
                             <label>Receive Date </label>
-                            <p>12/2/2023 </p>
+                            <p>@Model.DateOFReceving.ToShortDateString() </p>
                             <label>Due Date </label>
-                            <p>12/3/2023 </p>
-                            <label>Task Name </label>
-                            <p>Name Of Task </p>
+                            <p>@Model.DueDateOfEndTask </p>
+
                             <br/>
                             <button type="button" class="btn bg-indigo waves-effect">Approve</button>
                             <button type="button" class="btn bg-blue waves-effect">Sent Back</button>
                             <button type="button" class="btn bg-light-blue waves-effect">Under Prossing</button>
                             <button type="button" class="btn bg-cyan waves-effect">Reject</button>
                             <br/>
-                            <div class="form-line">
-                                <label class="form-label">Note</label>
-                                <br/>
-                                <textarea asp-for="TaskNote" name="description" cols="30" rows="5" class="form-control no-resize" required="" aria-required="true"></textarea>
-
-                            </div>
+                            
 
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="profile">

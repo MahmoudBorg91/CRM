@@ -27,10 +27,10 @@ namespace GSI_Internal.Repositry.TaskRepo
             return await task;
         }
 
-        public async Task<TaskMain> AddObj(TaskMain obj)
+        public TaskMain AddObj(TaskMain obj)
         {
-            var nnewObj = _db.TaskMain.AddAsync(obj);
-            await _db.SaveChangesAsync();
+            var nnewObj = _db.TaskMain.Add(obj);
+             _db.SaveChanges();
             return obj;
         }
 

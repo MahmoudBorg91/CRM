@@ -138,7 +138,7 @@ namespace GSI_Internal.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("GSI_Internal.Entites.TaskDocuments", b =>
+            modelBuilder.Entity("GSI_Internal.Entites.TaskDocuments_tbl", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
@@ -148,6 +148,10 @@ namespace GSI_Internal.Migrations
 
                     b.Property<int>("TaskID")
                         .HasColumnType("int");
+
+                    b.Property<string>("UploadByUser")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UploadDate")
                         .HasColumnType("datetime2");
@@ -160,16 +164,16 @@ namespace GSI_Internal.Migrations
 
                     b.HasIndex("TaskID");
 
-                    b.ToTable("TaskDocuments");
+                    b.ToTable("TaskDocuments_tbl");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TaskMain", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<DateTime>("DateOFReceving")
                         .HasColumnType("datetime2");
@@ -201,7 +205,7 @@ namespace GSI_Internal.Migrations
                     b.Property<string>("UserCreate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("TaskMain");
                 });
@@ -312,7 +316,7 @@ namespace GSI_Internal.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("GSI_Internal.Entites.TaskDocuments", b =>
+            modelBuilder.Entity("GSI_Internal.Entites.TaskDocuments_tbl", b =>
                 {
                     b.HasOne("GSI_Internal.Entites.TaskMain", "TaskMain")
                         .WithMany("TaskDocmentsTB")

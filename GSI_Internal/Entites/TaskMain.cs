@@ -9,10 +9,10 @@ namespace GSI_Internal.Entites
     {
         public TaskMain()
         {
-            TaskDocmentsTB = new List<TaskDocuments>();
+            TaskDocmentsTB = new List<TaskDocuments_tbl>();
         }
         [Key]
-        public int ID { get; set; }
+        public int Id { get; set; }
         
         public string TaskName{ get; set; }
        
@@ -33,7 +33,7 @@ namespace GSI_Internal.Entites
         public string TransferToUser { get; set; }
 
 
-        public virtual List<TaskDocuments> TaskDocmentsTB { get; set; } = new List<TaskDocuments>();
+        public virtual List<TaskDocuments_tbl> TaskDocmentsTB { get; set; } = new List<TaskDocuments_tbl>();
 
 
 
