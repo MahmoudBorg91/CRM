@@ -210,6 +210,39 @@ namespace GSI_Internal.Migrations
                     b.ToTable("TaskMain");
                 });
 
+            modelBuilder.Entity("GSI_Internal.Entites.TasksProcessing", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<int>("FromStatus")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TaskID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ToStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserNote")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("processDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("TaskID");
+
+                    b.ToTable("TasksProcessing");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.Property<int>("Id")
@@ -320,6 +353,17 @@ namespace GSI_Internal.Migrations
                 {
                     b.HasOne("GSI_Internal.Entites.TaskMain", "TaskMain")
                         .WithMany("TaskDocmentsTB")
+                        .HasForeignKey("TaskID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TaskMain");
+                });
+
+            modelBuilder.Entity("GSI_Internal.Entites.TasksProcessing", b =>
+                {
+                    b.HasOne("GSI_Internal.Entites.TaskMain", "TaskMain")
+                        .WithMany()
                         .HasForeignKey("TaskID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

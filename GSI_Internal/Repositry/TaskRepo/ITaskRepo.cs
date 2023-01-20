@@ -12,5 +12,10 @@ namespace GSI_Internal.Repositry.TaskRepo
         TaskMain AddObj(TaskMain obj);
         Task<TaskMain> UpdateObj(TaskMain obj);
         Task<TaskMain> DeleteObj(int id);
+        Task<TaskMain> UpdateTaskToUnderProcessing(TaskMain obj); // 1
+        Task<TaskMain> UpdateTaskToReturn(TaskMain obj); // 2
+        Task<TaskMain> UpdateTaskToFinish(TaskMain obj); //3
+        Task<TaskMain> UpdateTaskToArchive(TaskMain obj); // 4
+
     }
 }

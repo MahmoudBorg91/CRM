@@ -48,5 +48,45 @@ namespace GSI_Internal.Repositry.TaskRepo
 
 
         }
+
+        public async Task<TaskMain> UpdateTaskToUnderProcessing(TaskMain obj)
+        {
+            var data = _db.TaskMain.Find(obj.Id);
+            data.Status=1;
+            data.TransferFromUser=obj.TransferFromUser;
+            data.TransferToUser=obj.TransferToUser;
+            await _db.SaveChangesAsync();
+            return obj;
+        }
+
+        public async Task<TaskMain> UpdateTaskToReturn(TaskMain obj)
+        {
+            var data = _db.TaskMain.Find(obj.Id);
+            data.Status = 2;
+            data.TransferFromUser = obj.TransferFromUser;
+            data.TransferToUser = obj.TransferToUser;
+            await _db.SaveChangesAsync();
+            return obj;
+        }
+
+        public async Task<TaskMain> UpdateTaskToFinish(TaskMain obj)
+        {
+            var data = _db.TaskMain.Find(obj.Id);
+            data.Status = 3;
+            data.TransferFromUser = obj.TransferFromUser;
+            data.TransferToUser = obj.TransferToUser;
+            await _db.SaveChangesAsync();
+            return obj;
+        }
+
+        public async Task<TaskMain> UpdateTaskToArchive(TaskMain obj)
+        {
+            var data = _db.TaskMain.Find(obj.Id);
+            data.Status = 4;
+            data.TransferFromUser = obj.TransferFromUser;
+            data.TransferToUser = obj.TransferToUser;
+            await _db.SaveChangesAsync();
+            return obj;
+        }
     }
 }

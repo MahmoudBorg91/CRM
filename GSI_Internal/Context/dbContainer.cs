@@ -52,8 +52,11 @@ namespace GSI_Internal.Context
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<TaskMain> TaskMain { get; set; }
         public DbSet<TaskDocuments_tbl> TaskDocuments_tbl { get; set; }
+        public DbSet<TasksProcessing> TasksProcessing { get; set; }
+
         
-       
+
+
 
 
 
