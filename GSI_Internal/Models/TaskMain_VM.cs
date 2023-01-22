@@ -12,15 +12,22 @@ public class TaskMain_VM
     public DateTime DateOFReceving { get; set; }
     public DateTime DateOfCreating { get; set; }
     public DateTime DueDateOfEndTask { get; set; }
+
+    public int NumberOfDays { get; set; }
     //public string WhoSentIt { get; set; }
     public string UserCreate { get; set; }
     public string UserCreate_Name { get; set; }
     public int  Status { get; set; }
     public int PriorityLevel { get; set; }
+    public string PriorityLevelName { get; set; }
     public string TransferFromUser  { get; set; }
     public string TransferFromUser_Name { get; set; }
     public string TransferToUser { get; set; }
     public string TransferToUser_Name { get; set; }
     public List<IFormFile> DocIform  { get; set; }
     public virtual ICollection<TaskDocuments_VM> TaskDocumentsVm { get; set; }
+    public virtual ICollection<TaskProcessing_Vm> TaskProcessing_Vm { get; set; }
+
+   // public  TaskProcessing_Vm TaskProcessingVm { get; set; }
+    public string taskProcessingNote { get; set; } 
 }

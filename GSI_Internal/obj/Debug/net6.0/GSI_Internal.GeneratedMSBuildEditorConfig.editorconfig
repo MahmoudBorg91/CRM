@@ -192,6 +192,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/RequestData/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdERhdGFcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/RequestData/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdERhdGFcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/RequestData/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdERhdGFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/RequestData/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdERhdGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/RequestMangment/CreateRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdE1hbmdtZW50XENyZWF0ZVJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/RequestMangment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdE1hbmdtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/RequestMangment/OpenRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdE1hbmdtZW50XE9wZW5SZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/RequestMangment/OpenRequestByStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdE1hbmdtZW50XE9wZW5SZXF1ZXN0QnlTdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/Roles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -248,8 +280,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/Tasks/ReceviceTask.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcUmVjZXZpY2VUYXNrLmNzaHRtbA==
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/Tasks/OpenTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcT3BlblRhc2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/Tasks/OpenTasksByStatus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGFza3NcT3BlblRhc2tzQnlTdGF0dXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/UserProfile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclByb2ZpbGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/بلدية/No Time/Print_Internal-master/GSI_Internal/Views/Users/Index.cshtml]

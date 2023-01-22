@@ -19,16 +19,16 @@ namespace GSI_Internal.Repositry.TaskProcessingRepo
         }
        
 
-        public async Task<TasksProcessing> AddObj(TasksProcessing obj)
+        public TasksProcessing AddObj(TasksProcessing obj)
         {
             _db.TasksProcessing.Add(obj);
-           await _db.SaveChangesAsync();
+            _db.SaveChanges();
             return obj;
         }
 
         public IEnumerable<TasksProcessing> GetByTaskCode(int TaskID)
         {
-            var data = _db.TasksProcessing.Select(a=>a);
+            var data = _db.TasksProcessing.Where(a=>a.TaskID==TaskID).Select(a=>a);
             return data;
         }
     }

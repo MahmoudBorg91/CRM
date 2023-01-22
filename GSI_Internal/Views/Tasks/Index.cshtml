@@ -62,7 +62,12 @@
                         <td>@item.UserCreate_Name</td>
                         <td>@item.TransferToUser_Name</td>
                         <td>@item.Status</td>
-                                <td> <a href="/tasks/ReceviceTask/@item.ID" class="btn bg-indigo waves-effect">Action</a></td>
+                        <td>
+                            @* <a href="/Tasks/OpenTask/1">fgfgfgf</a>*@
+                                  @*  <button class="btn bg-indigo waves-effect"></button>*@
+                            <a asp-controller="Tasks" asp-action="OpenTask" asp-route-Id="@item.ID" class="btn bg-indigo waves-effect">Action</a>
+
+                        </td>
                          
                           
                            

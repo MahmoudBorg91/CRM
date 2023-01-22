@@ -7,8 +7,8 @@ namespace GSI_Internal.Repositry.TaskDocuments
 {
     public interface ITaskDocument_Repo
     {
-        Task<IEnumerable<TaskDocuments_tbl>> GetAllAsync();
-        Task<TaskDocuments_tbl> GetByIdAsync(int id);
+        IEnumerable<TaskDocuments_tbl> GetAllAsync();
+        TaskDocuments_tbl GetByIdAsync(int id);
         TaskDocuments_tbl AddObj(TaskDocuments_tbl obj);
         Task<TaskDocuments_tbl> UpdateObj(TaskDocuments_tbl obj);
         Task<TaskDocuments_tbl> DeleteObj(int id);

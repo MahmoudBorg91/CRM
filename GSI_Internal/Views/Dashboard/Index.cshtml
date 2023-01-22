@@ -1,12 +1,161 @@
 ﻿
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@model Dashbourd_VM
 @using Microsoft.AspNetCore.Identity
 @using GSI_Internal.Entites
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>Manager DASHBOARD</h2>
+        </div>
+    
+        <div class="block-header">
+        <h2>Task Management</h2>
+        </div>
+    <!-- Hover Zoom Effect -->
+  
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="0" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons col-pink">flag</i>
+                </div>
+                <div class="content">
+                    <div class="text">New Task</div>
+                    <div class="number">@Model.NumberOfNewTask</div>
+                </div>
+            </a>
+
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="1" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons col-blue">border_color</i>
+                </div>
+                <div class="content">
+                    <div class="text">Under Processing Task</div>
+                    <div class="number">@Model.NumberOfUnderProcessing</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="2" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons col-light-blue">device_hub</i>
+                </div>
+                <div class="content">
+                    <div class="text">Return Task</div>
+                    <div class="number">@Model.NumberOfReturnProcessing</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="3" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons col-cyan">verified_user</i>
+                </div>
+                <div class="content">
+                    <div class="text">Finish Tasks</div>
+                    <div class="number">@Model.NumberOfUnderFinish</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+       
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="4" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons col-cyan">folder_shared</i>
+                </div>
+                <div class="content">
+                    <div class="text">Archive Tasks</div>
+                    <div class="number">@Model.NumberOfArchiveRequest</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="Index" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons col-cyan">zoom_out_map</i>
+                </div>
+                <div class="content">
+                    <div class="text">All Tasks</div>
+                    <div class="number">@Model.NumberOfAllTasks</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="Create" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons col-cyan">add_box</i>
+                </div>
+                <div asp-controller="Tasks" asp-action="Create" class="content">
+                    <div class="text">Create</div>
+                    <div class="number">New Task</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="block-header">
+        <h2>Request Management</h2>
+    </div>
+    <div class="row">
+       
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="RequestMangment" asp-action="OpenRequestByStatus" asp-route-status="0" class="info-box-2 bg-blue hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons">pan_tool</i>
+                </div>
+                <div class="content">
+                    <div class="text">New Request</div>
+                    <div class="number">@Model.NewRequest</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="RequestMangment" asp-action="OpenRequestByStatus" asp-route-status="1" class="info-box-2 bg-light-blue hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons">access_alarm</i>
+                </div>
+                <div class="content">
+                    <div class="text">Accept Request</div>
+                    <div class="number">@Model.RequestAccect</div>
+                </div>
+            </a>
+        </div>
+        <div  class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="RequestMangment" asp-action="OpenRequestByStatus" asp-route-status="1" class="info-box-2 bg-light-blue hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons">access_alarm</i>
+                </div>
+                <div class="content">
+                    <div class="text">Reject Requests</div>
+                    <div class="number">@Model.RequestRegect</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="RequestMangment" asp-action="Index"  class="info-box-2 bg-cyan hover-zoom-effect">
+                <div class="icon">
+                    <i class="material-icons">gps_fixed</i>
+                </div>
+                <div class="content">
+                    <div class="text">All Request</div>
+                    <div class="number">@Model.AllRequest</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- #END# Hover Zoom Effect -->
+    </div>
+
 
 
  

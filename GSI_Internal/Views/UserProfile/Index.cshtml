@@ -1,0 +1,336 @@
+﻿@model UserProfile
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row clearfix">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="card">
+            <div class="header">
+                <h2>
+                    New Request
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                <div>
+                    @* <a asp-controller="RequestData" asp-action="Create">Create New Type Of Request</a>*@
+                    @* <a asp-controller="RequestMangment" asp-action="CreateRequest" class="btn bg-indigo waves-effect">Create New Type Of Request</a>*@
+                </div>
+                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                    <thead>
+                        <tr>
+                            <th>Request From User Name</th>
+                            <th>Request Name</th>
+                            <th>Start In</th>
+                            <th>End In</th>
+                            <th>Note</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Request From User Name</th>
+                            <th>Request Name</th>
+                            <th>Start In</th>
+                            <th>End In</th>
+                            <th>Note</th>
+                            <th>Action</th>
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.RequestAction_VM.Where(a => a.status == 0))
+                        {
+                            <tr>
+
+                                <td>@item.RequestFromUserName</td>
+                                <td>@item.RequestName</td>
+
+                                <td>
+                                    @item.DateOfStartRequest.ToShortDateString()
+                                </td>
+                                <td>
+                                    @item.DateOfEndtRequest.ToShortDateString()
+                                </td>
+                                <td>
+                                    @item.Note
+                                </td>
+                                <td>
+                                    <a asp-controller="RequestMangment" asp-action="OpenRequest" asp-route-Id="@item.ID" class="btn bg-indigo waves-effect">Action</a>
+                                </td>
+
+
+
+
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Accept Request
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                <div>
+                    @* <a asp-controller="RequestData" asp-action="Create">Create New Type Of Request</a>*@
+                    @* <a asp-controller="RequestMangment" asp-action="CreateRequest" class="btn bg-indigo waves-effect">Create New Type Of Request</a>*@
+                </div>
+                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                    <thead>
+                        <tr>
+                            <th>Request From User Name</th>
+                            <th>Request Name</th>
+                            <th>Start In</th>
+                            <th>End In</th>
+                            <th>Note</th>
+
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Request From User Name</th>
+                            <th>Request Name</th>
+                            <th>Start In</th>
+                            <th>End In</th>
+                            <th>Note</th>
+
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.RequestAction_VM.Where(a => a.status == 1))
+                        {
+                            <tr>
+
+                                <td>@item.RequestFromUserName</td>
+                                <td>@item.RequestName</td>
+                                <td>
+                                    @item.DateOfStartRequest.ToShortDateString()
+                                </td>
+                                <td>
+                                    @item.DateOfEndtRequest.ToShortDateString()
+                                </td>
+                                <td>
+                                    @item.Note
+                                </td>
+
+
+
+
+
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Reject Request
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                <div>
+                    @* <a asp-controller="RequestData" asp-action="Create">Create New Type Of Request</a>*@
+                    @* <a asp-controller="RequestMangment" asp-action="CreateRequest" class="btn bg-indigo waves-effect">Create New Type Of Request</a>*@
+                </div>
+                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                    <thead>
+                        <tr>
+                            <th>Request From User Name</th>
+                            <th>Request Name</th>
+                            <th>Start In</th>
+                            <th>End In</th>
+                            <th>Note</th>
+
+
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Request From User Name</th>
+                            <th>Request Name</th>
+                            <th>Start In</th>
+                            <th>End In</th>
+                            <th>Note</th>
+
+
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.RequestAction_VM.Where(a => a.status == 2))
+                        {
+                            <tr>
+
+                                <td>@item.RequestFromUserName</td>
+                                <td>@item.RequestName</td>
+
+                                <td>
+                                    @item.DateOfStartRequest.ToShortDateString()
+                                </td>
+                                <td>
+                                    @item.DateOfEndtRequest.ToShortDateString()
+                                </td>
+                                <td>
+                                    @item.Note
+                                </td>
+
+
+
+
+
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    EXPORTABLE TABLE
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                    <thead>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Task Note</th>
+                            <th>Create By</th>
+                            <th>Assign To</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Task Name</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Task Note</th>
+                            <th>Create By</th>
+                            <th>Assign To</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in @Model.TaskMain_VM)
+                        {
+                            <tr>
+
+                                <td>@item.TaskName</td>
+                                <td>@item.DateOFReceving.ToShortDateString()</td>
+                                <td>@item.DueDateOfEndTask.ToShortDateString()</td>
+                                <td>@item.TaskNote</td>
+                                <td>@item.UserCreate_Name</td>
+                                <td>@item.TransferToUser_Name</td>
+                                <td>@item.Status</td>
+                                <td>
+                                    @* <a href="/Tasks/OpenTask/1">fgfgfgf</a>*@
+                                    @*  <button class="btn bg-indigo waves-effect"></button>*@
+                                    <a asp-controller="Tasks" asp-action="OpenTask" asp-route-Id="@item.ID" class="btn bg-indigo waves-effect">Action</a>
+
+                                </td>
+
+
+
+
+
+
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

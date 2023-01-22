@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GSI_Internal.Repositry.ApiRepositry.Interfaces
 {
@@ -12,5 +13,8 @@ namespace GSI_Internal.Repositry.ApiRepositry.Interfaces
         public Task<string> UploadPhotoBase64(string stringFile, string folderName = "Student", string oldFilePAth = null);
 
         public string GetFile(string imgName);
+
+        //public Task<FileResult>  DownloadFile(string fileName);
+
     }
 }

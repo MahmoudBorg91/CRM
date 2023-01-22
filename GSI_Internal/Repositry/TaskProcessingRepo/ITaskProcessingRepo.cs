@@ -7,8 +7,10 @@ namespace GSI_Internal.Repositry.TaskProcessingRepo
 {
     public interface ITaskProcessingRepo
     {
-        Task<TasksProcessing> AddObj(TasksProcessing obj);
+        TasksProcessing AddObj(TasksProcessing obj);
 
         IEnumerable<TasksProcessing> GetByTaskCode(int TaskID);
+
+        
     }
 }

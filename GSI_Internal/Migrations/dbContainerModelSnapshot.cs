@@ -138,6 +138,65 @@ namespace GSI_Internal.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("GSI_Internal.Entites.RequestAction", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<DateTime>("DateOfCreate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfEndtRequest")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfStartRequest")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Note")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NoteStatus")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RequestFromUserID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RequetDataID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserTakeAction")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("status")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("RequetDataID");
+
+                    b.ToTable("RequestAction");
+                });
+
+            modelBuilder.Entity("GSI_Internal.Entites.Requests_Data", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+
+                    b.Property<string>("RequestName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Requests_Data");
+                });
+
             modelBuilder.Entity("GSI_Internal.Entites.TaskDocuments_tbl", b =>
                 {
                     b.Property<int>("ID")
@@ -210,6 +269,17 @@ namespace GSI_Internal.Migrations
                     b.ToTable("TaskMain");
                 });
 
+            modelBuilder.Entity("GSI_Internal.Entites.TaskPriorityLevel", b =>
+                {
+                    b.Property<int>("PriorityLevel_ID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PriorityLevel_Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("TaskPriorityLevel");
+                });
+
             modelBuilder.Entity("GSI_Internal.Entites.TasksProcessing", b =>
                 {
                     b.Property<int>("ID")
@@ -241,6 +311,17 @@ namespace GSI_Internal.Migrations
                     b.HasIndex("TaskID");
 
                     b.ToTable("TasksProcessing");
+                });
+
+            modelBuilder.Entity("GSI_Internal.Entites.TaskStatusName", b =>
+                {
+                    b.Property<int>("StatusAction_Code")
+                        .HasColumnType("int");
+
+                    b.Property<string>("StatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("TaskStatusName");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -347,6 +428,17 @@ namespace GSI_Internal.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("GSI_Internal.Entites.RequestAction", b =>
+                {
+                    b.HasOne("GSI_Internal.Entites.Requests_Data", "Requests_Data")
+                        .WithMany()
+                        .HasForeignKey("RequetDataID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Requests_Data");
                 });
 
             modelBuilder.Entity("GSI_Internal.Entites.TaskDocuments_tbl", b =>

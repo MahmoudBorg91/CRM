@@ -1846,6 +1846,7 @@ G:\WORK WEB\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\GSI_Inte
 G:\WORK WEB\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\GSI_Internal.genruntimeconfig.cache
 G:\WORK WEB\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\ref\GSI_Internal.dll
 G:\WORK WEB\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\NETCore.MailKit.dll
+G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_Internal.dll
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\web.config
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\appsettings.json
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\libman.json
@@ -1853,8 +1854,6 @@ G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_In
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_Internal.exe
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_Internal.deps.json
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_Internal.runtimeconfig.json
-G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_Internal.dll
-G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_Internal.pdb
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\AutoMapper.dll
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\CorePush.dll
@@ -2162,4 +2161,5 @@ G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\GSI_In
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\refint\GSI_Internal.dll
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\GSI_Internal.pdb
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\GSI_Internal.genruntimeconfig.cache
+G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_Internal.pdb
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\ref\GSI_Internal.dll

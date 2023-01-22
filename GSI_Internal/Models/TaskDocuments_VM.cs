@@ -21,5 +21,6 @@ namespace GSI_Internal.Models
         public IFormFile fileNameFormFile { get; set; }
         [ForeignKey("TaskID")]
         public virtual TaskMain TaskMain { get; set; }
+
     }
 }

@@ -1,0 +1,110 @@
+﻿@model RequestAction_VM
+@{
+    ViewData["Title"] = "CreateRequest";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row clearfix">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="header">
+                <h2>
+                    Create Request
+
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);">Action</a></li>
+                            <li><a href="javascript:void(0);">Another action</a></li>
+                            <li><a href="javascript:void(0);">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="body">
+                <form asp-action="CreateRequest" asp-controller="RequestMangment" enctype="multipart/form-data" class="form-horizontal">
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                            <label class="form-label">Request By User</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <p>@Model.RequestFromUserName</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="form-label">Start Date</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <p>@Model.DateOfStartRequest</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="form-label">End Date</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                     <p>@Model.DateOfEndtRequest</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                            <label class="form-label">Request Name</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <p>@Model.RequestName</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="row clearfix">
+                        <div class="col-sm-3">
+                            <label class="form-label">User Note</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <p>@Model.Note</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+
+                            <div class="form-group">
+                                <label class="form-label">Request Note</label>
+                                <div class="form-line">
+                                    <textarea asp-for="NoteStatus" name="NoteStatus" cols="30" rows="3" class="form-control no-resize"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" asp-for="ID" />
+
+                    </div>
+
+                    <button asp-controller="RequestMangment" asp-action="AcceptRequest" type="submit" class="btn bg-blue waves-effect">Approve</button>
+
+                    <button asp-controller="RequestMangment" asp-action="RejectRequest" type="submit" class="btn bg-cyan waves-effect">Reject</button>
+
+                   
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

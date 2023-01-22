@@ -5,9 +5,11 @@ using GSI_Internal.Context;
 using GSI_Internal.EmailServices;
 using GSI_Internal.Filters;
 using GSI_Internal.Repositry.ApiRepositry.Repositories;
-
+using GSI_Internal.Repositry.RequestActionRepo;
+using GSI_Internal.Repositry.RequestData_Repo;
 using GSI_Internal.Repositry.SlideShowRepo;
 using GSI_Internal.Repositry.TaskDocuments;
+using GSI_Internal.Repositry.TaskProcessingRepo;
 using GSI_Internal.Repositry.TaskRepo;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -40,7 +42,9 @@ public static class ContextServicesExtensions
 
         services.AddScoped<ITaskRepo, TaskRepo>();
         services.AddScoped<ITaskDocument_Repo, TaskDocument_Repo>();
-        
+        services.AddScoped<ITaskProcessingRepo, TaskProcessingRepo>();
+        services.AddScoped<IRequest_DataRepo, Request_DataRepo>();
+        services.AddScoped<IReequstRepo, ReequstRepo>();
 
 
 

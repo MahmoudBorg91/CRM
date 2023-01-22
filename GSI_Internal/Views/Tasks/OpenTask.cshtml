@@ -1,0 +1,194 @@
+﻿@model TaskMain_VM
+@{
+    ViewData["Title"] = "ReceviceTask";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <form asp-action="UnderProcessing" asp-controller="Tasks" enctype="multipart/form-data" class="form-horizontal">
+    <!-- Example Tab -->
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="header">
+                    <h2>
+                        Receive Task 
+                      
+                    </h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="javascript:void(0);">Action</a></li>
+                                <li><a href="javascript:void(0);">Another action</a></li>
+                                <li><a href="javascript:void(0);">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" data-toggle="tab">Task Details</a></li>
+                        <li role="presentation"><a href="#profile" data-toggle="tab">Task History</a></li>
+                        <li role="presentation"><a href="#messages" data-toggle="tab">Files</a></li>
+                        
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content"> 
+                        <div role="tabpanel" class="tab-pane fade in active" id="home">
+
+                            <div class="row clearfix">
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                                <label>Receive Date : @Model.DateOFReceving.ToShortDateString()</label>
+                                          
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <label>Due Date :@Model.DueDateOfEndTask.ToShortDateString()  </label>
+                                           
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <label>End Task In : (@Model.NumberOfDays)  </label>
+                                           
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <label>Priority Level : @Model.PriorityLevelName</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" asp-for="ID"/>
+                            <label>Task Name </label>
+                            <p>@Model.TaskName </p>
+
+                            <label>Task Note </label>
+                            <p>@Model.TaskNote </p>
+                            <p>Task Receive From User 1 </p>
+                            <br/>
+                            <div class="row clearfix">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form">
+                                            <label class="form-label">Add Documentation</label>
+                                            <div class="form-line">
+                                                <input asp-for="DocIform" type="file" class="form-control" multiple="" name="DocIform">
+                                                <input type="hidden" asp-for="Status"/>
+
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+
+                            <br/>
+                            <label>Enter Notes</label>
+                            <textarea asp-for="taskProcessingNote" name="taskProcessingNote" cols="30" rows="3" class="form-control no-resize" ></textarea>
+                            <br/>
+                            
+                            <button asp-controller="Tasks" asp-action="UnderProcessing" type="submit" class="btn bg-blue waves-effect">UnderProcessing</button>
+
+                            <button asp-controller="Tasks" asp-action="FinishProcessing" type="submit" class="btn bg-cyan waves-effect">Finish</button>
+                           
+                            <button asp-controller="Tasks" asp-action="ArchiveProcessing" type="submit" class="btn bg-cyan waves-effect">Archive</button>
+                            <br/>
+                            <br/>
+                            <div class="row">
+                                
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <label class="form-label">Assign To</label>
+                                    <div class="form-group">
+                                        <div class="form">
+                                            <select class="form-line" id="TransferToUser" name="TransferToUser"  asp-for="TransferToUser"  asp-items="ViewBag.getAlluser">
+                                                <option > -- Please select User If You Want Assign --</option>
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <div class="col-sm-5">
+                                   
+                                <div class="form-group">
+                                    <div class="form">
+                                        <button asp-controller="Tasks" asp-action="ReturnProcessing" type="submit" class="btn bg-cyan waves-effect">Assign </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                          
+                            <br/>
+
+
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="profile">
+                           
+                            <label>Created By / @Model.UserCreate_Name</label>
+                            <p>In @Model.DateOfCreating.ToShortDateString()</p>
+                          @foreach(var item in @Model.TaskProcessing_Vm)
+                          {
+                             <label>From   @item.FromStatusName To @item.ToStatusName By User @item.UserName in Date @item.processDate.ToShortDateString()</label>
+                             <p>@item.UserNote </p>
+                             <hr/>
+                          }
+                           
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade" id="messages">
+                            <b>Files</b>
+                            <br/>
+                            @foreach (var item in @Model.TaskDocumentsVm)
+                            {
+                                    <label>Upload Date   @item.UploadDate.Date.ToShortDateString() </label>  <a asp-controller="Tasks" asp-action="DownloadFile" asp-route-filename="@item.fileName">Download File</a>
+                                <hr/>
+                               
+                            }
+                           
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <!-- #END# Example Tab -->
+    <!-- Tabs With Only Icon Title -->
+    <!-- #END# Tabs With Only Icon Title -->
+    <!-- Tabs With Icon Title -->
+    <!-- #END# Tabs With Icon Title -->
+    <!-- Tabs With Material Design Colors -->
+    <!-- #END# Tabs With Material Design Colors -->
+    <!-- Tabs With Custom Animations -->
+    <!-- #END# Tabs With Custom Animations -->
+</div>

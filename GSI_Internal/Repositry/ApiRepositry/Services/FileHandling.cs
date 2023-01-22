@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using GSI_Internal.Repositry.ApiRepositry.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GSI_Internal.Repositry.ApiRepositry.Services
 {
@@ -99,6 +100,8 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
             return await UploadFile(file, folder, oldFilePAth);
         }
 
+
+
         public static string RandomString(int length)
         {
             var random = new Random();
@@ -111,6 +114,8 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
         {
             return _webHostEnvironment.WebRootFileProvider.GetFileInfo(foo)?.PhysicalPath;
         }
+
+        
 
         #endregion Photo Handling
     }

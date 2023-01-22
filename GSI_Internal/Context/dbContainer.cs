@@ -53,8 +53,14 @@ namespace GSI_Internal.Context
         public DbSet<TaskMain> TaskMain { get; set; }
         public DbSet<TaskDocuments_tbl> TaskDocuments_tbl { get; set; }
         public DbSet<TasksProcessing> TasksProcessing { get; set; }
+        public DbSet<TaskStatusName> TaskStatusName { get; set; }
+        public DbSet<TaskPriorityLevel> TaskPriorityLevel { get; set; }
+        public DbSet<Requests_Data> Requests_Data { get; set; }
+        public DbSet<RequestAction> RequestAction { get; set; }
 
         
+
+
 
 
 

@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GSI_Internal.Context;
 using GSI_Internal.Entites;
+using Microsoft.EntityFrameworkCore;
 
 namespace GSI_Internal.Repositry.TaskRepo
 {
@@ -15,16 +16,16 @@ namespace GSI_Internal.Repositry.TaskRepo
             _db = db;
         }
 
-        public async Task<IEnumerable<TaskMain>> GetAllAsync()
+        public IEnumerable<TaskMain> GetAllAsync()
         {
             var Alltasks = _db.TaskMain.Select(a => a);
              return Alltasks;
         }
 
-        public async Task<TaskMain> GetByIdAsync(int id)
+        public  TaskMain GetByIdAsync(int id)
         {
-            var task = _db.TaskMain.FindAsync(id);
-            return await task;
+            var task = _db.TaskMain.Find(id);
+            return  task;
         }
 
         public TaskMain AddObj(TaskMain obj)
@@ -53,8 +54,7 @@ namespace GSI_Internal.Repositry.TaskRepo
         {
             var data = _db.TaskMain.Find(obj.Id);
             data.Status=1;
-            data.TransferFromUser=obj.TransferFromUser;
-            data.TransferToUser=obj.TransferToUser;
+           
             await _db.SaveChangesAsync();
             return obj;
         }
@@ -63,8 +63,9 @@ namespace GSI_Internal.Repositry.TaskRepo
         {
             var data = _db.TaskMain.Find(obj.Id);
             data.Status = 2;
-            data.TransferFromUser = obj.TransferFromUser;
+            data.TransferFromUser=obj.TransferFromUser;
             data.TransferToUser = obj.TransferToUser;
+           
             await _db.SaveChangesAsync();
             return obj;
         }
@@ -73,8 +74,7 @@ namespace GSI_Internal.Repositry.TaskRepo
         {
             var data = _db.TaskMain.Find(obj.Id);
             data.Status = 3;
-            data.TransferFromUser = obj.TransferFromUser;
-            data.TransferToUser = obj.TransferToUser;
+            
             await _db.SaveChangesAsync();
             return obj;
         }
@@ -83,10 +83,21 @@ namespace GSI_Internal.Repositry.TaskRepo
         {
             var data = _db.TaskMain.Find(obj.Id);
             data.Status = 4;
-            data.TransferFromUser = obj.TransferFromUser;
-            data.TransferToUser = obj.TransferToUser;
+           
             await _db.SaveChangesAsync();
             return obj;
+        }
+
+        public string GetStatusName(int StatusID)
+        {
+            var data = _db.TaskStatusName.Where(a => a.StatusAction_Code == StatusID).Select(a => a.StatusName).FirstOrDefault();
+            return data;
+        }
+
+        public string GetPriorityName(int StatusID)
+        {
+            var data = _db.TaskPriorityLevel.Where(a => a.PriorityLevel_ID == StatusID).Select(a => a.PriorityLevel_Name).FirstOrDefault();
+            return data;
         }
     }
 }
