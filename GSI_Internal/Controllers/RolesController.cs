@@ -56,7 +56,7 @@ namespace GSI_Internal.Controllers
                 return NotFound();
 
             var roleClaims = _roleManager.GetClaimsAsync(role).Result.Select(c => c.Value).Distinct().ToList();
-            var allClaims = Permissions.GenerateAllPermissions();
+            var allClaims = Permissions.GenerateAllPermissions().Distinct();
             var allPermissions = allClaims.Select(p => new CheckBoxViewModel { DisplayValue = p }).OrderBy(a=>a.DisplayValue).Distinct().ToList();
 
             foreach (var permission in allPermissions)

@@ -3,12 +3,12 @@
     public enum Modules
     {
        
-        Enitiy,
-        Main_Services,
-        Sub_Services,
+        Tasks,
+        Request,
+       
         Requirements,
-        AssignRequirmentToItem,
-        Dashboard_Permissions,
-        SubServicesInquiry
+       
+        Dashboard_Permissions
+     
     }
 }

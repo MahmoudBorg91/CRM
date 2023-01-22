@@ -13,20 +13,36 @@ namespace GSI_Internal.Contants
                 $"Permissions.{module}.Create",
                 $"Permissions.{module}.Edit",
                 $"Permissions.{module}.Delete",
-                
-                $"Permissions.Dashboard_Permissions.GetAppLicationToReview",
-                $"Permissions.Dashboard_Permissions.GetAppLicationByStatus",
-                $"Permissions.Dashboard_Permissions.GetAllAppLication",
-                $"Permissions.Dashboard_Permissions.UpdateRequestToSubmation",
-                $"Permissions.Dashboard_Permissions.UpdateRequestToPayment",
-                $"Permissions.Dashboard_Permissions.UpdateRequestToPaymentDone",
-                $"Permissions.Dashboard_Permissions.UpdateRequestUnderProcessing",
-                $"Permissions.Dashboard_Permissions.UpdateRequestToDone",
-                $"Permissions.Dashboard_Permissions.UpdateRequestToMissingInformation",
-                $"Permissions.Dashboard_Permissions.UpdateRequestToMissingProcessing",
-                $"Permissions.Dashboard_Permissions.UpdateRequestRejectFromUS",
-                $"Permissions.Dashboard_Permissions.UpdateRequestRejectFromEntity",
-                $"Permissions.Dashboard_Permissions.GetAllSubservicesInfo",
+
+
+
+                $"Permissions.Tasks.OpenTaskManager",
+                $"Permissions.Tasks.CreateTask",
+                $"Permissions.Tasks.OpenTask",
+                $"Permissions.Tasks.UnderProcessingTask",
+                $"Permissions.Tasks.FinishTask",
+                $"Permissions.Tasks.ArchiveTask",
+                $"Permissions.Tasks.ReturnTask",
+                $"Permissions.Tasks.DownloadArchive",
+
+
+                $"Permissions.Request.RequestType_Manger",
+                $"Permissions.Request.OpenRequest_Manger",
+                $"Permissions.Request.AcceptRequest",
+                $"Permissions.Request.RejectRequest",
+
+
+
+
+
+
+
+
+
+
+
+
+              
 
               
                
@@ -49,69 +65,54 @@ namespace GSI_Internal.Contants
             return allPermissions;
         }
 
-        public static class SubServicesInquiry
+        public static class Tasks
         {
-            public const string View = "Permissions.SubServicesInquiry.View";
-            public const string Create = "Permissions.SubServicesInquiry.Create";
-            public const string Edit = "Permissions.SubServicesInquiry.Edit";
-            public const string Delete = "Permissions.SubServicesInquiry.Delete";
+            public const string View = "Permissions.Tasks.View";
+            public const string Create = "Permissions.Tasks.Create";
+            public const string Edit = "Permissions.Tasks.Edit";
+            public const string Delete = "Permissions.Tasks.Delete";
+
+            public const string OpenTaskManager = "Permissions.Tasks.OpenTaskManager";
+            public const string CreateTask = "Permissions.Tasks.CreateTask";
+            public const string OpenTask = "Permissions.Tasks.OpenTask";
+            public const string UnderProcessingTask = "Permissions.Tasks.UnderProcessingTask";
+            public const string FinishTask = "Permissions.Tasks.FinishTask";
+            public const string ArchiveTask = "Permissions.Tasks.ArchiveTask";
+            public const string ReturnTask = "Permissions.Tasks.ReturnTask";
+            public const string DownloadArchive = "Permissions.Tasks.DownloadArchive";
+
+
+
+
+
+
+
         }
 
-        public static class Enitiy
+        public static class Request
         {
-            public const string View = "Permissions.Enitiy.View";
-            public const string Create = "Permissions.Enitiy.Create";
-            public const string Edit = "Permissions.Enitiy.Edit";
-            public const string Delete = "Permissions.Enitiy.Delete";
+            public const string View = "Permissions.Request.View";
+            public const string Create = "Permissions.Request.Create";
+            public const string Edit = "Permissions.Request.Edit";
+            public const string Delete = "Permissions.Request.Delete";
+
+            public const string RequestType_Manger = "Permissions.Request.RequestData_Manger";
+            public const string OpenRequest_Manger = "Permissions.Request.OpenRequest_Manger";
+           
+            public const string AcceptRequest = "Permissions.Request.AcceptRequest";
+            public const string RejectRequest = "Permissions.Request.RejectRequest";
+
         }
-        public static class Main_Services
-        {
-            public const string View = "Permissions.Main_Services.View";
-            public const string Create = "Permissions.Main_Services.Create";
-            public const string Edit = "Permissions.Main_Services.Edit";
-            public const string Delete = "Permissions.Main_Services.Delete";
-        }
-        public static class Sub_Services
-        {
-            public const string View = "Permissions.Sub_Services.View";
-            public const string Create = "Permissions.Sub_Services.Create";
-            public const string Edit = "Permissions.Sub_Services.Edit";
-            public const string Delete = "Permissions.Sub_Services.Delete";
-        }
-        public static class Requirements
-        {
-            public const string View = "Permissions.Requirements.View";
-            public const string Create = "Permissions.Requirements.Create";
-            public const string Edit = "Permissions.Requirements.Edit";
-            public const string Delete = "Permissions.Requirements.Delete";
-        }
-    
-        public static class AssignRequirmentToItem
-        {
-            public const string View = "Permissions.AssignRequirmentToItem.View";
-            public const string Create = "Permissions.AssignRequirmentToItem.Create";
-            public const string Edit = "Permissions.AssignRequirmentToItem.Edit";
-            public const string Delete = "Permissions.AssignRequirmentToItem.Delete";
-        }
+        
+        
         public static class Dashboard_Permissions
         {
             public const string View = "Permissions.Dashboard_Permissions.View";
             public const string Create = "Permissions.Dashboard_Permissions.Create";
             public const string Edit = "Permissions.Dashboard_Permissions.Edit";
             public const string Delete = "Permissions.Dashboard_Permissions.Delete";
-            public const string GetAppLicationToReview = "Permissions.Dashboard_Permissions.GetAppLicationToReview";
-            public const string GetAppLicationByStatus = "Permissions.Dashboard_Permissions.GetAppLicationByStatus";
-            public const string GetAllAppLication = "Permissions.Dashboard_Permissions.GetAllAppLication";
-            public const string UpdateRequestToSubmation = "Permissions.Dashboard_Permissions.UpdateRequestToSubmation";
-            public const string UpdateRequestToPayment = "Permissions.Dashboard_Permissions.UpdateRequestToPayment";
-            public const string UpdateRequestToPaymentDone = "Permissions.Dashboard_Permissions.UpdateRequestToPaymentDone";
-            public const string UpdateRequestUnderProcessing = "Permissions.Dashboard_Permissions.UpdateRequestUnderProcessing";
-            public const string UpdateRequestToDone = "Permissions.Dashboard_Permissions.UpdateRequestToDone";
-            public const string UpdateRequestToMissingInformation = "Permissions.Dashboard_Permissions.UpdateRequestToMissingInformation";
-            public const string UpdateRequestToMissingProcessing = "Permissions.Dashboard_Permissions.UpdateRequestToMissingProcessing";
-            public const string UpdateRequestRejectFromUS = "Permissions.Dashboard_Permissions.UpdateRequestRejectFromUS";
-            public const string UpdateRequestRejectFromEntity = "Permissions.Dashboard_Permissions.UpdateRequestRejectFromEntity";
-            public const string GetAllSubservicesInfo = "Permissions.Dashboard_Permissions.GetAllSubservicesInfo";
+           
+           
 
 
 

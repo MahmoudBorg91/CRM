@@ -8,6 +8,6 @@ namespace GSI_Internal.Entites
 
         public string Description { get; set; }
 
-        public int RoleNumber { get; set; }
+        public int RoleNumber { get; set; } = 0;
     }
 }

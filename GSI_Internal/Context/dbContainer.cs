@@ -1,11 +1,12 @@
 ﻿using GSI_Internal.Entites;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
 namespace GSI_Internal.Context
 {
-    public class dbContainer : IdentityDbContext<ApplicationUser, ApplicationRole, string>
+    public class dbContainer : IdentityDbContext<ApplicationUser, IdentityRole, string>
     {
         public dbContainer(DbContextOptions<dbContainer> ops) : base(ops)
         {

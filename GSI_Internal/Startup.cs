@@ -27,7 +27,8 @@ namespace GSI_Internal
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-          
+            // Identity services && JWT
+            services.AddIdentityServices(Configuration);
             // Add services to the container.
 
             services.AddControllers();
@@ -48,7 +49,7 @@ namespace GSI_Internal
             services.AddApplicationServices( Configuration);
 
             // Identity services && JWT
-            services.AddIdentityServices( Configuration);
+           // services.AddIdentityServices( Configuration);
 
             // External Login Services
             services.AddExternalLoginServices( Configuration);

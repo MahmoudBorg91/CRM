@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using  GSI_Internal.Models.ViewModel;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using GSI_Internal.Entites;
 
@@ -16,21 +17,23 @@ namespace GSI_Internal.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public UsersController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, SignInManager<ApplicationUser> signInManager)
+        public UsersController(RoleManager<IdentityRole> roleManager,UserManager<ApplicationUser> userManager,  SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
         }
 
-
+        
         public async Task<IActionResult> Index()
         {
+            Thread.Sleep(1000);
+
             var users = await _userManager.Users
-                .Select(user => new UserViewModel { Id = user.Id, UserName = user.UserName, Email = user.Email, Roles = _userManager.GetRolesAsync(user).Result })
+                .Select( user =>  new UserViewModel {  Roles = _userManager.GetRolesAsync(user).Result , Id = user.Id, UserName = user.UserName, Email = user.Email })
                 .ToListAsync();
 
-            return View(users);
+            return  View(users);
         }
 
         public async Task<IActionResult> ManageRoles(string userId)

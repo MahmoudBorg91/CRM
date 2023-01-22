@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Security.Claims;
+using GSI_Internal.Contants;
 using GSI_Internal.Entites;
 using GSI_Internal.Models;
 using GSI_Internal.Repositry.RequestActionRepo;
 using GSI_Internal.Repositry.RequestData_Repo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +24,7 @@ namespace GSI_Internal.Controllers
             _reequstRepo = reequstRepo;
             this._userManager = _userManager;
         }
+        [Authorize(Permissions.Request.View)]
         public IActionResult Index()
         {
             var Data = _reequstRepo.GetAll().Select(a=>  new RequestAction_VM()
@@ -45,7 +48,7 @@ namespace GSI_Internal.Controllers
             }).ToList();
             return View(Data);
         }
-
+        [Authorize(Permissions.Request.OpenRequest_Manger)]
         public IActionResult OpenRequestByStatus(int status)
         {
             var Data = _reequstRepo.GetAll().Where(a=>a.status==status).Select(a => new RequestAction_VM()
@@ -69,12 +72,13 @@ namespace GSI_Internal.Controllers
             }).ToList();
             return View();
         }
-
+        [Authorize(Permissions.Request.Create)]
         public IActionResult CreateRequest()
         {
             ViewBag.SelectRequest = _requestDataRepo.GetAll().ToList();
             return View();
         }
+        [Authorize(Permissions.Request.Create)]
         [HttpPost]
         public IActionResult CreateRequest(RequestAction_VM obj)
         {
@@ -96,7 +100,7 @@ namespace GSI_Internal.Controllers
            
             return View();
         }
-
+        [Authorize(Permissions.Request.View)]
         public IActionResult OpenRequest(int id)
         {
             var data = _reequstRepo.GetByID(id);
@@ -119,6 +123,7 @@ namespace GSI_Internal.Controllers
             return View(obj);
 
         }
+        [Authorize(Permissions.Request.AcceptRequest)]
         [HttpPost]
         public IActionResult AcceptRequest(RequestAction_VM obj)
         {
@@ -133,7 +138,7 @@ namespace GSI_Internal.Controllers
 
           
         }
-
+        [Authorize(Permissions.Request.RejectRequest)]
         [HttpPost]
         public IActionResult RejectRequest(RequestAction_VM obj)
         {

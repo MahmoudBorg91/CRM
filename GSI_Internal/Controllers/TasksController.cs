@@ -6,12 +6,14 @@ using GSI_Internal.Repositry.TaskRepo;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Security.Claims;
+using GSI_Internal.Contants;
 using GSI_Internal.Entites;
 using GSI_Internal.Models;
 using GSI_Internal.Models.ViewModel;
 using GSI_Internal.Repositry.ApiRepositry.Interfaces;
 using GSI_Internal.Repositry.TaskDocuments;
 using GSI_Internal.Repositry.TaskProcessingRepo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -35,7 +37,7 @@ namespace GSI_Internal.Controllers
             _fileHandling = fileHandling;
             _taskProcessingRepo = taskProcessingRepo;
         }
-        
+        [Authorize(Permissions.Tasks.View)]
         public  IActionResult Index()
         
         {
@@ -59,7 +61,7 @@ namespace GSI_Internal.Controllers
          
             return View(data);
         }
-
+        [Authorize(Permissions.Tasks.OpenTaskManager)]
         public IActionResult OpenTasksByStatus(int status)
 
         {
@@ -83,7 +85,7 @@ namespace GSI_Internal.Controllers
 
             return View(data);
         }
-
+        [Authorize(Permissions.Tasks.CreateTask)]
         public IActionResult Create()
         {
            
@@ -97,6 +99,7 @@ namespace GSI_Internal.Controllers
             ViewBag.getAlluser = new SelectList(users, "Id", "UserName");
             return View();
         }
+        [Authorize(Permissions.Tasks.CreateTask)]
         [HttpPost]
         public async Task<IActionResult>  Create(
             TaskMain_VM obj)
@@ -148,6 +151,7 @@ namespace GSI_Internal.Controllers
 
             return View();
         }
+        [Authorize(Permissions.Tasks.OpenTask)]
         [HttpGet]
         public  IActionResult OpenTask(int Id)
         {
@@ -210,10 +214,10 @@ namespace GSI_Internal.Controllers
 
         }
 
-       
 
-       
 
+
+        [Authorize(Permissions.Tasks.DownloadArchive)]
 
         public FileResult DownloadFile(string fileName)
         {
@@ -225,7 +229,7 @@ namespace GSI_Internal.Controllers
             return File(bytes, "application/octet-stream", fileName);
             //Build the File Path.
         }
-
+        [Authorize(Permissions.Tasks.UnderProcessingTask)]
         [HttpPost]
         public IActionResult UnderProcessing(TaskMain_VM obj)
         {
@@ -287,6 +291,7 @@ namespace GSI_Internal.Controllers
 
 
         }
+        [Authorize(Permissions.Tasks.FinishTask)]
         [HttpPost]
         public IActionResult FinishProcessing(TaskMain_VM obj)
         {
@@ -348,7 +353,7 @@ namespace GSI_Internal.Controllers
 
 
         }
-
+        [Authorize(Permissions.Tasks.ArchiveTask)]
         [HttpPost]
         public IActionResult ArchiveProcessing(TaskMain_VM obj)
         {
@@ -410,6 +415,7 @@ namespace GSI_Internal.Controllers
 
 
         }
+        [Authorize(Permissions.Tasks.ReturnTask)]
         [HttpPost]
         public IActionResult ReturnProcessing(TaskMain_VM obj)
         {

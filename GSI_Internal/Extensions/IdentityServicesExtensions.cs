@@ -17,7 +17,7 @@ public static class IdentityServicesExtensions
     {
 
         // Identity service
-        services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+        services.AddIdentity<ApplicationUser, IdentityRole>(options =>
         {
             options.Password.RequireNonAlphanumeric = false;
             options.Password.RequireUppercase = false;
@@ -25,7 +25,10 @@ public static class IdentityServicesExtensions
             options.Password.RequireLowercase = false;
             options.Password.RequiredLength = 6;
             options.User.RequireUniqueEmail = true;
-        }).AddEntityFrameworkStores<dbContainer>();
+            
+        }).AddEntityFrameworkStores<dbContainer>().AddDefaultUI().AddDefaultTokenProviders(); 
+
+        
            // .AddDefaultTokenProviders();;
           
           services.Configure<IdentityOptions>(options =>

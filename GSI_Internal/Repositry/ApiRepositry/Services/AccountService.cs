@@ -21,12 +21,12 @@ namespace GSI_Internal.Repositry.ApiRepositry.Services
     public class AccountService : IAccountService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<ApplicationRole> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly Jwt _jwt;
         private readonly IUnitOfWork _unitOfWork;
 
         public AccountService(UserManager<ApplicationUser> userManager, IFileHandling photoHandling,
-            RoleManager<ApplicationRole> roleManager,
+            RoleManager<IdentityRole> roleManager,
             IOptions<Jwt> jwt, IUnitOfWork unitOfWork)
         {
             _userManager = userManager;

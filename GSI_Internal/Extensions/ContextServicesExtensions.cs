@@ -23,9 +23,11 @@ public static class ContextServicesExtensions
 {
     public static IServiceCollection AddContextServices(this IServiceCollection services, IConfiguration config)
     {
+        
+
 
         //- context && json services
-        services.AddDbContext<dbContainer>(options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));//,b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)).UseLazyLoadingProxies());
+        services.AddDbContext<dbContainer>(options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")),ServiceLifetime.Transient);//,b => b.MigrationsAssembly(typeof(ApplicationContext).Assembly.FullName)).UseLazyLoadingProxies());
         services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
         services.AddControllers().AddNewtonsoftJson(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 

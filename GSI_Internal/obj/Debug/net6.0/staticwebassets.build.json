@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LzelL6D/2O9tCKQFm2M0x70FexNuHB1D5uazkj8CkMA=",
+  "Hash": "hoEF7AJkKpuocv/lSKH/1LCNHT2PQ5euYqV5S+EiQD4=",
   "Source": "GSI_Internal",
   "BasePath": "_content/GSI_Internal",
   "Mode": "Default",
@@ -59262,6 +59262,23 @@
       "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\3TB5S4LETM_styling.PNG"
     },
     {
+      "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\7XL9PL19I0_439-Recovered.jpg",
+      "SourceId": "GSI_Internal",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\",
+      "BasePath": "_content/GSI_Internal",
+      "RelativePath": "Files/TasksFile/7XL9PL19I0_439-Recovered.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\7XL9PL19I0_439-Recovered.jpg"
+    },
+    {
       "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\96F8THUHFN_ResturantCenter copy.png",
       "SourceId": "GSI_Internal",
       "SourceType": "Discovered",
@@ -59415,6 +59432,23 @@
       "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\K0TF3Q2BCR_439-Recovered.png"
     },
     {
+      "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\KNP4SJW5QG_507.png",
+      "SourceId": "GSI_Internal",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\",
+      "BasePath": "_content/GSI_Internal",
+      "RelativePath": "Files/TasksFile/KNP4SJW5QG_507.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\KNP4SJW5QG_507.png"
+    },
+    {
       "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\LBLF2QKGUS_507.png",
       "SourceId": "GSI_Internal",
       "SourceType": "Discovered",
@@ -59430,6 +59464,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\LBLF2QKGUS_507.png"
+    },
+    {
+      "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\N7PWTUYEYT_439-Recovered.png",
+      "SourceId": "GSI_Internal",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\",
+      "BasePath": "_content/GSI_Internal",
+      "RelativePath": "Files/TasksFile/N7PWTUYEYT_439-Recovered.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\N7PWTUYEYT_439-Recovered.png"
     },
     {
       "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\PO39GBO4V4_507.png",
