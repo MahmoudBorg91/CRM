@@ -47,7 +47,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="2" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons col-light-blue">device_hub</i>
+                    <i style="color: #01536f" class="material-icons col-light-blue">device_hub</i>
                 </div>
                 <div class="content">
                     <div class="text">Return Task</div>
@@ -58,7 +58,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="3" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons col-cyan">verified_user</i>
+                    <i style="color: #01536f" class="material-icons col-cyan" style="color: #01536f">verified_user</i>
                 </div>
                 <div class="content">
                     <div class="text">Finish Tasks</div>
@@ -72,7 +72,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="4" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons col-cyan">folder_shared</i>
+                    <i class="material-icons col-cyan" style="color: #01536f">folder_shared</i>
                 </div>
                 <div class="content">
                     <div class="text">Archive Tasks</div>
@@ -83,7 +83,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="Index" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons col-cyan">zoom_out_map</i>
+                    <i style="color: #01536f" class="material-icons col-cyan">zoom_out_map</i>
                 </div>
                 <div class="content">
                     <div class="text">All Tasks</div>
@@ -94,7 +94,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="Create" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons col-cyan">add_box</i>
+                    <i style="color: #01536f" class="material-icons col-cyan">add_box</i>
                 </div>
                 <div asp-controller="Tasks" asp-action="Create" class="content">
                     <div class="text">Create</div>
@@ -154,6 +154,84 @@
         </div>
     </div>
     <!-- #END# Hover Zoom Effect -->
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="card">
+                <div class="body bg-teal">
+                    <div class="font-bold m-b--35">Track Task</div>
+                    <ul class="dashboard-stat-list">
+                        <li>
+                            TODAY
+                            <span class="pull-right"><b>@Model.TaskToday</b> <small>TASK</small></span>
+                        </li>
+                        <li>
+                            After 1 Day
+                            <span class="pull-right"><b>@Model.Task1day</b> <small>TASK</small></span>
+                        </li>
+                        <li>
+                            After Two Day
+                            <span class="pull-right"><b>@Model.Task2day</b> <small>TASK</small></span>
+                        </li>
+                        <li>
+                            After Three Day
+                            <span class="pull-right"><b>@Model.Task3day</b> <small>TASK</small></span>
+                        </li>
+                        <li>
+                            After Four Day
+                            <span class="pull-right"><b>@Model.Task4day</b> <small>TASK</small></span>
+                        </li>
+                        <li>
+                            After Five Day
+                            <span class="pull-right"><b>@Model.Task5day</b> <small>TASK</small></span>
+                        </li>
+                        <li>
+                            After Six Day
+                            <span class="pull-right"><b>@Model.Task6day</b> <small>TASK</small></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="card">
+                <div class="body bg-cyan">
+                    <div class="m-b--35 font-bold">Pending Request</div>
+                    <ul class="dashboard-stat-list">
+                        <li>
+                            TODAY
+                            <span class="pull-right"><b>@Model.RequestToday</b> <small>Request</small></span>
+                        </li>
+                        <li>
+                            After 1 Day
+                            <span class="pull-right"><b>@Model.Request1day</b> <small>Request</small></span>
+                        </li>
+                        <li>
+                            After Two Day
+                            <span class="pull-right"><b>@Model.RequestToday</b> <small>Request</small></span>
+                        </li>
+                        <li>
+                            After Three Day
+                            <span class="pull-right"><b>@Model.Request3day</b> <small>Request</small></span>
+                        </li>
+                        <li>
+                            After Four Day
+                            <span class="pull-right"><b>@Model.Request4day</b> <small>Request</small></span>
+                        </li>
+                        <li>
+                            After Five Day
+                            <span class="pull-right"><b>@Model.Request5day</b> <small>Request</small></span>
+                        </li>
+                        <li>
+                            After Six Day
+                            <span class="pull-right"><b>@Model.Request6day</b> <small>Request</small></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     </div>
 
 

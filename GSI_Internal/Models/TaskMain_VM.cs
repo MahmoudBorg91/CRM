@@ -18,6 +18,7 @@ public class TaskMain_VM
     public string UserCreate { get; set; }
     public string UserCreate_Name { get; set; }
     public int  Status { get; set; }
+    public string StatusName { get; set; }
     public int PriorityLevel { get; set; }
     public string PriorityLevelName { get; set; }
     public string TransferFromUser  { get; set; }

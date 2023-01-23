@@ -12,5 +12,21 @@
         public int RequestAccect { get; set; }
         public int RequestRegect { get; set; }
         public int  AllRequest { get; set; }
+
+        public int TaskToday { get; set; }
+        public int Task1day { get; set; }
+        public int Task2day { get; set; }
+        public int Task3day { get; set; }
+        public int Task4day { get; set; }
+        public int Task5day { get; set; }
+        public int Task6day { get; set; }
+
+        public int RequestToday { get; set; }
+        public int Request1day { get; set; }
+        public int Request2day { get; set; }
+        public int Request3day { get; set; }
+        public int Request4day { get; set; }
+        public int Request5day { get; set; }
+        public int Request6day { get; set; }
     }
 }

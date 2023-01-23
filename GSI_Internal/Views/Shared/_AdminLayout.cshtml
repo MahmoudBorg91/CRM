@@ -43,8 +43,8 @@
     <link href="~/Client/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
     
 <!-- JQuery DataTable Css -->
-    <link href="~/Client//plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet" />
-    
+    <link href="~/Client/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet" />
+   
    
 </head>
 
@@ -287,13 +287,20 @@
                             <i class="material-icons">account_circle</i>
                         </a>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                            <li><a asp-controller="UserProfile" asp-action="Index"><i class="material-icons">person</i>Profile</a></li>
                             <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                            <li><a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="material-icons">group</i>Setting</a></li>
+                       
                             <li role="seperator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li>
+                                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/Identity/Account/Login">
+                                    <button class="nav-link btn btn-link text-dark" type="submit">
+                                        <i class="material-icons">input</i>Sign Out
+                                    </button>
+                              
+                                    @*  <b href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</b>*@
+                                </form>
+                            </li>
                         </ul>
                     </li>
                     <!-- #END# Tasks -->
@@ -311,7 +318,7 @@
         @if (SignInManager.IsSignedIn(User))
         {
             <div class="info-container">
-                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
+                <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
                         <div class="email">Hello @UserManager.GetUserName(User)!</div>
                 <div class="btn-group user-helper-dropdown">
                     <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
@@ -319,8 +326,7 @@
                         <li><a asp-controller="UserProfile" asp-action="Index"><i class="material-icons">person</i>Profile</a></li>
                         <li role="seperator" class="divider"></li>
                                 <li><a asp-area="Identity" asp-page="/Account/Manage/Index"><i class="material-icons">group</i>Setting</a></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                        <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
+                       
                         <li role="seperator" class="divider"></li>
                         <li>
                                     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="/Identity/Account/Login">
@@ -344,7 +350,7 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
+                    <li>
                         <a asp-controller="Dashboard" asp-action="index">
                             <i class="material-icons">home</i>
                             <span>Home</span>
@@ -415,7 +421,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="version">
-                    <b>DiAntara Intermedia </b> <a href="http://diantaramedia.com" target="_blank">visit</a>
+                    <b>Power By BLITZ </b> 
                 </div>
             </div>
             <!-- #Footer -->
@@ -473,9 +479,8 @@
     <!-- Sparkline Chart Plugin Js -->
     <script src="~/Client/plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
-    <!-- Custom Js -->
-    <script src="~/Client/js/admin.js"></script>
-<script src="~/Client/js/pages/index.js"></script>
+   
+   
 
 <!-- Jquery DataTable Plugin Js -->
 <script src="~/Client/plugins/jquery-datatable/jquery.dataTables.js"></script>
@@ -487,8 +492,10 @@
 <script src="~/Client/plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
 <script src="~/Client/plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="~/Client/plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
-
-
+<!-- Custom Js -->
+<script src="~/Client/js/admin.js"></script>
+@*<script src="~/Client/js/pages/index.js"></script>*@
+<script src="~/Client/js/pages/tables/jquery-datatable.js"></script>
 <!-- Demo Js -->
 <script src="~/Client/js/demo.js"></script>
 @await RenderSectionAsync("Scripts", required: false)

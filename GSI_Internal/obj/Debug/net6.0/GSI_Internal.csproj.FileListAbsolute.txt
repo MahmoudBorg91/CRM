@@ -2161,3 +2161,5 @@ G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\GSI_In
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\refint\GSI_Internal.dll
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\GSI_Internal.pdb
 G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\GSI_Internal.genruntimeconfig.cache
+G:\بلدية\No Time\Print_Internal-master\GSI_Internal\bin\Debug\net6.0\GSI_Internal.pdb
+G:\بلدية\No Time\Print_Internal-master\GSI_Internal\obj\Debug\net6.0\ref\GSI_Internal.dll

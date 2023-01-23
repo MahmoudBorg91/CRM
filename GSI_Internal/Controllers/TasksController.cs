@@ -48,14 +48,19 @@ namespace GSI_Internal.Controllers
                 DateOfCreating = a.DateOfCreating,
                 DueDateOfEndTask = a.DueDateOfEndTask,
                 PriorityLevel = a.PriorityLevel,
+                PriorityLevelName = _repo.GetPriorityName(a.PriorityLevel),
                 Status = a.Status,
+                StatusName = _repo.GetStatusName(a.Status),
+                UserCreate = a.UserCreate,
+                
                 TaskName = a.TaskName,
                 TaskNote = a.TaskNote,
                 TransferFromUser = a.TransferFromUser,
                 TransferFromUser_Name = _userManager.Users.Where(c => c.Id == a.TransferFromUser).Select(a => a.UserName).FirstOrDefault(),
                 TransferToUser = a.TransferToUser,
                 TransferToUser_Name = _userManager.Users.Where(c => c.Id == a.TransferToUser).Select(a => a.UserName).FirstOrDefault(),
-                UserCreate = _userManager.Users.Where(c => c.Id == a.UserCreate).Select(a => a.UserName).FirstOrDefault() ,
+                UserCreate_Name = _userManager.Users.Where(c => c.Id == a.UserCreate).Select(a => a.UserName)
+                    .FirstOrDefault(),
             });
             
          
@@ -72,14 +77,19 @@ namespace GSI_Internal.Controllers
                 DateOfCreating = a.DateOfCreating,
                 DueDateOfEndTask = a.DueDateOfEndTask,
                 PriorityLevel = a.PriorityLevel,
+                PriorityLevelName = _repo.GetPriorityName(a.PriorityLevel),
                 Status = a.Status,
+                StatusName = _repo.GetStatusName(a.Status),
                 TaskName = a.TaskName,
                 TaskNote = a.TaskNote,
                 TransferFromUser = a.TransferFromUser,
                 TransferFromUser_Name = _userManager.Users.Where(c => c.Id == a.TransferFromUser).Select(a => a.UserName).FirstOrDefault(),
                 TransferToUser = a.TransferToUser,
                 TransferToUser_Name = _userManager.Users.Where(c => c.Id == a.TransferToUser).Select(a => a.UserName).FirstOrDefault(),
-                UserCreate = _userManager.Users.Where(c => c.Id == a.UserCreate).Select(a => a.UserName).FirstOrDefault(),
+                UserCreate = a.UserCreate,
+                UserCreate_Name = _userManager.Users.Where(c => c.Id == a.UserCreate).Select(a => a.UserName)
+                    .FirstOrDefault(),
+
             });
 
 

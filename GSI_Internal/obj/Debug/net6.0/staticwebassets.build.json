@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hoEF7AJkKpuocv/lSKH/1LCNHT2PQ5euYqV5S+EiQD4=",
+  "Hash": "Snxxzt4v3criUXNb/3wBBMxDFi15vWg4PJ2ULNQunpY=",
   "Source": "GSI_Internal",
   "BasePath": "_content/GSI_Internal",
   "Mode": "Default",
@@ -59517,6 +59517,23 @@
       "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\QQQJB1Z1B1_439-Recovered.jpg"
     },
     {
+      "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\RV0CPZ78DN_507.png",
+      "SourceId": "GSI_Internal",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\",
+      "BasePath": "_content/GSI_Internal",
+      "RelativePath": "Files/TasksFile/RV0CPZ78DN_507.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\RV0CPZ78DN_507.png"
+    },
+    {
       "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\SWAKBUCK0J_retail.PNG",
       "SourceId": "GSI_Internal",
       "SourceType": "Discovered",
@@ -59549,6 +59566,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\U3IB1UJMS5_resturant.PNG"
+    },
+    {
+      "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\WQV1ZW1P7K_439-Recovered.jpg",
+      "SourceId": "GSI_Internal",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\",
+      "BasePath": "_content/GSI_Internal",
+      "RelativePath": "Files/TasksFile/WQV1ZW1P7K_439-Recovered.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\TasksFile\\WQV1ZW1P7K_439-Recovered.jpg"
     },
     {
       "Identity": "G:\\بلدية\\No Time\\Print_Internal-master\\GSI_Internal\\wwwroot\\Files\\TasksFile\\WYREV35A80_resturant.PNG",

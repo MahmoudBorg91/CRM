@@ -52,6 +52,31 @@ namespace GSI_Internal.Controllers
             DashboardVM.RequestAccect = _reequstRepo.GetAll().Count(a => a.status == 1);
             DashboardVM.RequestRegect=_reequstRepo.GetAll().Count(a => a.status == 2);
             DashboardVM.AllRequest = _reequstRepo.GetAll().Count();
+            DashboardVM.TaskToday = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((DateTime.Now.Day -a.DueDateOfEndTask.Day  ) ==  0));
+            DashboardVM.Task1day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 1));
+            DashboardVM.Task1day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 2));
+            DashboardVM.Task3day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 3));
+            DashboardVM.Task4day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 4));
+            DashboardVM.Task5day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 5));
+            DashboardVM.Task6day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 6));
+
+            DashboardVM.RequestToday = _reequstRepo.GetAll()
+                .Count(a => a.status == 0 && ((DateTime.Now.Day - a.DateOfStartRequest.Day) == 0));
+
+            DashboardVM.Request1day = _reequstRepo.GetAll()
+                .Count(a => a.status == 0 && ((a.DateOfStartRequest.Day - DateTime.Now.Day) == 1));
+            
+            DashboardVM.Request2day = _reequstRepo.GetAll()
+                .Count(a => a.status == 0 && ((a.DateOfStartRequest.Day - DateTime.Now.Day) == 2));
+           
+            DashboardVM.Request3day = _reequstRepo.GetAll()
+                .Count(a => a.status == 0 && ((a.DateOfStartRequest.Day - DateTime.Now.Day) == 3));
+            DashboardVM.Request4day = _reequstRepo.GetAll()
+                .Count(a => a.status == 0 && ((a.DateOfStartRequest.Day - DateTime.Now.Day) == 4));
+            DashboardVM.Request5day = _reequstRepo.GetAll()
+                .Count(a => a.status == 0 && ((a.DateOfStartRequest.Day - DateTime.Now.Day) == 5));
+            DashboardVM.Request6day = _reequstRepo.GetAll()
+                .Count(a => a.status == 0 && ((a.DateOfStartRequest.Day - DateTime.Now.Day) == 6));
             return View(DashboardVM);
         }
 

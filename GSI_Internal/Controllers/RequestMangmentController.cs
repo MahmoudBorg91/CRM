@@ -70,7 +70,7 @@ namespace GSI_Internal.Controllers
 
 
             }).ToList();
-            return View();
+            return View(Data);
         }
         [Authorize(Permissions.Request.Create)]
         public IActionResult CreateRequest()
@@ -95,7 +95,7 @@ namespace GSI_Internal.Controllers
                 newObj.Note = obj.Note;
                 newObj.status= 0;
                 _reequstRepo.AddObj(newObj);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Dashboard");
             }
            
             return View();

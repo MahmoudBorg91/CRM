@@ -1,23 +1,23 @@
     ======  ======
-    Time:20/01/2023 09:26:43 م
+    Time:23/01/2023 03:09:26 ص
     Title: Initiate log
     Message: 
-    Time:20/01/2023 09:26:43 م
+    Time:23/01/2023 03:09:26 ص
     Title: Initiate InternalManager
     Message: Trying to Validate License
-    Time:20/01/2023 09:26:43 م
+    Time:23/01/2023 03:09:26 ص
     Title: Requesting EVT
     Message: EVTP
-    Time:20/01/2023 09:26:43 م
+    Time:23/01/2023 03:09:26 ص
     Title: Requesting Validation
     Message: ILMValidate
-    Time:20/01/2023 09:26:43 م
+    Time:23/01/2023 03:09:26 ص
     Title: Requesting Validation
     Message: ILMValidate True
-    Time:20/01/2023 09:26:43 م
+    Time:23/01/2023 03:09:26 ص
     Title: Requesting Validation
     Message: ILMValidate True NotTrial
-    Time:20/01/2023 09:26:44 م
+    Time:23/01/2023 03:09:28 ص
     Title: There was no endpoint listening at https://www.telerik.nom/services/LicenseService/Service.svc that could accept the message. This is often caused by an incorrect address or SOAP action. See InnerException, if present, for more details.
     Message: 
 Server stack trace: 
@@ -41,13 +41,12 @@ Exception rethrown at [0]:
     Entering Initialize() for: Telerik.Web.UI.VSPackage.VSPackage
     Entering constructor for: Telerik.CommonPackage.VSPackage
     Entering Initialize() of: Telerik.CommonPackage.VSPackage
-  TS:Registry store: user registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299"
-  TS:Registry store: config registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299_Config"
-  Exception e:Operation aborted (Exception from HRESULT: 0x80004004 (E_ABORT))
+    TS:Registry store: user registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299"
+    TS:Registry store: config registry root "HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\17.0_92ded299_Config"
+ception e:Operation aborted (Exception from HRESULT: 0x80004004 (E_ABORT))
   2023-01-20-21.26.27.994-devenv-19888.tsv -> 2023-01-22-00.58.50.732-devenv-19888.tsv
-56.tsv
-d299_Config"
-  devenv.exe Information: 0 : ProjectDataSources.CreateDataSourceVersionForwardOnlyFilteringBlock filtering out this value because its data source versions do not increment normally: 
+  2023-01-22-00.58.50.732-devenv-19888.tsv -> 2023-01-23-00.46.44.083-devenv-19888.tsv
+ersionForwardOnlyFilteringBlock filtering out this value because its data source versions do not increment normally: 
   devenv.exe Information: 0 : ProjectDataSources.CreateDataSourceVersionForwardOnlyFilteringBlock filtering out this value because its data source versions do not increment normally: 
   2023-01-16-02.36.35.671-devenv-22164.tsv -> 2023-01-17-08.14.10.134-devenv-22164.tsv
 r process (550).
