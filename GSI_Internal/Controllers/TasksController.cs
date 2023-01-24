@@ -95,6 +95,63 @@ namespace GSI_Internal.Controllers
 
             return View(data);
         }
+        public IActionResult OpenTasksAssign()
+
+        {
+            var data = _repo.GetAllAsync().Where(a => a.TransferToUser == User.FindFirstValue(ClaimTypes.NameIdentifier) && a.Status !=4 ).Select(a => new TaskMain_VM()
+            {
+                ID = a.Id,
+                DateOFReceving = a.DateOFReceving,
+                DateOfCreating = a.DateOfCreating,
+                DueDateOfEndTask = a.DueDateOfEndTask,
+                PriorityLevel = a.PriorityLevel,
+                PriorityLevelName = _repo.GetPriorityName(a.PriorityLevel),
+                Status = a.Status,
+                StatusName = _repo.GetStatusName(a.Status),
+                TaskName = a.TaskName,
+                TaskNote = a.TaskNote,
+                TransferFromUser = a.TransferFromUser,
+                TransferFromUser_Name = _userManager.Users.Where(c => c.Id == a.TransferFromUser).Select(a => a.UserName).FirstOrDefault(),
+                TransferToUser = a.TransferToUser,
+                TransferToUser_Name = _userManager.Users.Where(c => c.Id == a.TransferToUser).Select(a => a.UserName).FirstOrDefault(),
+                UserCreate = a.UserCreate,
+                UserCreate_Name = _userManager.Users.Where(c => c.Id == a.UserCreate).Select(a => a.UserName)
+                    .FirstOrDefault(),
+
+            });
+
+
+            return View(data);
+        }
+
+        public IActionResult OpenTasksDeilays()
+
+        {
+            var data = _repo.GetAllAsync().Where(a => (DateTime.Now.DayOfYear - a.DueDateOfEndTask.DayOfYear) >0  && a.Status != 4).Select(a => new TaskMain_VM()
+            {
+                ID = a.Id,
+                DateOFReceving = a.DateOFReceving,
+                DateOfCreating = a.DateOfCreating,
+                DueDateOfEndTask = a.DueDateOfEndTask,
+                PriorityLevel = a.PriorityLevel,
+                PriorityLevelName = _repo.GetPriorityName(a.PriorityLevel),
+                Status = a.Status,
+                StatusName = _repo.GetStatusName(a.Status),
+                TaskName = a.TaskName,
+                TaskNote = a.TaskNote,
+                TransferFromUser = a.TransferFromUser,
+                TransferFromUser_Name = _userManager.Users.Where(c => c.Id == a.TransferFromUser).Select(a => a.UserName).FirstOrDefault(),
+                TransferToUser = a.TransferToUser,
+                TransferToUser_Name = _userManager.Users.Where(c => c.Id == a.TransferToUser).Select(a => a.UserName).FirstOrDefault(),
+                UserCreate = a.UserCreate,
+                UserCreate_Name = _userManager.Users.Where(c => c.Id == a.UserCreate).Select(a => a.UserName)
+                    .FirstOrDefault(),
+
+            });
+
+
+            return View(data);
+        }
         [Authorize(Permissions.Tasks.CreateTask)]
         public IActionResult Create()
         {

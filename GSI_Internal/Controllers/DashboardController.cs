@@ -41,24 +41,34 @@ namespace GSI_Internal.Controllers
         //  [ValidateAntiForgeryToken]
         public IActionResult Index()
         {
+            
             Dashbourd_VM DashboardVM = new Dashbourd_VM();
+           
+            
             DashboardVM.NumberOfAllTasks = _taskRepo.GetAllAsync().Count();
             DashboardVM.NumberOfNewTask = _taskRepo.GetAllAsync().Count(a => a.Status == 0);
             DashboardVM.NumberOfUnderProcessing = _taskRepo.GetAllAsync().Count(a => a.Status == 1);
             DashboardVM.NumberOfReturnProcessing = _taskRepo.GetAllAsync().Count(a => a.Status == 2);
             DashboardVM.NumberOfUnderFinish= _taskRepo.GetAllAsync().Count(a => a.Status == 3);
             DashboardVM.NumberOfArchiveRequest = _taskRepo.GetAllAsync().Count(a => a.Status == 4);
+
+            DashboardVM.NumberOfMyTasks = _taskRepo.GetAllAsync().Count(a => a.Status != 4 && a.TransferToUser == _userManager.Users
+                .Where(a => a.Id == User.FindFirstValue(ClaimTypes.NameIdentifier)).Select(a => a.Id)
+                .FirstOrDefault());
+            DashboardVM.LateTasks = _taskRepo.GetAllAsync()
+                .Count(a => (DateTime.Now.DayOfYear - a.DueDateOfEndTask.DayOfYear) > 0);
+
             DashboardVM.NewRequest = _reequstRepo.GetAll().Count(a => a.status == 0);
             DashboardVM.RequestAccect = _reequstRepo.GetAll().Count(a => a.status == 1);
             DashboardVM.RequestRegect=_reequstRepo.GetAll().Count(a => a.status == 2);
             DashboardVM.AllRequest = _reequstRepo.GetAll().Count();
-            DashboardVM.TaskToday = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((DateTime.Now.Day -a.DueDateOfEndTask.Day  ) ==  0));
-            DashboardVM.Task1day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 1));
-            DashboardVM.Task1day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 2));
-            DashboardVM.Task3day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 3));
-            DashboardVM.Task4day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 4));
-            DashboardVM.Task5day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 5));
-            DashboardVM.Task6day = _taskRepo.GetAllAsync().Count(a => a.Status == 0 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 6));
+            DashboardVM.TaskToday = _taskRepo.GetAllAsync().Count(a => a.Status != 4 &&((DateTime.Now.DayOfYear - a.DueDateOfEndTask.DayOfYear ) == 0 ));
+            DashboardVM.Task1day = _taskRepo.GetAllAsync().Count(a => a.Status != 4 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 1));
+            DashboardVM.Task2day = _taskRepo.GetAllAsync().Count(a => a.Status != 4 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 2));
+            DashboardVM.Task3day = _taskRepo.GetAllAsync().Count(a => a.Status != 4 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 3));
+            DashboardVM.Task4day = _taskRepo.GetAllAsync().Count(a => a.Status != 4 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 4));
+            DashboardVM.Task5day = _taskRepo.GetAllAsync().Count(a => a.Status != 4 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 5));
+            DashboardVM.Task6day = _taskRepo.GetAllAsync().Count(a => a.Status != 4 && ((a.DueDateOfEndTask.Day - DateTime.Now.Day) == 6));
 
             DashboardVM.RequestToday = _reequstRepo.GetAll()
                 .Count(a => a.status == 0 && ((DateTime.Now.Day - a.DateOfStartRequest.Day) == 0));
@@ -77,6 +87,29 @@ namespace GSI_Internal.Controllers
                 .Count(a => a.status == 0 && ((a.DateOfStartRequest.Day - DateTime.Now.Day) == 5));
             DashboardVM.Request6day = _reequstRepo.GetAll()
                 .Count(a => a.status == 0 && ((a.DateOfStartRequest.Day - DateTime.Now.Day) == 6));
+
+
+            DashboardVM.TaskMain_VM = _taskRepo.GetAllAsync().Where(a => a.Status != 4).Select(a => new TaskMain_VM()
+            {
+                ID = a.Id,
+                DateOFReceving = a.DateOFReceving,
+                DateOfCreating = a.DateOfCreating,
+                DueDateOfEndTask = a.DueDateOfEndTask,
+                PriorityLevel = a.PriorityLevel,
+                PriorityLevelName = _taskRepo.GetPriorityName(a.PriorityLevel),
+                Status = a.Status,
+                StatusName = _taskRepo.GetStatusName(a.Status),
+                UserCreate = a.UserCreate,
+
+                TaskName = a.TaskName,
+                TaskNote = a.TaskNote,
+                TransferFromUser = a.TransferFromUser,
+                TransferFromUser_Name = _userManager.Users.Where(c => c.Id == a.TransferFromUser).Select(a => a.UserName).FirstOrDefault(),
+                TransferToUser = a.TransferToUser,
+                TransferToUser_Name = _userManager.Users.Where(c => c.Id == a.TransferToUser).Select(a => a.UserName).FirstOrDefault(),
+                UserCreate_Name = _userManager.Users.Where(c => c.Id == a.UserCreate).Select(a => a.UserName)
+                    .FirstOrDefault(),
+            });
             return View(DashboardVM);
         }
 

@@ -24,7 +24,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="0" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons col-pink">flag</i>
+                    <i class="material-icons col-pink">get_app</i>
                 </div>
                 <div class="content">
                     <div class="text">New Task</div>
@@ -47,7 +47,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="OpenTasksByStatus" asp-route-status="2" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
-                    <i style="color: #01536f" class="material-icons col-light-blue">device_hub</i>
+                    <i style="color: #01536f" class="material-icons col-light-blue">replay</i>
                 </div>
                 <div class="content">
                     <div class="text">Return Task</div>
@@ -81,9 +81,20 @@
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="OpenTasksDeilays" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i style="color: #01536f" class="material-icons col-cyan">watch_later</i>
+                </div>
+                <div class="content">
+                    <div class="text">Late Tasks </div>
+                    <div class="number">@Model.LateTasks</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="Index" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
-                    <i style="color: #01536f" class="material-icons col-cyan">zoom_out_map</i>
+                    <i style="color: #01536f" class="material-icons col-cyan">library_books</i>
                 </div>
                 <div class="content">
                     <div class="text">All Tasks</div>
@@ -92,6 +103,19 @@
             </a>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <a asp-controller="Tasks" asp-action="OpenTasksDeilays" class="info-box-4 hover-zoom-effect">
+                <div class="icon">
+                    <i style="color: #01536f" class="material-icons col-cyan">recent_actors</i>
+                </div>
+                <div class="content">
+                    <div class="text">My Assign Tasks </div>
+                    <div class="number">@Model.NumberOfMyTasks</div>
+                </div>
+            </a>
+        </div>
+    
+
+      @*  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="Tasks" asp-action="Create" class="info-box-4 hover-zoom-effect">
                 <div class="icon">
                     <i style="color: #01536f" class="material-icons col-cyan">add_box</i>
@@ -101,7 +125,7 @@
                     <div class="number">New Task</div>
                 </div>
             </a>
-        </div>
+        </div>*@
     </div>
     <div class="block-header">
         <h2>Request Management</h2>
@@ -122,7 +146,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="RequestMangment" asp-action="OpenRequestByStatus" asp-route-status="1" class="info-box-2 bg-light-blue hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons">access_alarm</i>
+                    <i class="material-icons">check_circle</i>
                 </div>
                 <div class="content">
                     <div class="text">Accept Request</div>
@@ -133,7 +157,7 @@
         <div  class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="RequestMangment" asp-action="OpenRequestByStatus" asp-route-status="1" class="info-box-2 bg-light-blue hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons">access_alarm</i>
+                    <i class="material-icons">not_interested</i>
                 </div>
                 <div class="content">
                     <div class="text">Reject Requests</div>
@@ -144,7 +168,7 @@
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
             <a asp-controller="RequestMangment" asp-action="Index"  class="info-box-2 bg-cyan hover-zoom-effect">
                 <div class="icon">
-                    <i class="material-icons">gps_fixed</i>
+                    <i class="material-icons">view_list</i>
                 </div>
                 <div class="content">
                     <div class="text">All Request</div>
@@ -155,7 +179,7 @@
     </div>
     <!-- #END# Hover Zoom Effect -->
     <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
             <div class="card">
                 <div class="body bg-teal">
                     <div class="font-bold m-b--35">Track Task</div>
@@ -193,9 +217,9 @@
             </div>
         </div>
         
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        @*  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
             <div class="card">
-                <div class="body bg-cyan">
+                <div  class="body bg-cyan">
                     <div class="m-b--35 font-bold">Pending Request</div>
                     <ul class="dashboard-stat-list">
                         <li>
@@ -229,10 +253,73 @@
                     </ul>
                 </div>
             </div>
+        </div>*@
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+            <div class="card">
+                <div class="header">
+                    <h2>TASK INFOS</h2>
+                    <ul class="header-dropdown m-r--5">
+                        <li class="dropdown">
+                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons">more_vert</i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li><a href="javascript:void(0);">Action</a></li>
+                                <li><a href="javascript:void(0);">Another action</a></li>
+                                <li><a href="javascript:void(0);">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <div class="table-responsive">
+                        <table class="table table-hover dashboard-task-infos">
+                            <thead>
+                                <tr>
+                                    <th>Task Name</th>
+                                    <th>Manager</th>
+                                    <th>User</th>
+                                    <th>End Task Date</th>
+                                    <th>Progress</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.TaskMain_VM)
+                                {
+
+                                    <tr onclick="location.href='@Url.Action("OpenTask","Tasks",new {Id=item.ID})'">
+
+                                        <td>@item.TaskName</td>
+                                        <td>@item.UserCreate_Name</td>
+                                        <td>@item.TransferFromUser_Name</td>
+                                        <td>@item.DueDateOfEndTask.ToShortDateString()</td>
+                                        <td>@item.PriorityLevelName</td>
+                                        <td>@item.StatusName</td>
+
+
+
+                                    </tr>
+
+                                }
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    
+   
+        <!-- Task Info -->
+      
+        <!-- #END# Task Info -->
+        <!-- Browser Usage -->
+     
+        <!-- #END# Browser Usage -->
     </div>
+  
 
 
 
